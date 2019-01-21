@@ -7,7 +7,7 @@ when
 	Channel 'astro:sun:local:set#event' triggered START  //nauticDusk
 then
 	/*Turn on Christmas Lights*/
-	if (Christmas.state == ON)  //Removed toString.trim and "" around ON
+	if (Christmas.state == ON)
 	{
 		ChristmasLights.sendCommand(ON)
 		LEDStrip_Group1_Power.sendCommand(ON)
@@ -102,7 +102,7 @@ when
 	Time cron "0 0 0 * * ?"		
 then
 	/*Switch Christmas/Outdoor Night Lights*/
-	if (Christmas.state == ON) //Removed .toString.trim and "" around ON
+	if (Christmas.state == ON)
 	{
 		ChristmasLights.sendCommand(OFF)
 		LEDStrip_Group1_Power.sendCommand(OFF)
@@ -135,7 +135,7 @@ then
 			Light_FF_Family_Sconces_Value = 0
 		}
 
-		if (Light_FF_Family_Sconces_Dim.state == ON) //Removed .toString.trim and "" around ON
+		if (Light_FF_Family_Sconces_Dim.state == ON)
 		{
 			Light_FF_Family_Sconces_Value = Light_FF_Family_Sconces_Value + 2
 			Light_FF_Family_Sconces.sendCommand(new PercentType(Light_FF_Family_Sconces_Value.toString))
@@ -155,7 +155,7 @@ rule "Motion Events"
 when
 	Item Motion_MasterBedroom received update
 then
-	if (is_Night.state == ON && Motion_Master_Disable.state != ON)  //Removed .toString.trim and "" around ON
+	if (is_Night.state == ON && Motion_Master_Disable.state != ON)
 	{
 		if (Motion_MasterBedroom.state == 1)
 		{
@@ -178,12 +178,12 @@ rule "Vacation Mode"
 when
 	Item VacationMode received update
 then
-	if (VacationMode.state == ON) //Removed toString.trim and "" around ON
+	if (VacationMode.state == ON)
 	{
 		HVAC_HeatSetPoint.sendCommand(52)
 		logInfo("Status", "Vacation Mode Enabled")
 	}
-	else if (VacationMode.state == OFF) //Removed toString.trim and "" around OFF
+	else if (VacationMode.state == OFF)
 	{
 		HVAC_HeatSetPoint.sendCommand(70)
 		logInfo("Status", "Vacation Mode Disabled")
@@ -194,12 +194,12 @@ rule "Away Mode"
 when
 	Item AwayMode received update
 then
-	if (AwayMode.state == ON)  //Removed toString.trim and "" around ON
+	if (AwayMode.state == ON)
 	{
 		HVAC_HeatSetPoint.sendCommand(60)
 		logInfo("Status", "Away Mode Enabled")
 	}
-	else if (AwayMode.state == OFF)  //Removed toString.trim and "" around OFF
+	else if (AwayMode.state == OFF)
 	{
 		HVAC_HeatSetPoint.sendCommand(70)
 		logInfo("Status", "Away Mode Disabled")
