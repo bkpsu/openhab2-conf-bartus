@@ -1,0 +1,19 @@
+// persistence strategies have a name and a definition and are referred to in the "Items" section
+Strategies {
+	// for rrd charts, we need a cron strategy
+	everyMinute : "0 * * * * ?"
+	everyHour : "0 0 * * * ?"
+	everyDay : "0 0 0 * * ?"
+	default = everyChange
+}
+
+Items {
+	//* : strategy = everyChange, restoreOnStartup
+	
+	LightingScenes*,LEDStrips*,Status*,Configuration*,Sequencer*,HASP* : strategy = everyUpdate, restoreOnStartup
+
+	gLEDStrip_Outdoor,gLEDStrip_Outdoor_Power,gLEDStrip_Outdoor_FX,gLEDStrip_Outdoor_Color,gLEDStrip_Outdoor_Speed,gLEDStrip_Outdoor_Intensity : strategy = everyUpdate
+	gLEDStrip_Kitchen,gLEDStrip_Kitchen_Power,gLEDStrip_Kitchen_FX,gLEDStrip_Kitchen_Color,gLEDStrip_Kitchen_Speed,gLEDStrip_Kitchen_Intensity : strategy = everyUpdate
+	
+
+}

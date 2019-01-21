@@ -1,0 +1,71 @@
+import org.eclipse.smarthome.model.script.ScriptServiceUtil
+
+var Integer seqCurrentStep = 0
+var Integer seqSequencerActive = 0
+var Integer seqSequencerMaxStep = 10   // Number of Steps defined in the sitemap
+
+/* Handle Sequencer Start */
+rule "Sequencer Start Rule"
+when 
+    Item Sequencer_Start received command ON
+then
+    seqCurrentStep = (Sequencer_CurrentStep.state as DecimalType).intValue
+    seqSequencerActive = 1
+    logInfo("Sequencer", "Starting Sequencer Timer after Start button with CurrentStep @ " + Sequencer_CurrentStep.state.toString)
+    createTimer(now.plusMinutes((Sequencer_Step_Time.state as DecimalType).intValue))[|
+                logInfo("Sequencer", "Sequencer Timer elapsed after " + Sequencer_Step_Time.state.toString + " minutes. Incrementing" )
+                sendCommand(Sequencer_CurrentStep, (Sequencer_CurrentStep.state as DecimalType).intValue + 1)
+            ]
+    Sequencer_Start.sendCommand(OFF)
+end
+
+rule "Update command when Current Step changes"
+when
+    Item Sequencer_CurrentStep received update
+then
+    logInfo("Sequencer", "Received Current Step Update")
+    if (seqSequencerActive == 1) //sequencer active, process command
+    {
+        logInfo("Sequencer", "Sequencer Active, sending command")
+        val n = ScriptServiceUtil.getItemRegistry.getItem("Sequencer_Step" + Sequencer_CurrentStep.state.toString + "_Value")
+        logInfo("Sequencer", n.name + " Item state is " + n.state.toString)
+        if((n.state == 0) || (n.state == NULL) || (seqCurrentStep > seqSequencerMaxStep)) // If we see an "End Step" value, a NULL or we're at the last step, reset currentStep back to the top
+        {
+            Sequencer_CurrentStep.sendCommand(1)
+        }
+        else
+        {
+            /* Send command value stored in current Step Selection box */
+            sendCommand( Sequencer_Output, n.state as Number )  // Replace Sequencer_Test_Item with actual action item
+            /* Start timer for next step */
+            createTimer(now.plusMinutes((Sequencer_Step_Time.state as DecimalType).intValue))[|
+                logInfo("Sequencer", "Sequencer Timer elapsed after " + Sequencer_Step_Time.state.toString + " minutes. Incrementing" )
+                sendCommand(Sequencer_CurrentStep, (Sequencer_CurrentStep.state as DecimalType).intValue + 1)
+            ]
+
+        }
+    }
+    else // Sequencer is not active, skip out
+    {
+        //NOP
+    }
+end
+
+rule "Sequencer Stop/Reset Rule"
+when
+    Item Sequencer_Reset received command ON
+then
+    seqCurrentStep = 0
+    Sequencer_CurrentStep.sendCommand(0)
+    logInfo("Sequencer", "Resetting Sequencer timer to step " + seqCurrentStep.toString)
+    seqSequencerActive = 0
+    Sequencer_Reset.sendCommand(OFF)
+end
+
+rule "Handle Sequencer Output" //This is the ONLY rule the end user should have to change (use the value stored in Sequencer_Output to do proper tasks in your system)
+when
+    Item Sequencer_Output received update
+then
+    LEDStrip_Group1_FX.sendCommand(Sequencer_Output.state.toString)
+    LEDStrip_Kitchen_Cabinet_FX.sendCommand(Sequencer_Output.state.toString)
+end

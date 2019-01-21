@@ -1,0 +1,394 @@
+import java.util.Calendar
+
+var Number Light_FF_Family_Sconces_Value = 0
+
+rule "Sunset Outdoor Events"
+when
+	Channel 'astro:sun:local:set#event' triggered START  //nauticDusk
+then
+	/*Turn on Christmas Lights*/
+	if (Christmas.state == ON)  //Removed toString.trim and "" around ON
+	{
+		ChristmasLights.sendCommand(ON)
+		LEDStrip_Group1_Power.sendCommand(ON)
+		Sequencer_Start.sendCommand(ON)
+		Light_Outdoor_RearYard.sendCommand(ON)
+		Light_Outdoor_Shed.sendCommand(ON)
+
+	/*	val day = (Date.state as DateTimeType).calendar.get(Calendar::DAY_OF_MONTH)
+		val ledfx = day % 5
+		switch ledfx
+		{
+			case 0:
+				{//LEDStrip_All_Window.sendCommand(2) //Noise
+				LEDStrip_Group1_FX.sendCommand(2)
+				//LEDStrip_All_Window_Speed.sendCommand(130)
+				}
+			case 1:
+				{//LEDStrip_All_Window.sendCommand(5) //Twinkle
+				LEDStrip_Group1_FX.sendCommand(5)
+				//LEDStrip_All_Window_Speed.sendCommand(90)
+				}
+			case 2:
+				{//LEDStrip_All_Window.sendCommand(13) //Candy Cane
+				LEDStrip_Group1_FX.sendCommand(13)
+				//LEDStrip_All_Window_Speed.sendCommand(110)
+				}
+			case 3:
+				{//LEDStrip_All_Window.sendCommand(6) //Glitter
+				LEDStrip_Group1_FX.sendCommand(6)
+				//LEDStrip_All_Window_Speed.sendCommand(90)
+				}
+			case 4:
+				{//LEDStrip_All_Window.sendCommand(10) //Confetti
+				LEDStrip_Group1_FX.sendCommand(10)
+				//LEDStrip_All_Window_Speed.sendCommand(90)
+				}
+			default:
+				{//LEDStrip_All_Window.sendCommand(13) //Candy Cane
+				LEDStrip_Group1_FX.sendCommand(13)
+				//LEDStrip_All_Window_Speed.sendCommand(110)
+				}	
+		}*/
+
+		logInfo("Lights", "Christmas Lights turned on at Sunset")
+	}
+	else
+	{
+		/*Turn on Night Lights at Sunset*/
+		OutdoorLights.sendCommand(ON)
+	}
+	logInfo("Lights", "Outdoor Lights turned on at Nautical Dusk")
+end
+
+rule "Sunset Indoor Functions"
+when
+	Channel 'astro:sun:local:civilDusk#event' triggered START
+then
+	/*Start Family Room Sconces*/
+	if(VacationMode.state != ON)
+	{
+		sendCommand(Light_FF_Family_Sconces_Dim, ON)
+		logInfo("Lights", "Family Sconces Dim Sequence Start")
+	}
+	sendCommand(EveningLights, ON)
+	sendCommand(NightLights, ON)
+	sendCommand(is_Night, ON)
+	logInfo("Lights", "Indoor Evening & Night Lights turned on at Civil Dusk")
+end
+
+rule "Sunrise Outdoor Functions"
+when
+	Channel 'astro:sun:local:nauticDawn#event' triggered START 
+then
+	/*Turn Off Night Lights at Sunrise*/
+	sendCommand(OutdoorLights, OFF)
+	logInfo("Lights", "Outdoor Lights turned off at Nautic Dawn")
+end
+
+rule "Sunrise Indoor Functions"
+when
+	Channel 'astro:sun:local:rise#event' triggered START 
+then
+	/*Turn Off Night Lights at Sunrise*/
+	sendCommand(NightLights, OFF)
+	sendCommand(is_Night, OFF)
+	sendCommand(Light_SF_Master_EnsuiteHall, OFF)	
+	logInfo("Lights", "Indoor Night Lights turned off at Astro Rise")
+end
+
+rule "Midnight Functions"
+when
+	Time cron "0 0 0 * * ?"		
+then
+	/*Switch Christmas/Outdoor Night Lights*/
+	if (Christmas.state == ON) //Removed .toString.trim and "" around ON
+	{
+		ChristmasLights.sendCommand(OFF)
+		LEDStrip_Group1_Power.sendCommand(OFF)
+		Sequencer_Reset.sendCommand(ON)
+		OutdoorLights.sendCommand(ON)
+		logInfo("Lights", "Christmas/Outdoor lights swapped")
+	}
+	/*Turn off Family room sconces*/
+	Light_FF_Family_Sconces_Dim.sendCommand(OFF)
+	Light_FF_Family_Sconces.sendCommand(OFF)
+	EveningLights.sendCommand(OFF)
+	Light_FF_Family_Sconces_Value = 0
+	Light_SF_Landing_Lamp.sendCommand(20)
+	logInfo("Lights", "Evening Lights turned off at Midnight")
+end
+
+rule "Minute Functions"
+when
+	Time cron "0 * * * * ?"
+then
+	/*Bring up sconces progressively from dim to bright*/
+	if (Light_FF_Family_Sconces_Value < 100)
+	{
+		if (Light_FF_Family_Sconces.state > 0)
+		{
+			Light_FF_Family_Sconces_Value = Light_FF_Family_Sconces.state as PercentType
+		}
+		else
+		{
+			Light_FF_Family_Sconces_Value = 0
+		}
+
+		if (Light_FF_Family_Sconces_Dim.state == ON) //Removed .toString.trim and "" around ON
+		{
+			Light_FF_Family_Sconces_Value = Light_FF_Family_Sconces_Value + 2
+			Light_FF_Family_Sconces.sendCommand(new PercentType(Light_FF_Family_Sconces_Value.toString))
+			logInfo("Lights", "Sconces at " + Light_FF_Family_Sconces_Value.intValue)
+		}
+	}
+	else
+	{
+		if (Light_FF_Family_Sconces_Dim.state != OFF)
+		{
+			Light_FF_Family_Sconces_Dim.sendCommand(OFF)
+		}
+	}
+end
+
+rule "Motion Events"
+when
+	Item Motion_MasterBedroom received update
+then
+	if (is_Night.state == ON && Motion_Master_Disable.state != ON)  //Removed .toString.trim and "" around ON
+	{
+		if (Motion_MasterBedroom.state == 1)
+		{
+			Light_SF_Master_EnsuiteHall.sendCommand(ON)	
+			//var DecimalType hue = new DecimalType(0) // 0-360; 0=red, 120=green, 240=blue, 360=red(again)
+			//var PercentType sat = new PercentType(100) // 0-100
+			//var PercentType bright = new PercentType(20) // 0-100
+			//var HSBType light = new HSBType(hue,sat,bright)
+			//sendCommand(Light_SF_Master_EnsuiteHall, light)
+			Light_SF_Master_EnsuiteHall.sendCommand(Light_Motion_Color.state as HSBType)
+		}
+		else// if (Motion_MasterBedroom.state == 0)
+		{
+			Light_SF_Master_EnsuiteHall.sendCommand(OFF)	
+		}
+	}
+end
+
+rule "Vacation Mode"
+when
+	Item VacationMode received update
+then
+	if (VacationMode.state == ON) //Removed toString.trim and "" around ON
+	{
+		HVAC_HeatSetPoint.sendCommand(52)
+		logInfo("Status", "Vacation Mode Enabled")
+	}
+	else if (VacationMode.state == OFF) //Removed toString.trim and "" around OFF
+	{
+		HVAC_HeatSetPoint.sendCommand(70)
+		logInfo("Status", "Vacation Mode Disabled")
+	}
+end
+		
+rule "Away Mode"
+when
+	Item AwayMode received update
+then
+	if (AwayMode.state == ON)  //Removed toString.trim and "" around ON
+	{
+		HVAC_HeatSetPoint.sendCommand(60)
+		logInfo("Status", "Away Mode Enabled")
+	}
+	else if (AwayMode.state == OFF)  //Removed toString.trim and "" around OFF
+	{
+		HVAC_HeatSetPoint.sendCommand(70)
+		logInfo("Status", "Away Mode Disabled")
+	}
+end
+
+/**
+ * This rules controls the volume on the local host
+ */
+/*rule "Volume control"
+	when
+		Item Volume received command
+	then
+		if(receivedCommand instanceof PercentType) {
+			setMasterVolume(receivedCommand as PercentType)
+		} else {
+			if(receivedCommand==INCREASE) increaseMasterVolume(20)
+			if(receivedCommand==DECREASE) decreaseMasterVolume(20)	
+		}
+		postUpdate(Volume, masterVolume * 100)
+end
+*/
+/*
+rule "Initialize Location"
+	when 
+		System started
+	then
+		DemoLocation.postUpdate(new PointType("0,0"))
+end
+*/
+
+rule "Update max and min temperatures"
+when
+	Item localCurrentTemperature changed or
+	Time cron "0 0 0 * * ?" // or
+//	System started
+then	
+	Weather_Temp_Max.postUpdate(localCurrentTemperature.maximumSince(now.withTimeAtStartOfDay).state)
+	Weather_Temp_Min.postUpdate(localCurrentTemperature.minimumSince(now.withTimeAtStartOfDay).state)
+//	logInfo("Weather", "Temperature changed by " + localCurrentTemperature.deltaSince(now.minusMinutes(2)) + " degrees.")
+end
+
+/** shows how to use sensor values from the past */
+/*
+rule "Persistence Demo"
+when
+	Time cron "0 * * * * ?"
+then	
+	if(localCurrentTemperature.changedSince(now.minusMinutes(1))) {
+		logInfo("PersistenceDemo", "2 minutes ago, the temperature was " + localCurrentTemperature.historicState(now.minusMinutes(2)) + " degrees.")
+	}
+end
+*/
+
+/** 
+ * shows how to check recent switch states - very helpful to avoid executing something too often, just
+ * because somebody presses a button too often (e.g. sending a notification, if the doorbell button is pressed)
+ */
+/*
+rule "Persistence Demo 2"
+when
+	Item DemoSwitch received command
+then
+	if(!DemoSwitch.changedSince(now.minusSeconds(5))) {
+		logInfo("PersistenceDemo2", "You did not press this button during the last 5 seconds!")
+	}
+end
+*/
+
+// Creates an item that stores the last update time of this item
+rule "Records last weather update time"
+when
+  	Item localCurrentTemperature received update
+then
+  	Weather_LastUpdate.postUpdate(new DateTimeType())
+end
+
+// This rule will be used to test Scale transformation service
+rule "Compute humidex"
+when
+    Item localCurrentTemperature changed or
+	Item localCurrentHumidity changed
+then
+	var Number Tf = localCurrentTemperature.state as Number
+	var Number T = (new Double(5) / new Double(9)) * Tf - 32 //Convert F to C
+	var Number H = localCurrentHumidity.state as Number	
+	var Number x = 7.5 * T/(237.7 + T)
+	var Number e = 6.112 * Math::pow(10, x.doubleValue) * H/100
+	var Number humidex = T + (new Double(5) / new Double(9)) * (e - 10)
+	Weather_Humidex.postUpdate(humidex)
+end
+/*
+rule "Dash button 1 pressed"
+    when
+        Channel "amazondashbutton:dashbutton:afda97f3:press" triggered
+    then
+	if (LEDStripPower.state == ON){ //Removed toString.trim and "" around ON
+		sendCommand(LEDStripPower, OFF)
+		logInfo("Amazon", "LED Strip 1 turned off")
+	}
+	else {
+		sendCommand(LEDStripPower, ON)
+		sendCommand(LEDStripColor, Light_Kitchen_Strip_Color.state as HSBType)
+		logInfo("Amazon", "Led Strip 1 turned on")
+	}
+end
+
+rule "Dash button 2 pressed"
+    when
+        Channel "amazondashbutton:dashbutton:c7d23b78:press" triggered
+    then
+	if (LEDStrip2Power.state == ON){  //Removed toString.trim and "" around ON
+		sendCommand(LEDStrip2Power, OFF)
+		logInfo("Amazon", "Led Strip 2 turned off")
+	}
+	else {
+		sendCommand(LEDStrip2Power, ON)
+		sendCommand(LEDStrip2Color, Light_Kitchen_Strip_Color.state as HSBType)
+		logInfo("Amazon", "Led Strip 2 turned on")
+	}
+end
+
+rule "Dash button 3 pressed"
+    when
+        Channel "amazondashbutton:dashbutton:fc3a2413:press" triggered
+    then
+	if (LEDStrip3Power.state == ON){ // Removed toString.trim and "" around ON
+		sendCommand(LEDStrip3Power, OFF)
+		logInfo("Amazon", "Led Strip 3 turned off")
+	}
+	else {
+		sendCommand(LEDStrip3Power, ON)
+		sendCommand(LEDStrip3Color, Light_Kitchen_Strip_Color.state as HSBType)
+		logInfo("Amazon", "Led Strip 3 turned on")
+	}
+end
+*/
+rule "Speedtest init"
+when
+    System started
+then
+    createTimer(now.plusSeconds(195)) [|
+        if (SpeedtestRerun.state == NULL) SpeedtestRerun.postUpdate(OFF)
+        if (SpeedtestRunning.state == NULL) SpeedtestRunning.postUpdate("-")
+        if (SpeedtestSummary.state == NULL || SpeedtestSummary.state == "")
+            SpeedtestSummary.postUpdate("⁉ (unknown)")
+    ]
+end
+
+rule "Speedtest"
+when
+    //Time cron "0 0 5,13 * * ?" or
+    Time cron "0 0 * * * ?" or
+    Item SpeedtestRerun received command ON
+then
+    logInfo("speedtest","--> speedtest executed...")
+    SpeedtestRunning.postUpdate("Measurement in progress...")
+
+    // update timestamp for last execution
+    SpeedtestResultDate.postUpdate(new DateTimeType())
+
+    // execute the script, you may have to change the path depending on your system
+    var String speedtestCliOutput = executeCommandLine("/usr/local/bin/speedtest-cli@@--simple", 120*1000)
+
+    // for debugging:
+    //var String speedtestCliOutput = "Ping: 43.32 ms\nDownload: 21.64 Mbit/s\nUpload: 4.27 Mbit/s"
+    //logInfo(filename, "--> speedtest output:\n" + speedtestCliOutput + "\n\n")
+
+    SpeedtestRunning.postUpdate("Data analysis...")
+
+    // starts off with a fairly simple error check, should be enough to catch all problems I can think of
+    if (speedtestCliOutput.startsWith("Ping") && speedtestCliOutput.endsWith("Mbit/s")) {
+        var String[] results = speedtestCliOutput.split("\\r?\\n")
+        var float ping = new java.lang.Float(results.get(0).split(" ").get(1))
+        var float down = new java.lang.Float(results.get(1).split(" ").get(1))
+        var float up   = new java.lang.Float(results.get(2).split(" ").get(1))
+        SpeedtestResultPing.postUpdate(ping)
+        SpeedtestResultDown.postUpdate(down)
+        SpeedtestResultUp.postUpdate(up)
+        SpeedtestSummary.postUpdate(String::format("ᐁ  %.1f Mbit/s  ᐃ %.1f Mbit/s (%.0f ms)", down, up, ping))
+        SpeedtestRunning.postUpdate("-")
+        logInfo("speedtest","--> speedtest finished.")
+    } else {
+        SpeedtestResultPing.postUpdate(0)
+        SpeedtestResultDown.postUpdate(0)
+        SpeedtestResultUp.postUpdate(0)
+        SpeedtestSummary.postUpdate("(unknown)")
+        SpeedtestRunning.postUpdate("Error during execution")
+        logError("speedtest","--> speedtest failed. Output:\n" + speedtestCliOutput + "\n\n")
+    }
+    SpeedtestRerun.postUpdate(OFF)
+end

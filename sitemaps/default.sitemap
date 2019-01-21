@@ -1,0 +1,480 @@
+sitemap default label="Home"
+{
+	Frame {
+		Group item=gAttic
+		Group item=gSF
+		{
+			Group item=SF_Bath 		
+			Group item=SF_GuestBdrm 
+			{
+				Colorpicker item=Light_SF_Guest_BedLamp_Left
+				Colorpicker item=Light_SF_Guest_BedLamp_Right
+			}	
+			Group item=SF_SpareBdrm	
+			Group item=SF_Child 
+			Group item=SF_Master 	
+			{
+				Frame{
+					Slider item=Light_SF_Master_BedLamp_Left
+					Slider item=Light_SF_Master_BedLamp_Right					
+				}
+				Frame{
+					Text item=Temperature_MasterBedroom
+					Text item=Humidity_MasterBedroom
+					Text item=Temperature_MasterBedroomHisCloset
+					Text item=Humidity_MasterBedroomHisCloset
+				}
+				Frame{
+					Colorpicker item=Light_SF_Master_EnsuiteHall
+					Switch item=Motion_Master_Disable				
+				}				
+				Text label="HASP"
+				{
+					Frame{
+						Switch item=HASP_Plate01_Page mappings=[0="0", 1="1", 2="2", 3="3", 4="4", 5="5", 6="6", 7="7", 8="8", 9="9"]
+					}
+					Frame{
+						Text item=HASP_Plate01_Page_Current
+						Text item=HASP_Plate01_Plate_Sensor_Status
+						Text item=HASP_Plate01_Plate_Sensor_ESPVersion
+						Text item=HASP_Plate01_Plate_Sensor_ESPUpdate
+						Text item=HASP_Plate01_Plate_Sensor_LCDVersion
+						Text item=HASP_Plate01_Plate_Sensor_LCDUpdate
+						Text item=HASP_Plate01_Plate_Sensor_ESPUptime
+						Text item=HASP_Plate01_Plate_Sensor_SignalStrength
+						Text item=HASP_Plate01_Plate_Sensor_HaspIP
+					}
+					Frame{
+						Switch item=HASP_Plate01_Light_Power
+						Text item=HASP_Plate01_Light_Status
+					}
+					Frame{
+						Setpoint item=HASP_Plate01_Light_Dimmer minValue=0 maxValue=255 step=32
+						Text item=HASP_Plate01_Light_Brightness
+					}
+				}
+			}		
+			Group item=SF_Ensuite		
+			Group item=SF_Landing 
+		}
+		Group item=gFF
+		{
+			Group item=FF_Family
+			Group item=FF_Kitchen
+			{
+				Frame{
+					Switch item=MonoPrice_Z11_Power
+					Switch item=MonoPrice_Z11_Source mappings=[2=BT,3=DJ,5=CAST,6=CD] visibility=[MonoPrice_Z11_Power==ON] icon="receiver"
+					Slider item=MonoPrice_Z11_Volume visibility=[MonoPrice_Z11_Power==ON] icon="soundvolume"
+					Switch item=MonoPrice_Z11_Mute visibility=[MonoPrice_Z11_Power==ON]
+				}
+				Frame{
+					Slider item=Light_FF_Kitchen_Island
+					Text label="Island Light Individual" icon="slider"
+					{
+						Slider item=Light_FF_Kitchen_Island_L
+						Slider item=Light_FF_Kitchen_Island_C
+						Slider item=Light_FF_Kitchen_Island_R
+					}
+					Slider item=Light_FF_Kitchen_Recessed
+					Text label="Recessed Lights Individual" icon="slider"
+					{
+						Slider item=Light_FF_Kitchen_Recessed_NW
+						Slider item=Light_FF_Kitchen_Recessed_NE
+						Slider item=Light_FF_Kitchen_Recessed_SW
+						Slider item=Light_FF_Kitchen_Recessed_SE
+					}
+					Slider item=Light_FF_Kitchen_Sink
+				}
+				Frame{
+					Switch item=LEDStrip_Kitchen_Cabinet_Power
+					Selection item=LEDStrip_Kitchen_Cabinet_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+					Colorpicker item=LEDStrip_Kitchen_Cabinet_Color
+					Slider item=LEDStrip_Kitchen_Cabinet_Speed icon="motion"
+					Slider item=LEDStrip_Kitchen_Cabinet_Intensity icon="light"
+					Text label="LED Strips Individual" icon="slider"
+					{
+						Frame{
+							Switch item=LEDStrip_FF_Kitchen_Cabinet_1_Power
+							Selection item=LEDStrip_FF_Kitchen_Cabinet_1_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+							Colorpicker item=LEDStrip_FF_Kitchen_Cabinet_1_Color
+							Slider item=LEDStrip_FF_Kitchen_Cabinet_1_Speed icon="motion"
+							Slider item=LEDStrip_FF_Kitchen_Cabinet_1_Intensity icon="light"
+						}
+						Frame{	
+							Switch item=LEDStrip_FF_Kitchen_Cabinet_2_Power
+							Selection item=LEDStrip_FF_Kitchen_Cabinet_2_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+							Colorpicker item=LEDStrip_FF_Kitchen_Cabinet_2_Color
+							Slider item=LEDStrip_FF_Kitchen_Cabinet_2_Speed icon="motion"
+							Slider item=LEDStrip_FF_Kitchen_Cabinet_2_Intensity icon="light"
+						}
+						Frame{
+							Switch item=LEDStrip_FF_Kitchen_Cabinet_3_Power
+							Selection item=LEDStrip_FF_Kitchen_Cabinet_3_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+							Colorpicker item=LEDStrip_FF_Kitchen_Cabinet_3_Color
+							Slider item=LEDStrip_FF_Kitchen_Cabinet_3_Speed icon="motion"
+							Slider item=LEDStrip_FF_Kitchen_Cabinet_3_Intensity icon="light"
+						}
+					}
+				}
+				Frame{					
+					Text item=Temperature_Kitchen
+					Text item=Humidity_Kitchen
+				}				
+			}
+			Group item=FF_Dining
+			Group item=FF_Laundry
+			Group item=FF_Office
+			{
+				Frame
+				{
+					Switch item=MonoPrice_Z12_Power
+					Switch item=MonoPrice_Z12_Source mappings=[2=BT,3=DJ,5=CAST,6=CD] visibility=[MonoPrice_Z12_Power==ON] icon="receiver"
+					Slider item=MonoPrice_Z12_Volume visibility=[MonoPrice_Z12_Power==ON] icon="soundvolume"
+					Switch item=MonoPrice_Z12_Mute visibility=[MonoPrice_Z12_Power==ON]				
+				}
+				Frame
+				{
+					Colorpicker item=Light_FF_Office_Lamp2
+					Colorpicker item=Light_FF_Office_Desk
+					Slider item=Light_FF_Office_Lamp
+				}
+				Frame
+				{
+					Text item=Temperature_Office
+					Text item=Humidity_Office
+				}
+			}
+			Group item=FF_Powder
+			Group item=FF_Foyer
+			{
+				Frame{
+					Switch item=Light_FF_Foyer_Lamp
+					Slider item=Light_FF_Foyer_Light
+				}				
+				Text label="HASP"
+				{
+					Frame{
+						Switch item=HASP_Plate02_Page mappings=[0="0", 1="1", 2="2", 3="3", 4="4", 5="5", 6="6", 7="7", 8="8", 9="9"]
+					}
+					Frame{
+						Text item=HASP_Plate02_Page_Current
+						Text item=HASP_Plate02_Plate_Sensor_Status
+						Text item=HASP_Plate02_Plate_Sensor_ESPVersion
+						Text item=HASP_Plate02_Plate_Sensor_ESPUpdate
+						Text item=HASP_Plate02_Plate_Sensor_LCDVersion
+						Text item=HASP_Plate02_Plate_Sensor_LCDUpdate
+						Text item=HASP_Plate02_Plate_Sensor_ESPUptime
+						Text item=HASP_Plate02_Plate_Sensor_SignalStrength
+						Text item=HASP_Plate02_Plate_Sensor_HaspIP
+					}
+					Frame{
+						Switch item=HASP_Plate02_Light_Power
+						Text item=HASP_Plate02_Light_Status
+					}
+					Frame{
+						Setpoint item=HASP_Plate02_Light_Dimmer minValue=0 maxValue=255 step=32
+						Text item=HASP_Plate02_Light_Brightness
+					}
+				}
+			}
+		}
+		Group item=gBsmt
+		{
+			Switch item=MonoPrice_Z13_Power
+			Switch item=MonoPrice_Z13_Source mappings=[2=BT,3=DJ,5=CAST,6=CD] visibility=[MonoPrice_Z13_Power==ON] icon="receiver"
+			Slider item=MonoPrice_Z13_Volume visibility=[MonoPrice_Z13_Power==ON] icon="soundvolume"
+			Switch item=MonoPrice_Z13_Mute visibility=[MonoPrice_Z13_Power==ON]			
+			Text item=Temperature_Basement
+			Text item=Humidity_Basement
+			Group item=gMonoPriceStatus
+		}
+		Group item=gGarage
+		Group item=Outdoor
+		{
+			Switch item=Light_Outdoor_FrontDoor
+			Switch item=Light_Outdoor_Garage
+			Switch item=Light_Outdoor_RearYard
+			Switch item=Light_Outdoor_Shed
+			Group item=Shed
+			{
+				Switch item=MonoPrice_Z14_Power
+				Switch item=MonoPrice_Z14_Source mappings=[2=BT,3=DJ,5=CAST,6=CD] visibility=[MonoPrice_Z14_Power==ON] icon="receiver"
+				Slider item=MonoPrice_Z14_Volume visibility=[MonoPrice_Z14_Power==ON] icon="soundvolume"
+				Switch item=MonoPrice_Z14_Mute visibility=[MonoPrice_Z14_Power==ON]
+				Text item=Temperature_Shed
+				Text item=Humidity_Shed
+			}
+		}
+	}
+	Frame label="Thermostat" {
+		Selection item=HVAC_HeatSetPoint mappings=["52 °F"="52 °F","65 °F"="65 °F","68 °F"="68 °F","69 °F"="69 °F","70 °F"="70 °F","71 °F"="71 °F","72 °F"="72 °F","73 °F"="73 °F","74 °F"="74 °F","75 °F"="75 °F"] valuecolor=[>0="red"] labelcolor=[>0="red"]
+		//Setpoint item=HVAC_HeatSetPoint minValue=45.0 maxValue=80.0 step=1.0 valuecolor=[>0="red"] labelcolor=[>0="red"]
+		Setpoint item=HVAC_CoolSetPoint minValue=60.0 maxValue=90.0 step=1.0 valuecolor=[>0="blue"] labelcolor=[>0="blue"]
+		Text item=Temperature_HVAC
+		{
+			Switch item=HVAC_Mode mappings=[0=Off,1=Heat,2=Cool,3=Auto]
+			Text item=HVAC_Fan_Mode
+			Text item=HVAC_Operating_State valuecolor=[0="gray",1="red",2="blue"]
+			Text item=HVAC_Fan_State valuecolor=[0="gray",1="green",2="green"]
+			Text item=HVAC_Battery icon="energy"
+			Text item=Humidity_HVAC
+			Text label="Temperature Chart" icon="line"
+			{
+				Switch item=Temp_Chart_Period label="Temp Chart Period" mappings=[0="Hour", 1="Day", 2="Week", 3="Off"] icon="line"
+				Chart item=Temp_Chart period=h refresh=6000 service="rrd4j" visibility=[Temp_Chart_Period==0, Temp_Chart_Period=="Uninitialized"]
+				Chart item=Temp_Chart period=D refresh=30000 service="rrd4j" visibility=[Temp_Chart_Period==1]
+				Chart item=Temp_Chart period=W refresh=30000 service="rrd4j" visibility=[Temp_Chart_Period==2]
+				Switch item=Temp_Chart_Period_2 label="Temp Chart 2 Period" mappings=[0="Hour", 1="Day", 2="Week", 3="Off"] icon="line"
+				Chart item=Temp_Chart_2 period=h refresh=6000 service="rrd4j" visibility=[Temp_Chart_Period_2==0, Temp_Chart_Period_2=="Uninitialized"]
+				Chart item=Temp_Chart_2 period=D refresh=30000 service="rrd4j" visibility=[Temp_Chart_Period_2==1]
+				Chart item=Temp_Chart_2 period=W refresh=30000 service="rrd4j" visibility=[Temp_Chart_Period_2==2]
+			}
+			Text label="Humidity Chart" icon="line"
+			{
+				Switch item=Hum_Chart_Period label="Hum Chart Period" mappings=[0="Hour", 1="Day", 2="Week", 3="Off"] icon="line"
+				Chart item=Hum_Chart period=h refresh=6000 service="rrd4j" visibility=[Hum_Chart_Period==0, Hum_Chart_Period=="Uninitialized"]
+				Chart item=Hum_Chart period=D refresh=30000 service="rrd4j" visibility=[Hum_Chart_Period==1]
+				Chart item=Hum_Chart period=W refresh=30000 service="rrd4j" visibility=[Hum_Chart_Period==2]
+			}
+		}
+		Text item=localCurrentTemperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"]
+		{		
+			Text item=Weather_Temp_Max valuecolor=[>75="orange",>60="green",>40="orange",<=40="blue"]
+			Text item=Weather_Temp_Min valuecolor=[>75="orange",>60="green",>40="orange",<=40="blue"]
+			Text item=localCurrentHumidity
+			Text item=Weather_Humidex
+			Text item=Sun_Elevation
+			Text item=Sun_Azimuth
+			Text item=Sun_Duration
+			Text item=Weather_LastUpdate visibility=[Weather_LastUpdate>30] valuecolor=[Weather_LastUpdate>120="orange", Weather_LastUpdate>300="red"]
+			Switch item=Weather_Chart_Period label="Chart Period" mappings=[0="Hour", 1="Day", 2="Week"]
+			Chart item=Weather_Chart period=h refresh=6000 service="rrd4j" visibility=[Weather_Chart_Period==0, Weather_Chart_Period=="Uninitialized"]
+			Chart item=Weather_Chart period=D refresh=30000 service="rrd4j" visibility=[Weather_Chart_Period==1]
+			Chart item=Weather_Chart period=W refresh=30000 service="rrd4j" visibility=[Weather_Chart_Period==2]
+		}
+	}
+	Frame label="Status" {
+		Switch item=Lights mappings=[OFF="All Off", ON="All On"]
+		Switch item=NightLights mappings=[OFF="All Off", ON="All On"]
+		Switch item=ChristmasLights mappings=[OFF="All Off", ON="All On"] visibility=[Christmas==ON]
+		Group item=LightingScenes
+		Group item=LEDStrips
+		{
+			Frame{
+				Switch item=LEDStrip_SF_Spare_Window_Power
+				Selection item=LEDStrip_SF_Spare_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_SF_Spare_Window_Color
+				Slider item=LEDStrip_SF_Spare_Window_Speed icon="motion"
+				Slider item=LEDStrip_SF_Spare_Window_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_SF_Child_Window_Power
+				Selection item=LEDStrip_SF_Child_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_SF_Child_Window_Color
+				Slider item=LEDStrip_SF_Child_Window_Speed icon="motion"
+				Slider item=LEDStrip_SF_Child_Window_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_SF_Master_Window_Power
+				Selection item=LEDStrip_SF_Master_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_SF_Master_Window_Color
+				Slider item=LEDStrip_SF_Master_Window_Speed icon="motion"
+				Slider item=LEDStrip_SF_Master_Window_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_SF_Ensuite_Window_Power
+				Selection item=LEDStrip_SF_Ensuite_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_SF_Ensuite_Window_Color
+				Slider item=LEDStrip_SF_Ensuite_Window_Speed icon="motion"
+				Slider item=LEDStrip_SF_Ensuite_Window_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_FF_Dining_Window_Power
+				Selection item=LEDStrip_FF_Dining_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_FF_Dining_Window_Color
+				Slider item=LEDStrip_FF_Dining_Window_Speed icon="motion"
+				Slider item=LEDStrip_FF_Dining_Window_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_FF_Foyer_Window_Power
+				Selection item=LEDStrip_FF_Foyer_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_FF_Foyer_Window_Color
+				Slider item=LEDStrip_FF_Foyer_Window_Speed icon="motion" 
+				Slider item=LEDStrip_FF_Foyer_Window_Intensity icon="light" 
+			}
+			Frame{
+				Switch item=LEDStrip_FF_Office_Window_Power
+				Selection item=LEDStrip_FF_Office_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_FF_Office_Window_Color
+				Slider item=LEDStrip_FF_Office_Window_Speed icon="motion"
+				Slider item=LEDStrip_FF_Office_Window_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_Outdoor_Garage_Window_Power
+				Selection item=LEDStrip_Outdoor_Garage_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_Outdoor_Garage_Window_Color
+				Slider item=LEDStrip_Outdoor_Garage_Window_Speed icon="motion"
+				Slider item=LEDStrip_Outdoor_Garage_Window_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_Outdoor_Garage_Door_Power
+				Selection item=LEDStrip_Outdoor_Garage_Door_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_Outdoor_Garage_Door_Color
+				Slider item=LEDStrip_Outdoor_Garage_Door_Speed icon="motion"
+				Slider item=LEDStrip_Outdoor_Garage_Door_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_Outdoor_Front_Door_Power
+				Selection item=LEDStrip_Outdoor_Front_Door_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_Outdoor_Front_Door_Color
+				Slider item=LEDStrip_Outdoor_Front_Door_Speed icon="motion"
+				Slider item=LEDStrip_Outdoor_Front_Door_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_Outdoor_Rear_Door_Power
+				Selection item=LEDStrip_Outdoor_Rear_Door_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_Outdoor_Rear_Door_Color
+				Slider item=LEDStrip_Outdoor_Rear_Door_Speed icon="motion"
+				Slider item=LEDStrip_Outdoor_Rear_Door_Intensity icon="light"
+			}
+			Frame{
+				Switch item=LEDStrip_Group1_Power
+				Selection item=LEDStrip_Group1_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_Group1_Color
+				Slider item=LEDStrip_Group1_Speed icon="motion"
+				Slider item=LEDStrip_Group1_Intensity icon="light"
+			}							
+		}
+		Text label="Sequencer"
+		{
+			Frame{
+				Switch item=Sequencer_Start mappings=[ON="ON"]
+				Selection item=Sequencer_CurrentStep mappings=[0="Start",1="1",2="2",3="3",4="4",5="5",6="6",7="7",8="8",9="9",10="10"] //Add more values if more steps needed
+				Switch item=Sequencer_Reset mappings=[ON="ON"]
+				Selection item=Sequencer_Step_Time mappings=[1="1 min",15="15 mins",30="30 mins",45="45 mins",60="60 mins"] //Modify timer values as needed
+			}
+			Frame{
+				Selection item=Sequencer_Step1_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"] //Modify Step values as needed (this is what will be sent to the action item)
+				Selection item=Sequencer_Step2_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]	
+				Selection item=Sequencer_Step3_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Selection item=Sequencer_Step4_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Selection item=Sequencer_Step5_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Selection item=Sequencer_Step6_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Selection item=Sequencer_Step7_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]			
+				Selection item=Sequencer_Step8_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]			
+				Selection item=Sequencer_Step9_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]			
+				Selection item=Sequencer_Step10_Value mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]			
+			}
+			Frame{
+				Selection item=Sequencer_Output mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]			
+			}
+		}
+		Text label="Meter" icon="energy"
+		{
+			Text item=Energy_Mobile_1_W
+			Text item=Energy_Mobile_1_kWh
+			Text item=Energy_Mobile_2_W
+			Text item=Energy_Mobile_2_kWh
+			Group item=gSolar
+			Default item=Energy_Mobile_1_W label="Meter 1 Energy Usage (inst)"
+		}
+		Text label="Camera" icon="camera"
+		{
+			Image item=FrontDoorCamera_LastEventAnimatedImageUrl
+			Image item=FrontDoorCamera_LastEventImageUrl
+			
+		}
+		Text item=Sunrise_Time icon="sunrise"
+		Text item=Sunset_Time icon="sunset"
+		Text item=Date
+		Group item=Configuration
+		Text item=SpeedtestSummary {
+		  Frame label="Results" {
+		    Text item=SpeedtestResultDown
+		    Text item=SpeedtestResultUp
+		    Text item=SpeedtestResultPing
+		  }
+		  Frame label="Control" {
+		    Text item=SpeedtestResultDate
+		    Text item=SpeedtestRunning label="Speedtest [%s]" visibility=[SpeedtestRunning != "-"]
+		    Switch item=SpeedtestRerun mappings=[ON="Start"]
+		  }
+		  Frame label="Statistics" {
+		  //  Text label="..." icon="speedtest_analytics8"
+			Text label="Speedtest Chart" icon="line"
+				{
+					Switch item=Speedtest_Chart_Period label="Speedtest Chart Period" mappings=[0="Month",1="Week", 2="Day", 3="Off"] icon="line"
+					Chart item=Speedtest_Chart period=M refresh=6000 service="rrd4j" visibility=[Speedtest_Chart_Period==0, Speedtest_Chart_Period=="Uninitialized"]
+					Chart item=Speedtest_Chart period=W refresh=30000 service="rrd4j" visibility=[Speedtest_Chart_Period==1]
+					Chart item=Speedtest_Chart period=D refresh=30000 service="rrd4j" visibility=[Speedtest_Chart_Period==2]
+				}
+		  }
+		}
+		Text label="OpenWeatherMap"
+		{
+			Frame label="Local Weather Station" {
+				Text item=localStationId
+				Text item=localStationName
+				Mapview item=localStationLocation
+			}
+			Frame label="Current local weather" {
+				Text item=localLastMeasurement
+				Text item=localCurrentCondition
+				Image item=localCurrentConditionIcon
+				Text item=localCurrentTemperature
+				Text item=localCurrentPressure
+				Text item=localCurrentHumidity
+				Text item=localCurrentWindSpeed
+				Text item=localCurrentWindDirection
+				Text item=localCurrentCloudiness
+				Text item=localCurrentRainVolume
+				Text item=localCurrentSnowVolume
+			}
+			Frame label="Local forecast for today" {
+				Text item=localDailyForecastTodayTimestamp
+				Text item=localDailyForecastTodayCondition
+				Image item=localDailyForecastTodayConditionIcon
+				Text item=localDailyForecastTodayMinTemperature
+				Text item=localDailyForecastTodayMaxTemperature
+				Text item=localDailyForecastTodayPressure
+				Text item=localDailyForecastTodayHumidity
+				Text item=localDailyForecastTodayWindSpeed
+				Text item=localDailyForecastTodayWindDirection
+				//Text item=localDailyForecastTodayCloudiness
+				Text item=localDailyForecastTodayRainVolume
+				Text item=localDailyForecastTodaySnowVolume
+			}
+			Frame label="Local forecast for tomorrow" {
+				Text item=localDailyForecastTomorrowTimestamp
+				Text item=localDailyForecastTomorrowCondition
+				Image item=localDailyForecastTomorrowConditionIcon
+				Text item=localDailyForecastTomorrowMinTemperature
+				Text item=localDailyForecastTomorrowMaxTemperature
+			}
+			Frame label="Local forecast in 2 days" {
+				Text item=localDailyForecastDay2Timestamp
+				Text item=localDailyForecastDay2Condition
+				Image item=localDailyForecastDay2ConditionIcon
+				Text item=localDailyForecastDay2MinTemperature
+				Text item=localDailyForecastDay2MaxTemperature
+			}
+			Frame label="Current weather in Miami" {
+				Text item=miamiCurrentCondition
+				Image item=miamiCurrentConditionIcon
+				Text item=miamiCurrentTemperature
+			}
+			Frame label="Forecast in Miami for the next three hours" {
+				Text item=miamiHourlyForecast03Condition
+				Image item=miamiHourlyForecast03ConditionIcon
+				Text item=miamiHourlyForecast03Temperature
+			}
+			Frame label="Forecast weather in Miami for the hours 3 to 6" {
+				Text item=miamiHourlyForecast06Condition
+				Image item=miamiHourlyForecast06ConditionIcon
+				Text item=miamiHourlyForecast06Temperature
+			}
+		
+		}
+	}
+}

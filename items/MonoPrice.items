@@ -1,0 +1,93 @@
+
+Group gZonePowerSwitch (all)
+Group gZoneVolume (all)
+Group gZoneMuteSwitch (all)
+Group gZoneTone (all)
+Group gZoneBalance (all)
+Group gZoneSource (all)
+Group gMonoPriceStatus (all)
+
+String AudioMTX             "Audio Matrix"           { serial="/dev/ttyUSB0@9600" }
+//String AudioMTX_Receive     "Audio Matrix Receive"
+Switch MonoPrice_Refresh    "Refresh String"
+//String MonoPrice_Receive_String "Received Response"
+String MonoPrice_Status     "MonoPrice Status [%s]"
+String MonoPrice_Status_G1  "MP G1 (Zone) [%s]"             (gMonoPriceStatus)
+String MonoPrice_Status_G2  "MP G2 (PA Status) [%s]"        (gMonoPriceStatus)
+String MonoPrice_Status_G3  "MP G3 (Pwr Status) [%s]"       (gMonoPriceStatus)
+String MonoPrice_Status_G4  "MP G4 (Mute Status) [%s]"      (gMonoPriceStatus)
+String MonoPrice_Status_G5  "MP G5 (DT Status) [%s]"        (gMonoPriceStatus)
+Number MonoPrice_Status_G6  "MP G6 (Volume Status) [%.0f]"  (gMonoPriceStatus)
+Number MonoPrice_Status_G7  "MP G7 (Treble Status) [%.0f]"  (gMonoPriceStatus)
+Number MonoPrice_Status_G8  "MP G8 (Bass Status) [%.0f]"    (gMonoPriceStatus)
+Number MonoPrice_Status_G9  "MP G9 (Balance) [%.0f]"        (gMonoPriceStatus)
+Number MonoPrice_Status_G10 "MP G10 (Src Status) [%.0f]"    (gMonoPriceStatus)
+String MonoPrice_Status_G11 "MP G11 (Keypad Status) [%s]"   (gMonoPriceStatus)
+String MonoPrice_Z11         "Kitchen Status [%s]"           
+String MonoPrice_Z12         "Office Status [%s]"          
+String MonoPrice_Z13         "Basement Status [%s]"           
+String MonoPrice_Z14         "Shed Status [%s]"          
+String MonoPrice_Z15         "Zone 5 Status [%s]"          
+String MonoPrice_Z16         "Zone 6 Status [%s]"           
+Switch MonoPrice_Z11_Power   "Kitchen Audio [%s]"        <switch>		 (gZonePowerSwitch) [ "Switchable" ]
+Switch MonoPrice_Z12_Power   "Office Audio [%s]"        <switch>		 (gZonePowerSwitch) [ "Switchable" ]
+Switch MonoPrice_Z13_Power   "Basement Audio [%s]"        <switch>		 (gZonePowerSwitch) [ "Switchable" ]
+Switch MonoPrice_Z14_Power   "Shed Audio [%s]"        <switch>		 (gZonePowerSwitch) [ "Switchable" ]
+Switch MonoPrice_Z15_Power   "Zone 5 Power [%s]"        <switch>		 (gZonePowerSwitch) [ "Switchable" ]
+Switch MonoPrice_Z16_Power   "Zone 6 Power [%s]"        <switch> 	 (gZonePowerSwitch) [ "Switchable" ]
+Switch MonoPrice_Z11_Mute    "Kitchen Mute [%s]"   	   <mute> 		 (gZoneMuteSwitch) [ "Switchable" ]
+Switch MonoPrice_Z12_Mute    "Office Mute [%s]"    	   <mute> 		 (gZoneMuteSwitch) [ "Switchable" ]
+Switch MonoPrice_Z13_Mute    "Basement Mute [%s]"    	   <mute> 		 (gZoneMuteSwitch) [ "Switchable" ]
+Switch MonoPrice_Z14_Mute    "Shed Mute [%s]"    	   <mute> 		 (gZoneMuteSwitch) [ "Switchable" ]
+Switch MonoPrice_Z15_Mute    "Zone 5 Mute [%s]"     	   <mute> 		 (gZoneMuteSwitch) [ "Switchable" ]
+Switch MonoPrice_Z16_Mute    "Zone 6 Mute [%s]"    	   <mute> 		 (gZoneMuteSwitch) [ "Switchable" ]
+Dimmer MonoPrice_Z11_Volume  "Kitchen Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
+Dimmer MonoPrice_Z12_Volume  "Office Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
+Dimmer MonoPrice_Z13_Volume  "Basement Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
+Dimmer MonoPrice_Z14_Volume  "Shed Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
+Dimmer MonoPrice_Z15_Volume  "Zone 5 Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
+Dimmer MonoPrice_Z16_Volume  "Zone 6 Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
+Dimmer MonoPrice_Z11_Treble  "Kitchen Treble [%02d %%]"  <treble>      (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z12_Treble  "Office Treble [%02d %%]"  <treble>      (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z13_Treble  "Basement Treble [%02d %%]"  <treble>      (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z14_Treble  "Shed Treble [%02d %%]"  <treble>      (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z15_Treble  "Zone 5 Treble [%02d %%]"  <treble>      (gZoneTone)  [ "Switchable" ]
+Dimmer MonoPrice_Z16_Treble  "Zone 6 Treble [%02d %%]"  <treble>	     (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z11_Bass    "Kitchen Bass [%02d %%]"  	<bass>		 (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z12_Bass    "Office Bass [%02d %%]"  	<bass>		 (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z13_Bass    "Basement Bass [%02d %%]"   	<bass>		 (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z14_Bass    "Shed Bass [%02d %%]"   	<bass>		 (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z15_Bass    "Zone 5 Bass [%02d %%]"    	<bass>		 (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z16_Bass    "Zone 6 Bass [%02d %%]"    	<bass>		 (gZoneTone) [ "Switchable" ]
+Dimmer MonoPrice_Z11_Balance "Kitchen Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
+Dimmer MonoPrice_Z12_Balance "Office Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
+Dimmer MonoPrice_Z13_Balance "Basement Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
+Dimmer MonoPrice_Z14_Balance "Shed Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
+Dimmer MonoPrice_Z15_Balance "Zone 5 Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
+Dimmer MonoPrice_Z16_Balance "Zone 6 Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
+Number MonoPrice_Z11_Source  "Kitchen Source [%.0f]" 	<control>		 (gZoneSource)
+Number MonoPrice_Z12_Source  "Office Source [%.0f]" 	<control>		 (gZoneSource)
+Number MonoPrice_Z13_Source  "Basement Source [%.0f]"	<control>		 (gZoneSource)
+Number MonoPrice_Z14_Source  "Shed Source [%.0f]"	<control>		 (gZoneSource)
+Number MonoPrice_Z15_Source  "Zone 5 Source [%.0f]"	<control>		 (gZoneSource)
+Number MonoPrice_Z16_Source  "Zone 6 Source [%.0f]"	<control>		 (gZoneSource)
+//Not using the following items but here for complete reference
+//String MonoPrice_Z1_PA      "Zone 1 PA Status [%s]"
+//String MonoPrice_Z2_PA      "Zone 2 PA Status [%s]"
+//String MonoPrice_Z3_PA      "Zone 3 PA Status [%s]"
+//String MonoPrice_Z4_PA      "Zone 4 PA Status [%s]"
+//String MonoPrice_Z5_PA      "Zone 5 PA Status [%s]"
+//String MonoPrice_Z6_PA      "Zone 6 PA Status [%s]"
+//String MonoPrice_Z1_KeyPad  "Zone 1 Key Pad Status [%s]"
+//String MonoPrice_Z2_KeyPad  "Zone 2 Key Pad Status [%s]"
+//String MonoPrice_Z3_KeyPad  "Zone 3 Key Pad Status [%s]"
+//String MonoPrice_Z4_KeyPad  "Zone 4 Key Pad Status [%s]"
+//String MonoPrice_Z5_KeyPad  "Zone 5 Key Pad Status [%s]"
+//String MonoPrice_Z6_KeyPad  "Zone 6 Key Pad Status [%s]"
+//Switch MonoPrice_Z1_DT      "Zone 1 Do Not Disturb [%s]"
+//Switch MonoPrice_Z2_DT      "Zone 2 Do Not Disturb [%s]"
+//Switch MonoPrice_Z3_DT      "Zone 3 Do Not Disturb [%s]"
+//Switch MonoPrice_Z4_DT      "Zone 4 Do Not Disturb [%s]"
+//Switch MonoPrice_Z5_DT      "Zone 5 Do Not Disturb [%s]"
+//Switch MonoPrice_Z6_DT      "Zone 6 Do Not Disturb [%s]"
+

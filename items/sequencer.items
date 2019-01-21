@@ -1,0 +1,21 @@
+Group Sequencer_Items
+Group Sequencer_Step "Sequencer Steps" (Sequencer_Items)
+
+Switch Sequencer_Start "Sequencer Start" (Sequencer_Items)
+Number Sequencer_CurrentStep "Current Step [%d]" (Sequencer_Items)
+Switch Sequencer_Reset "Sequencer Stop/Reset" (Sequencer_Items)
+Number Sequencer_Step_Time "Sequencer Step Time" (Sequencer_Items)
+
+Number Sequencer_Step1_Value "Sequencer Step 1" (Sequencer_Step)
+Number Sequencer_Step2_Value "Sequencer Step 2" (Sequencer_Step)
+Number Sequencer_Step3_Value "Sequencer Step 3" (Sequencer_Step)
+Number Sequencer_Step4_Value "Sequencer Step 4" (Sequencer_Step)
+Number Sequencer_Step5_Value "Sequencer Step 5" (Sequencer_Step)
+Number Sequencer_Step6_Value "Sequencer Step 6" (Sequencer_Step)
+Number Sequencer_Step7_Value "Sequencer Step 7" (Sequencer_Step)
+Number Sequencer_Step8_Value "Sequencer Step 8" (Sequencer_Step)
+Number Sequencer_Step9_Value "Sequencer Step 9" (Sequencer_Step)
+Number Sequencer_Step10_Value "Sequencer Step 10" (Sequencer_Step)
+// Add more step items if needed
+
+Number Sequencer_Output "Sequencer Output [%d]" (Sequencer_Items) // This is the action item (which receives each step value as command)

@@ -1,0 +1,374 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+var String zone
+   
+rule "MonoPrice Status on command change"
+when      
+        Item MonoPrice_Status changed or
+        System started
+then                      
+        var String MonoPrice_ResponseExpr = ">(\\d\\d)(\\d\\d)(\\d\\d)(\\d\\d)(\\d\\d)(\\d\\d)(\\d\\d)(\\d\\d)(\\d\\d)(\\d\\d)(\\d\\d)"
+        var Pattern pattern = null 
+        var Matcher matcher = null
+        pattern = Pattern::compile(MonoPrice_ResponseExpr)
+        matcher = pattern.matcher(AudioMTX.toString)
+        matcher.find()
+        Thread::sleep(300)
+        for(var int i = 1; i <= gMonoPriceStatus.members.size; i=i+1){
+        postUpdate("MonoPrice_Status_G"+i, matcher.group(i))
+    }        
+end
+
+rule "Power (G3) Update"
+when
+	Item MonoPrice_Status_G3 received update 
+then	
+	if(MonoPrice_Status_G3.state == "01"){
+        val int num = Integer::parseInt(MonoPrice_Status_G1.state.toString)
+        postUpdate("MonoPrice_Z"+num+"_Power", "ON")
+    }
+	else {	
+  	val int num = Integer::parseInt(MonoPrice_Status_G1.state.toString)
+        postUpdate("MonoPrice_Z"+num+"_Power", "OFF")
+    }        
+end
+
+rule "Mute (G4) Update"
+when
+	Item MonoPrice_Status_G4 received update 
+then	
+	if(MonoPrice_Status_G4.state == "01"){
+	val int num = Integer::parseInt(MonoPrice_Status_G1.state.toString)
+        postUpdate("MonoPrice_Z"+num+"_Mute", "ON")
+    }
+	else {	
+  	val int num = Integer::parseInt(MonoPrice_Status_G1.state.toString)
+        postUpdate("MonoPrice_Z"+num+"_Mute", "OFF")
+    }  
+end
+
+rule "Volume (G6) Update"
+when
+	Item MonoPrice_Status_G6 received update 
+then
+	val Number vol = ((MonoPrice_Status_G6.state as DecimalType) / 38 * 100).intValue
+	val int num = Integer::parseInt(MonoPrice_Status_G1.state.toString)
+        postUpdate("MonoPrice_Z"+num+"_Volume", vol.toString)
+	logInfo("MonoPrice", "G6 Volume updated to zone " + num + " Volume level " + vol)      
+end
+
+rule "Treble (G7) Update"
+when
+	Item MonoPrice_Status_G7 received update 
+then
+	val Number tre = ((MonoPrice_Status_G7.state as DecimalType) / 14 * 100).intValue
+	val int num = Integer::parseInt(MonoPrice_Status_G1.state.toString)
+        postUpdate("MonoPrice_Z"+num+"_Treble", tre.toString)
+	logInfo("MonoPrice", "G7 Treble updated to zone " + num + " Treble level " + tre)     
+end
+
+rule "Bass (G8) Update"
+when
+	Item MonoPrice_Status_G8 received update 
+then
+	val Number bas = ((MonoPrice_Status_G8.state as DecimalType) / 14 * 100).intValue 
+	val int num = Integer::parseInt(MonoPrice_Status_G1.state.toString)
+        postUpdate("MonoPrice_Z"+num+"_Bass", bas.toString)
+	logInfo("MonoPrice", "G8 Bass updated to zone " + num + " Bass level " + bas)     
+end
+
+rule "Balance (G9) Update"
+when
+	Item MonoPrice_Status_G9 received update 
+then
+	val Number bal = ((MonoPrice_Status_G9.state as DecimalType) / 20 * 100).intValue
+	val int num = Integer::parseInt(MonoPrice_Status_G1.state.toString)
+        postUpdate("MonoPrice_Z"+num+"_Balance", bal.toString)
+	logInfo("MonoPrice", "G9 Balance updated to zone " + num + " Balance " + bal)     
+end
+
+rule "Source (G10) Update"
+when
+	Item MonoPrice_Status_G10 received update 
+then
+	val sor = MonoPrice_Status_G10.state
+        val int num = Integer::parseInt(MonoPrice_Status_G1.state.toString)
+        postUpdate("MonoPrice_Z"+num+"_Source", sor.toString)
+	logInfo("MonoPrice", "G10 Source updated to zone "+ num + " Source Number " + sor)         
+end
+
+rule "Refresh Switch" //used during system startup, cycle through each zone
+when
+        Item MonoPrice_Refresh received command ON or
+        System started
+then 
+       for(var int i=11; i <= 16; i = i+1){
+        AudioMTX.sendCommand("?"+i+"\r")
+        Thread::sleep(600)
+        MonoPrice_Status.postUpdate(AudioMTX.state.toString.trim)
+    }
+        logInfo("Monoprice", "Monoprice Amp items refreshed")
+end 
+
+rule "MonoPrice Zone Power"
+when
+        Item MonoPrice_Z11_Power received command or
+        Item MonoPrice_Z12_Power received command or
+        Item MonoPrice_Z13_Power received command or
+        Item MonoPrice_Z14_Power received command or
+        Item MonoPrice_Z15_Power received command or
+        Item MonoPrice_Z16_Power received command
+then
+        Thread::sleep(100)
+        val power = triggeringItem as SwitchItem 
+        switch power {	
+        	case MonoPrice_Z11_Power: zone ="1"
+        	case MonoPrice_Z12_Power: zone ="2"
+        	case MonoPrice_Z13_Power: zone ="3"
+        	case MonoPrice_Z14_Power: zone ="4"
+        	case MonoPrice_Z15_Power: zone ="5"
+        	case MonoPrice_Z16_Power: zone ="6"
+        }	        	
+        if(receivedCommand==ON){
+                AudioMTX.sendCommand("<1" + zone + "PR01\r")
+                logInfo("MonoPrice", "Zone "+ zone + " Power ON")
+        }
+        else if(receivedCommand==OFF){
+                AudioMTX.sendCommand("<1" + zone + "PR00\r")
+                logInfo("MonoPrice", "Zone " + zone + " Power OFF")
+        }
+        AudioMTX.sendCommand("?1" + zone + "\r")                                            
+        Thread::sleep(300)
+        MonoPrice_Status.postUpdate(AudioMTX.state.toString.trim)
+end
+
+rule "MonoPrice Zone Volume"
+when
+        Item MonoPrice_Z11_Volume received command or
+        Item MonoPrice_Z12_Volume received command or
+        Item MonoPrice_Z13_Volume received command or
+        Item MonoPrice_Z14_Volume received command or
+        Item MonoPrice_Z15_Volume received command or
+        Item MonoPrice_Z16_Volume received command
+then
+	Thread::sleep(100)
+        val volume = triggeringItem as DimmerItem
+        var Number volume_z
+        switch volume {	
+        	case MonoPrice_Z11_Volume: zone ="1"
+        	case MonoPrice_Z12_Volume: zone ="2"
+        	case MonoPrice_Z13_Volume: zone ="3"
+        	case MonoPrice_Z14_Volume: zone ="4"
+        	case MonoPrice_Z15_Volume: zone ="5"
+        	case MonoPrice_Z16_Volume: zone ="6"
+        }       
+        if(receivedCommand instanceof PercentType) {           
+                volume_z = receivedCommand
+                volume_z = (volume_z * 38 / 100).intValue             
+        } else {
+                        if(receivedCommand==INCREASE)                   
+                        {
+                                volume_z = volume_z + 1
+                        }
+                        if(receivedCommand==DECREASE)
+                        {
+                                volume_z = volume_z - 1
+                        }
+                }
+        if (volume_z>9) {AudioMTX.sendCommand("<1" + zone + "VO" + volume_z.toString + "\r") }    
+        else {AudioMTX.sendCommand("<1" + zone + "VO0" + volume_z.toString + "\r") }
+        volume.postUpdate((volume_z / 38 * 100).intValue) 
+        AudioMTX.sendCommand("?1" + zone + "\r")                                            
+        Thread::sleep(300)
+        MonoPrice_Status.postUpdate(AudioMTX.state.toString.trim)                             
+end
+
+rule "MonoPrice Zone Mute"
+when
+        Item MonoPrice_Z11_Mute received command or
+        Item MonoPrice_Z12_Mute received command or
+        Item MonoPrice_Z13_Mute received command or
+        Item MonoPrice_Z14_Mute received command or
+        Item MonoPrice_Z15_Mute received command or
+        Item MonoPrice_Z16_Mute received command
+then
+        Thread::sleep(100)
+        val mute = triggeringItem as SwitchItem    
+        switch mute {	
+        	case MonoPrice_Z11_Mute: zone ="1"
+        	case MonoPrice_Z12_Mute: zone ="2"
+        	case MonoPrice_Z13_Mute: zone ="3"
+        	case MonoPrice_Z14_Mute: zone ="4"
+        	case MonoPrice_Z15_Mute: zone ="5"
+        	case MonoPrice_Z16_Mute: zone ="6"
+        }	       	
+        if(receivedCommand==ON){
+                AudioMTX.sendCommand("<1" + zone + "MU01\r")
+                logInfo("MonoPrice", "Zone "+ zone + " Mute ON")
+        }
+        else if(receivedCommand==OFF){
+                AudioMTX.sendCommand("<1" + zone + "MU00\r")
+                logInfo("MonoPrice", "Zone " + zone + " Mute OFF")
+        }                                  
+        AudioMTX.sendCommand("?1" + zone + "\r")                                            
+        Thread::sleep(300)
+        MonoPrice_Status.postUpdate(AudioMTX.state.toString.trim)
+end
+
+rule "MonoPrice Zone Source"
+when
+        Item MonoPrice_Z11_Source received command or
+        Item MonoPrice_Z12_Source received command or
+        Item MonoPrice_Z13_Source received command or
+        Item MonoPrice_Z14_Source received command or
+        Item MonoPrice_Z15_Source received command or
+        Item MonoPrice_Z16_Source received command
+then
+        Thread::sleep(100)
+        val source = triggeringItem as NumberItem 
+        switch source {	
+        	case MonoPrice_Z11_Source: zone ="1"
+        	case MonoPrice_Z12_Source: zone ="2"
+        	case MonoPrice_Z13_Source: zone ="3"
+        	case MonoPrice_Z14_Source: zone ="4"
+        	case MonoPrice_Z15_Source: zone ="5"
+        	case MonoPrice_Z16_Source: zone ="6"
+        }	
+        AudioMTX.sendCommand("<1" + zone + "CH0" + source.state.toString + "\r")
+        AudioMTX.sendCommand("?1" + zone + "\r")                                            
+        Thread::sleep(300)
+        MonoPrice_Status.postUpdate(AudioMTX.state.toString.trim)
+end
+
+rule "MonoPrice Zone Tone"
+when
+        Item MonoPrice_Z11_Treble received command or
+        Item MonoPrice_Z12_Treble received command or
+        Item MonoPrice_Z13_Treble received command or
+        Item MonoPrice_Z14_Treble received command or
+        Item MonoPrice_Z15_Treble received command or
+        Item MonoPrice_Z16_Treble received command or
+        Item MonoPrice_Z11_Bass received command or
+        Item MonoPrice_Z12_Bass received command or
+        Item MonoPrice_Z13_Bass received command or
+        Item MonoPrice_Z14_Bass received command or
+        Item MonoPrice_Z15_Bass received command or
+        Item MonoPrice_Z16_Bass received command
+then
+        var Number toneslider_z
+        var String tone_z
+        Thread::sleep(100)
+        val tone = triggeringItem as DimmerItem    
+        switch tone {	
+        	case MonoPrice_Z11_Treble: {
+        	zone ="1" 
+        	tone_z = "1TR" 
+        	}
+        	case MonoPrice_Z12_Treble: {
+        	zone ="2" 
+        	tone_z = "2TR"
+        	}
+        	case MonoPrice_Z13_Treble: {
+        	zone ="3" 
+        	tone_z = "3TR"
+        	}
+        	case MonoPrice_Z14_Treble: {
+        	zone ="4"
+        	tone_z = "4TR"
+        	}
+        	case MonoPrice_Z15_Treble: {
+        	zone ="5"
+        	tone_z = "5TR"
+        	}
+        	case MonoPrice_Z16_Treble: {
+        	zone ="6"
+        	tone_z = "6TR"
+        	}
+        	case MonoPrice_Z11_Bass: {
+        	zone ="1"
+        	tone_z = "1BS"
+        	}
+        	case MonoPrice_Z12_Bass: {
+        	zone ="2"
+        	tone_z = "2BS"
+        	}
+        	case MonoPrice_Z13_Bass: {
+        	zone ="3"
+        	tone_z = "3BS"
+        	}
+        	case MonoPrice_Z14_Bass: {
+        	zone ="4"
+        	tone_z = "4BS"
+        	}
+        	case MonoPrice_Z15_Bass:{ 
+        	zone ="5"
+        	tone_z = "5BS"
+        	}
+        	case MonoPrice_Z16_Bass: {
+        	zone ="6"
+        	tone_z = "6BS"
+        	}
+        }	
+        if(receivedCommand instanceof PercentType) {                    
+                toneslider_z = receivedCommand
+                toneslider_z = (toneslider_z * 14 / 100).intValue             
+        } else {
+                        if(receivedCommand==INCREASE)                   
+                        {
+                                toneslider_z = toneslider_z + 1
+                        }
+                        if(receivedCommand==DECREASE)
+                        {
+                                toneslider_z = toneslider_z - 1
+                        }
+                }
+        if (toneslider_z>9) {AudioMTX.sendCommand("<1" + tone_z + toneslider_z.toString + "\r") }    
+        else {AudioMTX.sendCommand("<1" + tone_z + "0" + toneslider_z + "\r") }
+        tone.postUpdate((toneslider_z / 14 * 100).intValue)                              
+        AudioMTX.sendCommand("<1" + zone + "\r")                                            
+        Thread::sleep(300)
+        MonoPrice_Status.postUpdate(AudioMTX.state.toString.trim)
+end
+
+rule "MonoPrice Zone Balance"
+when
+        Item MonoPrice_Z11_Balance received command or
+        Item MonoPrice_Z12_Balance received command or
+        Item MonoPrice_Z13_Balance received command or
+        Item MonoPrice_Z14_Balance received command or
+        Item MonoPrice_Z15_Balance received command or
+        Item MonoPrice_Z16_Balance received command
+then
+        var Number balance_z
+        val balance = triggeringItem as DimmerItem 
+        Thread::sleep(100)
+        switch balance {	
+        	case MonoPrice_Z11_Balance: zone ="1"
+        	case MonoPrice_Z12_Balance: zone ="2"
+        	case MonoPrice_Z13_Balance: zone ="3"
+        	case MonoPrice_Z14_Balance: zone ="4"
+        	case MonoPrice_Z15_Balance: zone ="5"
+        	case MonoPrice_Z16_Balance: zone ="6"
+        }
+        
+        if(receivedCommand instanceof PercentType) {                    
+                balance_z = receivedCommand
+                balance_z = (balance_z * 20 / 100).intValue             
+        } else {
+                        if(receivedCommand==INCREASE)                  
+                        {
+                                balance_z = balance_z + 1
+                        }
+                        if(receivedCommand==DECREASE)
+                        {
+                                balance_z = balance_z - 1
+                        }
+                }
+        if (balance_z>9) {AudioMTX.sendCommand("<1" + zone + "BL" + balance_z.toString + "\r") }   
+        else {AudioMTX.sendCommand("<1" + zone + "BL0" + balance_z.toString + "\r") }
+        balance.postUpdate((balance_z / 20 * 100).intValue)                              
+        AudioMTX.sendCommand("?1" + zone + "\r")                                            
+        Thread::sleep(300)
+        MonoPrice_Status.postUpdate(AudioMTX.state.toString.trim)
+end
