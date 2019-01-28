@@ -52,7 +52,8 @@ Switch Light_FF_Foyer_Lamp		    "Foyer Lamp"			            (FF_Foyer, NightLight
 Dimmer Light_FF_Kitchen_Island_L	"Island Left [%d %%]" 		        (Light_FF_Kitchen_Island, FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)	 [ "Lighting" ]		{channel="hue:0100:00178829871a:10:brightness"}
 Dimmer Light_FF_Kitchen_Island_C	"Island Center [%d %%]" 	        (Light_FF_Kitchen_Island, FF_Kitchen, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0100:00178829871a:11:brightness"}
 Dimmer Light_FF_Kitchen_Island_R	"Island Right [%d %%]" 		        (Light_FF_Kitchen_Island, FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)	 [ "Lighting" ]		{channel="hue:0100:00178829871a:12:brightness"}
-Group:Dimmer Light_FF_Kitchen_Island	"Island Light [%d %%]"  <slider>	(FF_Kitchen, Lights)            [ "Lighting" ]
+Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"                      (FF_Kitchen, Lights)                        [ "Lighting" ]      {channel="zwave:device:512:node15:switch_dimmer"}
+Group:Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(FF_Kitchen, Lights)            [ "Lighting" ]
 Dimmer Light_FF_Office_Lamp		    "Office Lamp [%d %%]"			    (FF_Office, EveningLights, Lights)  [ "Lighting" ]		{channel="hue:0100:00178829871a:16:brightness"}
 Color Light_FF_Office_Lamp2         "Office Mood Lamp [%d %%]" 	        (FF_Office, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]   {channel="hue:0210:00178829871a:24:color"}
 Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(FF_Office, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                 [ "Lighting" ]	{channel="hue:0210:00178829871a:6:color"}
@@ -69,7 +70,7 @@ Color Light_SF_Master_EnsuiteHall   "Ensuite Hall [%d %%]"      <rgb>	(SF_Master
 Color Light_SF_Guest_BedLamp_Right "Guest Bed Right Lamp" 	                (SF_Guest, Lights)   [ "Lighting" ]  {channel="hue:0210:00178829871a:31:color"}
 Color Light_SF_Guest_BedLamp_Left "Guest Bed Left Lamp" 	                (SF_Guest, Lights)   [ "Lighting" ]  {channel="hue:0210:00178829871a:32:color"}
 
-
+String Habpanel_Dashboard "Storage Item for Habpanel Dashboard Link"
 
 Group Temp_Chart (All)
 Number Temp_Chart_Period "Temp Chart Period"
@@ -166,8 +167,8 @@ Number Temperature_Ensuite                  "Ensuite Temp [%.1f F]"             
 Number Humidity_Ensuite                     "Ensuite Hum [%.1f %%]"             <humidity> (SF_Ensuite,Hum_Chart)                               {mqtt="<[broker:home/Ensuite/humidity:state:default]"}
 Number Temperature_Kitchen                  "Kitchen Temp [%.1f F]"             <temperature> (FF_Kitchen,Temp_Chart)                           {mqtt="<[broker:/Kitchen/DHT22/Temperature:state:default]"}
 Number Humidity_Kitchen                     "Kitchen Hum [%.1f %%]"             <humidity> (FF_Kitchen,Hum_Chart)                               {mqtt="<[broker:/Kitchen/DHT22/Humidity:state:default]"}
-Number Temperature_Office                   "Office Temp [%.1f F]"              <temperature> (FF_Office,Temp_Chart)                            {mqtt="<[broker:home/Office/DHT22/Temperature:state:default]"}
-Number Humidity_Office                      "Office Hum [%.1f %%]"              <humidity> (FF_Office,Hum_Chart)                                {mqtt="<[broker:home/Office/DHT22/Humidity:state:default]"}
+Number Temperature_Office                   "Office Temp [%.1f F]"              <temperature> (FF_Office,Temp_Chart)                            {channel="mqtt:topic:35b79434:temperature"} //{mqtt="<[broker:/Office/DHT22/Temperature:state:default]"}
+Number Humidity_Office                      "Office Hum [%.1f %%]"              <humidity> (FF_Office,Hum_Chart)                                {mqtt="<[broker:/Office/DHT22/Humidity:state:default]"}
 Number Temperature_Family                   "Family Temp [%.1f F]"              <temperature> (FF_Family,Temp_Chart)                            {mqtt="<[broker:home/Family/temperature:state:default]"}
 Number Humidity_Family                      "Family Hum [%.1f %%]"              <humidity> (FF_Family,Hum_Chart)                                {mqtt="<[broker:home/Family/humidity:state:default]"}
 Number Temperature_Guest                    "Guest Temp [%.1f F]"               <temperature> (SF_GuestBdrm,Temp_Chart_2)                       {mqtt="<[broker:home/Guest/temperature:state:default]"}

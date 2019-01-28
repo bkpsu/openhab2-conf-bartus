@@ -85,6 +85,7 @@ sitemap default label="Home"
 						Slider item=Light_FF_Kitchen_Recessed_SE
 					}
 					Slider item=Light_FF_Kitchen_Sink
+					Slider item=Light_FF_Kitchen_DiningTbl
 				}
 				Frame{
 					Switch item=LEDStrip_Kitchen_Cabinet_Power
