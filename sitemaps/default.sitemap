@@ -384,7 +384,8 @@ sitemap default label="Home"
 		{
 			Image item=FrontDoorCamera_LastEventAnimatedImageUrl
 			Image item=FrontDoorCamera_LastEventImageUrl
-			
+			Image item=Camera1
+			//Video item=Camera1Vid
 		}
 		Text item=Sunrise_Time icon="sunrise"
 		Text item=Sunset_Time icon="sunset"
