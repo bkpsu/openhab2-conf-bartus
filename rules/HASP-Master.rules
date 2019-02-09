@@ -594,7 +594,8 @@ end
 /* Restore saved page and rebuild config on reconnect */
 rule "HASP Master Restore page on connect"
 when
-    Item HASP_Plate01_Plate_Sensor_Status changed to "available"
+    Item HASP_Plate01_Plate_Sensor_Status changed to "available" or
+    Item HASP_Plate01_Page changed to 0
 then
   
     HASP_Plate01_Page.sendCommand(HASP_Plate01_Page_Current.state as Number) // Send HASP to previous page
@@ -747,23 +748,30 @@ end
 rule "HASP Master set page button colors on page change"
 when
     Item HASP_Plate01_Page_Current received update 
-then
-    var jsonString = '["p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[1].bco=25388", ' +
-                        '"p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[2].bco=25388", ' +
-                        '"p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[3].bco=25388", '
+then    
+    if (HASP_Plate01_Page_Current.state != 0)
+    {
+        var jsonString = '["p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[1].bco=25388", ' +
+                            '"p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[2].bco=25388", ' +
+                            '"p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[3].bco=25388"'
 
-    if (HASP_Plate01_Page_Current.state == plate01_pagebutton1page)
-    {
-            jsonString = jsonString + '"p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[1].bco=65535"]'
-    }
-    else if (HASP_Plate01_Page_Current.state == plate01_pagebutton2page)
-    {
-            jsonString = jsonString + '"p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[2].bco=65535"]'
-    }
-    else if (HASP_Plate01_Page_Current.state == plate01_pagebutton3page)
-    {
-            jsonString = jsonString + '"p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[3].bco=65535"]'
-    }
+        if (HASP_Plate01_Page_Current.state == plate01_pagebutton1page)
+        {
+                jsonString = jsonString + ', "p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[1].bco=65535"]'
+        }
+        else if (HASP_Plate01_Page_Current.state == plate01_pagebutton2page)
+        {
+                jsonString = jsonString + ', "p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[2].bco=65535"]'
+        }
+        else if (HASP_Plate01_Page_Current.state == plate01_pagebutton3page)
+        {
+                jsonString = jsonString + ', "p['+ (HASP_Plate01_Page_Current.state.toString) + '].b[3].bco=65535"]'
+        }
+        else
+        {
+                jsonString = jsonString + ']'
+        }
 
-    HASP_Plate01_Plate_Command_JSON.sendCommand(jsonString)
+        HASP_Plate01_Plate_Command_JSON.sendCommand(jsonString)
+    }
 end
