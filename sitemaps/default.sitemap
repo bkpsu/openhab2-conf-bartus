@@ -27,30 +27,31 @@ sitemap default label="Home"
 				Frame{
 					Colorpicker item=Light_SF_Master_EnsuiteHall
 					Switch item=Motion_Master_Disable				
-				}				
-				Text label="HASP"
-				{
-					Frame{
-						Switch item=HASP_Plate01_Page mappings=[0="0", 1="1", 2="2", 3="3", 4="4", 5="5", 6="6", 7="7", 8="8", 9="9"]
-					}
-					Frame{
-						Text item=HASP_Plate01_Page_Current
-						Text item=HASP_Plate01_Plate_Sensor_Status
-						Text item=HASP_Plate01_Plate_Sensor_ESPVersion
-						Text item=HASP_Plate01_Plate_Sensor_ESPUpdate
-						Text item=HASP_Plate01_Plate_Sensor_LCDVersion
-						Text item=HASP_Plate01_Plate_Sensor_LCDUpdate
-						Text item=HASP_Plate01_Plate_Sensor_ESPUptime
-						Text item=HASP_Plate01_Plate_Sensor_SignalStrength
-						Text item=HASP_Plate01_Plate_Sensor_HaspIP
-					}
-					Frame{
-						Switch item=HASP_Plate01_Light_Power
-						Text item=HASP_Plate01_Light_Status
-					}
-					Frame{
-						Setpoint item=HASP_Plate01_Light_Dimmer minValue=0 maxValue=255 step=32
-						Text item=HASP_Plate01_Light_Brightness
+					Text label="HASP"
+					{
+						Frame{
+							Switch item=HASP_Plate01_Page mappings=[0="0", 1="1", 2="2", 3="3", 4="4", 5="5", 6="6", 7="7", 8="8", 9="9"]
+						}
+						Frame{
+							Text item=HASP_Plate01_Page_Current
+							Text item=HASP_Plate01_Plate_Sensor_Status
+							Text item=HASP_Plate01_Plate_Sensor_ESPVersion
+							Text item=HASP_Plate01_Plate_Sensor_ESPUpdate
+							Text item=HASP_Plate01_Plate_Sensor_LCDVersion
+							Text item=HASP_Plate01_Plate_Sensor_LCDUpdate
+							Text item=HASP_Plate01_Plate_Sensor_ESPUptime
+							Text item=HASP_Plate01_Plate_Sensor_SignalStrength
+							Text item=HASP_Plate01_Plate_Sensor_HaspIP
+							Switch item=HASP_Plate01_Plate_Refresh
+						}
+						Frame{
+							Switch item=HASP_Plate01_Light_Power
+							Text item=HASP_Plate01_Light_Status
+						}
+						Frame{
+							Setpoint item=HASP_Plate01_Light_Dimmer minValue=0 maxValue=255 step=32
+							Text item=HASP_Plate01_Light_Brightness
+						}
 					}
 				}
 			}		
@@ -151,31 +152,32 @@ sitemap default label="Home"
 			{
 				Frame{
 					Switch item=Light_FF_Foyer_Lamp
-					Slider item=Light_FF_Foyer_Light
-				}				
-				Text label="HASP"
-				{
-					Frame{
-						Switch item=HASP_Plate02_Page mappings=[0="0", 1="1", 2="2", 3="3", 4="4", 5="5", 6="6", 7="7", 8="8", 9="9"]
-					}
-					Frame{
-						Text item=HASP_Plate02_Page_Current
-						Text item=HASP_Plate02_Plate_Sensor_Status
-						Text item=HASP_Plate02_Plate_Sensor_ESPVersion
-						Text item=HASP_Plate02_Plate_Sensor_ESPUpdate
-						Text item=HASP_Plate02_Plate_Sensor_LCDVersion
-						Text item=HASP_Plate02_Plate_Sensor_LCDUpdate
-						Text item=HASP_Plate02_Plate_Sensor_ESPUptime
-						Text item=HASP_Plate02_Plate_Sensor_SignalStrength
-						Text item=HASP_Plate02_Plate_Sensor_HaspIP
-					}
-					Frame{
-						Switch item=HASP_Plate02_Light_Power
-						Text item=HASP_Plate02_Light_Status
-					}
-					Frame{
-						Setpoint item=HASP_Plate02_Light_Dimmer minValue=0 maxValue=255 step=32
-						Text item=HASP_Plate02_Light_Brightness
+					Slider item=Light_FF_Foyer_Light				
+					Text label="HASP"
+					{
+						Frame{
+							Switch item=HASP_Plate02_Page mappings=[0="0", 1="1", 2="2", 3="3", 4="4", 5="5", 6="6", 7="7", 8="8", 9="9"]
+						}
+						Frame{
+							Text item=HASP_Plate02_Page_Current
+							Text item=HASP_Plate02_Plate_Sensor_Status
+							Text item=HASP_Plate02_Plate_Sensor_ESPVersion
+							Text item=HASP_Plate02_Plate_Sensor_ESPUpdate
+							Text item=HASP_Plate02_Plate_Sensor_LCDVersion
+							Text item=HASP_Plate02_Plate_Sensor_LCDUpdate
+							Text item=HASP_Plate02_Plate_Sensor_ESPUptime
+							Text item=HASP_Plate02_Plate_Sensor_SignalStrength
+							Text item=HASP_Plate02_Plate_Sensor_HaspIP
+							Switch item=HASP_Plate02_Plate_Refresh
+						}
+						Frame{
+							Switch item=HASP_Plate02_Light_Power
+							Text item=HASP_Plate02_Light_Status
+						}
+						Frame{
+							Setpoint item=HASP_Plate02_Light_Dimmer minValue=0 maxValue=255 step=32
+							Text item=HASP_Plate02_Light_Brightness
+						}
 					}
 				}
 			}
