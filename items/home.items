@@ -178,6 +178,13 @@ Number Humidity_Guest                       "Guest Hum [%.1f %%]"               
 Number Motion_MasterBedroom "Master Motion [%d]" {mqtt="<[broker:home/MasterBedroom/motion:state:default]", expire="2m,0" }
 Switch Motion_Master_Disable "Disable Motion Sensor" (SF_Master)
 
+Group AmbiMate_Test "AmbiMate Test"
+Number AmbiMate_Temp "AmbiMate Temp Test [%f]" (AmbiMate_Test) {mqtt="<[broker:/ESP_Easy/AmbimateMS4/Temperature:state:default]" }
+Number AmbiMate_Humidity "AmbiMate Humidity Test [%f]" (AmbiMate_Test) {mqtt="<[broker:/ESP_Easy/AmbimateMS4/Humidity:state:default]" }
+Number AmbiMate_Light "AmbiMate Light Test [%d]" (AmbiMate_Test) {mqtt="<[broker:/ESP_Easy/AmbimateMS4/Light:state:default]" }
+Number AmbiMate_Motion "AmbiMate Motion Test [%d]" (AmbiMate_Test) {mqtt="<[broker:/ESP_Easy/AmbimateMS4/Motion:state:default]"}//, expire="10s,0" }
+
+
 /* MQTT Tasmota Devices */
 Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) [ "Switchable" ] {mqtt=">[broker:cmnd/sonoffS31-1/power:command:*:default]],<[broker:stat/sonoffS31-1/POWER:state:default]"}
 
