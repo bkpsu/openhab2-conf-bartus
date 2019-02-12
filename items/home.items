@@ -56,6 +56,7 @@ Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"                      (FF_Kitc
 Group:Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(FF_Kitchen, Lights)            [ "Lighting" ]
 Dimmer Light_FF_Office_Lamp		    "Office Lamp [%d %%]"			    (FF_Office, EveningLights, Lights)  [ "Lighting" ]		{channel="hue:0100:00178829871a:16:brightness"}
 Color Light_FF_Office_Lamp2         "Office Mood Lamp [%d %%]" 	        (FF_Office, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]   {channel="hue:0210:00178829871a:24:color"}
+Color Light_FF_Office_Recliner      "Office Recliner Lamp [%d %%]"      (FF_Office, EveningLights, Lights)  [ "Lighting" ]      {channel="hue:0210:00178829871a:33:color"}
 Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(FF_Office, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                 [ "Lighting" ]	{channel="hue:0210:00178829871a:6:color"}
 Dimmer Light_FF_Kitchen_Recessed_SW	"Recessed SW [%d %%]"		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:20:brightness"}
 Dimmer Light_FF_Kitchen_Recessed_NW	"Recessed NW [%d %%]" 		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:18:brightness"}
@@ -63,7 +64,7 @@ Dimmer Light_FF_Kitchen_Recessed_NE	"Recessed NE [%d %%]" 		        (Light_FF_Ki
 Dimmer Light_FF_Kitchen_Recessed_SE	"Recessed SE [%d %%]" 		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:19:brightness"}
 Group:Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" 	    (FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]
 Dimmer Light_FF_Kitchen_Sink	    "Sink [%d %%]" 		                (FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0100:00178829871a:4:brightness"}
-Color Light_SF_Landing_Lamp	    "Landing Lamp"			                (SF_Landing, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]	{channel="hue:0210:00178829871a:33:color"}
+Color Light_SF_Landing_Lamp	    "Landing Lamp"			                (SF_Landing, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]	{channel="hue:0210:00178829871a:34:color"}
 Dimmer Light_SF_Master_BedLamp_Right "Right Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:22:brightness"}
 Dimmer Light_SF_Master_BedLamp_Left "Left Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:23:brightness"}
 Color Light_SF_Master_EnsuiteHall   "Ensuite Hall [%d %%]"      <rgb>	(SF_Master, Lights)                 [ "Lighting" ]      {channel="hue:0210:00178829871a:8:color"}

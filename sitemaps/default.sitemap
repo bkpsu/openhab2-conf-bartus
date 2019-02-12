@@ -140,6 +140,7 @@ sitemap default label="Home"
 					Colorpicker item=Light_FF_Office_Lamp2
 					Colorpicker item=Light_FF_Office_Desk
 					Slider item=Light_FF_Office_Lamp
+					Colorpicker item=Light_FF_Office_Recliner
 				}
 				Frame
 				{
@@ -480,5 +481,31 @@ sitemap default label="Home"
 			}
 		
 		}
+		Text label="HASP"
+		{
+			Frame{
+				Switch item=HASP_Plate03_Page mappings=[0="0", 1="1", 2="2", 3="3", 4="4", 5="5", 6="6", 7="7", 8="8", 9="9"]
+			}
+			Frame{
+				Text item=HASP_Plate03_Page_Current
+				Text item=HASP_Plate03_Plate_Sensor_Status
+				Text item=HASP_Plate03_Plate_Sensor_ESPVersion
+				Text item=HASP_Plate03_Plate_Sensor_ESPUpdate
+				Text item=HASP_Plate03_Plate_Sensor_LCDVersion
+				Text item=HASP_Plate03_Plate_Sensor_LCDUpdate
+				Text item=HASP_Plate03_Plate_Sensor_ESPUptime
+				Text item=HASP_Plate03_Plate_Sensor_SignalStrength
+				Text item=HASP_Plate03_Plate_Sensor_HaspIP
+				Switch item=HASP_Plate03_Plate_Refresh
+			}
+			Frame{
+				Switch item=HASP_Plate03_Light_Power
+				Text item=HASP_Plate03_Light_Status
+			}
+			Frame{
+				Setpoint item=HASP_Plate03_Light_Dimmer minValue=0 maxValue=255 step=32
+				Text item=HASP_Plate03_Light_Brightness
+			}
+		}		
 	}
 }
