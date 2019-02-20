@@ -546,7 +546,12 @@ when
     Item HASP_Plate03_Plate_Refresh received command ON
 then
   
-    HASP_Plate03_Page.sendCommand(HASP_Plate03_Page_Current.state as Number) // Send HASP to previous page
+    if (HASP_Plate03_Page_Current.state == NULL){
+        HASP_Plate03_Page.sendCommand(plate03_pagebutton2page as Number) // Send HASP to Status page
+    }
+    else{
+        HASP_Plate03_Page.sendCommand(HASP_Plate03_Page_Current.state as Number) // Send HASP to previous page
+    }
 
     var jsonString = '["p[1].b[1].bco=25388", ' +   //Initialize bottom page buttons with gray color
                     '"p[1].b[2].bco=25388", ' +
