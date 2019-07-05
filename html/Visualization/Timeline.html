@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <Title>Timeline</Title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <link rel="stylesheet" type="text/css" href="../css/visualizationStyle.css">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- https://github.com/evanplaice/jquery-csv  -->
+    <script type="text/javascript" src="../javascript/jquery.csv.min.js"></script>
+    <script type="text/javascript" src="../javascript/date.js"></script>
+    <script type="text/javascript" src="../javascript/openHAB.js"></script>
+
+    <script type="application/javascript">
+        var baseURL = "../../../";
+        var serviceId = "influxdb";
+		var hours = 24;
+        //var openHABItemNames = GetGroupItemNames(GetParameter("Group"));
+		
+		var openHABItemNames = [];
+		var groupParameter = GetParameter("Group");
+        var itemParameter  = GetParameter("Item");
+        var hoursParameter = GetParameter("Hours");
+		var serviceParameter = GetParameter("ServiceId");
+        
+		if (groupParameter != null) {
+            openHABItemNames = GetGroupItemNames(GetParameter("Group"));
+        }
+        if (itemParameter != null) {
+            openHABItemNames.push(itemParameter);
+        }
+		
+		if (hoursParameter != null) {
+			var hours = hoursParameter;
+		}
+		
+		if (serviceParameter != null) {
+			serviceId = serviceParameter;
+		}
+
+        function filterStateChanges(data) {
+            var filteredData = [];
+            for (var i = 0; i < data.length; i++) {
+                // always keep the 1st entry ...
+                if (i == 0) {
+                    if (data[i][1] == "ON" || data[i][1] == "OPEN")
+                        filteredData.push(data[i]);
+                } else {
+                    // only keep transitions ...
+                    if (data[i][1] != data[i - 1][1]) {
+                        filteredData.push(data[i]);
+                    }
+                }
+            }
+
+            return filteredData;
+        }
+
+		function formatDate(dateObj,format) {
+			var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+			var curr_date = dateObj.getDate();
+			var curr_month = dateObj.getMonth();
+			curr_month = curr_month + 1;
+			var curr_year = dateObj.getFullYear();
+			var curr_min = dateObj.getMinutes();
+			var curr_hr= dateObj.getHours();
+			var curr_sc= dateObj.getSeconds();
+			if(curr_month.toString().length == 1)
+				curr_month = '0' + curr_month;      
+			if(curr_date.toString().length == 1)
+				curr_date = '0' + curr_date;
+			if(curr_hr.toString().length == 1)
+				curr_hr = '0' + curr_hr;
+			if(curr_min.toString().length == 1)
+				curr_min = '0' + curr_min;
+			if(curr_sc.toString().length == 1)
+				curr_sc = '0' + curr_sc;
+
+			if(format == 1)// dd.mm.yyyy HH:mm:ss
+			{
+				return curr_date + "." + curr_month + "." + curr_year + " " + curr_hr + ":" + curr_min + ":" + curr_sc;       
+			}
+			else if(format == 2)// yyyy.mm.dd HH:mm:ss
+			{
+				return curr_year + "." + curr_month + "." + curr_date + " " + curr_hr + ":" + curr_min + ":" + curr_sc;       
+			}
+			else if(format == 3)// dd/mm/yyyy
+			{
+				return curr_date + "/" + curr_month+ "/" + curr_year;       
+			}
+			else if(format == 4)// MM/dd/yyyy HH:mm:ss
+			{
+				return curr_month+ "/" + curr_date + "/" + curr_year + " " + curr_hr + ":" + curr_min + ":" + curr_sc;       
+			}
+		}		
+		
+		
+        function addItemToChart(itemName, hours, serviceId, chartData) {
+            var openHABItem = GetOpenHABItem(itemName);
+            var openHABHistoryData = GetOpenHABHistory(itemName, hours, serviceId);
+            var stateChanges = filterStateChanges(openHABHistoryData);
+			var label = '';
+			
+			if ( openHABItem.label != null ) {
+				label = openHABItem.label;
+			} else {
+				label = itemName;
+			}
+			
+			if ( stateChanges.length == 0) {
+				chartData.addRow([label,'','','opacity: 0',new Date(),new Date()]) //add dummy entry
+			} else {
+				for (var i = 0; i < stateChanges.length; i++) {
+					var entry = [];
+					entry[0] = label;
+					entry[1] = '';
+					entry[3] = null;
+					entry[4] = new Date(parseInt(stateChanges[i][0]));
+					if (i + 1 < stateChanges.length) {
+						entry[5] = new Date(parseInt(stateChanges[++i][0]));
+					} else {
+						entry[5] = new Date();
+					}
+					
+					//tooltip
+					//entry[2] = null;
+					var duration = Math.trunc((entry[5]-entry[4])/1000);
+					var hours = parseInt( duration / 3600 ) % 24;
+					var minutes = parseInt( duration / 60 ) % 60;
+					var seconds = duration % 60;
+					var duration_string = seconds + 's';
+					if (minutes > 0) duration_string = minutes + 'm ' + duration_string;
+					if (hours > 0) duration_string = hours + 'h ' + duration_string;
+					
+					entry[2] = '<div class="ggl-tooltip">' +
+						'<div><strong>' + label + '</strong></div>' +
+						'<hr>' +
+						'<table>' +
+						'<tr><td><span>Start:</span></td><td>' + formatDate(entry[4],1) + '</td></tr>' +
+						'<tr><td><span>End:</span></td><td>' + formatDate(entry[5],1) + '</td></tr>' +
+						'</table><hr><table>' +
+						'<tr><td><span>Duration:</span></td><td>' + duration_string + '</td></tr>' +
+						'</table>' +
+						'</div>';
+					
+					chartData.addRow(entry);
+				}
+			}
+            return chartData;
+        }
+
+        function drawChart() {
+            var container = document.getElementById("chart");
+            var chart = new google.visualization.Timeline(container);
+            var chartData = new google.visualization.DataTable();
+
+            chartData.addColumn({
+                type: 'string',
+                id: 'Label'
+            });
+            chartData.addColumn({
+                type: 'string',
+                id: 'Name'
+            });
+			chartData.addColumn({
+				type: 'string',
+				role: 'tooltip',
+				'p': {'html': true}
+			});
+			chartData.addColumn({
+				type: 'string',
+				role: 'style'
+			});
+            chartData.addColumn({
+                type: 'date',
+                id: 'Start'
+            });
+            chartData.addColumn({
+                type: 'date',
+                id: 'End'
+            });
+
+            openHABItemNames.forEach(function(itemName) {
+                chartData = addItemToChart(itemName, hours, serviceId, chartData);
+            });
+			
+			var xAxisFormat = "HH:mm";
+            if (hours > 24) {
+				var xAxisFormat = "EEE, HH:mm";
+			}
+            var chartOptions = {
+                height : window.innerHeight,
+                /* A theme is a set of predefined option values that work together to achieve 
+                 * a specific chart behavior or visual effect. Currently only one theme is available:
+                 *  'maximized' - Maximizes the area of the chart, and draws the legend and 
+                 *                all of the labels inside the chart area.
+                 */
+                theme: 'maximized',
+                hAxis: {
+                    textPosition: 'in',
+                    format: xAxisFormat,
+					minValue: (new Date()).addHours(hours * -1),
+					maxValue: new Date()
+                },
+				tooltip: {
+					isHtml: true
+				}
+            }
+
+            chart.draw(chartData, chartOptions);
+        };
+
+        // on document ready ...
+        $(document).ready(function() {
+            // load google charts ...
+            google.charts.load("current", {
+                packages: ["timeline"]
+            });
+            // set callback ...
+            google.charts.setOnLoadCallback(drawChart);
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <div id="chart"></div>
+    </center>
+</body>
+
+</html>

@@ -214,7 +214,8 @@ sitemap default label="Home"
 	Frame label="Thermostat" {
 		Selection item=HVAC_HeatSetPoint mappings=["52 °F"="52 °F","65 °F"="65 °F","68 °F"="68 °F","69 °F"="69 °F","70 °F"="70 °F","71 °F"="71 °F","72 °F"="72 °F","73 °F"="73 °F","74 °F"="74 °F","75 °F"="75 °F"] valuecolor=[>0="red"] labelcolor=[>0="red"]
 		//Setpoint item=HVAC_HeatSetPoint minValue=45.0 maxValue=80.0 step=1.0 valuecolor=[>0="red"] labelcolor=[>0="red"]
-		Setpoint item=HVAC_CoolSetPoint minValue=60.0 maxValue=90.0 step=1.0 valuecolor=[>0="blue"] labelcolor=[>0="blue"]
+		//Setpoint item=HVAC_CoolSetPoint minValue=60.0 maxValue=90.0 step=1.0 valuecolor=[>0="blue"] labelcolor=[>0="blue"]
+		Selection item=HVAC_CoolSetPoint mappings=["52 °F"="52 °F","65 °F"="65 °F","68 °F"="68 °F","69 °F"="69 °F","70 °F"="70 °F","71 °F"="71 °F","72 °F"="72 °F","73 °F"="73 °F","74 °F"="74 °F","75 °F"="75 °F"] valuecolor=[>0="blue"] labelcolor=[>0="blue"]
 		Text item=Temperature_HVAC
 		{
 			Switch item=HVAC_Mode mappings=[0=Off,1=Heat,2=Cool,3=Auto]
@@ -240,6 +241,10 @@ sitemap default label="Home"
 				Chart item=Hum_Chart period=h refresh=6000 service="rrd4j" visibility=[Hum_Chart_Period==0, Hum_Chart_Period=="Uninitialized"]
 				Chart item=Hum_Chart period=D refresh=30000 service="rrd4j" visibility=[Hum_Chart_Period==1]
 				Chart item=Hum_Chart period=W refresh=30000 service="rrd4j" visibility=[Hum_Chart_Period==2]
+			}
+			Text label="Timeline" icon="line"
+			{
+				Webview url="/static/Visualization/Timeline.html?Item=HVAC_Operating_State" height=4 
 			}
 		}
 		Text item=localCurrentTemperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"]
