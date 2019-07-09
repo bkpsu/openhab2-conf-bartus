@@ -244,7 +244,10 @@ sitemap default label="Home"
 			}
 			Text label="Timeline" icon="line"
 			{
-				Webview url="/static/Visualization/Timeline.html?Item=HVAC_Operating_State" height=4 
+				//Webview url="/static/Visualization/Timeline.html?Item=HVAC_Operating_State" height=3
+				Webview url="/static/Visualization/Timeline.html?Group=gHVAC" height=6
+				Webview url="/static/Visualization/Timeline.html?Group=gHVACStatus " height=8
+				Webview url="/static/Visualization/Timeline.html?Group=Outdoor" height=10 
 			}
 		}
 		Text item=localCurrentTemperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"]
