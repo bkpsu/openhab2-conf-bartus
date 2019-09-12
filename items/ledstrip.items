@@ -101,9 +101,9 @@ Group gLEDStrip_Kitchen_Color "Kitchen LED Strips Color"
 Group gLEDStrip_Kitchen_Speed "Kitchen LED Strips Speed"
 Group gLEDStrip_Kitchen_Intensity "Kitchen LED Strips Intensity"
 
-String LEDStrip_FF_Kitchen_Cabinet_1 "Kitchen LED Strip 1 String" (gLEDStrip_Kitchen) {mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:state:*:default]"}
-Switch LEDStrip_FF_Kitchen_Cabinet_1_Power "Kitchen LED Strip 1 Power" (FF_Kitchen,gLEDStrip_Kitchen_Power) [ "Switchable" ] {mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_FF_Kitchen_Cabinet_1_FX "Kitchen LED Strip 1 Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX){mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+String LEDStrip_FF_Kitchen_Cabinet_1 "Kitchen LED Strip 1 String" (gLEDStrip_Kitchen) {channel="mqtt:topic:5fc4cb4c:command"} //mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:state:*:default]"}
+Switch LEDStrip_FF_Kitchen_Cabinet_1_Power "Kitchen LED Strip 1 Power" (FF_Kitchen,gLEDStrip_Kitchen_Power) [ "Switchable" ] {channel="mqtt:topic:5fc4cb4c:power"} //mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_FF_Kitchen_Cabinet_1_FX "Kitchen LED Strip 1 Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX){channel="mqtt:topic:5fc4cb4c:fx"} //mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_FF_Kitchen_Cabinet_1_Color "Kitchen LED Strip 1 Color"	<rgb>	(FF_Kitchen,gLEDStrip_Kitchen_Color) [ "Switchable" ]
 Number LEDStrip_FF_Kitchen_Cabinet_1_Speed "Kitchen LED Strip 1 Speed [%.0f]"		(FF_Kitchen,gLEDStrip_Kitchen_Speed)
 Number LEDStrip_FF_Kitchen_Cabinet_1_Intensity "Kitchen LED Strip 1 Intensity [%d]" (FF_Kitchen,gLEDStrip_Kitchen_Intensity)
