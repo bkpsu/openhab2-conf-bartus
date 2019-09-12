@@ -212,10 +212,10 @@ sitemap default label="Home"
 		}
 	}
 	Frame label="Thermostat" {
-		Selection item=HVAC_HeatSetPoint mappings=["52 °F"="52 °F","65 °F"="65 °F","68 °F"="68 °F","69 °F"="69 °F","70 °F"="70 °F","71 °F"="71 °F","72 °F"="72 °F","73 °F"="73 °F","74 °F"="74 °F","75 °F"="75 °F"] valuecolor=[>0="red"] labelcolor=[>0="red"]
-		//Setpoint item=HVAC_HeatSetPoint minValue=45.0 maxValue=80.0 step=1.0 valuecolor=[>0="red"] labelcolor=[>0="red"]
-		//Setpoint item=HVAC_CoolSetPoint minValue=60.0 maxValue=90.0 step=1.0 valuecolor=[>0="blue"] labelcolor=[>0="blue"]
-		Selection item=HVAC_CoolSetPoint mappings=["52 °F"="52 °F","65 °F"="65 °F","68 °F"="68 °F","69 °F"="69 °F","70 °F"="70 °F","71 °F"="71 °F","72 °F"="72 °F","73 °F"="73 °F","74 °F"="74 °F","75 °F"="75 °F"] valuecolor=[>0="blue"] labelcolor=[>0="blue"]
+		//Selection item=HVAC_HeatSetPoint mappings=["52 °F"="52 °F","65 °F"="65 °F","68 °F"="68 °F","69 °F"="69 °F","70 °F"="70 °F","71 °F"="71 °F","72 °F"="72 °F","73 °F"="73 °F","74 °F"="74 °F","75 °F"="75 °F"] valuecolor=[>0="red"] labelcolor=[>0="red"]
+		Setpoint item=HVAC_HeatSetPoint minValue=45.0 maxValue=80.0 step=1.0 valuecolor=[>0="red"] labelcolor=[>0="red"]
+		Setpoint item=HVAC_CoolSetPoint minValue=60.0 maxValue=90.0 step=1.0 valuecolor=[>0="blue"] labelcolor=[>0="blue"]
+		//Selection item=HVAC_CoolSetPoint mappings=["52 °F"="52 °F","65 °F"="65 °F","68 °F"="68 °F","69 °F"="69 °F","70 °F"="70 °F","71 °F"="71 °F","72 °F"="72 °F","73 °F"="73 °F","74 °F"="74 °F","75 °F"="75 °F"] valuecolor=[>0="blue"] labelcolor=[>0="blue"]
 		Text item=Temperature_HVAC
 		{
 			Switch item=HVAC_Mode mappings=[0=Off,1=Heat,2=Cool,3=Auto]
