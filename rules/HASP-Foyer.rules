@@ -5,7 +5,7 @@ val plate02_pagebutton1page = 1 // Set page # for bottom left button
 val plate02_pagebutton1txt = 'Scenes' // Set page title for bottom left button
 val plate02_pagebutton2page = 2 // Set page # for bottom center button
 val plate02_pagebutton2txt = 'Status' // Set page title for bottom left button
-val plate02_pagebutton3page = 6 // Set page # for bottom right button
+val plate02_pagebutton3page = 3 // Set page # for bottom right button
 val plate02_pagebutton3txt = 'HVAC' // Set page title for bottom left button
 
 /* Configuration for page 1 (Scenes) */
@@ -28,14 +28,14 @@ val plate02_page2button5font = 2
 val plate02_page2button6font = 2
 val plate02_page2button7font = 1
 
-/* Configuration for page 3 (Page 3) */
-val plate02_page3button4txt = 'P3 B4 Text'
-val plate02_page3button5txt = 'P3 B5 Text'
-val plate02_page3button6txt = 'P3 B6 Text'
-val plate02_page3button7txt = 'P3 B7 Text'
-val plate02_page3button4font = 1
-val plate02_page3button5font = 1
-val plate02_page3button6font = 1
+/* Configuration for page 3 (HVAC) */
+val plate02_page3button4txt = 'Mode'
+val plate02_page3button5txt = 'Up'
+val plate02_page3button6txt = 'Dn'
+val plate02_page3button7txt = 'Temps'
+val plate02_page3button4font = 2
+val plate02_page3button5font = 2
+val plate02_page3button6font = 2
 val plate02_page3button7font = 1
 
 /* Configuration for page 4 (Page 4) */
@@ -54,7 +54,7 @@ val plate02_page5button4font = 1
 val plate02_page5button5font = 1
 val plate02_page5button6font = 1
 
-/* Configuration for page 6 (HVAC) */
+/* Configuration for page 6 (Page 6) */
 val plate02_page6button4txt = 'P6 B4'
 val plate02_page6button5txt = 'P6 B5'
 val plate02_page6button6txt = 'P6 B6'
@@ -232,6 +232,7 @@ then
                         if (eventbutton == '4')
                         {
                             //Insert action to perform if button 4 was pressed
+                            HASP_Plate02_Plate_Refresh.sendCommand(ON)
                         }
                         else if (eventbutton == '5')
                         {
@@ -254,19 +255,77 @@ then
                         */
                         if (eventbutton == '4')
                         {
-                            //Insert action to perform if button 4 was pressed
+                            //Insert action to perform if button 4 was pressed (HVAC Mode)
+                            switch(HVAC_Mode.state.toString){
+                                case '0': //Off
+                                {
+                                    HVAC_Mode.sendCommand(1) //Switch to Heat
+                                }
+                                case '1': //Heat
+                                {
+                                    HVAC_Mode.sendCommand(2) //Switch to Cool
+                                }
+                                case '2': //Cool
+                                {
+                                    HVAC_Mode.sendCommand(3) //Switch to Auto
+                                }
+                                case '3': //Auto
+                                {
+                                    HVAC_Mode.sendCommand(0) //Switch to Off
+                                }
+                            }
                         }
                         else if (eventbutton == '5')
                         {
-                            //Insert action to perform if button 5 was pressed
+                            //Insert action to perform if button 5 was pressed (HVAC Up)
+                            switch(HVAC_Mode.state.toString){
+                                case '0': //Off
+                                {//Do nothing
+                                }
+                                case '1': //Heat
+                                {
+                                    var temp = (HVAC_HeatSetPoint.state as QuantityType<Number>).intValue
+                                    HVAC_HeatSetPoint.sendCommand(temp + 1)
+                                }
+                                case '2': //Cool
+                                {
+                                    var temp = (HVAC_CoolSetPoint.state as QuantityType<Number>).intValue
+                                    HVAC_CoolSetPoint.sendCommand(temp + 1)
+                                }
+                                case '3': //Auto
+                                {   //TODO: Check which Setpoitn CT100 uses in Auto           
+                                    var temp = (HVAC_HeatSetPoint.state as QuantityType<Number>).intValue
+                                    HVAC_HeatSetPoint.sendCommand(temp + 1)
+                                }
+                            }
                         }
                         else if (eventbutton == '6')
                         {
-                            //Insert action to perform if button 6 was pressed
+                            //Insert action to perform if button 6 was pressed (HVAC Down)
+                            switch(HVAC_Mode.state.toString){
+                                case '0': //Off
+                                {//Do nothing
+                                }
+                                case '1': //Heat
+                                {
+                                    var temp = (HVAC_HeatSetPoint.state as QuantityType<Number>).intValue
+                                    HVAC_HeatSetPoint.sendCommand(temp - 1)
+                                }
+                                case '2': //Cool
+                                {
+                                    var temp = (HVAC_CoolSetPoint.state as QuantityType<Number>).intValue
+                                    HVAC_CoolSetPoint.sendCommand(temp - 1)
+                                }
+                                case '3': //Auto
+                                {   //TODO: Check which Setpoitn CT100 uses in Auto           
+                                    var temp = (HVAC_HeatSetPoint.state as QuantityType<Number>).intValue
+                                    HVAC_HeatSetPoint.sendCommand(temp - 1)
+                                }
+                            }                            
                         }
                         else if (eventbutton == '7')
                         {
-                            //Insert action to perform if button 7 was pressed
+                            //Insert action to perform if button 7 was pressed (HVAC Temps)
                         }
                         HASP_Plate02_Light_Power.sendCommand(ON) //refresh backlight timer following button press                    
                     }
@@ -511,6 +570,47 @@ then
                          '"p[2].b[5].txt=\\"' + 'I: ' + Temperature_Family.state.format("%.1f °F") + '\\"", ' +
                          '"p[2].b[6].txt=\\"' + (Date.state as DateTimeType).format("%1$tA") + '\\"", ' +
                          '"p[2].b[7].txt=\\"' + (Date.state as DateTimeType).format("%1$td.%1$tb.%1$tY") + '\\""]'
+
+        HASP_Plate02_Plate_Command_JSON.sendCommand(jsonString)
+    }
+end
+
+rule "Handle HASP Foyer Page 3 Status"
+when
+    Item HVAC_Mode received update or
+    Item Temperature_HVAC received update or
+    Item HVAC_HeatSetPoint received update or
+    Item HVAC_CoolSetPoint received update or
+    Item HASP_Plate02_Page_Current received update 3
+then
+    if (HASP_Plate02_Page_Current.state == 3)   //Only update page if you're on page 2 (avoid sending too many MQTT messages)
+    {
+       //["p[2].b[4].txt=\"O: 27.6 °F\"", "p[2].b[5].txt=\"I: 71.8 °F\"", ...]
+        var modeString = ''
+        var tempString = ''
+        switch(HVAC_Mode.state.toString){
+            case '0': //Off
+            {
+                modeString = '"p[3].b[4].txt=\\"' + 'OFF' + '\\"", ' + '"p[3].b[4].bco=65535"'
+                tempString = '"p[3].b[7].txt=\\"' + 'C:' + Temperature_HVAC.state.format("%d °F") + '\\""'              
+            }
+            case '1': //Heat
+            {
+                modeString = '"p[3].b[4].txt=\\"' + 'HEAT' + '\\"", ' + '"p[3].b[4].bco=64544"'
+                tempString = '"p[3].b[7].txt=\\"' + 'C:' + Temperature_HVAC.state.format("%d °F") + ' S:' + HVAC_HeatSetPoint.state.format("%d °F") + '\\""'              
+            }
+            case '2': //Cool
+            {
+                modeString = '"p[3].b[4].txt=\\"' + 'COOL' + '\\"", ' + '"p[3].b[4].bco=31"'
+                tempString = '"p[3].b[7].txt=\\"' + 'C:' + Temperature_HVAC.state.format("%d °F") + ' S:' + HVAC_CoolSetPoint.state.format("%d °F") + '\\""'                          
+            }
+            case '3': //Auto
+            {   //TODO: Check which Setpoitn CT100 uses in Auto           
+                modeString = '"p[3].b[4].txt=\\"' + 'AUTO' + '\\"", ' + '"p[3].b[4].bco=8160"'
+                tempString = '"p[3].b[7].txt=\\"' + 'C:' + Temperature_HVAC.state.format("%d °F") + ' S:' + HVAC_HeatSetPoint.state.format("%d °F") + '\\""'                          
+            }
+        }
+        var jsonString = '[' + modeString + ', ' + tempString + ']'
 
         HASP_Plate02_Plate_Command_JSON.sendCommand(jsonString)
     }

@@ -232,6 +232,7 @@ then
                         if (eventbutton == '4')
                         {
                             //Insert action to perform if button 4 was pressed
+                            HASP_Plate03_Plate_Refresh.sendCommand(ON)                            
                         }
                         else if (eventbutton == '5')
                         {
