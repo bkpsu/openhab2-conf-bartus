@@ -30,8 +30,8 @@ val plate02_page2button7font = 1
 
 /* Configuration for page 3 (HVAC) */
 val plate02_page3button4txt = 'Mode'
-val plate02_page3button5txt = 'Up'
-val plate02_page3button6txt = 'Dn'
+val plate02_page3button5txt = '+'
+val plate02_page3button6txt = '-'
 val plate02_page3button7txt = 'Temps'
 val plate02_page3button4font = 2
 val plate02_page3button5font = 2
