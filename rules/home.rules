@@ -79,11 +79,11 @@ end
 
 rule "Sunrise Outdoor Functions"
 when
-	Channel 'astro:sun:local:nauticDawn#event' triggered START 
+	Channel 'astro:sun:local:civilDawn#event' triggered START 
 then
 	/*Turn Off Night Lights at Sunrise*/
 	sendCommand(OutdoorLights, OFF)
-	logInfo("Lights", "Outdoor Lights turned off at Nautic Dawn")
+	logInfo("Lights", "Outdoor Lights turned off at Civil Dawn")
 end
 
 rule "Sunrise Indoor Functions"
