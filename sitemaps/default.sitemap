@@ -25,7 +25,7 @@ sitemap default label="Home"
 					Text item=Humidity_MasterBedroomHisCloset
 				}
 				Frame{
-					Colorpicker item=Light_SF_Master_EnsuiteHall
+					Slider item=Light_SF_Master_EnsuiteHall
 					Switch item=Motion_Master_Disable				
 					Text label="HASP"
 					{
@@ -71,20 +71,20 @@ sitemap default label="Home"
 				}
 				Frame{
 					Slider item=Light_FF_Kitchen_Island
-					Text label="Island Light Individual" icon="slider"
-					{
-						Slider item=Light_FF_Kitchen_Island_L
-						Slider item=Light_FF_Kitchen_Island_C
-						Slider item=Light_FF_Kitchen_Island_R
-					}
+					// Text label="Island Light Individual" icon="slider"
+					// {
+					// 	Slider item=Light_FF_Kitchen_Island_L
+					// 	Slider item=Light_FF_Kitchen_Island_C
+					// 	Slider item=Light_FF_Kitchen_Island_R
+					// }
 					Slider item=Light_FF_Kitchen_Recessed
-					Text label="Recessed Lights Individual" icon="slider"
-					{
-						Slider item=Light_FF_Kitchen_Recessed_NW
-						Slider item=Light_FF_Kitchen_Recessed_NE
-						Slider item=Light_FF_Kitchen_Recessed_SW
-						Slider item=Light_FF_Kitchen_Recessed_SE
-					}
+					// Text label="Recessed Lights Individual" icon="slider"
+					// {
+					// 	Slider item=Light_FF_Kitchen_Recessed_NW
+					// 	Slider item=Light_FF_Kitchen_Recessed_NE
+					// 	Slider item=Light_FF_Kitchen_Recessed_SW
+					// 	Slider item=Light_FF_Kitchen_Recessed_SE
+					// }
 					Slider item=Light_FF_Kitchen_Sink
 					Slider item=Light_FF_Kitchen_DiningTbl
 				}

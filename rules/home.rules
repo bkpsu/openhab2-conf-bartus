@@ -95,6 +95,8 @@ then
 	sendCommand(is_Night, OFF)
 	sendCommand(Light_SF_Master_EnsuiteHall, OFF)	
 	logInfo("Lights", "Indoor Night Lights turned off at Astro Rise")
+	Light_FF_Family_Lamp.sendCommand(ON)
+	Light_FF_Family_Lamp.sendCommand(new HSBType(353,28,100))
 end
 
 rule "Midnight Functions"
