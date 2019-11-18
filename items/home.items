@@ -152,32 +152,32 @@ Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {channel="zwave:serial_z
 
 /* MQTT ESP8266 Temp/Humidity Sensors */
 Number Temperature_Basement                 "Bsmt Temp [%.1f F]"                <temperature> (gBsmt,Temp_Chart)                                {channel="mqtt:topic:578f3821:temperature"}//mqtt="<[broker:home/Basement/temperature:state:default]"}
-Number Humidity_Basement                    "Bsmt Hum [%.1f %%]"                <humidity> (gBsmt,Hum_Chart)                                    {mqtt="<[broker:home/Basement/humidity:state:default]"}
-Number Temperature_MasterBedroom            "MBdrm Temp [%.1f F]"               <temperature> (SF_Master,Temp_Chart_2)  ["CurrentTemperature"]  {mqtt="<[broker:home/MasterBedroom/temperature:state:default]"}
-Number Humidity_MasterBedroom               "MBdrm Hum [%.1f %%]"               <humidity> (SF_Master,Hum_Chart)                                {mqtt="<[broker:home/MasterBedroom/humidity:state:default]"}
-Number Temperature_Garage                   "Garage Temp [%.1f F]"              <temperature> (gGarage,Temp_Chart)      ["CurrentTemperature"]  {mqtt="<[broker:home/Garage/temperature:state:default]"}
-Number Humidity_Garage                      "Garage Hum [%.1f %%]"              <humidity> (gGarage,Hum_Chart)                                  {mqtt="<[broker:home/Garage/humidity:state:default]"}
+Number Humidity_Basement                    "Bsmt Hum [%.1f %%]"                <humidity> (gBsmt,Hum_Chart)                                    {channel="mqtt:topic:578f3821:humidity"}
+Number Temperature_MasterBedroom            "MBdrm Temp [%.1f F]"               <temperature> (SF_Master,Temp_Chart_2)  ["CurrentTemperature"]  {mqtt="<[broker:/Kube-MasterBedroom/DHT22/Temperature:state:default]"}
+Number Humidity_MasterBedroom               "MBdrm Hum [%.1f %%]"               <humidity> (SF_Master,Hum_Chart)                                {mqtt="<[broker:/Kube-MasterBedroom/DHT22/Humidity:state:default]"}
+Number Temperature_Garage                   "Garage Temp [%.1f F]"              <temperature> (gGarage,Temp_Chart)      ["CurrentTemperature"]  {mqtt="<[broker:home/Kube-Garage/temperature:state:default]"}
+Number Humidity_Garage                      "Garage Hum [%.1f %%]"              <humidity> (gGarage,Hum_Chart)                                  {mqtt="<[broker:home/Kube-Garage/humidity:state:default]"}
 Number Temperature_Shed                     "Shed Temp [%.1f F]"                <temperature> (Outdoor,Temp_Chart)                              {mqtt="<[broker:/Shed/DHT22/Temperature:state:default]"}
-Number Humidity_Shed                        "Shed Hum [%.1f %%]"                <humidity> (Outdoor,Hum_Chart)                                  {mqtt="<[broker:home/Shed/humidity:state:default]"}
-Number Temperature_MasterBedroomHisCloset   "MBdrm His Closet Temp [%.1f F]"    <temperature> (SF_Master,Temp_Chart_2)                          {mqtt="<[broker:home/MasterBedroomHisCloset/temperature:state:default]"}
-Number Humidity_MasterBedroomHisCloset      "MBdrm His Closet Hum [%.1f %%]"    <humidity> (SF_Master,Hum_Chart)                                {mqtt="<[broker:home/MasterBedroomHisCloset/humidity:state:default]"}
+Number Humidity_Shed                        "Shed Hum [%.1f %%]"                <humidity> (Outdoor,Hum_Chart)                                  {mqtt="<[broker:/Shed/DHT22/Humidity:state:default]"}
+Number Temperature_MasterBedroomHisCloset   "MBdrm His Closet Temp [%.1f F]"    <temperature> (SF_Master,Temp_Chart_2)                          {mqtt="<[broker:/Kube-MasterBedHisCloset/DHT22/Temperature:state:default]"}
+Number Humidity_MasterBedroomHisCloset      "MBdrm His Closet Hum [%.1f %%]"    <humidity> (SF_Master,Hum_Chart)                                {mqtt="<[broker:/Kube-MasterBedHisCloset/DHT22/Humidity:state:default]"}
 Number Temperature_Attic                    "Attic Temp [%.1f F]"               <temperature> (gAttic,Temp_Chart_2)                             {mqtt="<[broker:home/Attic/temperature:state:default]"}
 Number Humidity_Attic                       "Attic Hum [%.1f %%]"               <humidity> (gAttic,Hum_Chart)                                   {mqtt="<[broker:home/Attic/humidity:state:default]"}
 Number Temperature_Laundry                  "Laundry Temp [%.1f F]"             <temperature> (FF_Laundry,Temp_Chart)                           {mqtt="<[broker:home/Laundry/temperature:state:default]"}
 Number Humidity_Laundry                     "Laundry Hum [%.1f %%]"             <humidity> (FF_Laundry,Hum_Chart)                               {mqtt="<[broker:home/Laundry/humidity:state:default]"}
-Number Temperature_Ensuite                  "Ensuite Temp [%.1f F]"             <temperature> (SF_Ensuite,Temp_Chart_2)                         {mqtt="<[broker:home/Ensuite/temperature:state:default]"}
-Number Humidity_Ensuite                     "Ensuite Hum [%.1f %%]"             <humidity> (SF_Ensuite,Hum_Chart)                               {mqtt="<[broker:home/Ensuite/humidity:state:default]"}
+Number Temperature_Ensuite                  "Ensuite Temp [%.1f F]"             <temperature> (SF_Ensuite,Temp_Chart_2)                         {mqtt="<[broker:/Kube-Ensuite/DHT22/Temperature:state:default]"}
+Number Humidity_Ensuite                     "Ensuite Hum [%.1f %%]"             <humidity> (SF_Ensuite,Hum_Chart)                               {mqtt="<[broker:/Kube-Ensuite/DHT22/Humidity:state:default]"}
 Number Temperature_Kitchen                  "Kitchen Temp [%.1f F]"             <temperature> (FF_Kitchen,Temp_Chart)                           {mqtt="<[broker:/Kitchen/DHT22/Temperature:state:default]"}
 Number Humidity_Kitchen                     "Kitchen Hum [%.1f %%]"             <humidity> (FF_Kitchen,Hum_Chart)                               {mqtt="<[broker:/Kitchen/DHT22/Humidity:state:default]"}
 Number Temperature_Office                   "Office Temp [%.1f F]"              <temperature> (FF_Office,Temp_Chart)                            {channel="mqtt:topic:c6f3d750:temperature"} //{mqtt="<[broker:/Office/DHT22/Temperature:state:default]"}
-Number Humidity_Office                      "Office Hum [%.1f %%]"              <humidity> (FF_Office,Hum_Chart)                                {mqtt="<[broker:/Office/DHT22/Humidity:state:default]"}
-Number Temperature_Family                   "Family Temp [%.1f F]"              <temperature> (FF_Family,Temp_Chart)                            {mqtt="<[broker:home/Family/temperature:state:default]"}
-Number Humidity_Family                      "Family Hum [%.1f %%]"              <humidity> (FF_Family,Hum_Chart)                                {mqtt="<[broker:home/Family/humidity:state:default]"}
+Number Humidity_Office                      "Office Hum [%.1f %%]"              <humidity> (FF_Office,Hum_Chart)                                {channel="mqtt:topic:c6f3d750:humidity"}
+Number Temperature_Family                   "Family Temp [%.1f F]"              <temperature> (FF_Family,Temp_Chart)                            {mqtt="<[broker:home/Kube-Family/temperature:state:default]"}
+Number Humidity_Family                      "Family Hum [%.1f %%]"              <humidity> (FF_Family,Hum_Chart)                                {mqtt="<[broker:home/Kube-Family/humidity:state:default]"}
 Number Temperature_Guest                    "Guest Temp [%.1f F]"               <temperature> (SF_GuestBdrm,Temp_Chart_2)                       {mqtt="<[broker:home/Guest/temperature:state:default]"}
 Number Humidity_Guest                       "Guest Hum [%.1f %%]"               <humidity> (SF_GuestBdrm,Hum_Chart)                             {mqtt="<[broker:home/Guest/humidity:state:default]"}
 
 /* MQTT ESP8266 Motion Sensors */
-Number Motion_MasterBedroom "Master Motion [%d]" {mqtt="<[broker:home/MasterBedroom/motion:state:default]", expire="2m,0" }
+Number Motion_MasterBedroom "Master Motion [%d]" {mqtt="<[broker:/Kube-MasterBedroom/Motion/Switch:state:default]", expire="2m,0" }
 Switch Motion_Master_Disable "Disable Motion Sensor" (SF_Master)
 
 Group AmbiMate_Test "AmbiMate Test"
