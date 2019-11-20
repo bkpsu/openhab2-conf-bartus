@@ -1,6 +1,6 @@
 
 Group gZonePowerSwitch (all)
-Group gZoneVolume (all)
+Group gZoneVolume (all) 
 Group gZoneMuteSwitch (all)
 Group gZoneTone (all)
 Group gZoneBalance (all)
@@ -41,30 +41,30 @@ Switch MonoPrice_Z13_Mute    "Basement Mute [%s]"    	   <mute> 		 (gZoneMuteSwi
 Switch MonoPrice_Z14_Mute    "Shed Mute [%s]"    	   <mute> 		 (gZoneMuteSwitch) [ "Switchable" ]
 Switch MonoPrice_Z15_Mute    "Zone 5 Mute [%s]"     	   <mute> 		 (gZoneMuteSwitch) [ "Switchable" ]
 Switch MonoPrice_Z16_Mute    "Zone 6 Mute [%s]"    	   <mute> 		 (gZoneMuteSwitch) [ "Switchable" ]
-Dimmer MonoPrice_Z11_Volume  "Kitchen Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
-Dimmer MonoPrice_Z12_Volume  "Office Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
-Dimmer MonoPrice_Z13_Volume  "Basement Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
-Dimmer MonoPrice_Z14_Volume  "Shed Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
-Dimmer MonoPrice_Z15_Volume  "Zone 5 Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
-Dimmer MonoPrice_Z16_Volume  "Zone 6 Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Switchable" ]
-Dimmer MonoPrice_Z11_Treble  "Kitchen Treble [%02d %%]"  <treble>      (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z12_Treble  "Office Treble [%02d %%]"  <treble>      (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z13_Treble  "Basement Treble [%02d %%]"  <treble>      (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z14_Treble  "Shed Treble [%02d %%]"  <treble>      (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z15_Treble  "Zone 5 Treble [%02d %%]"  <treble>      (gZoneTone)  [ "Switchable" ]
-Dimmer MonoPrice_Z16_Treble  "Zone 6 Treble [%02d %%]"  <treble>	     (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z11_Bass    "Kitchen Bass [%02d %%]"  	<bass>		 (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z12_Bass    "Office Bass [%02d %%]"  	<bass>		 (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z13_Bass    "Basement Bass [%02d %%]"   	<bass>		 (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z14_Bass    "Shed Bass [%02d %%]"   	<bass>		 (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z15_Bass    "Zone 5 Bass [%02d %%]"    	<bass>		 (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z16_Bass    "Zone 6 Bass [%02d %%]"    	<bass>		 (gZoneTone) [ "Switchable" ]
-Dimmer MonoPrice_Z11_Balance "Kitchen Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
-Dimmer MonoPrice_Z12_Balance "Office Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
-Dimmer MonoPrice_Z13_Balance "Basement Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
-Dimmer MonoPrice_Z14_Balance "Shed Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
-Dimmer MonoPrice_Z15_Balance "Zone 5 Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
-Dimmer MonoPrice_Z16_Balance "Zone 6 Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Switchable" ]
+Dimmer MonoPrice_Z11_Volume  "Kitchen Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Lighting" ]
+Dimmer MonoPrice_Z12_Volume  "Office Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Lighting" ]
+Dimmer MonoPrice_Z13_Volume  "Basement Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Lighting" ]
+Dimmer MonoPrice_Z14_Volume  "Shed Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Lighting" ]
+Dimmer MonoPrice_Z15_Volume  "Zone 5 Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Lighting" ]
+Dimmer MonoPrice_Z16_Volume  "Zone 6 Volume [%02d %%]"  <soundvolume> (gZoneVolume) [ "Lighting" ]
+Dimmer MonoPrice_Z11_Treble  "Kitchen Treble [%02d %%]"  <treble>      (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z12_Treble  "Office Treble [%02d %%]"  <treble>      (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z13_Treble  "Basement Treble [%02d %%]"  <treble>      (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z14_Treble  "Shed Treble [%02d %%]"  <treble>      (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z15_Treble  "Zone 5 Treble [%02d %%]"  <treble>      (gZoneTone)  [ "Lighting" ]
+Dimmer MonoPrice_Z16_Treble  "Zone 6 Treble [%02d %%]"  <treble>	     (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z11_Bass    "Kitchen Bass [%02d %%]"  	<bass>		 (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z12_Bass    "Office Bass [%02d %%]"  	<bass>		 (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z13_Bass    "Basement Bass [%02d %%]"   	<bass>		 (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z14_Bass    "Shed Bass [%02d %%]"   	<bass>		 (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z15_Bass    "Zone 5 Bass [%02d %%]"    	<bass>		 (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z16_Bass    "Zone 6 Bass [%02d %%]"    	<bass>		 (gZoneTone) [ "Lighting" ]
+Dimmer MonoPrice_Z11_Balance "Kitchen Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Lighting" ]
+Dimmer MonoPrice_Z12_Balance "Office Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Lighting" ]
+Dimmer MonoPrice_Z13_Balance "Basement Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Lighting" ]
+Dimmer MonoPrice_Z14_Balance "Shed Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Lighting" ]
+Dimmer MonoPrice_Z15_Balance "Zone 5 Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Lighting" ]
+Dimmer MonoPrice_Z16_Balance "Zone 6 Balance [%02d %%]" 	<control>	 (gZoneBalance) [ "Lighting" ]
 Number MonoPrice_Z11_Source  "Kitchen Source [%.0f]" 	<control>		 (gZoneSource)
 Number MonoPrice_Z12_Source  "Office Source [%.0f]" 	<control>		 (gZoneSource)
 Number MonoPrice_Z13_Source  "Basement Source [%.0f]"	<control>		 (gZoneSource)

@@ -5,11 +5,11 @@ Group Scene_States
 
 /* Scene Proxy Switches (accessible from UI/Google Home)*/
 /* Step 1 - Add new Scene switch here */
-Switch Scene_Evening "Evening Scene" (LightingScenes) [ "Switchable" ]
-Switch Scene_Night "Night Scene" (LightingScenes) [ "Switchable" ]
-Switch Scene_Morning "Morning Scene" (LightingScenes) [ "Switchable" ]
-Switch Scene_Work "Work Scene" (LightingScenes) [ "Switchable" ]
-Switch Scene_Bedtime "Bedtime Scene" (LightingScenes) [ "Switchable" ]
+Switch Scene_Evening "Evening Scene" (LightingScenes) [ "Scene" ]
+Switch Scene_Night "Night Scene" (LightingScenes) [ "Scene" ]
+Switch Scene_Morning "Morning Scene" (LightingScenes) [ "Scene" ]
+Switch Scene_Work "Work Scene" (LightingScenes) [ "Scene" ]
+Switch Scene_Bedtime "Bedtime Scene" (LightingScenes) [ "Scene" ]
 
 //Groups to hold all items controlled by this scene
 /* Step 2 - Add new group for scene items */
