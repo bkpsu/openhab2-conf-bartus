@@ -41,19 +41,19 @@ Group:Switch:OR(ON, OFF)	ChristmasLights 	"Christmas Lights [(%d)]"	(All)   [ "L
 
 
 /* Lights */
-Switch Light_Outdoor_FrontDoor 		"Front Door"			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:512:node2:switch_binary"}
-Switch Light_Outdoor_Garage 		"Garage" 			                (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:512:node3:switch_binary"} 
-Switch Light_Outdoor_RearYard 		"Rear Yard" 			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:512:node4:switch_binary"}
-Switch Light_Outdoor_Shed		    "Shed Light"			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:512:node5:switch_binary"}
-Dimmer Light_FF_Family_Sconces 		"Sconces [%d %%]"		            (FF_Family, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]		{channel="zwave:device:512:node6:switch_dimmer"}
+Switch Light_Outdoor_FrontDoor 		"Front Door"			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:1dbcadce:node2:switch_binary"}
+Switch Light_Outdoor_Garage 		"Garage" 			                (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:1dbcadce:node20:switch_binary"} 
+Switch Light_Outdoor_RearYard 		"Rear Yard" 			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:1dbcadce:node4:switch_binary"}
+Switch Light_Outdoor_Shed		    "Shed Light"			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:1dbcadce:node19:switch_binary"}
+Dimmer Light_FF_Family_Sconces 		"Sconces [%d %%]"		            (FF_Family, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]		{channel="zwave:device:1dbcadce:node6:switch_dimmer"}
 Color Light_FF_Family_Lamp		    "Family Lamp [%d %%]"       <rgb>	(FF_Family, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0210:00178829871a:3:color"}
-Dimmer Light_FF_Foyer_Light 		"Foyer Light [%d %%]"		        (FF_Foyer, Lights)                  [ "Lighting" ]		{channel="zwave:device:512:node7:switch_dimmer"}
-Switch Light_FF_Foyer_Lamp		    "Foyer Lamp"			            (FF_Foyer, NightLights, Lights)	    [ "Lighting" ]		{channel="zwave:device:512:node8:switch_binary"}
+Dimmer Light_FF_Foyer_Light 		"Foyer Light [%d %%]"		        (FF_Foyer, Lights)                  [ "Lighting" ]		{channel="zwave:device:1dbcadce:node7:switch_dimmer"}
+Switch Light_FF_Foyer_Lamp		    "Foyer Lamp"			            (FF_Foyer, NightLights, Lights)	    [ "Lighting" ]		{mqtt=">[broker:cmnd/FF_Foyer_Lamp/power:command:*:default]],<[broker:stat/FF_Foyer_Lamp/POWER:state:default]"} //{channel="zwave:device:1dbcadce:node8:switch_binary"}
 //Dimmer Light_FF_Kitchen_Island_L	"Island Left [%d %%]" 		        (Light_FF_Kitchen_Island, FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)	 [ "Lighting" ]		{channel="hue:0100:00178829871a:10:brightness"}
 //Dimmer Light_FF_Kitchen_Island_C	"Island Center [%d %%]" 	        (Light_FF_Kitchen_Island, FF_Kitchen, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0100:00178829871a:11:brightness"}
 //Dimmer Light_FF_Kitchen_Island_R	"Island Right [%d %%]" 		        (Light_FF_Kitchen_Island, FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)	 [ "Lighting" ]		{channel="hue:0100:00178829871a:12:brightness"}
-Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"                      (FF_Kitchen, Lights)                        [ "Lighting" ]      {channel="zwave:device:512:node13:switch_dimmer"}
-/*Group:*/Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(FF_Kitchen, Lights)            [ "Lighting" ]      {channel="zwave:device:512:node17:switch_dimmer"}
+Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"                      (FF_Kitchen, Lights)                        [ "Lighting" ]      {channel="zwave:device:1dbcadce:node13:switch_dimmer"}
+/*Group:*/Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(FF_Kitchen, Lights)            [ "Lighting" ]      {channel="zwave:device:1dbcadce:node17:switch_dimmer"}
 Dimmer Light_FF_Office_Lamp		    "Office Lamp [%d %%]"			    (FF_Office, EveningLights, Lights)  [ "Lighting" ]		{channel="hue:0100:00178829871a:16:brightness"}
 Color Light_FF_Office_Lamp2         "Office Mood Lamp [%d %%]" 	        (FF_Office, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]   {channel="hue:0210:00178829871a:24:color"}
 Color Light_FF_Office_Recliner      "Office Recliner Lamp [%d %%]"      (FF_Office, EveningLights, Lights)  [ "Lighting" ]      {channel="hue:0210:00178829871a:33:color"}
@@ -62,12 +62,12 @@ Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(FF_Office, Li
 // Dimmer Light_FF_Kitchen_Recessed_NW	"Recessed NW [%d %%]" 		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:18:brightness"}
 // Dimmer Light_FF_Kitchen_Recessed_NE	"Recessed NE [%d %%]" 		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:21:brightness"}
 // Dimmer Light_FF_Kitchen_Recessed_SE	"Recessed SE [%d %%]" 		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:19:brightness"}
-/*Group:*/Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" 	    (FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ] {channel="zwave:device:512:node16:switch_dimmer"}
+/*Group:*/Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" 	    (FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ] {channel="zwave:device:1dbcadce:node16:switch_dimmer"}
 Dimmer Light_FF_Kitchen_Sink	    "Sink [%d %%]" 		                (FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0100:00178829871a:4:brightness"}
 Color Light_SF_Landing_Lamp	    "Landing Lamp"			                (SF_Landing, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]	{channel="hue:0210:00178829871a:34:color"}
 Dimmer Light_SF_Master_BedLamp_Right "Right Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:22:brightness"}
 Dimmer Light_SF_Master_BedLamp_Left "Left Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:23:brightness"}
-Dimmer Light_SF_Master_EnsuiteHall   "Ensuite Hall [%d %%]"      <slider>	(SF_Master, Lights)                 [ "Lighting" ]       {channel="zwave:device:512:node18:switch_dimmer"}
+Dimmer Light_SF_Master_EnsuiteHall   "Ensuite Hall [%d %%]"      <slider>	(SF_Master, Lights)                 [ "Lighting" ]       {channel="zwave:device:1dbcadce:node18:switch_dimmer"}
 Color Light_SF_Guest_BedLamp_Right "Guest Bed Right Lamp" 	                (SF_Guest, Lights)   [ "Lighting" ]  {channel="hue:0210:00178829871a:31:color"}
 Color Light_SF_Guest_BedLamp_Left "Guest Bed Left Lamp" 	                (SF_Guest, Lights)   [ "Lighting" ]  {channel="hue:0210:00178829871a:32:color"}
 
@@ -89,10 +89,10 @@ Color Light_Motion_Color	        "Motion Light Color"        (Configuration)
 Color Light_Kitchen_Strip_Color     "Kitchen Strip Color"       (Configuration)
 
 /* Mobile Zwave Energy Meters */
-Number Energy_Mobile_1_W	"Meter 1 (Foyer Lamp) Energy Usage (inst) [%.2f W]"		<text>	{channel="zwave:device:512:node8:meter_watts"}
-Number Energy_Mobile_1_kWh	"Meter 1 (Foyer Lamp) Energy Usage (total) [%.2f kWh]"	<text>	{channel="zwave:device:512:node8:meter_kwh"}
-Number Energy_Mobile_2_W	"Meter 2 (Water Heater) Energy Usage (inst) [%.2f W]"		<text>	{channel="zwave:device:512:node9:meter_watts"}
-Number Energy_Mobile_2_kWh	"Meter 2 (Water Heater) Energy Usage (total) [%.2f kWh]"	<text>	{channel="zwave:device:512:node9:meter_kwh"}
+Number Energy_Mobile_1_W	"Meter 1 (Server Rack) Energy Usage (inst) [%.2f W]"		<text>	{channel="zwave:device:1dbcadce:node8:meter_watts"}
+Number Energy_Mobile_1_kWh	"Meter 1 (Server Rack) Energy Usage (total) [%.2f kWh]"	    <text>	{channel="zwave:device:1dbcadce:node8:meter_kwh"}
+Number Energy_Mobile_2_W	"Meter 2 (Water Heater) Energy Usage (inst) [%.2f W]"		<text>	{channel="zwave:device:1dbcadce:node9:meter_watts"}
+Number Energy_Mobile_2_kWh	"Meter 2 (Water Heater) Energy Usage (total) [%.2f kWh]"	<text>	{channel="zwave:device:1dbcadce:node9:meter_kwh"}
 
 /* Astro */
 DateTime Sunrise_Time 	"Sunrise [%1$tH:%1$tM]" (Status)				{channel="astro:sun:local:rise#start"}
@@ -128,26 +128,26 @@ Dimmer FF_Family_TV_Volume "TV Volume" (FF_Family) {channel="samsungtv:tv:08f0d1
 
 /* Thermostat */
 Group gHVAC "Thermostat" ["Thermostat"]
-Number:Temperature HVAC_HeatSetPoint "Heat Set [%.1f °F]" <temperature_hot> (gHVAC)["homekit:TargetTemperature"] {channel="zwave:device:512:node10:thermostat_setpoint_heating"}
-Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f °F]" <temperature_cold> (gHVAC)["homekit:TargetTemperature"] {channel="zwave:device:512:node10:thermostat_setpoint_cooling"}
-//Number:Temperature HVAC_CoolSetPoint "Cool Set [%2d °F]" <temperature_cold> (gHVAC)["TargetTemperature"] {channel="zwave:device:512:node10:thermostat_setpoint_cooling"}
-Number:Temperature Temperature_HVAC "Temperature [%.1f °F]" <temperature> (gHVAC,Temp_Chart)["CurrentTemperature"] {channel="zwave:device:512:node10:sensor_temperature"}
-Number Humidity_HVAC "Humidity [%.1f %%]" <humidity> (gHVAC,Hum_Chart)["CurrentHumidity"] {channel="zwave:device:512:node10:sensor_relhumidity2"}
+Number:Temperature HVAC_HeatSetPoint "Heat Set [%.1f °F]" <temperature_hot> (gHVAC)["homekit:TargetTemperature"] {channel="zwave:device:1dbcadce:node10:thermostat_setpoint_heating"}
+Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f °F]" <temperature_cold> (gHVAC)["homekit:TargetTemperature"] {channel="zwave:device:1dbcadce:node10:thermostat_setpoint_cooling"}
+//Number:Temperature HVAC_CoolSetPoint "Cool Set [%2d °F]" <temperature_cold> (gHVAC)["TargetTemperature"] {channel="zwave:device:1dbcadce:node10:thermostat_setpoint_cooling"}
+Number:Temperature Temperature_HVAC "Temperature [%.1f °F]" <temperature> (gHVAC,Temp_Chart)["CurrentTemperature"] {channel="zwave:device:1dbcadce:node10:sensor_temperature"}
+Number Humidity_HVAC "Humidity [%.1f %%]" <humidity> (gHVAC,Hum_Chart)["CurrentHumidity"] {channel="zwave:device:1dbcadce:node10:sensor_relhumidity2"}
 Group gHVACStatus
-Number HVAC_Mode "Mode" <flow> (gHVACStatus)["homekit:TargetHeatingCoolingMode"] {channel="zwave:device:512:node10:thermostat_mode" }
-Number HVAC_Fan_Mode "Fan Mode [MAP(thermostatFanMode.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:512:node10:thermostat_fanmode" }
-Number HVAC_Operating_State "Op State [MAP(thermostatOpState.map):%s]" <flow> (gHVACStatus) {channel="zwave:device:512:node10:thermostat_state"}
-Number HVAC_Fan_State "Fan State [MAP(thermostatFanState.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:512:node10:thermostat_fanstate"}
-Number HVAC_Battery "Battery State [%d %%]" <battery> (gHVACStatus) {channel="zwave:device:512:node10:battery-level"}
+Number HVAC_Mode "Mode" <flow> (gHVACStatus)["homekit:TargetHeatingCoolingMode"] {channel="zwave:device:1dbcadce:node10:thermostat_mode" }
+Number HVAC_Fan_Mode "Fan Mode [MAP(thermostatFanMode.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:1dbcadce:node10:thermostat_fanmode" }
+Number HVAC_Operating_State "Op State [MAP(thermostatOpState.map):%s]" <flow> (gHVACStatus) {channel="zwave:device:1dbcadce:node10:thermostat_state"}
+Number HVAC_Fan_State "Fan State [MAP(thermostatFanState.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:1dbcadce:node10:thermostat_fanstate"}
+Number HVAC_Battery "Battery State [%d %%]" <battery> (gHVACStatus) {channel="zwave:device:1dbcadce:node10:battery-level"}
 
 /*ZwaveStats*/
 /*
 Group gZwaveStats
-Number ZwaveStatsSOF "Number Start of Frames [%s]" (gZwaveStats) {channel="zwave:serial_zstick:512:serial_sof" }
-Number ZwaveStatsACK "Number of Acknowledgements [%s]" (gZwaveStats) {channel="zwave:serial_zstick:512:serial_ack" }
-Number ZwaveStatsCAN "Number of CAN [%s]" (gZwaveStats) {channel="zwave:serial_zstick:512:serial_can" }
-Number ZwaveStatsNAK "Number of NAK [%s]" (gZwaveStats) {channel="zwave:serial_zstick:512:serial_nak" }
-Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {channel="zwave:serial_zstick:512:serial_oof" }
+Number ZwaveStatsSOF "Number Start of Frames [%s]" (gZwaveStats) {channel="zwave:serial_zstick:1dbcadce:serial_sof" }
+Number ZwaveStatsACK "Number of Acknowledgements [%s]" (gZwaveStats) {channel="zwave:serial_zstick:1dbcadce:serial_ack" }
+Number ZwaveStatsCAN "Number of CAN [%s]" (gZwaveStats) {channel="zwave:serial_zstick:1dbcadce:serial_can" }
+Number ZwaveStatsNAK "Number of NAK [%s]" (gZwaveStats) {channel="zwave:serial_zstick:1dbcadce:serial_nak" }
+Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {channel="zwave:serial_zstick:1dbcadce:serial_oof" }
 */
 
 /* MQTT ESP8266 Temp/Humidity Sensors */
@@ -157,8 +157,8 @@ Number Temperature_MasterBedroom            "MBdrm Temp [%.1f F]"               
 Number Humidity_MasterBedroom               "MBdrm Hum [%.1f %%]"               <humidity> (SF_Master,Hum_Chart)                                {mqtt="<[broker:/Kube-MasterBedroom/DHT22/Humidity:state:default]"}
 Number Temperature_Garage                   "Garage Temp [%.1f F]"              <temperature> (gGarage,Temp_Chart)                              {mqtt="<[broker:home/Kube-Garage/temperature:state:default]"}
 Number Humidity_Garage                      "Garage Hum [%.1f %%]"              <humidity> (gGarage,Hum_Chart)                                  {mqtt="<[broker:home/Kube-Garage/humidity:state:default]"}
-Number Temperature_Shed                     "Shed Temp [%.1f F]"                <temperature> (Outdoor,Temp_Chart)                              {mqtt="<[broker:/Shed/DHT22/Temperature:state:default]"}
-Number Humidity_Shed                        "Shed Hum [%.1f %%]"                <humidity> (Outdoor,Hum_Chart)                                  {mqtt="<[broker:/Shed/DHT22/Humidity:state:default]"}
+Number Temperature_Shed                     "Shed Temp [%.1f F]"                <temperature> (Outdoor,Temp_Chart)                              {mqtt="<[broker:/Kube-Shed/DHT22/Temperature:state:default]"}
+Number Humidity_Shed                        "Shed Hum [%.1f %%]"                <humidity> (Outdoor,Hum_Chart)                                  {mqtt="<[broker:/Kube-Shed/DHT22/Humidity:state:default]"}
 Number Temperature_MasterBedroomHisCloset   "MBdrm His Closet Temp [%.1f F]"    <temperature> (SF_Master,Temp_Chart_2)                          {mqtt="<[broker:/Kube-MasterBedHisCloset/DHT22/Temperature:state:default]"}
 Number Humidity_MasterBedroomHisCloset      "MBdrm His Closet Hum [%.1f %%]"    <humidity> (SF_Master,Hum_Chart)                                {mqtt="<[broker:/Kube-MasterBedHisCloset/DHT22/Humidity:state:default]"}
 Number Temperature_Attic                    "Attic Temp [%.1f F]"               <temperature> (gAttic,Temp_Chart_2)                             {mqtt="<[broker:home/Attic/temperature:state:default]"}
