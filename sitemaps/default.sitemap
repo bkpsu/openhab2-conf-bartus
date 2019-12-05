@@ -295,12 +295,54 @@ sitemap default label="Home"
 				Slider item=LEDStrip_SF_Master_Window_Intensity icon="light"
 			}
 			Frame{
+				Switch item=LEDStrip_SF_Master_S1_Window_Power
+				Selection item=LEDStrip_SF_Master_S1_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_SF_Master_S1_Window_Color
+				Slider item=LEDStrip_SF_Master_S1_Window_Speed icon="motion"
+				Slider item=LEDStrip_SF_Master_S1_Window_Intensity icon="light"
+			}	
+			Frame{
+				Switch item=LEDStrip_SF_Master_S2_Window_Power
+				Selection item=LEDStrip_SF_Master_S2_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_SF_Master_S2_Window_Color
+				Slider item=LEDStrip_SF_Master_S2_Window_Speed icon="motion"
+				Slider item=LEDStrip_SF_Master_S2_Window_Intensity icon="light"
+			}						
+			Frame{
+				Switch item=LEDStrip_SF_Guest_S_Window_Power
+				Selection item=LEDStrip_SF_Guest_S_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_SF_Guest_S_Window_Color
+				Slider item=LEDStrip_SF_Guest_S_Window_Speed icon="motion"
+				Slider item=LEDStrip_SF_Guest_S_Window_Intensity icon="light"
+			} 			
+			Frame{
+				Switch item=LEDStrip_SF_Guest_W_Window_Power
+				Selection item=LEDStrip_SF_Guest_W_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_SF_Guest_W_Window_Color
+				Slider item=LEDStrip_SF_Guest_W_Window_Speed icon="motion"
+				Slider item=LEDStrip_SF_Guest_W_Window_Intensity icon="light"
+			} 
+			Frame{
+				Switch item=LEDStrip_SF_GuestBath_Window_Power
+				Selection item=LEDStrip_SF_GuestBath_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_SF_GuestBath_Window_Color
+				Slider item=LEDStrip_SF_GuestBath_Window_Speed icon="motion"
+				Slider item=LEDStrip_SF_GuestBath_Window_Intensity icon="light"
+			} 			
+			Frame{
 				Switch item=LEDStrip_SF_Ensuite_Window_Power
 				Selection item=LEDStrip_SF_Ensuite_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
 				Colorpicker item=LEDStrip_SF_Ensuite_Window_Color
 				Slider item=LEDStrip_SF_Ensuite_Window_Speed icon="motion"
 				Slider item=LEDStrip_SF_Ensuite_Window_Intensity icon="light"
 			}
+			Frame{
+				Switch item=LEDStrip_FF_Powder_Window_Power
+				Selection item=LEDStrip_FF_Powder_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_FF_Powder_Window_Color
+				Slider item=LEDStrip_FF_Powder_Window_Speed icon="motion"
+				Slider item=LEDStrip_FF_Powder_Window_Intensity icon="light"
+			} 
 			Frame{
 				Switch item=LEDStrip_FF_Dining_Window_Power
 				Selection item=LEDStrip_FF_Dining_Window_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]

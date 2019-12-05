@@ -22,40 +22,19 @@ Color LEDStrip_FF_Foyer_Window_Color "Foyer Color"	<rgb>	(Status,gLEDStrip_Outdo
 Number LEDStrip_FF_Foyer_Window_Speed "Foyer Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
 Number LEDStrip_FF_Foyer_Window_Intensity "Foyer Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
+String LEDStrip_Outdoor_Front_Door "Front Door String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/Outdoor_Front_Door/set:state:*:default]"}
+Switch LEDStrip_Outdoor_Front_Door_Power "Front Door Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/Outdoor_Front_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_Outdoor_Front_Door_FX "Front Door Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/Outdoor_Front_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_Outdoor_Front_Door_Color "Front Door Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_Outdoor_Front_Door_Speed "Front Door Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_Outdoor_Front_Door_Intensity "Front Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
 String LEDStrip_FF_Dining_Window "Dining String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/FF_Dining_Window/set:state:*:default]"}
 Switch LEDStrip_FF_Dining_Window_Power "Dining Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/FF_Dining_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Number LEDStrip_FF_Dining_Window_FX "Dining Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/FF_Dining_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_FF_Dining_Window_Color "Dining Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
 Number LEDStrip_FF_Dining_Window_Speed "Dining Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
 Number LEDStrip_FF_Dining_Window_Intensity "Dining Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
-
-String LEDStrip_SF_Master_Window "Master String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Master_Window/set:state:*:default]"}
-Switch LEDStrip_SF_Master_Window_Power "Master Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Master_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Master_Window_FX "Master Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Master_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Color LEDStrip_SF_Master_Window_Color "Master Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Master_Window_Speed "Master Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Master_Window_Intensity "Master Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
-
-String LEDStrip_SF_Ensuite_Window "Ensuite String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Ensuite_Window/set:state:*:default]"}
-Switch LEDStrip_SF_Ensuite_Window_Power "Ensuite Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Ensuite_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Ensuite_Window_FX "Ensuite Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Ensuite_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Color LEDStrip_SF_Ensuite_Window_Color "Ensuite Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Ensuite_Window_Speed "Ensuite Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Ensuite_Window_Intensity "Ensuite Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
-
-String LEDStrip_SF_Child_Window "Child String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Child_Window/set:state:*:default]"}
-Switch LEDStrip_SF_Child_Window_Power "Child Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Child_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Child_Window_FX "Child Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Child_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Color LEDStrip_SF_Child_Window_Color "Child Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Child_Window_Speed "Child Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Child_Window_Intensity "Child Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
-
-String LEDStrip_SF_Spare_Window "Spare String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Spare_Window/set:state:*:default]"}
-Switch LEDStrip_SF_Spare_Window_Power "Spare Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Spare_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Spare_Window_FX "Spare Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Spare_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Color LEDStrip_SF_Spare_Window_Color "Spare Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Spare_Window_Speed "Spare Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Spare_Window_Intensity "Spare Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_Outdoor_Garage_Window "Garage Window String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/Outdoor_Garage_Window/set:state:*:default]"}
 Switch LEDStrip_Outdoor_Garage_Window_Power "Garage Window Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/Outdoor_Garage_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
@@ -71,12 +50,75 @@ Color LEDStrip_Outdoor_Garage_Door_Color "Garage Door Color"	<rgb>	(Status,gLEDS
 Number LEDStrip_Outdoor_Garage_Door_Speed "Garage Door Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
 Number LEDStrip_Outdoor_Garage_Door_Intensity "Garage Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
-String LEDStrip_Outdoor_Front_Door "Front Door String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/Outdoor_Front_Door/set:state:*:default]"}
-Switch LEDStrip_Outdoor_Front_Door_Power "Front Door Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/Outdoor_Front_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_Outdoor_Front_Door_FX "Front Door Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/Outdoor_Front_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Color LEDStrip_Outdoor_Front_Door_Color "Front Door Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_Outdoor_Front_Door_Speed "Front Door Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_Outdoor_Front_Door_Intensity "Front Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+String LEDStrip_FF_Powder_Window "Powder String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/FF_Powder_Window/set:state:*:default]"}
+Switch LEDStrip_FF_Powder_Window_Power "Powder Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/FF_Powder_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_FF_Powder_Window_FX "Powder Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/FF_Powder_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_FF_Powder_Window_Color "Powder Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_FF_Powder_Window_Speed "Powder Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_FF_Powder_Window_Intensity "Powder Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
+String LEDStrip_SF_Spare_Window "Spare String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Spare_Window/set:state:*:default]"}
+Switch LEDStrip_SF_Spare_Window_Power "Spare Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Spare_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_SF_Spare_Window_FX "Spare Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Spare_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_SF_Spare_Window_Color "Spare Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_SF_Spare_Window_Speed "Spare Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_SF_Spare_Window_Intensity "Spare Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
+String LEDStrip_SF_Child_Window "Child String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Child_Window/set:state:*:default]"}
+Switch LEDStrip_SF_Child_Window_Power "Child Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Child_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_SF_Child_Window_FX "Child Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Child_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_SF_Child_Window_Color "Child Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_SF_Child_Window_Speed "Child Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_SF_Child_Window_Intensity "Child Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
+String LEDStrip_SF_Ensuite_Window "Ensuite String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Ensuite_Window/set:state:*:default]"}
+Switch LEDStrip_SF_Ensuite_Window_Power "Ensuite Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Ensuite_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_SF_Ensuite_Window_FX "Ensuite Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Ensuite_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_SF_Ensuite_Window_Color "Ensuite Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_SF_Ensuite_Window_Speed "Ensuite Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_SF_Ensuite_Window_Intensity "Ensuite Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
+String LEDStrip_SF_Master_Window "Master String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Master_Window/set:state:*:default]"}
+Switch LEDStrip_SF_Master_Window_Power "Master Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Master_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_SF_Master_Window_FX "Master Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Master_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_SF_Master_Window_Color "Master Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_SF_Master_Window_Speed "Master Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_SF_Master_Window_Intensity "Master Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
+String LEDStrip_SF_Master_S1_Window "Master S1 String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Master_S1_Window/set:state:*:default]"}
+Switch LEDStrip_SF_Master_S1_Window_Power "Master S1 Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Master_S1_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_SF_Master_S1_Window_FX "Master S1 Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Master_S1_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_SF_Master_S1_Window_Color "Master S1 Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_SF_Master_S1_Window_Speed "Master S1 Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_SF_Master_S1_Window_Intensity "Master S1 Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
+String LEDStrip_SF_Master_S2_Window "Master S2 String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Master_S2_Window/set:state:*:default]"}
+Switch LEDStrip_SF_Master_S2_Window_Power "Master S2 Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Master_S2_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_SF_Master_S2_Window_FX "Master S2 Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Master_S2_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_SF_Master_S2_Window_Color "Master S2 Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_SF_Master_S2_Window_Speed "Master S2 Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_SF_Master_S2_Window_Intensity "Master S2 Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
+String LEDStrip_SF_Guest_S_Window "Guest South String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Guest_S_Window/set:state:*:default]"}
+Switch LEDStrip_SF_Guest_S_Window_Power "Guest South Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Guest_S_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_SF_Guest_S_Window_FX "Guest South Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Guest_S_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_SF_Guest_S_Window_Color "Guest South Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_SF_Guest_S_Window_Speed "Guest South Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_SF_Guest_S_Window_Intensity "Guest South Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
+String LEDStrip_SF_Guest_W_Window "Guest West String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_Guest_W_Window/set:state:*:default]"}
+Switch LEDStrip_SF_Guest_W_Window_Power "Guest West Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_Guest_W_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_SF_Guest_W_Window_FX "Guest West Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_Guest_W_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_SF_Guest_W_Window_Color "Guest West Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_SF_Guest_W_Window_Speed "Guest West Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_SF_Guest_W_Window_Intensity "Guest West Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
+String LEDStrip_SF_GuestBath_Window "Guest Bath String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/SF_GuestBath_Window/set:state:*:default]"}
+Switch LEDStrip_SF_GuestBath_Window_Power "Guest Bath Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/SF_GuestBath_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_SF_GuestBath_Window_FX "Guest Bath Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/SF_GuestBath_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_SF_GuestBath_Window_Color "Guest Bath Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_SF_GuestBath_Window_Speed "Guest Bath Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_SF_GuestBath_Window_Intensity "Guest Bath Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_Outdoor_Rear_Door "Rear Door String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/Outdoor_RearYard/set:state:*:default]"}
 Switch LEDStrip_Outdoor_Rear_Door_Power "Rear Door Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/Outdoor_RearYard/set:command:*:MAP(LEDStripEffectJSON.map)]"}
