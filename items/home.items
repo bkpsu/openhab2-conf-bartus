@@ -32,6 +32,8 @@ Group LEDStrips      "LEDStrip Control" <settings>      (Status)
 Group Configuration  "Configuration"	<settings>		(Status)
 Group AstroTest		 "AstroTest"		<settings>		(Configuration)
 
+Group PowerMeters  "Power Meters" 
+
 /* active groups */
 Group:Switch:OR(ON, OFF)	Lights 			    "All Lights [(%d)]" 		(All)
 Group:Switch:OR(ON, OFF)	NightLights   		"Night Lights [(%d)]"		(All)   [ "Lighting" ]
@@ -89,10 +91,10 @@ Color Light_Motion_Color	        "Motion Light Color"        (Configuration)
 Color Light_Kitchen_Strip_Color     "Kitchen Strip Color"       (Configuration)
 
 /* Mobile Zwave Energy Meters */
-Number Energy_Mobile_1_W	"Meter 1 (Server Rack) Energy Usage (inst) [%.2f W]"		<text>	{channel="zwave:device:1dbcadce:node8:meter_watts"}
-Number Energy_Mobile_1_kWh	"Meter 1 (Server Rack) Energy Usage (total) [%.2f kWh]"	    <text>	{channel="zwave:device:1dbcadce:node8:meter_kwh"}
-Number Energy_Mobile_2_W	"Meter 2 (Water Heater) Energy Usage (inst) [%.2f W]"		<text>	{channel="zwave:device:1dbcadce:node9:meter_watts"}
-Number Energy_Mobile_2_kWh	"Meter 2 (Water Heater) Energy Usage (total) [%.2f kWh]"	<text>	{channel="zwave:device:1dbcadce:node9:meter_kwh"}
+Number Energy_Mobile_1_W	"Meter 1 (Server Rack) Energy Usage (inst) [%.2f W]"		<text>  (PowerMeters)	{channel="zwave:device:1dbcadce:node8:meter_watts"}
+Number Energy_Mobile_1_kWh	"Meter 1 (Server Rack) Energy Usage (total) [%.2f kWh]"	    <text>  (PowerMeters)	{channel="zwave:device:1dbcadce:node8:meter_kwh"}
+Number Energy_Mobile_2_W	"Meter 2 (Workbench) Energy Usage (inst) [%.2f W]"		<text>	    (PowerMeters)   {channel="zwave:device:1dbcadce:node9:meter_watts"}
+Number Energy_Mobile_2_kWh	"Meter 2 (Workbench) Energy Usage (total) [%.2f kWh]"	<text>	    (PowerMeters)   {channel="zwave:device:1dbcadce:node9:meter_kwh"}
 
 /* Astro */
 DateTime Sunrise_Time 	"Sunrise [%1$tH:%1$tM]" (Status)				{channel="astro:sun:local:rise#start"}
@@ -190,6 +192,8 @@ Number AmbiMate_Motion "AmbiMate Motion Test [%d]" (AmbiMate_Test) {mqtt="<[brok
 /* MQTT Tasmota Devices */
 Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) [ "Outlet" ] {mqtt=">[broker:cmnd/sonoffS31-1/power:command:*:default]],<[broker:stat/sonoffS31-1/POWER:state:default]"}
 Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) [ "Outlet" ] {mqtt=">[broker:cmnd/3dpPrusai3mk0/power:command:*:default]],<[broker:stat/3dpPrusai3mk0/POWER:state:default]"}
+Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) {mqtt="<[broker:tele/3dpPrusai3mk0/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
+
 
 /* Astro Test */
 DateTime Astro_mornnightstart 	"Astro Morn Night Start [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:morningNight#start"}

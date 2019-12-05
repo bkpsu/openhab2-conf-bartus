@@ -1,20 +1,20 @@
 Group gSolar "Solar Group" <solarplant>
-Number:Power            SE7600_Production_Live   "Live Production [%.2f %unit%]"  (gSolar)   {channel="solaredge:generic:67daab0d:live#production"}
+Number:Power            SE7600_Production_Live   "Live Production [%.2f %unit%]"  (gSolar,PowerMeters)   {channel="solaredge:generic:67daab0d:live#production"}
 Number:Energy           SE7600_Production_Day    "Day Production [%.1f kWh]"   (gSolar)      {channel="solaredge:generic:67daab0d:aggregate_day#production"}
 Number:Energy           SE7600_Production_Week   "Week Production [%.1f kWh]"  (gSolar)      {channel="solaredge:generic:67daab0d:aggregate_week#production"}
 Number:Energy           SE7600_Production_Month  "Month Production [%.0f kWh]" (gSolar)      {channel="solaredge:generic:67daab0d:aggregate_month#production"}
 Number:Energy           SE7600_Production_Year   "Year Production [%.0f kWh]"  (gSolar)      {channel="solaredge:generic:67daab0d:aggregate_year#production"}
-Number:Power            SE7600_Consumption_Live  "Live Consumption [%.2f %unit%]" (gSolar)           {channel="solaredge:generic:67daab0d:live#consumption"}
+Number:Power            SE7600_Consumption_Live  "Live Consumption [%.2f %unit%]" (gSolar,PowerMeters)           {channel="solaredge:generic:67daab0d:live#consumption"}
 Number:Energy           SE7600_Consumption_Day   "Day Consumption [%.1f kWh]"  (gSolar)          {channel="solaredge:generic:67daab0d:aggregate_day#consumption"}
 Number:Energy           SE7600_Consumption_Week "Week Consumption [%.1f kWh]"   (gSolar)                {channel="solaredge:generic:67daab0d:aggregate_week#consumption"}
 Number:Energy           SE7600_Consumption_Month "Month Consumption [%.0f kWh]"(gSolar) {channel="solaredge:generic:67daab0d:aggregate_month#consumption"}
 Number:Energy           SE7600_Consumption_Year "Year Consumption [%.0f kWh]" (gSolar){channel="solaredge:generic:67daab0d:aggregate_year#consumption"}
-Number:Power            SE7600_Import_Live       "Live Import [%.2f %unit%]"   (gSolar)              {channel="solaredge:generic:67daab0d:live#import"}
+Number:Power            SE7600_Import_Live       "Live Import [%.2f %unit%]"   (gSolar,PowerMeters)              {channel="solaredge:generic:67daab0d:live#import"}
 Number:Energy           SE7600_Import_Day        "Day Import [%.1f kWh]"    (gSolar)         {channel="solaredge:generic:67daab0d:aggregate_day#import"}
 Number:Energy           SE7600_Import_Week       "Week Import [%.1f kWh]" (gSolar){channel="solaredge:generic:67daab0d:aggregate_week#import"}
 Number:Energy           SE7600_Import_Month     "Month Import [%.0f kWh]" (gSolar){channel="solaredge:generic:67daab0d:aggregate_month#import"}
 Number:Energy           SE7600_Import_Year      "Year Import [%.0f kWh]"(gSolar) {channel="solaredge:generic:67daab0d:aggregate_year#import"}
-Number:Power            SE7600_Export_Live      "LIve Export [%.2f %unit%]"   (gSolar)              {channel="solaredge:generic:67daab0d:live#export"}
+Number:Power            SE7600_Export_Live      "LIve Export [%.2f %unit%]"   (gSolar,PowerMeters)              {channel="solaredge:generic:67daab0d:live#export"}
 Number:Energy           SE7600_Export_Day       "Day Export [%.1f kWh]"    (gSolar)                {channel="solaredge:generic:67daab0d:aggregate_day#export"}
 Number:Energy           SE7600_Export_Week      "Week Export [%.1f kWh]" (gSolar){channel="solaredge:generic:67daab0d:aggregate_week#export"}
 Number:Energy           SE7600_Export_Month     "Month Export [%.0f kWh]" (gSolar){channel="solaredge:generic:67daab0d:aggregate_month#export"}
@@ -31,13 +31,13 @@ String                  SE7600_Status_PV         "PV Status %s"                 
 String                  SE7600_Status_Load        "Load Status %s"                    (gSolar)   {channel="solaredge:generic:67daab0d:live#load_status"}
 String                  SE7600_Status_Grid    "Grid Status %s"                         (gSolar) {channel="solaredge:generic:67daab0d:live#grid_status"}
 
-Number Shed_DSB09EM_Power "Shed Panel Power" (gSolar) { channel="zwave:device:512:node11:sensor_power" }
-Number Shed_DSB09EM_kWh "Shed Panel Meter kWh" (gSolar) { channel="zwave:device:512:node11:meter_kwh" }
-Number Shed_DSB09EM_W "Shed Panel Meter W" (gSolar) { channel="zwave:device:512:node11:meter_watts" }
+Number Shed_DSB09EM_Power "Shed Panel Power" (gSolar,PowerMeters) { channel="zwave:device:512:node11:sensor_power" }
+Number Shed_DSB09EM_kWh "Shed Panel Meter kWh" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_kwh" }
+Number Shed_DSB09EM_W "Shed Panel Meter W" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_watts" }
 Switch Shed_DSB09EM_Reset "Shed Panel Meter Reset" (gSolar) { channel="zwave:device:512:node11:meter_reset"}
-Number Shed_DSB09EM_Power_1 "Shed Panel Power 1" (gSolar) { channel="zwave:device:512:node11:sensor_power1" }
-Number Shed_DSB09EM_kWh_1 "Shed Panel Meter kWh 1" (gSolar) { channel="zwave:device:512:node11:meter_kwh1" }
-Number Shed_DSB09EM_W_1 "Shed Panel Meter W 1" (gSolar) { channel="zwave:device:512:node11:meter_watts1" }
-Number Shed_DSB09EM_Power_2 "Shed Panel Power 2" (gSolar) { channel="zwave:device:512:node11:sensor_power2" }
-Number Shed_DSB09EM_kWh_2 "Shed Panel Meter kWh 2" (gSolar) { channel="zwave:device:512:node11:meter_kwh2" }
-Number Shed_DSB09EM_W_2 "Shed Panel Meter W 2" (gSolar) { channel="zwave:device:512:node11:meter_watts2" }
+Number Shed_DSB09EM_Power_1 "Shed Panel Power 1" (gSolar,PowerMeters) { channel="zwave:device:512:node11:sensor_power1" }
+Number Shed_DSB09EM_kWh_1 "Shed Panel Meter kWh 1" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_kwh1" }
+Number Shed_DSB09EM_W_1 "Shed Panel Meter W 1" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_watts1" }
+Number Shed_DSB09EM_Power_2 "Shed Panel Power 2" (gSolar,PowerMeters) { channel="zwave:device:512:node11:sensor_power2" }
+Number Shed_DSB09EM_kWh_2 "Shed Panel Meter kWh 2" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_kwh2" }
+Number Shed_DSB09EM_W_2 "Shed Panel Meter W 2" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_watts2" }

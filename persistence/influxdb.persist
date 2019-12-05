@@ -10,7 +10,7 @@ Strategies {
 Items {
 	//* : strategy = everyChange, restoreOnStartup
 	
-	Weather_Chart*,Temp_Chart*,Temp_Chart_2*,Hum_Chart*,Speedtest_Chart*,gHVAC*,gHVACStatus*,gSolar*,AmbiMate_Test* : strategy = everyMinute, restoreOnStartup
+	Weather_Chart*,Temp_Chart*,Temp_Chart_2*,Hum_Chart*,Speedtest_Chart*,gHVAC*,gHVACStatus*,gSolar*,AmbiMate_Test*,PowerMeters* : strategy = everyMinute, restoreOnStartup
 	Weather*,Weather_Chart_Period,Temp_Chart_Period,Temp_Chart_Period_2,Hum_Chart_Period,Speedtest_Chart_Period,AmbiMate_Motion : strategy = everyChange, restoreOnStartup
 	localCurrentTemperature,localCurrentPressure,localCurrentHumidity,localCurrentWindSpeed : strategy = everyChange, restoreOnStartup
 }
