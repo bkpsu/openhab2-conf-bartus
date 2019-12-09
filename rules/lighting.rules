@@ -9,9 +9,9 @@ then
 	val item = gLEDStrip_Outdoor.members.findFirst[ l | l.name == source ] as StringItem
 	logInfo("LED", "Item " + item.name)
 	item.sendCommand("{\"color\": {" + 
-		"\"r\": " + (triggeringItem.state as HSBType).red + "," +
-		"\"g\": " + (triggeringItem.state as HSBType).green + "," +
-		"\"b\": " + (triggeringItem.state as HSBType).blue + "}}") end
+		"\"r\": " + (triggeringItem.state as HSBType).red.intValue.toString + "," +
+		"\"g\": " + (triggeringItem.state as HSBType).green.intValue.toString + "," +
+		"\"b\": " + (triggeringItem.state as HSBType).blue.intValue.toString + "}}") end
 
 rule "LED Strip Group 1 (Outdoor) JSON Speed Single Strip"
 when Member of gLEDStrip_Outdoor_Speed received update
@@ -39,9 +39,9 @@ then
  	val source = triggeringItem.name.split("_Color").get(0)
 	val item = gLEDStrip_Kitchen.members.findFirst[ l | l.name == source ] as StringItem
 	item.sendCommand("{\"color\": {" + 
-		"\"r\": " + (triggeringItem.state as HSBType).red + "," +
-		"\"g\": " + (triggeringItem.state as HSBType).green + "," +
-		"\"b\": " + (triggeringItem.state as HSBType).blue + "}}") end
+		"\"r\": " + (triggeringItem.state as HSBType).red.intValue.toString + "," +
+		"\"g\": " + (triggeringItem.state as HSBType).green.intValue.toString + "," +
+		"\"b\": " + (triggeringItem.state as HSBType).blue.intValue.toString + "}}") end
 
 rule "LED Strip Group 1 (Kitchen) JSON Speed Single Strip"
 when Member of gLEDStrip_Kitchen_Speed received update
