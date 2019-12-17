@@ -31,6 +31,9 @@ Group LightingScenes "Lighting Scene"   <settings>      (Status)
 Group LEDStrips      "LEDStrip Control" <settings>      (Status)
 Group Configuration  "Configuration"	<settings>		(Status)
 Group AstroTest		 "AstroTest"		<settings>		(Configuration)
+ 
+Group HASP "Hasp Persist Items"
+Group Sequencer "Sequencer Persist Items"
 
 Group PowerMeters  "Power Meters" 
 
@@ -190,7 +193,8 @@ Number AmbiMate_Motion "AmbiMate Motion Test [%d]" (AmbiMate_Test) {mqtt="<[brok
 
 
 /* MQTT Tasmota Devices */
-Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) [ "Outlet" ] {mqtt=">[broker:cmnd/sonoffS31-1/power:command:*:default]],<[broker:stat/sonoffS31-1/POWER:state:default]"}
+Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) [ "Outlet" ] {mqtt=">[broker:cmnd/ChristmasTree/power:command:*:default]],<[broker:stat/ChristmasTree/POWER:state:default]"}
+Number Sonoff_S31_1_Power "Christmas Tree Power Usage [%d]W" (FF_Family,PowerMeters) {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
 Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) [ "Outlet" ] {mqtt=">[broker:cmnd/3dpPrusai3mk0/power:command:*:default]],<[broker:stat/3dpPrusai3mk0/POWER:state:default]"}
 Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) {mqtt="<[broker:tele/3dpPrusai3mk0/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
 

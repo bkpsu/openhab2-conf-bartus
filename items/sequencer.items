@@ -1,4 +1,4 @@
-Group Sequencer_Items
+Group Sequencer_Items (Sequencer)
 Group Sequencer_Step "Sequencer Steps" (Sequencer_Items)
 
 Switch Sequencer_Start "Sequencer Start" (Sequencer_Items)
