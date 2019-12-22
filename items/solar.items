@@ -31,13 +31,13 @@ String                  SE7600_Status_PV         "PV Status %s"                 
 String                  SE7600_Status_Load        "Load Status %s"                    (gSolar)   {channel="solaredge:generic:67daab0d:live#load_status"}
 String                  SE7600_Status_Grid    "Grid Status %s"                         (gSolar) {channel="solaredge:generic:67daab0d:live#grid_status"}
 
-Number Shed_DSB09EM_Power "Shed Panel Power" (gSolar,PowerMeters) { channel="zwave:device:512:node11:sensor_power" }
-Number Shed_DSB09EM_kWh "Shed Panel Meter kWh" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_kwh" }
-Number Shed_DSB09EM_W "Shed Panel Meter W" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_watts" }
-Switch Shed_DSB09EM_Reset "Shed Panel Meter Reset" (gSolar) { channel="zwave:device:512:node11:meter_reset"}
-Number Shed_DSB09EM_Power_1 "Shed Panel Power 1" (gSolar,PowerMeters) { channel="zwave:device:512:node11:sensor_power1" }
-Number Shed_DSB09EM_kWh_1 "Shed Panel Meter kWh 1" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_kwh1" }
-Number Shed_DSB09EM_W_1 "Shed Panel Meter W 1" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_watts1" }
-Number Shed_DSB09EM_Power_2 "Shed Panel Power 2" (gSolar,PowerMeters) { channel="zwave:device:512:node11:sensor_power2" }
-Number Shed_DSB09EM_kWh_2 "Shed Panel Meter kWh 2" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_kwh2" }
-Number Shed_DSB09EM_W_2 "Shed Panel Meter W 2" (gSolar,PowerMeters) { channel="zwave:device:512:node11:meter_watts2" }
+Number Shed_DSB09EM_Power "Shed Panel Power" (gSolar,PowerMeters) { channel="zwave:device:1dbcadce:node11:sensor_power" }
+Number Shed_DSB09EM_kWh "Shed Panel Meter kWh" (gSolar,PowerMeters) { channel="zwave:device:1dbcadce:node11:meter_kwh" }
+Number Shed_DSB09EM_W "Shed Panel Meter W" (gSolar,PowerMeters) { channel="zwave:device:1dbcadce:node11:meter_watts" }
+Switch Shed_DSB09EM_Reset "Shed Panel Meter Reset" (gSolar) { channel="zwave:device:1dbcadce:node11:meter_reset"}
+Number Shed_DSB09EM_Power_1 "Shed Panel Power 1" (gSolar,PowerMeters) { channel="zwave:device:1dbcadce:node11:sensor_power1" }
+Number Shed_DSB09EM_kWh_1 "Shed Panel Meter kWh 1" (gSolar,PowerMeters) { channel="zwave:device:1dbcadce:node11:meter_kwh1" }
+Number Shed_DSB09EM_W_1 "Shed Panel Meter W 1" (gSolar,PowerMeters) { channel="zwave:device:1dbcadce:node11:meter_watts1" }
+Number Shed_DSB09EM_Power_2 "Shed Panel Power 2" (gSolar,PowerMeters) { channel="zwave:device:1dbcadce:node11:sensor_power2" }
+Number Shed_DSB09EM_kWh_2 "Shed Panel Meter kWh 2" (gSolar,PowerMeters) { channel="zwave:device:1dbcadce:node11:meter_kwh2" }
+Number Shed_DSB09EM_W_2 "Shed Panel Meter W 2" (gSolar,PowerMeters) { channel="zwave:device:1dbcadce:node11:meter_watts2" }
