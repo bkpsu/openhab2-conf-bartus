@@ -41,6 +41,7 @@ Group PowerMeters  "Power Meters"
 Group:Switch:OR(ON, OFF)	Lights 			    "All Lights [(%d)]" 		(All)
 Group:Switch:OR(ON, OFF)	NightLights   		"Night Lights [(%d)]"		(All)   [ "Lighting" ]
 Group:Switch:OR(ON, OFF)	EveningLights		"Evening Lights [(%d)]"		(All)   [ "Lighting" ]
+Group:Switch:OR(ON, OFF)	DownstairsLights	"Downstairs Lights [(%d)]"	(All)   [ "Lighting" ]
 Group:Switch:OR(ON, OFF)	OutdoorLights		"Outdoor Lights [(%d)]"		(All)   [ "Lighting" ]
 Group:Switch:OR(ON, OFF)	ChristmasLights 	"Christmas Lights [(%d)]"	(All)   [ "Lighting" ]
 
@@ -50,25 +51,25 @@ Switch Light_Outdoor_FrontDoor 		"Front Door"			            (Outdoor, OutdoorLig
 Switch Light_Outdoor_Garage 		"Garage" 			                (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:1dbcadce:node20:switch_binary"} 
 Switch Light_Outdoor_RearYard 		"Rear Yard" 			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:1dbcadce:node4:switch_binary"}
 Switch Light_Outdoor_Shed		    "Shed Light"			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:1dbcadce:node19:switch_binary"}
-Dimmer Light_FF_Family_Sconces 		"Sconces [%d %%]"		            (FF_Family, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]		{channel="zwave:device:1dbcadce:node6:switch_dimmer"}
+Dimmer Light_FF_Family_Sconces 		"Sconces [%d %%]"		            (FF_Family, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]		{channel="zwave:device:1dbcadce:node6:switch_dimmer"}
 Color Light_FF_Family_Lamp		    "Family Lamp [%d %%]"       <rgb>	(FF_Family, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0210:00178829871a:3:color"}
 Dimmer Light_FF_Foyer_Light 		"Foyer Light [%d %%]"		        (FF_Foyer, Lights)                  [ "Lighting" ]		{channel="zwave:device:1dbcadce:node7:switch_dimmer"}
 Switch Light_FF_Foyer_Lamp		    "Foyer Lamp"			            (FF_Foyer, NightLights, Lights)	    [ "Lighting" ]		{mqtt=">[broker:cmnd/FF_Foyer_Lamp/power:command:*:default]],<[broker:stat/FF_Foyer_Lamp/POWER:state:default]"} //{channel="zwave:device:1dbcadce:node8:switch_binary"}
 //Dimmer Light_FF_Kitchen_Island_L	"Island Left [%d %%]" 		        (Light_FF_Kitchen_Island, FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)	 [ "Lighting" ]		{channel="hue:0100:00178829871a:10:brightness"}
 //Dimmer Light_FF_Kitchen_Island_C	"Island Center [%d %%]" 	        (Light_FF_Kitchen_Island, FF_Kitchen, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0100:00178829871a:11:brightness"}
 //Dimmer Light_FF_Kitchen_Island_R	"Island Right [%d %%]" 		        (Light_FF_Kitchen_Island, FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)	 [ "Lighting" ]		{channel="hue:0100:00178829871a:12:brightness"}
-Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"                      (FF_Kitchen, Lights)                        [ "Lighting" ]      {channel="zwave:device:1dbcadce:node13:switch_dimmer"}
-/*Group:*/Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(FF_Kitchen, Lights)            [ "Lighting" ]      {channel="zwave:device:1dbcadce:node17:switch_dimmer"}
-Dimmer Light_FF_Office_Lamp		    "Office Lamp [%d %%]"			    (FF_Office, EveningLights, Lights)  [ "Lighting" ]		{channel="hue:0100:00178829871a:16:brightness"}
-Color Light_FF_Office_Lamp2         "Office Mood Lamp [%d %%]" 	        (FF_Office, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]   {channel="hue:0210:00178829871a:24:color"}
-Color Light_FF_Office_Recliner      "Office Recliner Lamp [%d %%]"      (FF_Office, EveningLights, Lights)  [ "Lighting" ]      {channel="hue:0210:00178829871a:33:color"}
-Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(FF_Office, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                 [ "Lighting" ]	{channel="hue:0210:00178829871a:6:color"}
+Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"                      (FF_Kitchen, DownstairsLights, Lights)                        [ "Lighting" ]      {channel="zwave:device:1dbcadce:node13:switch_dimmer"}
+/*Group:*/Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(FF_Kitchen, DownstairsLights, Lights)            [ "Lighting" ]      {channel="zwave:device:1dbcadce:node17:switch_dimmer"}
+Dimmer Light_FF_Office_Lamp		    "Office Lamp [%d %%]"			    (FF_Office, DownstairsLights, EveningLights, Lights)  [ "Lighting" ]		{channel="hue:0100:00178829871a:16:brightness"}
+Color Light_FF_Office_Lamp2         "Office Mood Lamp [%d %%]" 	        (FF_Office, DownstairsLights, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]   {channel="hue:0210:00178829871a:24:color"}
+Color Light_FF_Office_Recliner      "Office Recliner Lamp [%d %%]"      (FF_Office, DownstairsLights, EveningLights, Lights)  [ "Lighting" ]      {channel="hue:0210:00178829871a:33:color"}
+Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(FF_Office, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                 [ "Lighting" ]	{channel="hue:0210:00178829871a:6:color"}
 //Dimmer Light_FF_Kitchen_Recessed_SW	"Recessed SW [%d %%]"		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:20:brightness"}
 // Dimmer Light_FF_Kitchen_Recessed_NW	"Recessed NW [%d %%]" 		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:18:brightness"}
 // Dimmer Light_FF_Kitchen_Recessed_NE	"Recessed NE [%d %%]" 		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:21:brightness"}
 // Dimmer Light_FF_Kitchen_Recessed_SE	"Recessed SE [%d %%]" 		        (Light_FF_Kitchen_Recessed, FF_Kitchen, Lights) [ "Lighting" ]		{channel="hue:0100:00178829871a:19:brightness"}
-/*Group:*/Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" 	    (FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ] {channel="zwave:device:1dbcadce:node16:switch_dimmer"}
-Dimmer Light_FF_Kitchen_Sink	    "Sink [%d %%]" 		                (FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0100:00178829871a:4:brightness"}
+/*Group:*/Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" 	    (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ] {channel="zwave:device:1dbcadce:node16:switch_dimmer"}
+Dimmer Light_FF_Kitchen_Sink	    "Sink [%d %%]" 		                (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0100:00178829871a:4:brightness"}
 Color Light_SF_Landing_Lamp	    "Landing Lamp"			                (SF_Landing, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]	{channel="hue:0210:00178829871a:34:color"}
 Dimmer Light_SF_Master_BedLamp_Right "Right Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:22:brightness"}
 Dimmer Light_SF_Master_BedLamp_Left "Left Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:23:brightness"}
