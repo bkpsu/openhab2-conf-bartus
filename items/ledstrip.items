@@ -43,6 +43,13 @@ Color LEDStrip_Outdoor_Garage_Window_Color "Garage Window Color"	<rgb>	(Status,g
 Number LEDStrip_Outdoor_Garage_Window_Speed "Garage Window Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
 Number LEDStrip_Outdoor_Garage_Window_Intensity "Garage Window Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
+String LEDStrip_Outdoor_Garage_Tree "Garage Tree String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/Outdoor_Garage_Tree/set:state:*:default]"}
+Switch LEDStrip_Outdoor_Garage_Tree_Power "Garage Tree Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/Outdoor_Garage_Tree/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number LEDStrip_Outdoor_Garage_Tree_FX "Garage Tree Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/Outdoor_Garage_Tree/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_Outdoor_Garage_Tree_Color "Garage Tree Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
+Number LEDStrip_Outdoor_Garage_Tree_Speed "Garage Tree Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number LEDStrip_Outdoor_Garage_Tree_Intensity "Garage Tree Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+
 String LEDStrip_Outdoor_Garage_Door "Garage Door String" (gLEDStrip_Outdoor) {mqtt=">[broker:home/Outdoor_Garage_Door/set:state:*:default]"}
 Switch LEDStrip_Outdoor_Garage_Door_Power "Garage Door Power" (Status,gLEDStrip_Outdoor_Power){mqtt=">[broker:home/Outdoor_Garage_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Number LEDStrip_Outdoor_Garage_Door_FX "Garage Door Fx" (Status,gLEDStrip_Outdoor_FX){mqtt=">[broker:home/Outdoor_Garage_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}

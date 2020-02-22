@@ -370,6 +370,13 @@ sitemap default label="Home"
 				Colorpicker item=LEDStrip_Outdoor_Garage_Window_Color
 				Slider item=LEDStrip_Outdoor_Garage_Window_Speed icon="motion"
 				Slider item=LEDStrip_Outdoor_Garage_Window_Intensity icon="light"
+			}			
+			Frame{
+				Switch item=LEDStrip_Outdoor_Garage_Tree_Power
+				Selection item=LEDStrip_Outdoor_Garage_Tree_FX icon="mediacontrol" mappings=[1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]
+				Colorpicker item=LEDStrip_Outdoor_Garage_Tree_Color
+				Slider item=LEDStrip_Outdoor_Garage_Tree_Speed icon="motion"
+				Slider item=LEDStrip_Outdoor_Garage_Tree_Intensity icon="light"
 			}
 			Frame{
 				Switch item=LEDStrip_Outdoor_Garage_Door_Power
