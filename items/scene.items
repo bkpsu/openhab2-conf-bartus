@@ -44,6 +44,7 @@ Color Scene_Evening_Light_FF_Office_Desk "Office Desk Lamp Color [%d %%]" (gScen
 Dimmer Scene_Evening_Light_SF_Master_BedLamp_Left "Master Bed Lamp Left [%d %%]" (gSceneConfig_Evening,Scene_States)
 Dimmer Scene_Evening_Light_SF_Master_BedLamp_Right "Master Bed Lamp Right [%d %%]" (gSceneConfig_Evening,Scene_States)
 Dimmer Scene_Evening_Light_SF_Landing_Lamp "Landing Lamp Level [%d %%]" (gSceneConfig_Evening,Scene_States)
+Dimmer Scene_Evening_Light_SF_Landing_Light "Landing Light Level [%d %%]" (gSceneConfig_Evening,Scene_States)
 
 //Night Scene Configuration Settings
 Group gSceneConfig_Night "Night Scene Config" (LightingScenes)
@@ -62,6 +63,7 @@ Color Scene_Night_Light_FF_Office_Desk "Office Desk Lamp Color [%d %%]" (gSceneC
 Dimmer Scene_Night_Light_SF_Master_BedLamp_Left "Master Bed Lamp Left [%d %%]" (gSceneConfig_Night,Scene_States)
 Dimmer Scene_Night_Light_SF_Master_BedLamp_Right "Master Bed Lamp Right [%d %%]" (gSceneConfig_Night,Scene_States)
 Dimmer Scene_Night_Light_SF_Landing_Lamp "Landing Lamp Level [%d %%]" (gSceneConfig_Night,Scene_States)
+Dimmer Scene_Night_Light_SF_Landing_Light "Landing Light Level [%d %%]" (gSceneConfig_Night,Scene_States)
 
 //Morning Scene Configuration Settings
 Group gSceneConfig_Morning "Morning Scene Config" (LightingScenes)
@@ -80,6 +82,7 @@ Color Scene_Morning_Light_FF_Office_Desk "Office Desk Lamp Color [%d %%]" (gScen
 Dimmer Scene_Morning_Light_SF_Master_BedLamp_Left "Master Bed Lamp Left [%d %%]" (gSceneConfig_Morning,Scene_States)
 Dimmer Scene_Morning_Light_SF_Master_BedLamp_Right "Master Bed Lamp Right [%d %%]" (gSceneConfig_Morning,Scene_States)
 Dimmer Scene_Morning_Light_SF_Landing_Lamp "Landing Lamp Level [%d %%]" (gSceneConfig_Morning,Scene_States)
+Dimmer Scene_Morning_Light_SF_Landing_Light "Landing Light Level [%d %%]" (gSceneConfig_Morning,Scene_States)
 
 //Work Scene Configuration Settings
 Group gSceneConfig_Work "Work Scene Config" (LightingScenes)
@@ -98,6 +101,7 @@ Color Scene_Work_Light_FF_Office_Desk "Office Desk Lamp Color [%d %%]" (gSceneCo
 Dimmer Scene_Work_Light_SF_Master_BedLamp_Left "Master Bed Lamp Left [%d %%]" (gSceneConfig_Work,Scene_States)
 Dimmer Scene_Work_Light_SF_Master_BedLamp_Right "Master Bed Lamp Right [%d %%]" (gSceneConfig_Work,Scene_States)
 Dimmer Scene_Work_Light_SF_Landing_Lamp "Landing Lamp Level [%d %%]" (gSceneConfig_Work,Scene_States)
+Dimmer Scene_Work_Light_SF_Landing_Light "Landing Light Level [%d %%]" (gSceneConfig_Work,Scene_States)
 
 //Work Scene Configuration Settings
 Group gSceneConfig_Bedtime "Bedtime Scene Config" (LightingScenes)
@@ -116,5 +120,6 @@ Color Scene_Bedtime_Light_FF_Office_Desk "Office Desk Lamp Color [%d %%]" (gScen
 Dimmer Scene_Bedtime_Light_SF_Master_BedLamp_Left "Master Bed Lamp Left [%d %%]" (gSceneConfig_Bedtime,Scene_States)
 Dimmer Scene_Bedtime_Light_SF_Master_BedLamp_Right "Master Bed Lamp Right [%d %%]" (gSceneConfig_Bedtime,Scene_States)
 Dimmer Scene_Bedtime_Light_SF_Landing_Lamp "Landing Lamp Level [%d %%]" (gSceneConfig_Bedtime,Scene_States)
+Dimmer Scene_Bedtime_Light_SF_Landing_Light "Landing Light Level [%d %%]" (gSceneConfig_Bedtime,Scene_States)
 
 // Step 4 - Add set of state items corresponding to items that are to be controlled (ensure anything past Scene_xxx_ matches the actual item name)
