@@ -21,11 +21,11 @@ Group Scene_Bedtime_Items (Scene_Items)
 
 /* Scene Config Proxy Switches (accessible from UI/Google Home)*/
 /* Step 3 - Add new proxy switch for storing current state of items into scene state items */
-Switch Scene_Evening_Store "Store Evening Scene" (gSceneConfig_Evening) [ "Switchable" ]
-Switch Scene_Night_Store "Store Night Scene" (gSceneConfig_Night) [ "Switchable" ]
-Switch Scene_Morning_Store "Store Morning Scene" (gSceneConfig_Morning) [ "Switchable" ]
-Switch Scene_Work_Store "Store Work Scene" (gSceneConfig_Work) [ "Switchable" ]
-Switch Scene_Bedtime_Store "Store Bedtime Scene" (gSceneConfig_Bedtime) [ "Switchable" ]
+Switch Scene_Evening_Store "Store Current Evening" (gSceneConfig_Evening) [ "Switchable" ]
+Switch Scene_Night_Store "Store Current Night" (gSceneConfig_Night) [ "Switchable" ]
+Switch Scene_Morning_Store "Store Current Morning" (gSceneConfig_Morning) [ "Switchable" ]
+Switch Scene_Work_Store "Store Current Work" (gSceneConfig_Work) [ "Switchable" ]
+Switch Scene_Bedtime_Store "Store Current Bedtime" (gSceneConfig_Bedtime) [ "Switchable" ]
 
 //Evening Scene Configuration Settings
 Group gSceneConfig_Evening "Evening Scene Config" (LightingScenes)
