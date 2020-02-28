@@ -54,7 +54,9 @@ Switch Light_Outdoor_Shed		    "Shed Light"			            (Outdoor, OutdoorLight
 Dimmer Light_FF_Family_Sconces 		"Sconces [%d %%]"		            (FF_Family, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]		{channel="zwave:device:1dbcadce:node6:switch_dimmer"}
 Color Light_FF_Family_Lamp		    "Family Lamp [%d %%]"       <rgb>	(FF_Family, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0210:00178829871a:3:color"}
 Dimmer Light_FF_Foyer_Light 		"Foyer Light [%d %%]"		        (FF_Foyer, Lights)                  [ "Lighting" ]		{channel="zwave:device:1dbcadce:node7:switch_dimmer"}
+Dimmer Light_FF_Family_BottomLight  "Downstairs Light"                  (FF_Family, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:1dbcadce:node23:switch_dimmer"}
 Switch Light_FF_Foyer_Lamp		    "Foyer Lamp"			            (FF_Foyer, NightLights, Lights)	    [ "Lighting" ]		{mqtt=">[broker:cmnd/FF_Foyer_Lamp/power:command:*:default]],<[broker:stat/FF_Foyer_Lamp/POWER:state:default]"} //{channel="zwave:device:1dbcadce:node8:switch_binary"}
+Dimmer Light_FF_Powder_HallLight    "Powder Hall Light"                 (FF_Powder, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:1dbcadce:node24:switch_dimmer"}
 //Dimmer Light_FF_Kitchen_Island_L	"Island Left [%d %%]" 		        (Light_FF_Kitchen_Island, FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)	 [ "Lighting" ]		{channel="hue:0100:00178829871a:10:brightness"}
 //Dimmer Light_FF_Kitchen_Island_C	"Island Center [%d %%]" 	        (Light_FF_Kitchen_Island, FF_Kitchen, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0100:00178829871a:11:brightness"}
 //Dimmer Light_FF_Kitchen_Island_R	"Island Right [%d %%]" 		        (Light_FF_Kitchen_Island, FF_Kitchen, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)	 [ "Lighting" ]		{channel="hue:0100:00178829871a:12:brightness"}
@@ -72,6 +74,7 @@ Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(FF_Office, Do
 Dimmer Light_FF_Kitchen_Sink	    "Sink [%d %%]" 		                (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0100:00178829871a:4:brightness"}
 Color Light_SF_Landing_Lamp	    "Landing Lamp"			                (SF_Landing, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]	{channel="hue:0210:00178829871a:34:color"}
 Dimmer Light_SF_Landing_Light   "Landing Light"                         (SF_Landing, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:1dbcadce:node21:switch_dimmer"}
+Dimmer Light_SF_Landing_StaircaseLight   "Staircase Light"              (SF_Landing, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:1dbcadce:node22:switch_dimmer"}
 Dimmer Light_SF_Master_BedLamp_Right "Right Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:22:brightness"}
 Dimmer Light_SF_Master_BedLamp_Left "Left Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:23:brightness"}
 Dimmer Light_SF_Master_EnsuiteHall   "Ensuite Hall [%d %%]"      <slider>	(SF_Master, Lights)                 [ "Lighting" ]       {channel="zwave:device:1dbcadce:node18:switch_dimmer"}
@@ -88,8 +91,8 @@ Group Hum_Chart (All)
 Number Hum_Chart_Period "Hum Chart Period"
 
 /* Config Items */
-Switch VacationMode					"Vacation"	<vacation>		(Configuration)
-Switch AwayMode						"Away"						(Configuration)
+Switch VacationMode					"Vacation Mode"	<vacation>	(Configuration)
+Switch AwayMode						"Away Mode"			        (Configuration) ["Switchable"]		
 Switch Christmas					"Christmas Lights"			(Configuration)
 Switch Light_FF_Family_Sconces_Dim	"Sconce Dimmer"				(Configuration)
 Color Light_Motion_Color	        "Motion Light Color"        (Configuration)
