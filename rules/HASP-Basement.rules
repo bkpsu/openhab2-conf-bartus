@@ -138,7 +138,7 @@ then
     var String eventpage = HASP_Plate04_Plate_State_JSON_Event.state.toString.split("\\[").get(1).split("\\]").get(0)
     var String eventbutton = HASP_Plate04_Plate_State_JSON_Event.state.toString.split("\\[").get(2).split("\\]").get(0)
 
-    if (HASP_Plate04_Plate_State_JSON_Value.state == 'OFF')
+    if ((HASP_Plate04_Plate_State_JSON_Value.state == 'OFF') || (HASP_Plate04_Plate_State_JSON_Value.state == '0'))
     {
         //Do nothing (button release event)
         logInfo ("HASP", "Ignoring OFF event")
