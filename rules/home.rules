@@ -339,7 +339,7 @@ rule "Dash button 3 pressed"
 	}
 end
 */
-rule "Speedtest init"
+/* rule "Speedtest init"
 when
     System started
 then
@@ -393,4 +393,4 @@ then
         logError("speedtest","--> speedtest failed. Output:\n" + speedtestCliOutput + "\n\n")
     }
     SpeedtestRerun.postUpdate(OFF)
-end
+end */
