@@ -1,0 +1,3 @@
+Thing ntp:ntp:local [ hostname="us.pool.ntp.org" ]
+Thing astro:moon:local [ geolocation="39.7262901,-75.0084047", interval=300 ]
+Thing astro:sun:local [ geolocation="39.7262901,-75.0084047", interval=300 ]
