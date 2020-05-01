@@ -1,22 +1,55 @@
-Thing mqtt:topic:Kube_Ensuite "Kube Ensuite" (mqtt:broker:MQTTBroker)  @ "Kube" {
+Thing mqtt:topic:Kube_Basement "Kube Basement" (mqtt:broker:MQTTBroker)  @ "Kube" [ availabilityTopic="/Kube-Basement/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
     Channels:
-    Type string : reachable  "Reachable" [ stateTopic="/Kube-Ensuite/status/LWT", on="Connected", off="Connection Lost" ]
+    Type number : temperature "Temperature" [ stateTopic="/Kube-Basement/DHT22/Temperature" ]
+    Type number : humidity "Humidity" [ stateTopic="/Kube-Basement/DHT22/Humidity" ]
+    }
+
+Thing mqtt:topic:Kube_Ensuite "Kube Ensuite" (mqtt:broker:MQTTBroker)  @ "Kube" [ availabilityTopic="/Kube-Ensuite/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
+    Channels:
     Type number : temperature "Temperature" [ stateTopic="/Kube-Ensuite/DHT22/Temperature" ]
     Type number : humidity "Humidity" [ stateTopic="/Kube-Ensuite/DHT22/Humidity" ]
     }
 
-Thing mqtt:topic:Kube_Garage "Kube Garage" (mqtt:broker:MQTTBroker)  @ "Kube" {
+Thing mqtt:topic:Kube_Family "Kube Family" (mqtt:broker:MQTTBroker)  @ "Kube" [ availabilityTopic="/Kube-Family/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
     Channels:
-    Type string : reachable  "Reachable" [ stateTopic="/Kube-Garage/status/LWT", on="Connected", off="Connection Lost" ]
+    Type number : temperature "Temperature" [ stateTopic="/Kube-Family/DHT22/Temperature" ]
+    Type number : humidity "Humidity" [ stateTopic="/Kube-Family/DHT22/Humidity" ]
+    }
+
+Thing mqtt:topic:Kube_Garage "Kube Garage" (mqtt:broker:MQTTBroker)  @ "Kube" [ availabilityTopic="/Kube-Garage/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
+    Channels:
     Type number : temperature "Temperature" [ stateTopic="/Kube-Garage/DHT22/Temperature" ]
     Type number : humidity "Humidity" [ stateTopic="/Kube-Garage/DHT22/Humidity" ]
     }
 
-Thing mqtt:topic:Kube_Office "Kube Office" (mqtt:broker:MQTTBroker) @ "Kube" {
+Thing mqtt:topic:Kube_Laundry "Kube Laundry" (mqtt:broker:MQTTBroker) @ "Kube" [ availabilityTopic="/Kube-Laundry/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
     Channels:
-    Type string : reachable  "Reachable" [ stateTopic="/Kube-Office/status/LWT", on="Connected", off="Connection Lost" ]
+    Type number : temperature "Temperature" [ stateTopic="/Kube-Laundry/DHT22/Temperature" ]
+    Type number : humidity "Humidity" [ stateTopic="/Kube-Laundry/DHT22/Humidity" ]
+    }
+
+Thing mqtt:topic:Kube_MasterBedroom "Kube MasterBedroom" (mqtt:broker:MQTTBroker) @ "Kube" [ availabilityTopic="/Kube-MasterBedroom/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
+    Channels:
+    Type number : temperature "Temperature" [ stateTopic="/Kube-MasterBedroom/DHT22/Temperature" ]
+    Type number : humidity "Humidity" [ stateTopic="/Kube-MasterBedroom/DHT22/Humidity" ]
+    }
+
+Thing mqtt:topic:Kube_MasterBedHisCloset "Kube MasterBedHisCloset" (mqtt:broker:MQTTBroker) @ "Kube" [ availabilityTopic="/Kube-MasterBedHisCloset/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
+    Channels:
+    Type number : temperature "Temperature" [ stateTopic="/Kube-MasterBedHisCloset/DHT22/Temperature" ]
+    Type number : humidity "Humidity" [ stateTopic="/Kube-MasterBedHisCloset/DHT22/Humidity" ]
+    }
+
+Thing mqtt:topic:Kube_Office "Kube Office" (mqtt:broker:MQTTBroker) @ "Kube" [ availabilityTopic="/Kube-Office/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
+    Channels:
     Type number : temperature "Temperature" [ stateTopic="/Kube-Office/DHT22/Temperature" ]
     Type number : humidity "Humidity" [ stateTopic="/Kube-Office/DHT22/Humidity" ]
+    }
+
+Thing mqtt:topic:Kube_Shed "Kube Shed" (mqtt:broker:MQTTBroker) @ "Kube" [ availabilityTopic="/Kube-Shed/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
+    Channels:
+    Type number : temperature "Temperature" [ stateTopic="/Kube-Shed/DHT22/Temperature" ]
+    Type number : humidity "Humidity" [ stateTopic="/Kube-Shed/DHT22/Humidity" ]
     }
 
 /*   Thing topic sonoff_Dual_Thing "Light_Dual" @ "Sonoff" {
