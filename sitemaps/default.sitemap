@@ -131,9 +131,12 @@ sitemap default label="Home"
 				Frame
 				{
 					Switch item=MonoPrice_Z12_Power
-					Switch item=MonoPrice_Z12_Source mappings=[2=BT,3=DJ,5=CAST,6=CD] visibility=[MonoPrice_Z12_Power==ON] icon="receiver"
+					Selection item=MonoPrice_Z12_Source visibility=[MonoPrice_Z12_Power==ON] icon="receiver"
 					Slider item=MonoPrice_Z12_Volume visibility=[MonoPrice_Z12_Power==ON] icon="soundvolume"
-					Switch item=MonoPrice_Z12_Mute visibility=[MonoPrice_Z12_Power==ON]				
+					Switch item=MonoPrice_Z12_Mute visibility=[MonoPrice_Z12_Power==ON]	
+					Setpoint item=MonoPrice_Z12_Balance visibility=[MonoPrice_Z12_Power==ON] minValue=-7 maxValue=7
+					Setpoint item=MonoPrice_Z12_Bass visibility=[MonoPrice_Z12_Power==ON] minValue=-7 maxValue=7
+					Setpoint item=MonoPrice_Z12_Treble visibility=[MonoPrice_Z12_Power==ON] minValue=-7 maxValue=7								
 				}
 				Frame
 				{
@@ -473,6 +476,10 @@ sitemap default label="Home"
 				}
 		  }
 		}
+		Text label="AVR"
+		{
+			Group item=gAVR
+		} 
 		Text label="OpenWeatherMap"
 		{
 			Frame label="Local Weather Station" {
