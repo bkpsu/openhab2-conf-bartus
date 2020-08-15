@@ -293,9 +293,11 @@ then
                                     HVAC_CoolSetPoint.sendCommand(temp + 1)
                                 }
                                 case '3': //Auto
-                                {   //TODO: Check which Setpoitn CT100 uses in Auto           
-                                    var temp = (HVAC_HeatSetPoint.state as QuantityType<Number>).intValue
-                                    HVAC_HeatSetPoint.sendCommand(temp + 1)
+                                {            
+                                    var tempH = (HVAC_HeatSetPoint.state as QuantityType<Number>).intValue
+                                    var tempC = (HVAC_CoolSetPoint.state as QuantityType<Number>).intValue
+                                    HVAC_HeatSetPoint.sendCommand(tempH + 1)
+                                    HVAC_CoolSetPoint.sendCommand(tempC + 1) //In Auto, "shift" the entire Cool/Heat setpoint range up or down on +/- presses
                                 }
                             }
                         }
@@ -317,9 +319,11 @@ then
                                     HVAC_CoolSetPoint.sendCommand(temp - 1)
                                 }
                                 case '3': //Auto
-                                {   //TODO: Check which Setpoitn CT100 uses in Auto           
-                                    var temp = (HVAC_HeatSetPoint.state as QuantityType<Number>).intValue
-                                    HVAC_HeatSetPoint.sendCommand(temp - 1)
+                                {             
+                                    var tempH = (HVAC_HeatSetPoint.state as QuantityType<Number>).intValue
+                                    var tempC = (HVAC_CoolSetPoint.state as QuantityType<Number>).intValue
+                                    HVAC_HeatSetPoint.sendCommand(tempH - 1)
+                                    HVAC_CoolSetPoint.sendCommand(tempC - 1) //In Auto, "shift" the entire Cool/Heat setpoint range up or down on +/- presses
                                 }
                             }  
                         }
@@ -592,22 +596,22 @@ then
             case 0: //Off
             {
                 modeString = '"p[3].b[4].txt=\\"' + 'OFF' + '\\"", ' + '"p[3].b[4].bco=65535"'
-                tempString = '"p[3].b[7].txt=\\"' + 'C:' + Temperature_HVAC.state.format("%.0f °F") + '\\""'              
+                tempString = '"p[3].b[7].txt=\\"' + 'T:' + Temperature_HVAC.state.format("%.0f °F") + '\\""'              
             }
             case 1: //Heat
             {
                 modeString = '"p[3].b[4].txt=\\"' + 'HEAT' + '\\"", ' + '"p[3].b[4].bco=64544"'
-                tempString = '"p[3].b[7].txt=\\"' + 'C:' + Temperature_HVAC.state.format("%.0f °F") + ' S:' + HVAC_HeatSetPoint.state.format("%.0f °F") + '\\""'              
+                tempString = '"p[3].b[7].txt=\\"' + 'T:' + Temperature_HVAC.state.format("%.0f °F") + ' H:' + HVAC_HeatSetPoint.state.format("%.0f °F") + '\\""'              
             }
             case 2: //Cool
             {
                 modeString = '"p[3].b[4].txt=\\"' + 'COOL' + '\\"", ' + '"p[3].b[4].bco=31"'
-                tempString = '"p[3].b[7].txt=\\"' + 'C:' + Temperature_HVAC.state.format("%.0f °F") + ' S:' + HVAC_CoolSetPoint.state.format("%.0f °F") + '\\""'                          
+                tempString = '"p[3].b[7].txt=\\"' + 'T:' + Temperature_HVAC.state.format("%.0f °F") + ' C:' + HVAC_CoolSetPoint.state.format("%.0f °F") + '\\""'                          
             }
             case 3: //Auto
-            {   //TODO: Check which Setpoitn CT100 uses in Auto           
+            {             
                 modeString = '"p[3].b[4].txt=\\"' + 'AUTO' + '\\"", ' + '"p[3].b[4].bco=8160"'
-                tempString = '"p[3].b[7].txt=\\"' + 'C:' + Temperature_HVAC.state.format("%.0f °F") + ' S:' + HVAC_HeatSetPoint.state.format("%.0f °F") + '\\""'                          
+                tempString = '"p[3].b[7].txt=\\"' + 'H:' + HVAC_HeatSetPoint.state.format("%.0f") + '-T:' + Temperature_HVAC.state.format("%.0f") + '-C:' + HVAC_CoolSetPoint.state.format("%.0f°F") + '\\""'
             }
         }
         var jsonString = '[' + modeString + ', ' + tempString + ']'

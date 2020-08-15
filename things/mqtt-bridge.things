@@ -4,7 +4,7 @@ Bridge mqtt:broker:MQTTBroker "Mosquitto MQTT Broker" [
   port=1883,
   qos=0,
   retain=false,
-  clientid="openHAB",
+  clientid="openHAB-mqtt-bridge.things",
   //certificate="",
   //certificatepin=false,
   //publickey="",

@@ -48,29 +48,29 @@ Group:Switch:OR(ON, OFF)	ChristmasLights 	"Christmas Lights [(%d)]"	(All)   [ "L
 
 /* Lights */
 Switch Light_Outdoor_FrontDoor 		"Front Door"			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:99f97889:node2:switch_binary"}
-Switch Light_Outdoor_Garage 		"Garage" 			                (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:99f97889:node20:switch_binary"} 
+Switch Light_Outdoor_Garage 		"Garage" 			                (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:99f97889:node40:switch_binary"} 
 Switch Light_Outdoor_RearYard 		"Rear Yard" 			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:99f97889:node4:switch_binary"}
 Switch Light_Outdoor_Shed		    "Shed Light"			            (Outdoor, OutdoorLights, Lights)    [ "Lighting" ]		{channel="zwave:device:99f97889:node19:switch_binary"}
 Dimmer Light_FF_Family_Sconces 		"Sconces [%d %%]"		            (FF_Family, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]		{channel="zwave:device:99f97889:node6:switch_dimmer"}
 Color Light_FF_Family_Lamp		    "Family Lamp [%d %%]"       <rgb>	(FF_Family, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="hue:0210:00178829871a:3:color"}
 Dimmer Light_FF_Foyer_Light 		"Foyer Light [%d %%]"		        (FF_Foyer, Lights)                  [ "Lighting" ]		{channel="zwave:device:99f97889:node7:switch_dimmer"}
-Dimmer Light_FF_Family_BottomLight  "Downstairs Light"                  (FF_Family, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:99f97889:node23:switch_dimmer"}
-Switch Light_FF_Foyer_Lamp		    "Foyer Lamp"			            (FF_Foyer, NightLights, Lights)	    [ "Lighting" ]		{mqtt=">[broker:cmnd/FF_Foyer_Lamp/power:command:*:default]],<[broker:stat/FF_Foyer_Lamp/POWER:state:default]"}
-Dimmer Light_FF_Powder_HallLight    "Powder Hall Light"                 (FF_Powder, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:99f97889:node24:switch_dimmer"}
-Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"                      (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                [ "Lighting" ]      {channel="zwave:device:99f97889:node13:switch_dimmer"}
-Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)            [ "Lighting" ]      {channel="zwave:device:99f97889:node17:switch_dimmer"}
+Dimmer Light_FF_Family_BottomLight  "Downstairs Light"                  (FF_Family, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:99f97889:node43:switch_dimmer"}
+Switch Light_FF_Foyer_Lamp		    "Foyer Lamp"			            (FF_Foyer, NightLights, Lights)	    [ "Lighting" ]		{channel="mqtt:topic:SonoffS31_FFFoyerLamp:switch"} //{mqtt=">[broker:cmnd/FF_Foyer_Lamp/power:command:*:default]],<[broker:stat/FF_Foyer_Lamp/POWER:state:default]"}
+Dimmer Light_FF_Powder_HallLight    "Powder Hall Light"                 (FF_Powder, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:99f97889:node44:switch_dimmer"}
+Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"                      (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                [ "Lighting" ]      {channel="zwave:device:99f97889:node36:switch_dimmer"}
+Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)            [ "Lighting" ]      {channel="zwave:device:99f97889:node38:switch_dimmer"}
 Dimmer Light_FF_Office_Lamp		    "Office Lamp [%d %%]"			    (FF_Office, DownstairsLights, EveningLights, Lights)  [ "Lighting" ]		{channel="hue:0100:00178829871a:16:brightness"}
 Color Light_FF_Office_Lamp2         "Office Mood Lamp [%d %%]" 	        (FF_Office, DownstairsLights, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Lighting" ]   {channel="hue:0210:00178829871a:24:color"}
 Color Light_FF_Office_Recliner      "Office Recliner Lamp [%d %%]"      (FF_Office, DownstairsLights, EveningLights, Lights)  [ "Lighting" ]      {channel="hue:0210:00178829871a:33:color"}
 Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(FF_Office, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                 [ "Lighting" ]	{channel="hue:0210:00178829871a:6:color"}
-Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" 	    (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ] {channel="zwave:device:99f97889:node16:switch_dimmer"}
-Dimmer Light_FF_Kitchen_Sink	    "Sink Light [%d %%]" 		        (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="zwave:device:99f97889:node25:switch_dimmer"}
+Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" 	    (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ] {channel="zwave:device:99f97889:node37:switch_dimmer"}
+Dimmer Light_FF_Kitchen_Sink	    "Sink Light [%d %%]" 		        (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Lighting" ]	{channel="zwave:device:99f97889:node45:switch_dimmer"}
 Color Light_SF_Landing_Lamp	    "Landing Lamp"			                (SF_Landing, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]	{channel="hue:0210:00178829871a:34:color"}
-Dimmer Light_SF_Landing_Light   "Landing Light"                         (SF_Landing, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:99f97889:node21:switch_dimmer"}
-Dimmer Light_SF_Landing_StaircaseLight   "Staircase Light"              (SF_Landing, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:99f97889:node22:switch_dimmer"}
+Dimmer Light_SF_Landing_Light   "Landing Light"                         (SF_Landing, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:99f97889:node41:switch_dimmer"}
+Dimmer Light_SF_Landing_StaircaseLight   "Staircase Light"              (SF_Landing, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Lighting" ]  {channel="zwave:device:99f97889:node42:switch_dimmer"}
 Dimmer Light_SF_Master_BedLamp_Right "Right Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:22:brightness"}
 Dimmer Light_SF_Master_BedLamp_Left "Left Bed Lamp" 	                (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Lighting" ]  {channel="hue:0100:00178829871a:23:brightness"}
-Dimmer Light_SF_Master_EnsuiteHall   "Ensuite Hall [%d %%]"      <slider>	(SF_Master, Lights)                 [ "Lighting" ]       {channel="zwave:device:99f97889:node18:switch_dimmer"}
+Dimmer Light_SF_Master_EnsuiteHall   "Ensuite Hall [%d %%]"      <slider>	(SF_Master, Lights)                 [ "Lighting" ]       {channel="zwave:device:99f97889:node39:switch_dimmer"}
 Color Light_SF_Guest_BedLamp_Right "Guest Bed Right Lamp" 	                (SF_Guest, Lights)   [ "Lighting" ]  {channel="hue:0210:00178829871a:31:color"}
 Color Light_SF_Guest_BedLamp_Left "Guest Bed Left Lamp" 	                (SF_Guest, Lights)   [ "Lighting" ]  {channel="hue:0210:00178829871a:32:color"}
 
@@ -164,23 +164,23 @@ Number Temperature_Shed                     "Shed Temp [%.1f F]"                
 Number Humidity_Shed                        "Shed Hum [%.1f %%]"                <humidity> (Outdoor,Hum_Chart)                                  {channel="mqtt:topic:Kube_Shed:humidity"}
 Number Temperature_MasterBedroomHisCloset   "MBdrm His Closet Temp [%.1f F]"    <temperature> (SF_Master,Temp_Chart_2)                          {channel="mqtt:topic:Kube_MasterBedHisCloset:temperature"}
 Number Humidity_MasterBedroomHisCloset      "MBdrm His Closet Hum [%.1f %%]"    <humidity> (SF_Master,Hum_Chart)                                {channel="mqtt:topic:Kube_MasterBedHisCloset:humidity"}
-Number Temperature_Attic                    "Attic Temp [%.1f F]"               <temperature> (gAttic,Temp_Chart_2)                             {mqtt="<[broker:home/Attic/temperature:state:default]"}
-Number Humidity_Attic                       "Attic Hum [%.1f %%]"               <humidity> (gAttic,Hum_Chart)                                   {mqtt="<[broker:home/Attic/humidity:state:default]"}
+Number Temperature_Attic                    "Attic Temp [%.1f F]"               <temperature> (gAttic,Temp_Chart_2)                           //  {mqtt="<[broker:home/Attic/temperature:state:default]"}
+Number Humidity_Attic                       "Attic Hum [%.1f %%]"               <humidity> (gAttic,Hum_Chart)                                 //  {mqtt="<[broker:home/Attic/humidity:state:default]"}
 Number Temperature_Laundry                  "Laundry Temp [%.1f F]"             <temperature> (AmbiMate_Test,FF_Laundry,Temp_Chart)                           {channel="mqtt:topic:Kube_Laundry:temperature"}
 Number Humidity_Laundry                     "Laundry Hum [%.1f %%]"             <humidity> (AmbiMate_Test,FF_Laundry,Hum_Chart)                               {channel="mqtt:topic:Kube_Laundry:humidity"}
 Number Temperature_Ensuite                  "Ensuite Temp [%.1f F]"             <temperature> (SF_Ensuite,Temp_Chart_2)                         {channel="mqtt:topic:Kube_Ensuite:temperature"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Temperature:state:default]"}
 Number Humidity_Ensuite                     "Ensuite Hum [%.1f %%]"             <humidity> (SF_Ensuite,Hum_Chart)                               {channel="mqtt:topic:Kube_Ensuite:humidity"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Humidity:state:default]"}
-Number Temperature_Kitchen                  "Kitchen Temp [%.1f F]"             <temperature> (FF_Kitchen,Temp_Chart)                           {mqtt="<[broker:/Kitchen/DHT22/Temperature:state:default]"}
-Number Humidity_Kitchen                     "Kitchen Hum [%.1f %%]"             <humidity> (FF_Kitchen,Hum_Chart)                               {mqtt="<[broker:/Kitchen/DHT22/Humidity:state:default]"}
+Number Temperature_Kitchen                  "Kitchen Temp [%.1f F]"             <temperature> (FF_Kitchen,Temp_Chart)                          // {mqtt="<[broker:/Kitchen/DHT22/Temperature:state:default]"}
+Number Humidity_Kitchen                     "Kitchen Hum [%.1f %%]"             <humidity> (FF_Kitchen,Hum_Chart)                              // {mqtt="<[broker:/Kitchen/DHT22/Humidity:state:default]"}
 Number Temperature_Office                   "Office Temp [%.1f F]"              <temperature> (FF_Office,Temp_Chart)                            {channel="mqtt:topic:Kube_Office:temperature"} //mqtt="<[broker:/Kube-Office/DHT22/Temperature:state:default]"}
 Number Humidity_Office                      "Office Hum [%.1f %%]"              <humidity> (FF_Office,Hum_Chart)                                {channel="mqtt:topic:Kube_Office:humidity"}
 Number Temperature_Family                   "Family Temp [%.1f F]"              <temperature> (FF_Family,Temp_Chart)                            {channel="mqtt:topic:Kube_Family:temperature"}
 Number Humidity_Family                      "Family Hum [%.1f %%]"              <humidity> (FF_Family,Hum_Chart)                                {channel="mqtt:topic:Kube_Family:humidity"}
-Number Temperature_Guest                    "Guest Temp [%.1f F]"               <temperature> (SF_GuestBdrm,Temp_Chart_2)                       {mqtt="<[broker:home/Guest/temperature:state:default]"}
-Number Humidity_Guest                       "Guest Hum [%.1f %%]"               <humidity> (SF_GuestBdrm,Hum_Chart)                             {mqtt="<[broker:home/Guest/humidity:state:default]"}
+Number Temperature_Guest                    "Guest Temp [%.1f F]"               <temperature> (SF_GuestBdrm,Temp_Chart_2)                     //  {mqtt="<[broker:home/Guest/temperature:state:default]"}
+Number Humidity_Guest                       "Guest Hum [%.1f %%]"               <humidity> (SF_GuestBdrm,Hum_Chart)                            // {mqtt="<[broker:home/Guest/humidity:state:default]"}
 
 /* MQTT ESP8266 Motion Sensors */
-Number Motion_MasterBedroom "Master Motion [%d]" {mqtt="<[broker:/Kube-MasterBedroom/Motion/Switch:state:default]", expire="2m,0" }
+Number Motion_MasterBedroom "Master Motion [%d]" //{mqtt="<[broker:/Kube-MasterBedroom/Motion/Switch:state:default]", expire="2m,0" }
 Switch Motion_Master_Disable "Disable Motion Sensor" (SF_Master)
 
 Group AmbiMate_Test "AmbiMate Test"
@@ -191,11 +191,14 @@ Group AmbiMate_Test "AmbiMate Test"
 
 
 /* MQTT Tasmota Devices */
-Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) [ "Outlet" ] {mqtt=">[broker:cmnd/ChristmasTree/power:command:*:default]],<[broker:stat/ChristmasTree/POWER:state:default]"}
-Number Sonoff_S31_1_Power "Christmas Tree Power Usage [%d]W" (FF_Family,PowerMeters) {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
-Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) [ "Outlet" ] {mqtt=">[broker:cmnd/3dpPrusai3mk0/power:command:*:default]],<[broker:stat/3dpPrusai3mk0/POWER:state:default]"}
-Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) {mqtt="<[broker:tele/3dpPrusai3mk0/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
+Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) [ "Outlet" ]  {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:switch"} //{mqtt=">[broker:cmnd/ChristmasTree/power:command:*:default]],<[broker:stat/ChristmasTree/POWER:state:default]"}
+Number Sonoff_S31_1_Power "Christmas Tree Power Usage [%d]W" (FF_Family,PowerMeters) {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:powerLoad"} // {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
+Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) [ "Outlet" ] {channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} // {mqtt=">[broker:cmnd/3dpPrusai3mk0/power:command:*:default]],<[broker:stat/3dpPrusai3mk0/POWER:state:default]"}
+Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} // {mqtt="<[broker:tele/3dpPrusai3mk0/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
+Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt) [ "Outlet" ] {channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}
+Number Prusai3_mk2S_Power "3d Printer (Black) Power Usage [%d]W" (gBsmt,PowerMeters) {channel="mqtt:topic:SonoffS31_3DPrinterBlack:powerLoad"}
 
+Number FF_Foyer_Lamp_Power "Foyer Lamp Power Usage [%d}W" (PowerMeters) {channel="mqtt:topic:SonoffS31_FFFoyerLamp:powerLoad"}
 
 /* Astro Test */
 DateTime Astro_mornnightstart 	"Astro Morn Night Start [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:morningNight#start"}
@@ -227,9 +230,9 @@ DateTime Astro_daylightend 	    "Astro Daylight End [%1$tH:%1$tM]" 	    (AstroTe
 
 
 
-Number Temperature_BME280_4_Test                  "BME280-4 Test Temp [%.1f F]"             <temperature> (AmbiMate_Test)                         {mqtt="<[broker:/Kube_BMETest_4/BME280/Temperature:state:default]"}
-Number Humidity_BME280_4_Test                     "BME280-4 Test Hum [%.1f %%]"             <humidity> (AmbiMate_Test)                               {mqtt="<[broker:/Kube_BMETest_4/BME280/Humidity:state:default]"}
-Number Pressure_BME280_4_Test                     "BME280-4 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                               {mqtt="<[broker:/Kube_BMETest_4/BME280/Pressure:state:default]"}
-Number Temperature_BME280_6_Test                  "BME280-6 Test Temp [%.1f F]"             <temperature> (AmbiMate_Test)                           {mqtt="<[broker:/Kube_BMETest_6/BME/Temperature:state:default]"}
-Number Humidity_BME280_6_Test                     "BME280-6 Test Hum [%.1f %%]"             <humidity> (AmbiMate_Test)                               {mqtt="<[broker:/Kube_BMETest_6/BME/Humidity:state:default]"}
-Number Pressure_BME280_6_Test                     "BME280-6 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                               {mqtt="<[broker:/Kube_BMETest_6/BME/Pressure:state:default]"}
+Number Temperature_BME280_4_Test                  "BME280-4 Test Temp [%.1f F]"             <temperature> (AmbiMate_Test)                        // {mqtt="<[broker:/Kube_BMETest_4/BME280/Temperature:state:default]"}
+Number Humidity_BME280_4_Test                     "BME280-4 Test Hum [%.1f %%]"             <humidity> (AmbiMate_Test)                             //  {mqtt="<[broker:/Kube_BMETest_4/BME280/Humidity:state:default]"}
+Number Pressure_BME280_4_Test                     "BME280-4 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                              // {mqtt="<[broker:/Kube_BMETest_4/BME280/Pressure:state:default]"}
+Number Temperature_BME280_6_Test                  "BME280-6 Test Temp [%.1f F]"             <temperature> (AmbiMate_Test)                          // {mqtt="<[broker:/Kube_BMETest_6/BME/Temperature:state:default]"}
+Number Humidity_BME280_6_Test                     "BME280-6 Test Hum [%.1f %%]"             <humidity> (AmbiMate_Test)                             //  {mqtt="<[broker:/Kube_BMETest_6/BME/Humidity:state:default]"}
+Number Pressure_BME280_6_Test                     "BME280-6 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                              // {mqtt="<[broker:/Kube_BMETest_6/BME/Pressure:state:default]"}
