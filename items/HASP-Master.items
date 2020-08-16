@@ -1,34 +1,34 @@
 /* Page Storage Items */
 
-Number HASP_Plate01_Page "HASP Plate 01 Page Select [%d]" (HASP) {mqtt=">[broker:hasp/plate01/command/page:command:*:default]"}
-Number HASP_Plate01_Page_Current "HASP Plate 01 Current Page [%d]" (HASP) {mqtt="<[broker:hasp/plate01/command/page:state:default]"}
+Number HASP_Plate01_Page "HASP Plate 01 Page Select [%d]" (HASP)  {channel="mqtt:topic:plate01:Plate_Page"} //{mqtt=">[broker:hasp/plate01/command/page:command:*:default]"}
+Number HASP_Plate01_Page_Current "HASP Plate 01 Current Page [%d]" (HASP) {channel="mqtt:topic:plate01:Plate_Page"} //{mqtt="<[broker:hasp/plate01/command/page:state:default]"}
 
 /* Plate Status Items */
 
-Switch HASP_Plate01_Light_Power "HASP Plate 01 Backlight Switch [%s]" (HASP) {mqtt=">[broker:hasp/plate01/light/switch:command:*:default]",expire="30s,command=OFF"}
-Switch HASP_Plate01_Light_Status "HASP Plate 01 Backlight Status [%s]" (HASP) {mqtt="<[broker:hasp/plate01/light/state:state:default]"}
-Number HASP_Plate01_Light_Brightness "HASP Plate 01 Backlight Brightness [%d]" (HASP) {mqtt="<[broker:hasp/plate01/brightness/state:state:default]"}
-Number HASP_Plate01_Light_Dimmer "HASP Plate 01 Backlight Brightness Set [%d]" (HASP) {mqtt=">[broker:hasp/plate01/brightness/set:command:*:default]"}
+Switch HASP_Plate01_Light_Power "HASP Plate 01 Backlight Switch [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Backlight", expire="30s,command=OFF"} //{mqtt=">[broker:hasp/plate01/light/switch:command:*:default]",expire="30s,command=OFF"}
+Switch HASP_Plate01_Light_Status "HASP Plate 01 Backlight Status [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Backlight"} //{mqtt="<[broker:hasp/plate01/light/state:state:default]"}
+Number HASP_Plate01_Light_Brightness "HASP Plate 01 Backlight Brightness [%d]" (HASP) {channel="mqtt:topic:plate01:Plate_Brightness"} //{mqtt="<[broker:hasp/plate01/brightness/state:state:default]"}
+Number HASP_Plate01_Light_Dimmer "HASP Plate 01 Backlight Brightness Set [%d]" (HASP) {channel="mqtt:topic:plate01:Plate_Brightness"} //{mqtt=">[broker:hasp/plate01/brightness/set:command:*:default]"}
 
-Switch HASP_Plate01_Plate_Status "HASP Plate 01 Connection Status [%s]" (HASP) {mqtt="<[broker:hasp/plate01/status:state:default]"}
-String HASP_Plate01_Plate_Sensor "HASP Plate 01 Sensor [%s]" (HASP) {mqtt="<[broker:hasp/plate01/sensor:state:default]"}
-String HASP_Plate01_Plate_Sensor_Status "HASP Plate 01 Sensor - Status [%s]" (HASP) {mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.status)]"}
-String HASP_Plate01_Plate_Sensor_ESPVersion "HASP Plate 01 Sensor - ESP Version [%s]" (HASP) {mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.espVersion)]"}
-String HASP_Plate01_Plate_Sensor_ESPUpdate "HASP Plate 01 Sensor - ESP Update Available [%s]" (HASP) {mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.updateEspAvailable)]"}
-String HASP_Plate01_Plate_Sensor_LCDVersion "HASP Plate 01 Sensor - LCD Version [%s]" (HASP) {mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.lcdVersion)]"}
-String HASP_Plate01_Plate_Sensor_LCDUpdate "HASP Plate 01 Sensor - LCD Update Available [%s]" (HASP) {mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.updateLcdAvailable)]"}
-Number HASP_Plate01_Plate_Sensor_ESPUptime "HASP Plate 01 Sensor - ESP Uptime [%d secs]" (HASP) {mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.espUptime)]"}
-Number HASP_Plate01_Plate_Sensor_SignalStrength "HASP Plate 01 Sensor - Signal Strength [%d dbm]" (HASP) {mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.signalStrength)]"}
-String HASP_Plate01_Plate_Sensor_HaspIP "HASP Plate 01 Sensor - HASP IP [%s]" (HASP) {mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.haspIP)]"}
+Switch HASP_Plate01_Plate_Status "HASP Plate 01 Connection Status [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Status"} //{mqtt="<[broker:hasp/plate01/status:state:default]"}
+String HASP_Plate01_Plate_Sensor "HASP Plate 01 Sensor [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"} //{mqtt="<[broker:hasp/plate01/sensor:state:default]"}
+String HASP_Plate01_Plate_Sensor_Status "HASP Plate 01 Sensor - Status [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.status"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.status)]"}
+String HASP_Plate01_Plate_Sensor_ESPVersion "HASP Plate 01 Sensor - ESP Version [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.espVersion"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.espVersion)]"}
+String HASP_Plate01_Plate_Sensor_ESPUpdate "HASP Plate 01 Sensor - ESP Update Available [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.updateEspAvailable"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.updateEspAvailable)]"}
+String HASP_Plate01_Plate_Sensor_LCDVersion "HASP Plate 01 Sensor - LCD Version [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.lcdVersion"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.lcdVersion)]"}
+String HASP_Plate01_Plate_Sensor_LCDUpdate "HASP Plate 01 Sensor - LCD Update Available [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.updateLcdAvailable"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.updateLcdAvailable)]"}
+Number HASP_Plate01_Plate_Sensor_ESPUptime "HASP Plate 01 Sensor - ESP Uptime [%d secs]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.espUptime"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.espUptime)]"}
+Number HASP_Plate01_Plate_Sensor_SignalStrength "HASP Plate 01 Sensor - Signal Strength [%d dbm]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.signalStrength"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.signalStrength)]"}
+String HASP_Plate01_Plate_Sensor_HaspIP "HASP Plate 01 Sensor - HASP IP [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.haspIP"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.haspIP)]"}
 
 Switch HASP_Plate01_Plate_Refresh "HASP Plate 01 Refresh" (HASP) {expire="10s,command=OFF"}
 
-Number HASP_Plate01_Plate_Motion "HASP Plate 01 Motion Status [%d]" (HASP) {mqtt="<[broker:hasp/plate01/motion/state:state:default]"}
+Number HASP_Plate01_Plate_Motion "HASP Plate 01 Motion Status [%d]" (HASP) {channel="mqtt:topic:plate01:Plate_Motion"} //{mqtt="<[broker:hasp/plate01/motion/state:state:default]"}
 
-String HASP_Plate01_Plate_Command "Hasp Plate 01 Command" (HASP) {mqtt=">[broker:hasp/plate01/command:command:*:default]"}
+String HASP_Plate01_Plate_Command "HASP Plate 01 Command" (HASP) {channel="mqtt:topic:plate01:Plate_Command"} //{mqtt=">[broker:hasp/plate01/command:command:*:default]"}
 
-String HASP_Plate01_Plate_Command_JSON "Hasp Plate 01 JSON Command" (HASP) {mqtt=">[broker:hasp/plate01/command/json:command:*:default]"}
+String HASP_Plate01_Plate_Command_JSON "HASP Plate 01 JSON Command" (HASP) {channel="mqtt:topic:plate01:Plate_Command_JSON"} //{mqtt=">[broker:hasp/plate01/command/json:command:*:default]"}
 
-String HASP_Plate01_Plate_State_JSON "HASP Plate 01 JSON State" (HASP) {mqtt="<[broker:hasp/plate01/state/json:state:default]"}
-String HASP_Plate01_Plate_State_JSON_Event "HASP Plate 01 JSON State Event" (HASP) {mqtt="<[broker:hasp/plate01/state/json:state:JSONPATH($.event)]"}
-String HASP_Plate01_Plate_State_JSON_Value "HASP Plate 01 JSON State Value" (HASP) {mqtt="<[broker:hasp/plate01/state/json:state:JSONPATH($.value)]"}
+String HASP_Plate01_Plate_State_JSON "HASP Plate 01 JSON State" (HASP) {channel="mqtt:topic:plate01:Plate_State_JSON"} //{mqtt="<[broker:hasp/plate01/state/json:state:default]"}
+String HASP_Plate01_Plate_State_JSON_Event "HASP Plate 01 JSON State Event" (HASP) {channel="mqtt:topic:plate01:Plate_State_JSON_Event"} //{mqtt="<[broker:hasp/plate01/state/json:state:JSONPATH($.event)]"}
+String HASP_Plate01_Plate_State_JSON_Value "HASP Plate 01 JSON State Value" (HASP) {channel="mqtt:topic:plate01:Plate_State_JSON_Value"} //{mqtt="<[broker:hasp/plate01/state/json:state:JSONPATH($.value)]"}

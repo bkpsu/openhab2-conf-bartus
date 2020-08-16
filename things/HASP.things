@@ -1,0 +1,82 @@
+Thing mqtt:topic:plate01 "HASP Plate 01" (mqtt:broker:MQTTBroker) @ "Master Bedroom" {
+    Channels:
+        Type number : Plate_Page 	        	"Plate Page [%d]" 		        [stateTopic="hasp/plate01/command/page", commandTopic="hasp/plate01/command/page"]
+
+        Type switch : Plate_Backlight 		    "Plate Backlight [%d]" 		    [stateTopic="hasp/plate01/light/state", commandTopic="hasp/plate01/light/switch", on="ON", off="OFF"]
+        Type number : Plate_Brightness 		    "Plate Brightness [%d]" 	    [stateTopic="hasp/plate01/brightness/state", commandTopic="hasp/plate01/brightness/set"]
+
+        Type switch : Plate_Status		        "Plate Connection Status [%d]"	[stateTopic="hasp/plate01/status"]
+        Type string : Plate_Sensor		        "Plate Sensor"			        [stateTopic="hasp/plate01/sensor"]
+       
+        Type number : Plate_Motion 		         "Plate Motion Status [%d]" 	[stateTopic="hasp/plate01/motion/state"]
+
+        Type string : Plate_Command 		    "Plate Command" 		        [commandTopic="hasp/plate01/command"]
+        Type string : Plate_Command_JSON 	    "Plate JSON Command" 	    	[commandTopic="hasp/plate01/command/json"]
+
+        Type string : Plate_State_JSON	    	"Plate State Json"		        [stateTopic="hasp/plate01/state/json"]	
+        Type string : Plate_State_JSON_Event	"Plate State Json Event"	    [stateTopic="hasp/plate01/state/json", transformationPattern="JSONPATH:$.event"]
+        Type string : Plate_State_JSON_Value	"Plate State Json Value"	    [stateTopic="hasp/plate01/state/json", transformationPattern="JSONPATH:$.value"]
+    }
+	
+Thing mqtt:topic:plate02 "HASP Plate 02" (mqtt:broker:MQTTBroker) @ "Foyer" {
+    Channels:
+        Type number : Plate_Page 	        	"Plate Page [%d]" 		        [stateTopic="hasp/plate02/command/page", commandTopic="hasp/plate02/command/page"]
+
+        Type switch : Plate_Backlight 		    "Plate Backlight [%d]" 		    [stateTopic="hasp/plate02/light/state", commandTopic="hasp/plate02/light/switch", on="ON", off="OFF"]
+        Type number : Plate_Brightness 		    "Plate Brightness [%d]" 	    [stateTopic="hasp/plate02/brightness/state", commandTopic="hasp/plate02/brightness/set"]
+
+        Type switch : Plate_Status		        "Plate Connection Status [%d]"	[stateTopic="hasp/plate02/status"]
+        Type string : Plate_Sensor		        "Plate Sensor"			        [stateTopic="hasp/plate02/sensor"]
+       
+        Type number : Plate_Motion 		         "Plate Motion Status [%d]" 	[stateTopic="hasp/plate02/motion/state"]
+
+        Type string : Plate_Command 		    "Plate Command" 		        [commandTopic="hasp/plate02/command"]
+        Type string : Plate_Command_JSON 	    "Plate JSON Command" 	    	[commandTopic="hasp/plate02/command/json"]
+
+        Type string : Plate_State_JSON	    	"Plate State Json"		        [stateTopic="hasp/plate02/state/json"]	
+        Type string : Plate_State_JSON_Event	"Plate State Json Event"	    [stateTopic="hasp/plate02/state/json", transformationPattern="JSONPATH:$.event"]
+        Type string : Plate_State_JSON_Value	"Plate State Json Value"	    [stateTopic="hasp/plate02/state/json", transformationPattern="JSONPATH:$.value"]
+    }
+	
+Thing mqtt:topic:plate03 "HASP Plate 03" (mqtt:broker:MQTTBroker) @ "Office" {
+    Channels:
+        Type number : Plate_Page 	        	"Plate Page [%d]" 		        [stateTopic="hasp/plate03/command/page", commandTopic="hasp/plate03/command/page"]
+
+        Type switch : Plate_Backlight 		    "Plate Backlight [%d]" 		    [stateTopic="hasp/plate03/light/state", commandTopic="hasp/plate03/light/switch", on="ON", off="OFF"]
+        Type number : Plate_Brightness 		    "Plate Brightness [%d]" 	    [stateTopic="hasp/plate03/brightness/state", commandTopic="hasp/plate03/brightness/set"]
+
+        Type switch : Plate_Status		        "Plate Connection Status [%d]"	[stateTopic="hasp/plate03/status"]
+        Type string : Plate_Sensor		        "Plate Sensor"			        [stateTopic="hasp/plate03/sensor"]
+       
+        Type number : Plate_Motion 		         "Plate Motion Status [%d]" 	[stateTopic="hasp/plate03/motion/state"]
+
+        Type string : Plate_Command 		    "Plate Command" 		        [commandTopic="hasp/plate03/command"]
+        Type string : Plate_Command_JSON 	    "Plate JSON Command" 	    	[commandTopic="hasp/plate03/command/json"]
+
+        Type string : Plate_State_JSON	    	"Plate State Json"		        [stateTopic="hasp/plate03/state/json"]	
+        Type string : Plate_State_JSON_Event	"Plate State Json Event"	    [stateTopic="hasp/plate03/state/json", transformationPattern="JSONPATH:$.event"]
+        Type string : Plate_State_JSON_Value	"Plate State Json Value"	    [stateTopic="hasp/plate03/state/json", transformationPattern="JSONPATH:$.value"]
+    }
+	
+Thing mqtt:topic:plate04 "HASP Plate 04" (mqtt:broker:MQTTBroker) @ "Basement" {
+    Channels:
+        Type number : Plate_Page 	        	"Plate Page [%d]" 		        [stateTopic="hasp/plate04/command/page", commandTopic="hasp/plate04/command/page"]
+
+        Type switch : Plate_Backlight 		    "Plate Backlight [%d]" 		    [stateTopic="hasp/plate04/light/state", commandTopic="hasp/plate04/light/switch", on="ON", off="OFF"]
+        Type number : Plate_Brightness 		    "Plate Brightness [%d]" 	    [stateTopic="hasp/plate04/brightness/state", commandTopic="hasp/plate04/brightness/set"]
+
+        Type switch : Plate_Status		        "Plate Connection Status [%d]"	[stateTopic="hasp/plate04/status"]
+        Type string : Plate_Sensor		        "Plate Sensor"			        [stateTopic="hasp/plate04/sensor"]
+       
+        Type number : Plate_Motion 		         "Plate Motion Status [%d]" 	[stateTopic="hasp/plate04/motion/state"]
+
+        Type string : Plate_Command 		    "Plate Command" 		        [commandTopic="hasp/plate04/command"]
+        Type string : Plate_Command_JSON 	    "Plate JSON Command" 	    	[commandTopic="hasp/plate04/command/json"]
+
+        Type string : Plate_State_JSON	    	"Plate State Json"		        [stateTopic="hasp/plate04/state/json"]	
+        Type string : Plate_State_JSON_Event	"Plate State Json Event"	    [stateTopic="hasp/plate04/state/json", transformationPattern="JSONPATH:$.event"]
+        Type string : Plate_State_JSON_Value	"Plate State Json Value"	    [stateTopic="hasp/plate04/state/json", transformationPattern="JSONPATH:$.value"]
+    }
+	
+
+
