@@ -286,11 +286,11 @@ when
 	Item localCurrentHumidity changed
 then
 	var Number Tf = localCurrentTemperature.state as Number
-	var Number T = (new Double(5) / new Double(9)) * Tf - 32 //Convert F to C
+	var Number T = (0.555 * Tf) - 32 //Convert F to C
 	var Number H = localCurrentHumidity.state as Number	
 	var Number x = 7.5 * T/(237.7 + T)
 	var Number e = 6.112 * Math::pow(10, x.doubleValue) * H/100
-	var Number humidex = T + (new Double(5) / new Double(9)) * (e - 10)
+	var Number humidex = T + (0.555) * (e - 10)
 	Weather_Humidex.postUpdate(humidex)
 end
 /*

@@ -125,6 +125,9 @@ sitemap default label="Home"
 				}				
 			}
 			Group item=FF_Dining
+			{
+				Slider item=Light_FF_Dining_Light
+			}
 			Group item=FF_Laundry
 			Group item=FF_Office
 			{
@@ -202,7 +205,7 @@ sitemap default label="Home"
 			Switch item=Light_Outdoor_FrontDoor
 			Switch item=Light_Outdoor_Garage
 			Switch item=Light_Outdoor_RearYard
-			Switch item=Light_Outdoor_Shed
+			Slider item=Light_Outdoor_Shed
 			Group item=Shed
 			{
 				Switch item=MonoPrice_Z14_Power
