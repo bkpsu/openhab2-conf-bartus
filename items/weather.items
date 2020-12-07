@@ -1,85 +1,85 @@
-String localStationId "ID [%s]" { channel="openweathermap:weather-and-forecast:da83be75:local:station#id" }
-String localStationName "Name [%s]" { channel="openweathermap:weather-and-forecast:da83be75:local:station#name" }
-Location localStationLocation "Location [%2$s°N %3$s°E]" <location> { channel="openweathermap:weather-and-forecast:da83be75:local:station#location" }
+String localStationId "ID [%s]" { channel="openweathermap:weather-and-forecast:owmacct:local:station#id" }
+String localStationName "Name [%s]" { channel="openweathermap:weather-and-forecast:owmacct:local:station#name" }
+Location localStationLocation "Location [%2$s°N %3$s°E]" <location> { channel="openweathermap:weather-and-forecast:owmacct:local:station#location" }
 
-DateTime localLastMeasurement "Timestamp of last measurement [%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS]" <time> { channel="openweathermap:weather-and-forecast:da83be75:local:current#time-stamp" }
-String localCurrentCondition "Current condition [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:da83be75:local:current#condition" }
-Image localCurrentConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:da83be75:local:current#icon" }
-Number:Temperature localCurrentTemperature "Current temperature [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:local:current#temperature" }
-Number:Pressure localCurrentPressure "Current barometric pressure [%.1f %unit%]" <pressure> { channel="openweathermap:weather-and-forecast:da83be75:local:current#pressure" }
-Number:Dimensionless localCurrentHumidity "Current atmospheric humidity [%d %unit%]" <humidity> { channel="openweathermap:weather-and-forecast:da83be75:local:current#humidity" }
-Number:Speed localCurrentWindSpeed "Current wind speed [%.1f km/h]" <wind> { channel="openweathermap:weather-and-forecast:da83be75:local:current#wind-speed" }
-Number:Angle localCurrentWindDirection "Current wind direction [%d %unit%]" <wind> { channel="openweathermap:weather-and-forecast:da83be75:local:current#wind-direction" }
-Number:Dimensionless localCurrentCloudiness "Current cloudiness [%d %unit%]" <clouds> { channel="openweathermap:weather-and-forecast:da83be75:local:current#cloudiness" }
-Number:Length localCurrentRainVolume "Current rain volume [%.1f %unit%]" <rain> { channel="openweathermap:weather-and-forecast:da83be75:local:current#rain" }
-Number:Length localCurrentSnowVolume "Current snow volume [%.1f %unit%]" <snow> { channel="openweathermap:weather-and-forecast:da83be75:local:current#snow" }
+DateTime localLastMeasurement "Timestamp of last measurement [%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS]" <time> { channel="openweathermap:weather-and-forecast:owmacct:local:current#time-stamp" }
+String localCurrentCondition "Current condition [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:owmacct:local:current#condition" }
+Image localCurrentConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:owmacct:local:current#icon" }
+Number:Temperature localCurrentTemperature "Current temperature [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:local:current#temperature" }
+Number:Pressure localCurrentPressure "Current barometric pressure [%.1f %unit%]" <pressure> { channel="openweathermap:weather-and-forecast:owmacct:local:current#pressure" }
+Number:Dimensionless localCurrentHumidity "Current atmospheric humidity [%d %unit%]" <humidity> { channel="openweathermap:weather-and-forecast:owmacct:local:current#humidity" }
+Number:Speed localCurrentWindSpeed "Current wind speed [%.1f km/h]" <wind> { channel="openweathermap:weather-and-forecast:owmacct:local:current#wind-speed" }
+Number:Angle localCurrentWindDirection "Current wind direction [%d %unit%]" <wind> { channel="openweathermap:weather-and-forecast:owmacct:local:current#wind-direction" }
+Number:Dimensionless localCurrentCloudiness "Current cloudiness [%d %unit%]" <clouds> { channel="openweathermap:weather-and-forecast:owmacct:local:current#cloudiness" }
+Number:Length localCurrentRainVolume "Current rain volume [%.1f %unit%]" <rain> { channel="openweathermap:weather-and-forecast:owmacct:local:current#rain" }
+Number:Length localCurrentSnowVolume "Current snow volume [%.1f %unit%]" <snow> { channel="openweathermap:weather-and-forecast:owmacct:local:current#snow" }
 
-DateTime localDailyForecastTodayTimestamp "Timestamp of forecast [%1$tY-%1$tm-%1$td]" <time> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#time-stamp" }
-String localDailyForecastTodayCondition "Condition for today [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#condition" }
-Image localDailyForecastTodayConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#icon" }
-Number:Temperature localDailyForecastTodayMinTemperature "Minimum temperature for today [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#min-temperature" }
-Number:Temperature localDailyForecastTodayMaxTemperature "Maximum temperature for today [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#max-temperature" }
-Number:Pressure localDailyForecastTodayPressure "Barometric pressure for today [%.1f %unit%]" <pressure> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#pressure" }
-Number:Dimensionless localDailyForecastTodayHumidity "Atmospheric humidity for today [%d %unit%]" <humidity> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#humidity" }
-Number:Speed localDailyForecastTodayWindSpeed "Wind speed for today [%.1f km/h]" <wind> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#wind-speed" }
-Number:Angle localDailyForecastTodayWindDirection "Wind direction for today [%d %unit%]" <wind> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#wind-direction" }
-Number:Dimensionless localDailyForecastTodaytCloudiness "Cloudiness for today [%d %unit%]" <clouds> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#cloudiness" }
-Number:Length localDailyForecastTodayRainVolume "Rain volume for today [%.1f %unit%]" <rain> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#rain" }
-Number:Length localDailyForecastTodaySnowVolume "Snow volume for today [%.1f %unit%]" <snow> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#snow" }
+DateTime localDailyForecastTodayTimestamp "Timestamp of forecast [%1$tY-%1$tm-%1$td]" <time> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#time-stamp" }
+String localDailyForecastTodayCondition "Condition for today [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#condition" }
+Image localDailyForecastTodayConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#icon" }
+Number:Temperature localDailyForecastTodayMinTemperature "Minimum temperature for today [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#min-temperature" }
+Number:Temperature localDailyForecastTodayMaxTemperature "Maximum temperature for today [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#max-temperature" }
+Number:Pressure localDailyForecastTodayPressure "Barometric pressure for today [%.1f %unit%]" <pressure> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#pressure" }
+Number:Dimensionless localDailyForecastTodayHumidity "Atmospheric humidity for today [%d %unit%]" <humidity> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#humidity" }
+Number:Speed localDailyForecastTodayWindSpeed "Wind speed for today [%.1f km/h]" <wind> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#wind-speed" }
+Number:Angle localDailyForecastTodayWindDirection "Wind direction for today [%d %unit%]" <wind> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#wind-direction" }
+Number:Dimensionless localDailyForecastTodaytCloudiness "Cloudiness for today [%d %unit%]" <clouds> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#cloudiness" }
+Number:Length localDailyForecastTodayRainVolume "Rain volume for today [%.1f %unit%]" <rain> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#rain" }
+Number:Length localDailyForecastTodaySnowVolume "Snow volume for today [%.1f %unit%]" <snow> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#snow" }
 
-DateTime localDailyForecastTomorrowTimestamp "Timestamp of forecast [%1$tY-%1$tm-%1$td]" <time> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#time-stamp" }
-String localDailyForecastTomorrowCondition "Condition for tomorrow [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastTomorrow#condition" }
-Image localDailyForecastTomorrowConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:da83be75:local:forecastTomorrow#icon" }
-Number:Temperature localDailyForecastTomorrowMinTemperature "Minimum temperature for tomorrow [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastTomorrow#min-temperature" }
-Number:Temperature localDailyForecastTomorrowMaxTemperature "Maximum temperature for tomorrow [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastTomorrow#max-temperature" }
+DateTime localDailyForecastTomorrowTimestamp "Timestamp of forecast [%1$tY-%1$tm-%1$td]" <time> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#time-stamp" }
+String localDailyForecastTomorrowCondition "Condition for tomorrow [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastTomorrow#condition" }
+Image localDailyForecastTomorrowConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:owmacct:local:forecastTomorrow#icon" }
+Number:Temperature localDailyForecastTomorrowMinTemperature "Minimum temperature for tomorrow [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastTomorrow#min-temperature" }
+Number:Temperature localDailyForecastTomorrowMaxTemperature "Maximum temperature for tomorrow [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastTomorrow#max-temperature" }
 
-DateTime localDailyForecastDay2Timestamp "Timestamp of forecast [%1$tY-%1$tm-%1$td]" <time> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastToday#time-stamp" }
-String localDailyForecastDay2Condition "Condition in 2 days [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastDay2#condition" }
-Image localDailyForecastDay2ConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:da83be75:local:forecastDay2#icon" }
-Number:Temperature localDailyForecastDay2MinTemperature "Minimum temperature in 2 days [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastDay2#min-temperature" }
-Number:Temperature localDailyForecastDay2MaxTemperature "Maximum temperature in 2 days [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:local:forecastDay2#max-temperature" }
+DateTime localDailyForecastDay2Timestamp "Timestamp of forecast [%1$tY-%1$tm-%1$td]" <time> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#time-stamp" }
+String localDailyForecastDay2Condition "Condition in 2 days [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastDay2#condition" }
+Image localDailyForecastDay2ConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:owmacct:local:forecastDay2#icon" }
+Number:Temperature localDailyForecastDay2MinTemperature "Minimum temperature in 2 days [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastDay2#min-temperature" }
+Number:Temperature localDailyForecastDay2MaxTemperature "Maximum temperature in 2 days [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:local:forecastDay2#max-temperature" }
 
-String miamiCurrentCondition "Current condition in Miami [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:da83be75:miami:current#condition" }
-Image miamiCurrentConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:da83be75:miami:current#icon" }
-Number:Temperature miamiCurrentTemperature "Current temperature in Miami [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:miami:current#temperature" }
+String miamiCurrentCondition "Current condition in Miami [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:owmacct:miami:current#condition" }
+Image miamiCurrentConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:owmacct:miami:current#icon" }
+Number:Temperature miamiCurrentTemperature "Current temperature in Miami [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:miami:current#temperature" }
 
-String miamiHourlyForecast03Condition "Condition in Miami for the next three hours [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:da83be75:miami:forecastHours03#condition" }
-Image miamiHourlyForecast03ConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:da83be75:miami:forecastHours03#icon" }
-Number:Temperature miamiHourlyForecast03Temperature "Temperature in Miami for the next three hours [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:miami:forecastHours03#temperature" }
+String miamiHourlyForecast03Condition "Condition in Miami for the next three hours [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:owmacct:miami:forecastHours03#condition" }
+Image miamiHourlyForecast03ConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:owmacct:miami:forecastHours03#icon" }
+Number:Temperature miamiHourlyForecast03Temperature "Temperature in Miami for the next three hours [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:miami:forecastHours03#temperature" }
 
-String miamiHourlyForecast06Condition "Condition in Miami for hours 3 to 6 [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:da83be75:miami:forecastHours06#condition" }
-Image miamiHourlyForecast06ConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:da83be75:miami:forecastHours06#icon" }
-Number:Temperature miamiHourlyForecast06Temperature "Temperature in Miami for hours 3 to 6 [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:da83be75:miami:forecastHours06#temperature" }
+String miamiHourlyForecast06Condition "Condition in Miami for hours 3 to 6 [%s]" <sun_clouds> { channel="openweathermap:weather-and-forecast:owmacct:miami:forecastHours06#condition" }
+Image miamiHourlyForecast06ConditionIcon "Icon" { channel="openweathermap:weather-and-forecast:owmacct:miami:forecastHours06#icon" }
+Number:Temperature miamiHourlyForecast06Temperature "Temperature in Miami for hours 3 to 6 [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:owmacct:miami:forecastHours06#temperature" }
 
 
 //OWM HabPanel widget items
 
-Number:Temperature		Weather_OWM_Temperature			"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:da83be75:local:current#temperature"}
-Number:Dimensionless 	Weather_OWM_Humidity			"Humidity [%d %unit%]"				            {channel="openweathermap:weather-and-forecast:da83be75:local:current#humidity"}
-Number:Speed    		Weather_OWM_Wind_Speed			"Windspeed [%.1f km/h]"			                {channel="openweathermap:weather-and-forecast:da83be75:local:current#wind-speed"}
-String		Weather_OWM_Station_Name		            "Station Name [%s]"				                {channel="openweathermap:weather-and-forecast:da83be75:local:station#name"}
-DateTime	Weather_OWM_ObservationTime		            "Observation time [%1$tY-%1$tm-%1$td]"		    {channel="openweathermap:weather-and-forecast:da83be75:local:current#time-stamp"}
-String		Weather_OWM_Condition			            "Condition [%s]"				                {channel="openweathermap:weather-and-forecast:da83be75:local:current#condition"}
-String		Weather_OWM_ConditionId			            "ConditionId [%s]"				                {channel="openweathermap:weather-and-forecast:da83be75:local:current#condition-id"}
-Image		Weather_OWM_ConditionIcon			        "Icon [%s]"				                        {channel="openweathermap:weather-and-forecast:da83be75:local:current#icon"}
-String		Weather_OWM_ConditionIconId			        "IconId [%s]"			                        {channel="openweathermap:weather-and-forecast:da83be75:local:current#icon-id"}
+Number:Temperature		Weather_OWM_Temperature			"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:owmacct:local:current#temperature"}
+Number:Dimensionless 	Weather_OWM_Humidity			"Humidity [%d %unit%]"				            {channel="openweathermap:weather-and-forecast:owmacct:local:current#humidity"}
+Number:Speed    		Weather_OWM_Wind_Speed			"Windspeed [%.1f km/h]"			                {channel="openweathermap:weather-and-forecast:owmacct:local:current#wind-speed"}
+String		Weather_OWM_Station_Name		            "Station Name [%s]"				                {channel="openweathermap:weather-and-forecast:owmacct:local:station#name"}
+DateTime	Weather_OWM_ObservationTime		            "Observation time [%1$tY-%1$tm-%1$td]"		    {channel="openweathermap:weather-and-forecast:owmacct:local:current#time-stamp"}
+String		Weather_OWM_Condition			            "Condition [%s]"				                {channel="openweathermap:weather-and-forecast:owmacct:local:current#condition"}
+String		Weather_OWM_ConditionId			            "ConditionId [%s]"				                {channel="openweathermap:weather-and-forecast:owmacct:local:current#condition-id"}
+Image		Weather_OWM_ConditionIcon			        "Icon [%s]"				                        {channel="openweathermap:weather-and-forecast:owmacct:local:current#icon"}
+String		Weather_OWM_ConditionIconId			        "IconId [%s]"			                        {channel="openweathermap:weather-and-forecast:owmacct:local:current#icon-id"}
 
-Number:Temperature		Weather_OWM_Temp0		"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours03#temperature"}
-Number:Temperature		Weather_OWM_Temp1		"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours24#temperature"}
-Number:Temperature		Weather_OWM_Temp2		"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours48#temperature"}
-Number:Temperature		Weather_OWM_Temp3		"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours72#temperature"}
+Number:Temperature		Weather_OWM_Temp0		"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours03#temperature"}
+Number:Temperature		Weather_OWM_Temp1		"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours24#temperature"}
+Number:Temperature		Weather_OWM_Temp2		"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours48#temperature"}
+Number:Temperature		Weather_OWM_Temp3		"Temperature [%.1f %unit%]" <temperature>		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours72#temperature"}
 
-DateTime	Weather_OWM_Forecast_Time0		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours03#time-stamp"}
-DateTime	Weather_OWM_Forecast_Time1		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours24#time-stamp"}
-DateTime	Weather_OWM_Forecast_Time2		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours48#time-stamp"}
-DateTime	Weather_OWM_Forecast_Time3		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours72#time-stamp"}
+DateTime	Weather_OWM_Forecast_Time0		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours03#time-stamp"}
+DateTime	Weather_OWM_Forecast_Time1		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours24#time-stamp"}
+DateTime	Weather_OWM_Forecast_Time2		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours48#time-stamp"}
+DateTime	Weather_OWM_Forecast_Time3		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours72#time-stamp"}
 
-String		Weather_OWM_Condition0		"Condition [%s]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours03#condition"}
-String		Weather_OWM_Condition1		"Condition [%s]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours24#condition"}
-String		Weather_OWM_Condition2		"Condition [%s]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours48#condition"}
-String		Weather_OWM_Condition3		"Condition [%s]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours72#condition"}
+String		Weather_OWM_Condition0		"Condition [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours03#condition"}
+String		Weather_OWM_Condition1		"Condition [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours24#condition"}
+String		Weather_OWM_Condition2		"Condition [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours48#condition"}
+String		Weather_OWM_Condition3		"Condition [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours72#condition"}
 
-String		Weather_OWM_ConditionId0		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours03#condition-id"}
-String		Weather_OWM_ConditionId1		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours24#condition-id"}
-String		Weather_OWM_ConditionId2		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours48#condition-id"}
-String		Weather_OWM_ConditionId3		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:da83be75:local:forecastHours72#condition-id"}
+String		Weather_OWM_ConditionId0		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours03#condition-id"}
+String		Weather_OWM_ConditionId1		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours24#condition-id"}
+String		Weather_OWM_ConditionId2		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours48#condition-id"}
+String		Weather_OWM_ConditionId3		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours72#condition-id"}

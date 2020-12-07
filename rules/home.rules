@@ -93,7 +93,8 @@ then
 	/*Turn Off Night Lights at Sunrise*/
 	sendCommand(NightLights, OFF)
 	sendCommand(is_Night, OFF)
-	sendCommand(Light_SF_Master_EnsuiteHall, OFF)	
+	sendCommand(Light_SF_Master_EnsuiteHall, OFF)		
+	sendCommand(Light_SF_Landing_Lamp, OFF)	
 	logInfo("Lights", "Indoor Night Lights turned off at Astro Rise")
 	Light_FF_Family_Lamp.sendCommand(ON)
 	Light_FF_Family_Lamp.sendCommand(new HSBType(353,28,100))
@@ -239,8 +240,8 @@ when
 	Time cron "0 0 0 * * ?" // or
 //	System started
 then	
-	Weather_Temp_Max.postUpdate(localCurrentTemperature.maximumSince(now.withTimeAtStartOfDay).state)
-	Weather_Temp_Min.postUpdate(localCurrentTemperature.minimumSince(now.withTimeAtStartOfDay).state)
+	Weather_Temp_Max.postUpdate(localCurrentTemperature.maximumSince(now.withHour(0).withMinute(0)).state)
+	Weather_Temp_Min.postUpdate(localCurrentTemperature.minimumSince(now.withHour(0).withMinute(0)).state)
 //	logInfo("Weather", "Temperature changed by " + localCurrentTemperature.deltaSince(now.minusMinutes(2)) + " degrees.")
 end
 
