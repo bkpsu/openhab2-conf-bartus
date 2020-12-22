@@ -4,7 +4,7 @@ when
 	Member of LightingScenes received command ON
 then
     // Get the Group of Items that are controlled during this scene
-    val items = Scene_Items.members.findFirst[ grp | grp.name == triggeringItem.name + "_Items" ] as GroupItem
+    val GroupItem items = Scene_Items.members.findFirst[ grp | grp.name == triggeringItem.name + "_Items" ] as GroupItem
 
     // Loop through all the Items controlled by this scene
     items.members.forEach[ GenericItem i |

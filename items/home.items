@@ -66,7 +66,7 @@ Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(FF_Office, Do
 Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" <lightbulb> (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node37:switch_dimmer"}
 Dimmer Light_FF_Kitchen_Sink	    "Sink Light [%d %%]" 	<lightbulb> (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node45:switch_dimmer"}
 Color Light_SF_Landing_Lamp	    "Landing Lamp"			         <rgb>  (SF_Landing, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0210:00178829871a:8:color"}
-Dimmer Light_SF_Landing_Light   "Landing Light"         <lightbulb>     (SF_Landing, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node41:switch_dimmer"}
+Dimmer Light_SF_Landing_Light   "Landing Light"         <lightbulb>     (SF_Landing, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node41:switch_dimmer"}
 Dimmer Light_SF_Landing_StaircaseLight   "Staircase Light" <lightbulb>  (SF_Landing, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node42:switch_dimmer"}
 Dimmer Light_SF_Master_BedLamp_Right "Right Bed Lamp" 	<lightbulb>     (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0100:00178829871a:22:brightness"}
 Dimmer Light_SF_Master_BedLamp_Left "Left Bed Lamp" 	<lightbulb>     (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0100:00178829871a:23:brightness"}
@@ -85,7 +85,7 @@ Number Hum_Chart_Period "Hum Chart Period"
 
 /* Config Items */
 Switch VacationMode					"Vacation Mode"	<vacation>	(Configuration)
-Switch AwayMode						"Away Mode"			        (Configuration) ["Switchable"]		
+Switch AwayMode						"Away Mode"			        (Configuration) {ga="Switch"}	
 Switch Christmas					"Christmas Lights"			(Configuration)
 Switch Light_FF_Family_Sconces_Dim	"Sconce Dimmer"				(Configuration)
 Color Light_Motion_Color	        "Motion Light Color"        (Configuration)
@@ -113,8 +113,6 @@ Switch GarageDoorRightSwitch 	"Garage Right [%s]" 			        	(gGarage)	{ myq="0
 
 /* Weather */
 Group Weather_Chart									(Weather)
-//Number:Temperature Weather_Temperature 	"Outside Temperature [%.1f °F]"		<temperature>	    (Weather_Chart) { weather="locationId=home, type=temperature, property=current, unit=fahrenheit" }
-//Number Weather_Humidity 	"Outside Humidity [%d %%]"		                <temperature> 	    (Weather) 	    { weather="locationId=home, type=atmosphere, property=humidity" }
 Number Weather_Humidex		"Humidex [SCALE(humidex.scale):%s]" 	        <smiley>		    (Weather)
 Number Weather_Temp_Max 	"Todays Maximum [%.1f F]"		                <temperature_hot> 	(Weather_Chart)
 Number Weather_Temp_Min 	"Todays Minimum [%.1f F]"		                <temperature_cold> 	(Weather_Chart)
@@ -131,8 +129,8 @@ Dimmer FF_Family_TV_Volume "TV Volume" (FF_Family) {channel="samsungtv:tv:08f0d1
 
 /* Thermostat */
 Group gHVAC "Thermostat" ["Equipment", "HVAC"] { ga="Thermostat" [ useFahrenheit=true , modes="off=0,heatcool=3" ] } //["Thermostat"]
-Number:Temperature HVAC_HeatSetPoint "Heat Set [%.1f °F]" <temperature_hot> (gHVAC) ["Setpoint"] /*["homekit:TargetTemperature"]*/ {  ga="thermostatTemperatureSetpointLow" , channel="zwave:device:99f97889:node10:thermostat_setpoint_heating"}
-Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f °F]" <temperature_cold> (gHVAC) ["Control","Temperature"] /*["homekit:TargetTemperature"]*/ { ga="thermostatTemperatureSetpointHigh" , channel="zwave:device:99f97889:node10:thermostat_setpoint_cooling"}
+Number:Temperature HVAC_HeatSetPoint "Heat Set [%.1f °F]" <temperature_hot> (gHVAC) ["Setpoint", "Temperature"] /*["homekit:TargetTemperature"]*/ {  ga="thermostatTemperatureSetpointLow" , channel="zwave:device:99f97889:node10:thermostat_setpoint_heating"}
+Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f °F]" <temperature_cold> (gHVAC) ["Setpoint","Temperature"] /*["homekit:TargetTemperature"]*/ { ga="thermostatTemperatureSetpointHigh" , channel="zwave:device:99f97889:node10:thermostat_setpoint_cooling"}
 //Number:Temperature HVAC_CoolSetPoint "Cool Set [%2d °F]" <temperature_cold> (gHVAC)["TargetTemperature"] {channel="zwave:device:99f97889:node10:thermostat_setpoint_cooling"}
 Number:Temperature Temperature_HVAC "Temperature [%.1f °F]" <temperature> (gHVAC,Temp_Chart,FF_Dining,Ambimate_Test) ["Measurement","Temperature"]/*["CurrentTemperature"]*/ { ga="thermostatTemperatureAmbient" , channel="zwave:device:99f97889:node10:sensor_temperature"}
 Number Humidity_HVAC "Humidity [%.1f %%]" <humidity> (gHVAC,Hum_Chart,FF_Dining,Ambimate_Test) ["Measurement","Humidity"]/*["CurrentHumidity"]*/ { ga="thermostatHumidityAmbient" , channel="zwave:device:99f97889:node10:sensor_relhumidity2"}
@@ -191,11 +189,11 @@ Group AmbiMate_Test "AmbiMate Test"
 
 
 /* MQTT Tasmota Devices */
-Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) [ "Outlet" ]  {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:switch"} //{mqtt=">[broker:cmnd/ChristmasTree/power:command:*:default]],<[broker:stat/ChristmasTree/POWER:state:default]"}
+Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeLights:switch"} //{mqtt=">[broker:cmnd/ChristmasTree/power:command:*:default]],<[broker:stat/ChristmasTree/POWER:state:default]"}
 Number Sonoff_S31_1_Power "Christmas Tree Power Usage [%d]W" (FF_Family,PowerMeters) {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:powerLoad"} // {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
-Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) [ "Outlet" ] {channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} // {mqtt=">[broker:cmnd/3dpPrusai3mk0/power:command:*:default]],<[broker:stat/3dpPrusai3mk0/POWER:state:default]"}
+Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt)  {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} // {mqtt=">[broker:cmnd/3dpPrusai3mk0/power:command:*:default]],<[broker:stat/3dpPrusai3mk0/POWER:state:default]"}
 Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} // {mqtt="<[broker:tele/3dpPrusai3mk0/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
-Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt) [ "Outlet" ] {channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}
+Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt)  {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}
 Number Prusai3_mk2S_Power "3d Printer (Black) Power Usage [%d]W" (gBsmt,PowerMeters) {channel="mqtt:topic:SonoffS31_3DPrinterBlack:powerLoad"}
 
 Number FF_Foyer_Lamp_Power "Foyer Lamp Power Usage [%d}W" (PowerMeters) {channel="mqtt:topic:SonoffS31_FFFoyerLamp:powerLoad"}
@@ -211,8 +209,10 @@ DateTime Astro_civildawnstart 	"Astro CivilDawn Start [%1$tH:%1$tM]" 	(AstroTest
 DateTime Astro_civildawnend 	"Astro CivilDawn End [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:civilDawn#end"}
 DateTime Astro_risestart	    "Astro Rise Start [%1$tH:%1$tM]"	    (AstroTest)	{channel="astro:sun:local:rise#start"}
 DateTime Astro_riseend		    "Astro Rise End [%1$tH:%1$tM]"		    (AstroTest)	{channel="astro:sun:local:rise#end"}
+DateTime Astro_daylightstart 	"Astro Daylight Start [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:daylight#start"}
 DateTime Astro_noonstart 	    "Astro Noon Start [%1$tH:%1$tM]" 	    (AstroTest)	{channel="astro:sun:local:noon#start"}
 DateTime Astro_noonend 		    "Astro Noon End [%1$tH:%1$tM]" 		    (AstroTest)	{channel="astro:sun:local:noon#end"}
+DateTime Astro_daylightend 	    "Astro Daylight End [%1$tH:%1$tM]" 	    (AstroTest)	{channel="astro:sun:local:daylight#end"}
 DateTime Astro_setstart 	    "Astro Set Start [%1$tH:%1$tM]" 	    (AstroTest)	{channel="astro:sun:local:set#start"}
 DateTime Astro_setend 		    "Astro Set End [%1$tH:%1$tM]" 		    (AstroTest)	{channel="astro:sun:local:set#end"}
 DateTime Astro_civilduskstart 	"Astro CivilDusk Start [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:civilDusk#start"}
@@ -222,11 +222,9 @@ DateTime Astro_nauticduskend 	"Astro NauticDusk End [%1$tH:%1$tM]" 	(AstroTest)	
 DateTime Astro_astroduskstart 	"Astro AstroDusk Start [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:astroDusk#start"}
 DateTime Astro_astroduskend 	"Astro AstroDusk End [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:astroDusk#end"}
 DateTime Astro_nightstart 	    "Astro Night Start [%1$tH:%1$tM]" 	    (AstroTest)	{channel="astro:sun:local:night#start"}
-DateTime Astro_nightend 	    "Astro Night End [%1$tH:%1$tM]" 	    (AstroTest)	{channel="astro:sun:local:night#end"}
 DateTime Astro_evenightstart 	"Astro Eve Night Start [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:eveningNight#start"}
 DateTime Astro_evenightend 	    "Astro Eve Night End [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:eveningNight#end"}
-DateTime Astro_daylightstart 	"Astro Daylight Start [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:daylight#start"}
-DateTime Astro_daylightend 	    "Astro Daylight End [%1$tH:%1$tM]" 	    (AstroTest)	{channel="astro:sun:local:daylight#end"}
+DateTime Astro_nightend 	    "Astro Night End [%1$tH:%1$tM]" 	    (AstroTest)	{channel="astro:sun:local:night#end"}
 
 
 

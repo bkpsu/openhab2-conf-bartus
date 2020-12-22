@@ -5,11 +5,11 @@ Group Scene_States
 
 /* Scene Proxy Switches (accessible from UI/Google Home)*/
 /* Step 1 - Add new Scene switch here */
-Switch Scene_Evening "Evening Scene" (LightingScenes) [ "Scene" ]
-Switch Scene_Night "Night Scene" (LightingScenes) [ "Scene" ]
-Switch Scene_Morning "Morning Scene" (LightingScenes) [ "Scene" ]
-Switch Scene_Work "Work Scene" (LightingScenes) [ "Scene" ]
-Switch Scene_Bedtime "Bedtime Scene" (LightingScenes) [ "Scene" ]
+Switch Scene_Evening "Evening Scene" (LightingScenes)  {ga="Scene" }
+Switch Scene_Night "Night Scene" (LightingScenes)  {ga="Scene" }
+Switch Scene_Morning "Morning Scene" (LightingScenes)  {ga="Scene" }
+Switch Scene_Work "Work Scene" (LightingScenes)  {ga="Scene" }
+Switch Scene_Bedtime "Bedtime Scene" (LightingScenes)  {ga="Scene" }
 
 //Groups to hold all items controlled by this scene
 /* Step 2 - Add new group for scene items */
@@ -21,11 +21,11 @@ Group Scene_Bedtime_Items (Scene_Items)
 
 /* Scene Config Proxy Switches (accessible from UI/Google Home)*/
 /* Step 3 - Add new proxy switch for storing current state of items into scene state items */
-Switch Scene_Evening_Store "Store Current Evening" (gSceneConfig_Evening) [ "Switchable" ]
-Switch Scene_Night_Store "Store Current Night" (gSceneConfig_Night) [ "Switchable" ]
-Switch Scene_Morning_Store "Store Current Morning" (gSceneConfig_Morning) [ "Switchable" ]
-Switch Scene_Work_Store "Store Current Work" (gSceneConfig_Work) [ "Switchable" ]
-Switch Scene_Bedtime_Store "Store Current Bedtime" (gSceneConfig_Bedtime) [ "Switchable" ]
+Switch Scene_Evening_Store "Store Current Evening" (gSceneConfig_Evening)  {ga="Switch" }
+Switch Scene_Night_Store "Store Current Night" (gSceneConfig_Night)  {ga="Switch" }
+Switch Scene_Morning_Store "Store Current Morning" (gSceneConfig_Morning)  {ga="Switch" }
+Switch Scene_Work_Store "Store Current Work" (gSceneConfig_Work)  {ga="Switch" }
+Switch Scene_Bedtime_Store "Store Current Bedtime" (gSceneConfig_Bedtime)  {ga="Switch" }
 
 //Evening Scene Configuration Settings
 Group gSceneConfig_Evening "Evening Scene Config" (LightingScenes)

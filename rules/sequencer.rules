@@ -1,4 +1,4 @@
-import org.eclipse.smarthome.model.script.ScriptServiceUtil
+import org.openhab.core.model.script.ScriptServiceUtil
 
 var Integer seqCurrentStep = 0
 var Integer seqSequencerActive = 0

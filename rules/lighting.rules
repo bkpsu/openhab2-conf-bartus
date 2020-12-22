@@ -6,7 +6,7 @@ when Member of gLEDStrip_Outdoor_Color received update
 then 
  	val source = triggeringItem.name.split("_Color").get(0)
 	logInfo("LED", "Source " + source)
-	val item = gLEDStrip_Outdoor.members.findFirst[ l | l.name == source ] as StringItem
+	val StringItem item = gLEDStrip_Outdoor.members.findFirst[ l | l.name == source ] as StringItem
 	logInfo("LED", "Item " + item.name)
 	item.sendCommand("{\"color\": {" + 
 		"\"r\": " + (triggeringItem.state as HSBType).red.intValue.toString + "," +
@@ -19,7 +19,7 @@ then
 	val source = triggeringItem.name.split("_Speed").get(0)
 	val value = triggeringItem.state as Number
 	logInfo("LED", "Source " + source)
-	val item = gLEDStrip_Outdoor.members.findFirst[ l | l.name == source ] as StringItem
+	val StringItem item = gLEDStrip_Outdoor.members.findFirst[ l | l.name == source ] as StringItem
 	item.sendCommand("{\"transition\": \"" + (value / 100 * 240).intValue.toString + "\"}") end
 
 rule "LED Strip Group 1 (Outdoor) JSON Intensity Single Strip"
@@ -28,7 +28,7 @@ then
 	val source = triggeringItem.name.split("_Intensity").get(0)
 	val value = triggeringItem.state as Number
 	logInfo("LED", "Source " + source)
-	val item = gLEDStrip_Outdoor.members.findFirst[ l | l.name == source ] as StringItem
+	val StringItem item = gLEDStrip_Outdoor.members.findFirst[ l | l.name == source ] as StringItem
 	item.sendCommand("{\"brightness\":" + (value / 100 * 255).intValue.toString + "}") end
 
 /* Begin Group 2 (Kitchen) LED Strip Rules */
@@ -37,7 +37,7 @@ rule "LED Strip Group 1 (Kitchen) JSON Color Single Strip"
 when Member of gLEDStrip_Kitchen_Color received update
 then 
  	val source = triggeringItem.name.split("_Color").get(0)
-	val item = gLEDStrip_Kitchen.members.findFirst[ l | l.name == source ] as StringItem
+	val StringItem item = gLEDStrip_Kitchen.members.findFirst[ l | l.name == source ] as StringItem
 	item.sendCommand("{\"color\": {" + 
 		"\"r\": " + (triggeringItem.state as HSBType).red.intValue.toString + "," +
 		"\"g\": " + (triggeringItem.state as HSBType).green.intValue.toString + "," +
@@ -49,7 +49,7 @@ then
 	val source = triggeringItem.name.split("_Speed").get(0)
 	val value = triggeringItem.state as Number
 	logInfo("LED", "Source " + source)
-	val item = gLEDStrip_Kitchen.members.findFirst[ l | l.name == source ] as StringItem
+	val StringItem item = gLEDStrip_Kitchen.members.findFirst[ l | l.name == source ] as StringItem
 	item.sendCommand("{\"transition\": \"" + (value / 100 * 240).intValue.toString + "\"}") end
 
 rule "LED Strip Group 1 (Kitchen) JSON Intensity Single Strip"
@@ -58,5 +58,5 @@ then
 	val source = triggeringItem.name.split("_Intensity").get(0)
 	val value = triggeringItem.state as Number
 	logInfo("LED", "Source " + source)
-	val item = gLEDStrip_Kitchen.members.findFirst[ l | l.name == source ] as StringItem
+	val StringItem item = gLEDStrip_Kitchen.members.findFirst[ l | l.name == source ] as StringItem
 	item.sendCommand("{\"brightness\":" + (value / 100 * 255).intValue.toString + "}") end

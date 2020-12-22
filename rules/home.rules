@@ -1,5 +1,3 @@
-import java.util.Calendar
-
 var Number Light_FF_Family_Sconces_Value = 0
 
 rule "Sunset Outdoor Events"
@@ -12,8 +10,6 @@ then
 		ChristmasLights.sendCommand(ON)
 		LEDStrip_Group1_Power.sendCommand(ON)
 		Sequencer_Start.sendCommand(ON)
-		Light_Outdoor_RearYard.sendCommand(ON)
-		Light_Outdoor_Shed.sendCommand(ON)
 
 	/*	val day = (Date.state as DateTimeType).calendar.get(Calendar::DAY_OF_MONTH)
 		val ledfx = day % 5
