@@ -1,25 +1,25 @@
-Group gSolar "Solar Group" <solarplant>
-Number:Power            SE7600_Production_Live   "Live Production [%.2f %unit%]"  (gSolar,PowerMeters)   {channel="solaredge:generic:238ba1d4:live#production"}
-Number:Energy           SE7600_Production_Day    "Day Production [%.1f kWh]"   (gSolar)      {channel="solaredge:generic:238ba1d4:aggregate_day#production"}
+Group gSolar "Solar Inverter" <solarplant> ["Inverter"]
+Number:Power            SE7600_Production_Live   "Live Production [%.2f %unit%]"  (gSolar) ["Measurement", "Power"]  {channel="solaredge:generic:238ba1d4:live#production"}
+Number:Energy           SE7600_Production_Day    "Day Production [%.1f kWh]"   (gSolar)  {channel="solaredge:generic:238ba1d4:aggregate_day#production"}
 Number:Energy           SE7600_Production_Week   "Week Production [%.1f kWh]"  (gSolar)      {channel="solaredge:generic:238ba1d4:aggregate_week#production"}
 Number:Energy           SE7600_Production_Month  "Month Production [%.0f kWh]" (gSolar)      {channel="solaredge:generic:238ba1d4:aggregate_month#production"}
 Number:Energy           SE7600_Production_Year   "Year Production [%.0f kWh]"  (gSolar)      {channel="solaredge:generic:238ba1d4:aggregate_year#production"}
-Number:Power            SE7600_Consumption_Live  "Live Consumption [%.2f %unit%]" (gSolar,PowerMeters)           {channel="solaredge:generic:238ba1d4:live#consumption"}
+Number:Power            SE7600_Consumption_Live  "Live Consumption [%.2f %unit%]" (gSolar)   ["Measurement", "Power"]    {channel="solaredge:generic:238ba1d4:live#consumption"}
 Number:Energy           SE7600_Consumption_Day   "Day Consumption [%.1f kWh]"  (gSolar)          {channel="solaredge:generic:238ba1d4:aggregate_day#consumption"}
 Number:Energy           SE7600_Consumption_Week "Week Consumption [%.1f kWh]"   (gSolar)                {channel="solaredge:generic:238ba1d4:aggregate_week#consumption"}
 Number:Energy           SE7600_Consumption_Month "Month Consumption [%.0f kWh]"(gSolar) {channel="solaredge:generic:238ba1d4:aggregate_month#consumption"}
 Number:Energy           SE7600_Consumption_Year "Year Consumption [%.0f kWh]" (gSolar){channel="solaredge:generic:238ba1d4:aggregate_year#consumption"}
-Number:Power            SE7600_Import_Live       "Live Import [%.2f %unit%]"   (gSolar,PowerMeters)              {channel="solaredge:generic:238ba1d4:live#import"}
+Number:Power            SE7600_Import_Live       "Live Import [%.2f %unit%]"   (gSolar)        ["Measurement", "Power"]         {channel="solaredge:generic:238ba1d4:live#import"}
 Number:Energy           SE7600_Import_Day        "Day Import [%.1f kWh]"    (gSolar)         {channel="solaredge:generic:238ba1d4:aggregate_day#import"}
 Number:Energy           SE7600_Import_Week       "Week Import [%.1f kWh]" (gSolar){channel="solaredge:generic:238ba1d4:aggregate_week#import"}
 Number:Energy           SE7600_Import_Month     "Month Import [%.0f kWh]" (gSolar){channel="solaredge:generic:238ba1d4:aggregate_month#import"}
 Number:Energy           SE7600_Import_Year      "Year Import [%.0f kWh]"(gSolar) {channel="solaredge:generic:238ba1d4:aggregate_year#import"}
-Number:Power            SE7600_Export_Live      "LIve Export [%.2f %unit%]"   (gSolar,PowerMeters)              {channel="solaredge:generic:238ba1d4:live#export"}
+Number:Power            SE7600_Export_Live      "LIve Export [%.2f %unit%]"   (gSolar)       ["Measurement", "Power"]          {channel="solaredge:generic:238ba1d4:live#export"}
 Number:Energy           SE7600_Export_Day       "Day Export [%.1f kWh]"    (gSolar)                {channel="solaredge:generic:238ba1d4:aggregate_day#export"}
 Number:Energy           SE7600_Export_Week      "Week Export [%.1f kWh]" (gSolar){channel="solaredge:generic:238ba1d4:aggregate_week#export"}
 Number:Energy           SE7600_Export_Month     "Month Export [%.0f kWh]" (gSolar){channel="solaredge:generic:238ba1d4:aggregate_month#export"}
 Number:Energy           SE7600_Export_Year      "Year Export [%.0f kWh]" (gSolar){channel="solaredge:generic:238ba1d4:aggregate_year#export"}
-Number:Energy           SE7600_SelfConsumption_Day   "Day Self Consumption [%.1f kWh]"  (gSolar)        {channel="solaredge:generic:238ba1d4:aggregate_day#selfConsumptionForConsumption"}
+Number:Energy           SE7600_SelfConsumption_Day   "Day Self Consumption [%.1f kWh]"  (gSolar)     ["Measurement", "Energy"]      {channel="solaredge:generic:238ba1d4:aggregate_day#selfConsumptionForConsumption"}
 Number:Energy           SE7600_SelfConsumption_Week "Week Self Consumption [%.1f kWh]" (gSolar){channel="solaredge:generic:238ba1d4:aggregate_week#selfConsumptionForConsumption"}
 Number:Energy           SE7600_SelfConsumption_Month "Month Self Consumption [%.0f kWh]" (gSolar){channel="solaredge:generic:238ba1d4:aggregate_month#selfConsumptionForConsumption"}
 Number:Energy           SE7600_SelfConsumption_Year "Year Self Consumption [%.0f kWh]" (gSolar){channel="solaredge:generic:238ba1d4:aggregate_year#selfConsumptionForConsumption"}
@@ -32,8 +32,8 @@ String                  SE7600_Status_Load        "Load Status %s"              
 String                  SE7600_Status_Grid    "Grid Status %s"                         (gSolar) {channel="solaredge:generic:238ba1d4:live#grid_status"}
 
 Number Shed_DSB09EM_Power "Shed Panel Power" (gSolar,PowerMeters) { channel="zwave:device:99f97889:node11:sensor_power" }
-Number Shed_DSB09EM_kWh "Shed Panel Meter kWh" (gSolar,PowerMeters) { channel="zwave:device:99f97889:node11:meter_kwh" }
-Number Shed_DSB09EM_W "Shed Panel Meter W" (gSolar,PowerMeters) { channel="zwave:device:99f97889:node11:meter_watts" }
+Number Shed_DSB09EM_kWh "Shed Panel Meter kWh" (gSolar,PowerMeters) ["Measurement", "Energy"]  { channel="zwave:device:99f97889:node11:meter_kwh" }
+Number Shed_DSB09EM_W "Shed Panel Meter W" (gSolar,PowerMeters)  ["Measurement", "Power"]  { channel="zwave:device:99f97889:node11:meter_watts" }
 Switch Shed_DSB09EM_Reset "Shed Panel Meter Reset"  { channel="zwave:device:99f97889:node11:meter_reset"}
 Number Shed_DSB09EM_Power_1 "Shed Panel Power 1" (gSolar,PowerMeters) { channel="zwave:device:99f97889:node11:sensor_power1" }
 Number Shed_DSB09EM_kWh_1 "Shed Panel Meter kWh 1" (gSolar,PowerMeters) { channel="zwave:device:99f97889:node11:meter_kwh1" }

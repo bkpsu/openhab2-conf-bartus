@@ -1,7 +1,7 @@
 
 /* Begin Group 1 (Outdoor) */
 
-Group gLEDStrip_Outdoor "Outdoor LED Strips"
+Group gLEDStrip_Outdoor "Outdoor LED Strips" (Outdoor) ["Lightbulb"]
 Group gLEDStrip_Outdoor_Power "Outdoor LED Strips Power"
 Group gLEDStrip_Outdoor_FX "Outdoor LED Strips FX"
 Group gLEDStrip_Outdoor_Color "Outdoor LED Strips Color"
@@ -135,11 +135,11 @@ Number LEDStrip_Outdoor_Rear_Door_Speed "Rear Door Speed [%.0f]"		(Status,gLEDSt
 Number LEDStrip_Outdoor_Rear_Door_Intensity "Rear Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_Group1 "Outdoor LED Strips String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_Group1:setTopic"} //   {mqtt=">[broker:home/LEDStrip_Group1/set:state:*:default]"}
-Switch LEDStrip_Group1_Power "Outdoor LED Strips Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_Group1:switch"} //{mqtt=">[broker:home/LEDStrip_Group1/set:command:*:MAP(LEDStripEffectJSON.map)]"}  //">[broker:home/Outdoor_RearYard/set:command:ON:ON],>[broker:home/Outdoor_RearYard/setpower:command:OFF:OFF]"}
-Number LEDStrip_Group1_FX "Outdoor LED Strips Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Group1:effect"} //{mqtt=">[broker:home/LEDStrip_Group1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Color LEDStrip_Group1_Color "Outdoor LED Strips Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_Group1_Speed "Outdoor LED Strips Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_Group1_Intensity "Outdoor LED Strips Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Switch LEDStrip_Group1_Power "Outdoor LED Strips Power" (Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Power) ["Switch"] {channel="mqtt:topic:LEDStrip_Group1:switch"} //{mqtt=">[broker:home/LEDStrip_Group1/set:command:*:MAP(LEDStripEffectJSON.map)]"}  //">[broker:home/Outdoor_RearYard/set:command:ON:ON],>[broker:home/Outdoor_RearYard/setpower:command:OFF:OFF]"}
+Number LEDStrip_Group1_FX "Outdoor LED Strips Fx" (Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_FX) ["Setpoint"] {channel="mqtt:topic:LEDStrip_Group1:effect"} //{mqtt=">[broker:home/LEDStrip_Group1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Color LEDStrip_Group1_Color "Outdoor LED Strips Color"	<rgb>	(Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Color) ["Switch"]
+Number LEDStrip_Group1_Speed "Outdoor LED Strips Speed [%.0f]"		(Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Speed) ["Setpoint"]
+Number LEDStrip_Group1_Intensity "Outdoor LED Strips Intensity [%d]" (Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Intensity) ["Setpoint"]
 
 /* Begin Group 2 (Kitchen) */
 

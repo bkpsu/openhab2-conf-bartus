@@ -34,45 +34,54 @@ Group AstroTest		 "AstroTest"		<settings>		(Configuration)
 Group HASP "Hasp Persist Items"
 Group Sequencer "Sequencer Persist Items"
 
-Group PowerMeters  "Power Meters" 
+Group PowerMeters  "Power Meters"  ["Sensor"]
 
-/* active groups */
+/* Equipment Groups */
 Group:Switch:OR(ON, OFF)	Lights 			    "All Lights [(%d)]" 		(All)
 Group:Switch:OR(ON, OFF)	NightLights   		"Night Lights [(%d)]"		(All)   { ga="Light" }
 Group:Switch:OR(ON, OFF)	EveningLights		"Evening Lights [(%d)]"		(All)   { ga="Light" }
 Group:Switch:OR(ON, OFF)	DownstairsLights	"Downstairs Lights [(%d)]"	(All)   { ga="Light" }
-Group:Switch:OR(ON, OFF)	OutdoorLights		"Outdoor Lights [(%d)]"		(All)   { ga="Light" }
 Group:Switch:OR(ON, OFF)	ChristmasLights 	"Christmas Lights [(%d)]"	(All)   { ga="Light" }
 
+Group:Switch:OR(ON, OFF)	OutdoorLights		"Outdoor Lights [(%d)]"		(All, Lights, Outdoor) ["Lightbulb"]   { ga="Light" }
+Group gFFFamilyLights   "Family Room Lights"    (Lights, FF_Family)     ["Lightbulb"]
+Group gFFDiningLights   "Dining Room Lights"    (Lights, FF_Dining)     ["Lightbulb"]
+Group gFFFoyerLights    "Foyer Lights"          (Lights, FF_Foyer)      ["Lightbulb"]
+Group gFFPowderLights   "Powder Room Lights"    (Lights, FF_Powder)     ["Lightbulb"]
+Group gFFKitchenLights  "Kitchen Lights"        (Lights, FF_Kitchen)    ["Lightbulb"]
+Group gFFOfficeLights   "Office Lights"         (Lights, FF_Office)     ["Lightbulb"]
+Group gSFLandingLights  "Landing Lights"        (Lights, SF_Landing)    ["Lightbulb"]
+Group gSFMasterLights   "Master Lights"        (Lights, SF_Master)      ["Lightbulb"]
+Group gSFGuestLights    "Guest Lights"        (Lights, SF_GuestBdrm)    ["Lightbulb"]
 
 /* Lights */
-Switch Light_Outdoor_FrontDoor 		"Front Door"		<lightbulb>     (Outdoor, OutdoorLights, Lights)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node2:switch_binary"}
-Switch Light_Outdoor_Garage 		"Garage" 			<lightbulb>     (Outdoor, OutdoorLights, Lights)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node40:switch_binary"} 
-Switch Light_Outdoor_RearYard 		"Rear Yard" 		<lightbulb>     (Outdoor, OutdoorLights, Lights)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node4:switch_binary"}
-Dimmer Light_Outdoor_Shed		    "Shed Light"		<lightbulb>     (Outdoor, OutdoorLights, Lights)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node48:switch_dimmer"}
-Dimmer Light_FF_Family_Sconces 		"Sconces [%d %%]"	<lightbulb>     (FF_Family, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node6:switch_dimmer"}
-Color Light_FF_Family_Lamp		    "Family Lamp [%d %%]"       <rgb>	(FF_Family, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0210:00178829871a:3:color"}
-Dimmer Light_FF_Dining_Light        "Dining Room Light" <lightbulb>     (FF_Dining, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node47:switch_dimmer"}
-Dimmer Light_FF_Foyer_Light 		"Foyer Light [%d %%]" <lightbulb>   (FF_Foyer, Lights)                  [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node7:switch_dimmer"}
-Dimmer Light_FF_Family_BottomLight  "Downstairs Light"  <lightbulb>     (FF_Family, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node43:switch_dimmer"}
-Switch Light_FF_Foyer_Lamp		    "Foyer Lamp"		<lightbulb>     (FF_Foyer, NightLights, Lights)	    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="mqtt:topic:SonoffS31_FFFoyerLamp:switch"} //{mqtt=">[broker:cmnd/FF_Foyer_Lamp/power:command:*:default]],<[broker:stat/FF_Foyer_Lamp/POWER:state:default]"}
-Dimmer Light_FF_Powder_HallLight    "Powder Hall Light" <lightbulb>     (FF_Powder, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node44:switch_dimmer"}
-Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"      <lightbulb>     (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node36:switch_dimmer"}
-Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)            [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node38:switch_dimmer"}
-Dimmer Light_FF_Office_Lamp		    "Office Lamp [%d %%]"	<lightbulb> (FF_Office, DownstairsLights, EveningLights, Lights)  [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0100:00178829871a:16:brightness"}
-Color Light_FF_Office_Lamp2         "Office Mood Lamp [%d %%]" <lightbulb> (FF_Office, DownstairsLights, EveningLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0210:00178829871a:24:color"}
-Color Light_FF_Office_Recliner      "Office Recliner Lamp [%d %%]" <lightbulb> (FF_Office, DownstairsLights, EveningLights, Lights)  [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0210:00178829871a:33:color"}
-Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(FF_Office, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                 [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0210:00178829871a:6:color"}
-Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" <lightbulb> (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node37:switch_dimmer"}
-Dimmer Light_FF_Kitchen_Sink	    "Sink Light [%d %%]" 	<lightbulb> (FF_Kitchen, DownstairsLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node45:switch_dimmer"}
-Color Light_SF_Landing_Lamp	    "Landing Lamp"			         <rgb>  (SF_Landing, NightLights, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0210:00178829871a:8:color"}
-Dimmer Light_SF_Landing_Light   "Landing Light"         <lightbulb>     (SF_Landing, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node41:switch_dimmer"}
-Dimmer Light_SF_Landing_StaircaseLight   "Staircase Light" <lightbulb>  (SF_Landing, Lights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node42:switch_dimmer"}
-Dimmer Light_SF_Master_BedLamp_Right "Right Bed Lamp" 	<lightbulb>     (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0100:00178829871a:22:brightness"}
-Dimmer Light_SF_Master_BedLamp_Left "Left Bed Lamp" 	<lightbulb>     (SF_Master, Lights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0100:00178829871a:23:brightness"}
-Dimmer Light_SF_Master_EnsuiteHall   "Ensuite Hall [%d %%]"      <slider>	(SF_Master, Lights)                 [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="zwave:device:99f97889:node39:switch_dimmer"}
-Color Light_SF_Guest_BedLamp_Right "Guest Bed Right Lamp" <rgb>   (SF_GuestBdrm, Lights)   [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0210:00178829871a:31:color"}
-Color Light_SF_Guest_BedLamp_Left "Guest Bed Left Lamp" <rgb>     (SF_GuestBdrm, Lights)   [ "Equipment","Lightbulb" ]		{ ga="Light" , channel="hue:0210:00178829871a:32:color"}
+Switch Light_Outdoor_FrontDoor 		"Front Door"		<lightbulb>     (OutdoorLights)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node2:switch_binary"}
+Switch Light_Outdoor_Garage 		"Garage" 			<lightbulb>     (OutdoorLights)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node40:switch_binary"} 
+Switch Light_Outdoor_RearYard 		"Rear Yard" 		<lightbulb>     (OutdoorLights)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node4:switch_binary"}
+Dimmer Light_Outdoor_Shed		    "Shed Light"		<lightbulb>     (OutdoorLights)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node48:switch_dimmer"}
+Dimmer Light_FF_Family_Sconces 		"Sconces [%d %%]"	<lightbulb>     (gFFFamilyLights, DownstairsLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node6:switch_dimmer"}
+Color Light_FF_Family_Lamp		    "Family Lamp [%d %%]"       <rgb>	(gFFFamilyLights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0210:00178829871a:3:color"}
+Dimmer Light_FF_Family_BottomLight  "Downstairs Light"  <lightbulb>     (gFFFamilyLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node43:switch_dimmer"}
+Dimmer Light_FF_Dining_Light        "Dining Room Light" <lightbulb>     (gFFDiningLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node47:switch_dimmer"}
+Dimmer Light_FF_Foyer_Light 		"Foyer Light [%d %%]" <lightbulb>   (gFFFoyerLights)                  [ "Switch", "Light" ]	{ ga="Light" , channel="zwave:device:99f97889:node7:switch_dimmer"}
+Switch Light_FF_Foyer_Lamp		    "Foyer Lamp"		<lightbulb>     (gFFFoyerLights, NightLights)	    [ "Switch", "Light" ]		{ ga="Light" , channel="mqtt:topic:SonoffS31_FFFoyerLamp:switch"} //{mqtt=">[broker:cmnd/FF_Foyer_Lamp/power:command:*:default]],<[broker:stat/FF_Foyer_Lamp/POWER:state:default]"}
+Dimmer Light_FF_Powder_HallLight    "Powder Hall Light" <lightbulb>     (gFFPowderLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node44:switch_dimmer"}
+Dimmer Light_FF_Kitchen_DiningTbl   "Dining Table"      <lightbulb>     (gFFKitchenLights, DownstairsLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node36:switch_dimmer"}
+Dimmer Light_FF_Kitchen_Island "Island Light [%d %%]"  <slider>	(gFFKitchenLights, DownstairsLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)            [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node38:switch_dimmer"}
+Dimmer Light_FF_Kitchen_Recessed	"Recessed Lights [%d %%]" <lightbulb> (gFFKitchenLights, DownstairsLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Switch", "Light" ]	{ ga="Light" , channel="zwave:device:99f97889:node37:switch_dimmer"}
+Dimmer Light_FF_Kitchen_Sink	    "Sink Light [%d %%]" 	<lightbulb> (gFFKitchenLights, DownstairsLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node45:switch_dimmer"}
+Dimmer Light_FF_Office_Lamp		    "Office Lamp [%d %%]"	<lightbulb> (gFFOfficeLights, DownstairsLights, EveningLights)  [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0100:00178829871a:16:brightness"}
+Color Light_FF_Office_Lamp2         "Office Mood Lamp [%d %%]" <lightbulb> (gFFOfficeLights, DownstairsLights, EveningLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0210:00178829871a:24:color"}
+Color Light_FF_Office_Recliner      "Office Recliner Lamp [%d %%]" <lightbulb> (gFFOfficeLights, DownstairsLights, EveningLights)  [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0210:00178829871a:33:color"}
+Color Light_FF_Office_Desk		    "Office Desk Light [%d %%]"	<rgb>	(gFFOfficeLights, DownstairsLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)                 [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0210:00178829871a:6:color"}
+Color Light_SF_Landing_Lamp	    "Landing Lamp"			         <rgb>  (gSFLandingLights, NightLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Switch", "Light" ]	{ ga="Light" , channel="hue:0210:00178829871a:8:color"}
+Dimmer Light_SF_Landing_Light   "Landing Light"         <lightbulb>     (gSFLandingLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node41:switch_dimmer"}
+Dimmer Light_SF_Landing_StaircaseLight   "Staircase Light" <lightbulb>  (gSFLandingLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node42:switch_dimmer"}
+Dimmer Light_SF_Master_BedLamp_Right "Right Bed Lamp" 	<lightbulb>     (gSFMasterLights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0100:00178829871a:22:brightness"}
+Dimmer Light_SF_Master_BedLamp_Left "Left Bed Lamp" 	<lightbulb>     (gSFMasterLights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)   [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0100:00178829871a:23:brightness"}
+Dimmer Light_SF_Master_EnsuiteHall   "Ensuite Hall [%d %%]"      <slider>	(gSFMasterLights)                [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node39:switch_dimmer"}
+Color Light_SF_Guest_BedLamp_Right "Guest Bed Right Lamp" <rgb>   (gSFGuestLights)   [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0210:00178829871a:31:color"}
+Color Light_SF_Guest_BedLamp_Left "Guest Bed Left Lamp" <rgb>     (gSFGuestLights)   [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0210:00178829871a:32:color"}
 
 String Habpanel_Dashboard "Storage Item for Habpanel Dashboard Link"
 
@@ -92,10 +101,10 @@ Color Light_Motion_Color	        "Motion Light Color"        (Configuration)
 Color Light_Kitchen_Strip_Color     "Kitchen Strip Color"       (Configuration)
 
 /* Mobile Zwave Energy Meters */
-Number Energy_Mobile_1_W	"Meter 1 (Server Rack) Energy Usage (inst) [%.2f W]"		<text>  (PowerMeters)	{channel="zwave:device:99f97889:node8:meter_watts"}
-Number Energy_Mobile_1_kWh	"Meter 1 (Server Rack) Energy Usage (total) [%.2f kWh]"	    <text>  (PowerMeters)	{channel="zwave:device:99f97889:node8:meter_kwh"}
-Number Energy_Mobile_2_W	"Meter 2 (Workbench) Energy Usage (inst) [%.2f W]"		<text>	    (PowerMeters)   {channel="zwave:device:99f97889:node9:meter_watts"}
-Number Energy_Mobile_2_kWh	"Meter 2 (Workbench) Energy Usage (total) [%.2f kWh]"	<text>	    (PowerMeters)   {channel="zwave:device:99f97889:node9:meter_kwh"}
+Number Energy_Mobile_1_W	"Meter 1 (Server Rack) Energy Usage (inst) [%.2f W]"		<text>  (PowerMeters) ["Measurement", "Power"]	{channel="zwave:device:99f97889:node8:meter_watts"}
+Number Energy_Mobile_1_kWh	"Meter 1 (Server Rack) Energy Usage (total) [%.2f kWh]"	    <text>  (PowerMeters) ["Measurement", "Energy"]	{channel="zwave:device:99f97889:node8:meter_kwh"}
+Number Energy_Mobile_2_W	"Meter 2 (Workbench) Energy Usage (inst) [%.2f W]"		<text>	    (PowerMeters) ["Measurement", "Power"]  {channel="zwave:device:99f97889:node9:meter_watts"}
+Number Energy_Mobile_2_kWh	"Meter 2 (Workbench) Energy Usage (total) [%.2f kWh]"	<text>	    (PowerMeters) ["Measurement", "Energy"]  {channel="zwave:device:99f97889:node9:meter_kwh"}
 
 /* Astro */
 DateTime Sunrise_Time 	"Sunrise [%1$tH:%1$tM]" (Status)				{channel="astro:sun:local:rise#start"}
@@ -135,7 +144,7 @@ Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f °F]" <temperature_cold> (g
 Number:Temperature Temperature_HVAC "Temperature [%.1f °F]" <temperature> (gHVAC,Temp_Chart,FF_Dining,Ambimate_Test) ["Measurement","Temperature"]/*["CurrentTemperature"]*/ { ga="thermostatTemperatureAmbient" , channel="zwave:device:99f97889:node10:sensor_temperature"}
 Number Humidity_HVAC "Humidity [%.1f %%]" <humidity> (gHVAC,Hum_Chart,FF_Dining,Ambimate_Test) ["Measurement","Humidity"]/*["CurrentHumidity"]*/ { ga="thermostatHumidityAmbient" , channel="zwave:device:99f97889:node10:sensor_relhumidity2"}
 Group gHVACStatus
-Number HVAC_Mode "Mode [MAP(thermostatMode.map):%s]" <flow> (gHVAC,gHVACStatus)/*["homekit:TargetHeatingCoolingMode"]*/ { ga="thermostatMode", channel="zwave:device:99f97889:node10:thermostat_mode" }
+Number HVAC_Mode "Mode [MAP(thermostatMode.map):%s]" <flow> (gHVAC,gHVACStatus)/*["homekit:TargetHeatingCoolingMode"]*/ ["Point", "Mode"] { ga="thermostatMode", channel="zwave:device:99f97889:node10:thermostat_mode" }
 Number HVAC_Fan_Mode "Fan Mode [MAP(thermostatFanMode.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node10:thermostat_fanmode" }
 Number HVAC_Operating_State "Op State [MAP(thermostatOpState.map):%s]" <flow> (gHVACStatus) {channel="zwave:device:99f97889:node10:thermostat_state"}
 Number HVAC_Fan_State "Fan State [MAP(thermostatFanState.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node10:thermostat_fanstate"}
@@ -189,14 +198,14 @@ Group AmbiMate_Test "AmbiMate Test"
 
 
 /* MQTT Tasmota Devices */
-Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeLights:switch"} //{mqtt=">[broker:cmnd/ChristmasTree/power:command:*:default]],<[broker:stat/ChristmasTree/POWER:state:default]"}
-Number Sonoff_S31_1_Power "Christmas Tree Power Usage [%d]W" (FF_Family,PowerMeters) {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:powerLoad"} // {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
-Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt)  {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} // {mqtt=">[broker:cmnd/3dpPrusai3mk0/power:command:*:default]],<[broker:stat/3dpPrusai3mk0/POWER:state:default]"}
-Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} // {mqtt="<[broker:tele/3dpPrusai3mk0/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
-Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt)  {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}
-Number Prusai3_mk2S_Power "3d Printer (Black) Power Usage [%d]W" (gBsmt,PowerMeters) {channel="mqtt:topic:SonoffS31_3DPrinterBlack:powerLoad"}
+Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeLights:switch"} //{mqtt=">[broker:cmnd/ChristmasTree/power:command:*:default]],<[broker:stat/ChristmasTree/POWER:state:default]"}
+Number Sonoff_S31_1_Power "Christmas Tree Power Usage [%d]W" (FF_Family,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:powerLoad"} // {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
+Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} // {mqtt=">[broker:cmnd/3dpPrusai3mk0/power:command:*:default]],<[broker:stat/3dpPrusai3mk0/POWER:state:default]"}
+Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} // {mqtt="<[broker:tele/3dpPrusai3mk0/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
+Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}
+Number Prusai3_mk2S_Power "3d Printer (Black) Power Usage [%d]W" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterBlack:powerLoad"}
 
-Number FF_Foyer_Lamp_Power "Foyer Lamp Power Usage [%d}W" (PowerMeters) {channel="mqtt:topic:SonoffS31_FFFoyerLamp:powerLoad"}
+Number FF_Foyer_Lamp_Power "Foyer Lamp Power Usage [%d}W" (PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_FFFoyerLamp:powerLoad"}
 
 /* Astro Test */
 DateTime Astro_mornnightstart 	"Astro Morn Night Start [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:morningNight#start"}
