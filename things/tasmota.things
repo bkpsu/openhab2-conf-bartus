@@ -49,15 +49,15 @@ Thing mqtt:topic:SonoffS31_3DPrinterRed "3D Printer Red" (mqtt:broker:MQTTBroker
 
 Thing mqtt:topic:SonoffS31_3DPrinterBlack "3D Printer Black" (mqtt:broker:MQTTBroker) @ "Sonoff S31"  {
         Channels:
-            Type string : reachable "Reachable"             [ stateTopic="tele/3dpPrusai3mk2s/LWT" ]
+            Type string : reachable "Reachable"             [ stateTopic="tele/3dpPrusai3mk2S-Black/LWT" ]
             Type switch : switch "Power" [    
-                stateTopic="stat/3dpPrusai3mk2s/POWER", 
-                commandTopic="cmnd/3dpPrusai3mk2s/power",
+                stateTopic="stat/3dpPrusai3mk2S-Black/POWER", 
+                commandTopic="cmnd/3dpPrusai3mk2S-Black/power",
                 ON="ON",
                 OFF="OFF"          
             ]
-            Type number : rssi "WiFi Signal Strength"       [ stateTopic="tele/3dpPrusai3mk2s/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
-            Type number : powerLoad "Instantaneous Power"   [ stateTopic="tele/3dpPrusai3mk2s/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
-            Type number : voltage "Voltage"                 [ stateTopic="tele/3dpPrusai3mk2s/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
-            Type number : energyTotal "Energy Total (kWh)"  [ stateTopic="tele/3dpPrusai3mk2s/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+            Type number : rssi "WiFi Signal Strength"       [ stateTopic="tele/3dpPrusai3mk2S-Black/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
+            Type number : powerLoad "Instantaneous Power"   [ stateTopic="tele/3dpPrusai3mk2S-Black/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+            Type number : voltage "Voltage"                 [ stateTopic="tele/3dpPrusai3mk2S-Black/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+            Type number : energyTotal "Energy Total (kWh)"  [ stateTopic="tele/3dpPrusai3mk2S-Black/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
     }    
