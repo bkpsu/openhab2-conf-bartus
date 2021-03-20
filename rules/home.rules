@@ -2,7 +2,7 @@ var Number Light_FF_Family_Sconces_Value = 0
 
 rule "Sunset Outdoor Events"
 when
-	Channel 'astro:sun:local:set#event' triggered START  //nauticDusk
+	Channel 'astro:sun:local:nauticDusk#event' triggered START  //nauticDusk or set
 then
 	/*Turn on Christmas Lights*/
 	if (Christmas.state == ON)
@@ -59,7 +59,7 @@ end
 
 rule "Sunset Indoor Functions"
 when
-	Channel 'astro:sun:local:civilDusk#event' triggered START
+	Channel 'astro:sun:local:nauticDusk#event' triggered START // nauticDusk or civilDusk
 then
 	/*Start Family Room Sconces*/
 	if(VacationMode.state != ON)
