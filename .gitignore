@@ -11,6 +11,7 @@
 myq.cfg
 dashboard.cfg
 camera.items
+solar.things
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
