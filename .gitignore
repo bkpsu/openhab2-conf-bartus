@@ -9,7 +9,6 @@
 *.userosscache
 *.sln.docstates
 myq.cfg
-dashboard.cfg
 camera.items
 solar.things
 
