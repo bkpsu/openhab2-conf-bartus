@@ -30,6 +30,22 @@ Thing mqtt:topic:SonoffS31_ChristmasTreeLights "Christmas Tree" (mqtt:broker:MQT
     }    
 
 
+Thing mqtt:topic:SonoffS31_ChristmasTreeMasterLights "Christmas Tree - Master" (mqtt:broker:MQTTBroker) @ "Sonoff S31"  {
+        Channels:
+            Type string : reachable "Reachable"             [ stateTopic="tele/ChristmasTree_Master/LWT" ]
+            Type switch : switch "Power" [    
+                stateTopic="stat/ChristmasTree_Master/POWER", 
+                commandTopic="cmnd/ChristmasTree_Master/power",
+                ON="ON",
+                OFF="OFF"          
+            ]
+            Type number : rssi "WiFi Signal Strength"       [ stateTopic="tele/ChristmasTree_Master/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
+            Type number : powerLoad "Instantaneous Power"   [ stateTopic="tele/ChristmasTree_Master/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+            Type number : voltage "Voltage"                 [ stateTopic="tele/ChristmasTree_Master/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+            Type number : energyTotal "Energy Total (kWh)"  [ stateTopic="tele/ChristmasTree_Master/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+    }    
+
+
 Thing mqtt:topic:SonoffS31_3DPrinterRed "3D Printer Red" (mqtt:broker:MQTTBroker) @ "Sonoff S31"  {
         Channels:
             Type string : reachable "Reachable"             [ stateTopic="tele/3dpPrusai3mk0/LWT" ]
@@ -61,3 +77,19 @@ Thing mqtt:topic:SonoffS31_3DPrinterBlack "3D Printer Black" (mqtt:broker:MQTTBr
             Type number : voltage "Voltage"                 [ stateTopic="tele/3dpPrusai3mk2S-Black/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
             Type number : energyTotal "Energy Total (kWh)"  [ stateTopic="tele/3dpPrusai3mk2S-Black/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
     }    
+
+
+Thing mqtt:topic:SonoffS31_OutdoorDeckLights "Outdoor Deck Lights" (mqtt:broker:MQTTBroker) @ "Sonoff S31"  {
+    Channels:
+        Type string : reachable "Reachable"             [ stateTopic="tele/Outdoor_Deck_Lights/LWT" ]
+        Type switch : switch "Power" [    
+            stateTopic="stat/Outdoor_Deck_Lights/POWER", 
+            commandTopic="cmnd/Outdoor_Deck_Lights/power",
+            ON="ON",
+            OFF="OFF"          
+        ]
+        Type number : rssi "WiFi Signal Strength"       [ stateTopic="tele/Outdoor_Deck_Lights/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
+        Type number : powerLoad "Instantaneous Power"   [ stateTopic="tele/Outdoor_Deck_Lights/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+        Type number : voltage "Voltage"                 [ stateTopic="tele/Outdoor_Deck_Lights/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+        Type number : energyTotal "Energy Total (kWh)"  [ stateTopic="tele/Outdoor_Deck_Lights/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+}    

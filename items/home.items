@@ -59,6 +59,7 @@ Switch Light_Outdoor_FrontDoor 		"Front Door"		<lightbulb>     (OutdoorLights)  
 Switch Light_Outdoor_Garage 		"Garage" 			<lightbulb>     (OutdoorLights)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node25:switch_binary"} 
 Switch Light_Outdoor_RearYard 		"Rear Yard" 		<lightbulb>     (OutdoorLights)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node20:switch_binary"}
 Dimmer Light_Outdoor_Shed		    "Shed Light"		<lightbulb>     (OutdoorLights)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node13:switch_dimmer"}
+Switch Light_Outdoor_Deck_Lights    "Deck Lights"		<lightbulb>     (OutdoorLights)	   [ "Switch", "Light" ]		{ ga="Light" , channel="mqtt:topic:SonoffS31_OutdoorDeckLights:switch"}
 Dimmer Light_FF_Family_Sconces 		"Sconces [%d %%]"	<lightbulb>     (gFFFamilyLights, DownstairsLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)  [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node18:switch_dimmer"}
 Color Light_FF_Family_Lamp		    "Family Lamp [%d %%]"       <rgb>	(gFFFamilyLights, EveningLights,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) [ "Switch", "Light" ]		{ ga="Light" , channel="hue:0210:00178829871a:3:color"}
 Dimmer Light_FF_Family_BottomLight  "Downstairs Light"  <lightbulb>     (gFFFamilyLights, Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items)    [ "Switch", "Light" ]		{ ga="Light" , channel="zwave:device:99f97889:node16:switch_dimmer"}
@@ -203,8 +204,10 @@ Group AmbiMate_Test "AmbiMate Test"
 /* MQTT Tasmota Devices */
 Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeLights:switch"} //{mqtt=">[broker:cmnd/ChristmasTree/power:command:*:default]],<[broker:stat/ChristmasTree/POWER:state:default]"}
 Number Sonoff_S31_1_Power "Christmas Tree Power Usage [%d]W" (FF_Family,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:powerLoad"} // {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
-Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} // {mqtt=">[broker:cmnd/3dpPrusai3mk0/power:command:*:default]],<[broker:stat/3dpPrusai3mk0/POWER:state:default]"}
-Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} // {mqtt="<[broker:tele/3dpPrusai3mk0/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
+Switch ChristmasTree_Master "Christmas Tree Master [%s]" (SF_Master,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeMasterLights:switch"} 
+Number ChristmasTree_Master_Power "Christmas Tree Master Power Usage [%d]W" (SF_Master,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeMasterLights:powerLoad"} 
+Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} 
+Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} 
 Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}
 Number Prusai3_mk2S_Power "3d Printer (Black) Power Usage [%d]W" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterBlack:powerLoad"}
 
