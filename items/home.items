@@ -206,6 +206,8 @@ Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) ["PowerOut
 Number Sonoff_S31_1_Power "Christmas Tree Power Usage [%d]W" (FF_Family,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:powerLoad"} // {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
 Switch ChristmasTree_Master "Christmas Tree Master [%s]" (SF_Master,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeMasterLights:switch"} 
 Number ChristmasTree_Master_Power "Christmas Tree Master Power Usage [%d]W" (SF_Master,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeMasterLights:powerLoad"} 
+Switch ChristmasTree_Midlanding "Christmas Tree Midlanding [%s]" (SF_Landing,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeMidlandingLights:switch"} 
+Number ChristmasTree_Midlanding_Power "Christmas Tree Midlanding Power Usage [%d]W" (SF_Landing,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeMidlandingLights:powerLoad"} 
 Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} 
 Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} 
 Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}

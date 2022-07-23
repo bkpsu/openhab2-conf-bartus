@@ -46,6 +46,22 @@ Thing mqtt:topic:SonoffS31_ChristmasTreeMasterLights "Christmas Tree - Master" (
     }    
 
 
+Thing mqtt:topic:SonoffS31_ChristmasTreeMidlandingLights "Christmas Tree - Midlanding" (mqtt:broker:MQTTBroker) @ "Sonoff S31"  {
+        Channels:
+            Type string : reachable "Reachable"             [ stateTopic="tele/ChristmasTree_Midlanding/LWT" ]
+            Type switch : switch "Power" [    
+                stateTopic="stat/ChristmasTree_Midlanding/POWER", 
+                commandTopic="cmnd/ChristmasTree_Midlanding/power",
+                ON="ON",
+                OFF="OFF"          
+            ]
+            Type number : rssi "WiFi Signal Strength"       [ stateTopic="tele/ChristmasTree_Midlanding/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
+            Type number : powerLoad "Instantaneous Power"   [ stateTopic="tele/ChristmasTree_Midlanding/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+            Type number : voltage "Voltage"                 [ stateTopic="tele/ChristmasTree_Midlanding/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+            Type number : energyTotal "Energy Total (kWh)"  [ stateTopic="tele/ChristmasTree_Midlanding/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+    }    
+
+
 Thing mqtt:topic:SonoffS31_3DPrinterRed "3D Printer Red" (mqtt:broker:MQTTBroker) @ "Sonoff S31"  {
         Channels:
             Type string : reachable "Reachable"             [ stateTopic="tele/3dpPrusai3mk0/LWT" ]

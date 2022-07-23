@@ -1,0 +1,23 @@
+/* Thing mqtt:topic:Cart-P6 "Cart P6" (mqtt:broker:TTNCartP6Broker)  @ "TTN" [ availabilityTopic="cart-p6/devices/cart-p6/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
+    Channels:
+    Type location : loc "Location"   [ stateTopic="cart-p6/devices/cart-p6/up", transformationPattern="JSONPATH:$.payload_fields.location"]
+    Type number : speed "Speed" [ stateTopic="cart-p6/devices/cart-p6/up", transformationPattern="JSONPATH:$.payload_fields.speed" ]
+    Type switch : power "Power" [    
+        stateTopic="cart-p6/devices/cart-p6/up", transformationPattern="JSONPATH:$.payload_fields.power",
+        commandTopic="cart-p6/devices/cart-p6/up",
+        ON="{\"setCartPower\":\"ON\"}",
+        OFF="{\"setCartPower\":\"ON\"}"          
+        ]
+    }
+
+Thing mqtt:topic:Ferry "Ferry" (mqtt:broker:TTNFerryBroker)  @ "TTN" [ availabilityTopic="ferry/devices/ferry/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
+    Channels:
+    Type location : loc "Location"   [ stateTopic="ferry/devices/ferry/up", transformationPattern="JSONPATH:$.payload_fields.location"]
+    Type number : speed "Speed" [ stateTopic="ferry/devices/ferry/up", transformationPattern="JSONPATH:$.payload_fields.speed" ]
+    Type switch : power "Power" [    
+        stateTopic="ferry/devices/ferry/up", transformationPattern="JSONPATH:$.payload_fields.power",
+        commandTopic="ferry/devices/ferry/up",
+        ON="{\"setCartPower\":\"ON\"}",
+        OFF="{\"setCartPower\":\"ON\"}"          
+        ]
+    }     */
