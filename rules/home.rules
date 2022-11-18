@@ -114,7 +114,7 @@ then
 	Light_FF_Family_Sconces.sendCommand(OFF)
 	EveningLights.sendCommand(OFF)
 	Light_FF_Family_Sconces_Value = 0
-	Light_SF_Landing_Lamp.sendCommand(20)
+	Light_SF_Landing_Lamp.sendCommand(50)
 	logInfo("Lights", "Evening Lights turned off at Midnight")
 end
 
