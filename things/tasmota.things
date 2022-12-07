@@ -62,6 +62,38 @@ Thing mqtt:topic:SonoffS31_ChristmasTreeMidlandingLights "Christmas Tree - Midla
     }    
 
 
+Thing mqtt:topic:SonoffS31_ChristmasTreeLandingLights "Christmas Tree - Landing" (mqtt:broker:MQTTBroker) @ "Sonoff S31"  {
+        Channels:
+            Type string : reachable "Reachable"             [ stateTopic="tele/ChristmasTree_Landing/LWT" ]
+            Type switch : switch "Power" [    
+                stateTopic="stat/ChristmasTree_Landing/POWER", 
+                commandTopic="cmnd/ChristmasTree_Landing/power",
+                ON="ON",
+                OFF="OFF"          
+            ]
+            Type number : rssi "WiFi Signal Strength"       [ stateTopic="tele/ChristmasTree_Landing/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
+            Type number : powerLoad "Instantaneous Power"   [ stateTopic="tele/ChristmasTree_Landing/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+            Type number : voltage "Voltage"                 [ stateTopic="tele/ChristmasTree_Landing/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+            Type number : energyTotal "Energy Total (kWh)"  [ stateTopic="tele/ChristmasTree_Landing/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+    }    
+
+
+Thing mqtt:topic:SonoffS31_ChristmasTreeKitchenLights "Christmas Tree - Kitchen" (mqtt:broker:MQTTBroker) @ "Sonoff S31"  {
+        Channels:
+            Type string : reachable "Reachable"             [ stateTopic="tele/ChristmasTree_Kitchen/LWT" ]
+            Type switch : switch "Power" [    
+                stateTopic="stat/ChristmasTree_Kitchen/POWER", 
+                commandTopic="cmnd/ChristmasTree_Kitchen/power",
+                ON="ON",
+                OFF="OFF"          
+            ]
+            Type number : rssi "WiFi Signal Strength"       [ stateTopic="tele/ChristmasTree_Kitchen/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
+            Type number : powerLoad "Instantaneous Power"   [ stateTopic="tele/ChristmasTree_Kitchen/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+            Type number : voltage "Voltage"                 [ stateTopic="tele/ChristmasTree_Kitchen/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+            Type number : energyTotal "Energy Total (kWh)"  [ stateTopic="tele/ChristmasTree_Kitchen/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+    }    
+
+
 Thing mqtt:topic:SonoffS31_3DPrinterRed "3D Printer Red" (mqtt:broker:MQTTBroker) @ "Sonoff S31"  {
         Channels:
             Type string : reachable "Reachable"             [ stateTopic="tele/3dpPrusai3mk0/LWT" ]

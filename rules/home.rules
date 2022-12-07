@@ -8,8 +8,8 @@ then
 	if (Christmas.state == ON)
 	{
 		ChristmasLights.sendCommand(ON)
-		LEDStrip_Group1_Power.sendCommand(ON)
-		Sequencer_Start.sendCommand(ON)
+		//LEDStrip_Group1_Power.sendCommand(ON)
+		//Sequencer_Start.sendCommand(ON)
 
 	/*	val day = (Date.state as DateTimeType).calendar.get(Calendar::DAY_OF_MONTH)
 		val ledfx = day % 5
@@ -104,8 +104,8 @@ then
 	if (Christmas.state == ON)
 	{
 		ChristmasLights.sendCommand(OFF)
-		LEDStrip_Group1_Power.sendCommand(OFF)
-		Sequencer_Reset.sendCommand(ON)
+		//LEDStrip_Group1_Power.sendCommand(OFF)
+		//Sequencer_Reset.sendCommand(ON)
 		OutdoorLights.sendCommand(ON)
 		logInfo("Lights", "Christmas/Outdoor lights swapped")
 	}

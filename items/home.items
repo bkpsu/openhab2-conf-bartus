@@ -171,8 +171,8 @@ Number Temperature_MasterBedroom            "MBdrm Temp [%.1f F]"               
 Number Humidity_MasterBedroom               "MBdrm Hum [%.1f %%]"               <humidity> (SF_Master,Hum_Chart) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_MasterBedroom:humidity"}
 Number Temperature_Garage                   "Garage Temp [%.1f F]"              <temperature> (gGarage,Temp_Chart) ["Measurement","Temperature"]                              {channel="mqtt:topic:Kube_Garage:temperature"}
 Number Humidity_Garage                      "Garage Hum [%.1f %%]"              <humidity> (gGarage,Hum_Chart) ["Measurement","Humidity"]                                  {channel="mqtt:topic:Kube_Garage:humidity"}
-Number Temperature_Shed                     "Shed Temp [%.1f F]"                <temperature> (Outdoor,Temp_Chart) ["Measurement","Temperature"]                              {channel="mqtt:topic:Kube_Shed:temperature"}
-Number Humidity_Shed                        "Shed Hum [%.1f %%]"                <humidity> (Outdoor,Hum_Chart) ["Measurement","Humidity"]                                  {channel="mqtt:topic:Kube_Shed:humidity"}
+Number Temperature_Shed                     "Shed Temp [%.1f F]"                <temperature> (Shed,Temp_Chart) ["Measurement","Temperature"]                              {channel="mqtt:topic:Kube_Shed:temperature"}
+Number Humidity_Shed                        "Shed Hum [%.1f %%]"                <humidity> (Shed,Hum_Chart) ["Measurement","Humidity"]                                  {channel="mqtt:topic:Kube_Shed:humidity"}
 Number Temperature_MasterBedroomHisCloset   "MBdrm His Closet Temp [%.1f F]"    <temperature> (SF_Master,Temp_Chart_2) ["Measurement","Temperature"]                          {channel="mqtt:topic:Kube_MasterBedHisCloset:temperature"}
 Number Humidity_MasterBedroomHisCloset      "MBdrm His Closet Hum [%.1f %%]"    <humidity> (SF_Master,Hum_Chart) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_MasterBedHisCloset:humidity"}
 Number Temperature_Attic                    "Attic Temp [%.1f F]"               <temperature> (gAttic,Temp_Chart_2) /*["Measurement","Temperature"]          */                 //  {mqtt="<[broker:home/Attic/temperature:state:default]"}
@@ -208,6 +208,10 @@ Switch ChristmasTree_Master "Christmas Tree Master [%s]" (SF_Master,ChristmasLig
 Number ChristmasTree_Master_Power "Christmas Tree Master Power Usage [%d]W" (SF_Master,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeMasterLights:powerLoad"} 
 Switch ChristmasTree_Midlanding "Christmas Tree Midlanding [%s]" (SF_Landing,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeMidlandingLights:switch"} 
 Number ChristmasTree_Midlanding_Power "Christmas Tree Midlanding Power Usage [%d]W" (SF_Landing,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeMidlandingLights:powerLoad"} 
+Switch ChristmasTree_Landing "Christmas Tree Landing [%s]" (SF_Landing,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeLandingLights:switch"} 
+Number ChristmasTree_Landing_Power "Christmas Tree Landing Power Usage [%d]W" (SF_Landing,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeLandingLights:powerLoad"} 
+Switch ChristmasTree_Kitchen "Christmas Tree Kitchen [%s]" (FF_Kitchen,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeKitchenLights:switch"} 
+Number ChristmasTree_Kitchen_Power "Christmas Tree Kitchen Power Usage [%d]W" (FF_Kitchen,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeKitchenLights:powerLoad"} 
 Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} 
 Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} 
 Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}
