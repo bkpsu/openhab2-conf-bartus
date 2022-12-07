@@ -1,0 +1,25 @@
+Dimmer        WLEDBRIDGEMAINGlobalBrightness        "Global brightness"         {channel="wled:json:483fda0cd348:globalBrightness"}
+String        WLEDBRIDGEMAINPlaylists               "Playlists"                 {channel="wled:json:483fda0cd348:playlists"}
+String        WLEDBRIDGEMAINPresets                 "Presets"                   {channel="wled:json:483fda0cd348:presets"}
+Number:Time   WLEDBRIDGEMAINTransformTime           "Transform time"            {channel="wled:json:483fda0cd348:transformTime"}
+String        WLEDBRIDGEMAINLiveOverride            "Live override"             {channel="wled:json:483fda0cd348:liveOverride"}
+Switch        WLEDBRIDGEMAINSleep                   "Sleep timer"               {channel="wled:json:483fda0cd348:sleep"}
+String        WLEDBRIDGEMAINSleepMode               "Sleep mode"                {channel="wled:json:483fda0cd348:sleepMode"}
+Number:Time   WLEDBRIDGEMAINSleepDuration           "Sleep duration"            {channel="wled:json:483fda0cd348:sleepDuration"}
+Dimmer        WLEDBRIDGEMAINSleepTargetBrightness   "Sleep target brightness"   {channel="wled:json:483fda0cd348:sleepTargetBrightness"}
+Switch        WLEDBRIDGEMAINSyncSend                "Sync send"                 {channel="wled:json:483fda0cd348:syncSend"}
+Switch        WLEDBRIDGEMAINSyncReceive             "Sync receive"              {channel="wled:json:483fda0cd348:syncReceive"}
+
+Color    WLEDMAINMasterControls      "Master controls"      {channel="wled:segment:483fda0cd348:483fda0cd348-0:masterControls"}
+Dimmer   WLEDMAINSegmentBrightness   "Segment brightness"   {channel="wled:segment:483fda0cd348:483fda0cd348-0:segmentBrightness"}
+Color    WLEDMAINPrimaryColor        "Primary color"        {channel="wled:segment:483fda0cd348:483fda0cd348-0:primaryColor"}
+Color    WLEDMAINSecondaryColor      "Secondary color"      {channel="wled:segment:483fda0cd348:483fda0cd348-0:secondaryColor"}
+Color    WLEDMAINTertiaryColor       "Tertiary color"       {channel="wled:segment:483fda0cd348:483fda0cd348-0:tertiaryColor"}
+String   WLEDMAINPalettes            "Palettes"             {channel="wled:segment:483fda0cd348:483fda0cd348-0:palettes"}
+String   WLEDMAINFx                  "Effect"               {channel="wled:segment:483fda0cd348:483fda0cd348-0:fx"}
+Dimmer   WLEDMAINSpeed               "Fx speed"             {channel="wled:segment:483fda0cd348:483fda0cd348-0:speed"}
+Dimmer   WLEDMAINIntensity           "Fx intensity"         {channel="wled:segment:483fda0cd348:483fda0cd348-0:intensity"}
+Switch   WLEDMAINMirror              "Mirror effect"        {channel="wled:segment:483fda0cd348:483fda0cd348-0:mirror"}
+Switch   WLEDMAINReverse             "Reverse direction"    {channel="wled:segment:483fda0cd348:483fda0cd348-0:reverse"}
+Number   WLEDMAINGrouping            "Grouping"             {channel="wled:segment:483fda0cd348:483fda0cd348-0:grouping"}
+Number   WLEDMAINSpacing             "Spacing"              {channel="wled:segment:483fda0cd348:483fda0cd348-0:spacing"}
