@@ -1,13 +1,13 @@
 Group gSpeedtest <"network-icon">
 Group Speedtest_Chart (gSpeedtest)
-Number Speedtest_Chart_Period "Speedtest Chart Period"
+Number:Dimensionless Speedtest_Chart_Period "Speedtest Chart Period"
 
 
 
 String      SpeedtestSummary        "Speedtest [%s]"             <"speedtest_network">       (gSpeedtest)
-Number      SpeedtestResultPing     "Ping [%.3f ms]"             <"speedtest_next5">         (gSpeedtest,Speedtest_Chart)
-Number      SpeedtestResultDown     "Downlink [%.2f Mbit/s]"     <"speedtest_download">      (gSpeedtest,Speedtest_Chart)
-Number      SpeedtestResultUp       "Uplink [%.2f Mbit/s]"       <"speedtest_upload">        (gSpeedtest,Speedtest_Chart)
+Number:Time      SpeedtestResultPing     "Ping [%.3f ms]"             <"speedtest_next5">         (gSpeedtest,Speedtest_Chart)
+Number:DataTransferRate      SpeedtestResultDown     "Downlink [%.2f Mbit/s]"     <"speedtest_download">      (gSpeedtest,Speedtest_Chart)
+Number:DataTransferRate      SpeedtestResultUp       "Uplink [%.2f Mbit/s]"       <"speedtest_upload">        (gSpeedtest,Speedtest_Chart)
 String      SpeedtestRunning        "Speedtest running ... [%s]" <"speedtest_new">           (gSpeedtest)
 Switch      SpeedtestRerun          "Start manually"             <"speedtest_reload2">       (gSpeedtest)
 DateTime    SpeedtestResultDate     "Last executed [%1$tY.%1$tm.%1$td, %1$tH:%1$tM]"   <"speedtest_problem4">      (gSpeedtest)

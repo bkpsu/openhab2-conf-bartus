@@ -239,24 +239,6 @@ sitemap default label="Home"
 			Text item=HVAC_Fan_State valuecolor=[0="gray",1="green",2="green"]
 			Text item=HVAC_Battery icon="energy"
 			Text item=Humidity_HVAC
-			Text label="Temperature Chart" icon="line"
-			{
-				Switch item=Temp_Chart_Period label="Temp Chart Period" mappings=[0="Hour", 1="Day", 2="Week", 3="Off"] icon="line"
-				Chart item=Temp_Chart period=h refresh=6000 service="rrd4j" visibility=[Temp_Chart_Period==0, Temp_Chart_Period=="Uninitialized"]
-				Chart item=Temp_Chart period=D refresh=30000 service="rrd4j" visibility=[Temp_Chart_Period==1]
-				Chart item=Temp_Chart period=W refresh=30000 service="rrd4j" visibility=[Temp_Chart_Period==2]
-				Switch item=Temp_Chart_Period_2 label="Temp Chart 2 Period" mappings=[0="Hour", 1="Day", 2="Week", 3="Off"] icon="line"
-				Chart item=Temp_Chart_2 period=h refresh=6000 service="rrd4j" visibility=[Temp_Chart_Period_2==0, Temp_Chart_Period_2=="Uninitialized"]
-				Chart item=Temp_Chart_2 period=D refresh=30000 service="rrd4j" visibility=[Temp_Chart_Period_2==1]
-				Chart item=Temp_Chart_2 period=W refresh=30000 service="rrd4j" visibility=[Temp_Chart_Period_2==2]
-			}
-			Text label="Humidity Chart" icon="line"
-			{
-				Switch item=Hum_Chart_Period label="Hum Chart Period" mappings=[0="Hour", 1="Day", 2="Week", 3="Off"] icon="line"
-				Chart item=Hum_Chart period=h refresh=6000 service="rrd4j" visibility=[Hum_Chart_Period==0, Hum_Chart_Period=="Uninitialized"]
-				Chart item=Hum_Chart period=D refresh=30000 service="rrd4j" visibility=[Hum_Chart_Period==1]
-				Chart item=Hum_Chart period=W refresh=30000 service="rrd4j" visibility=[Hum_Chart_Period==2]
-			}
 			Text label="Timeline" icon="line"
 			{
 				//Webview url="/static/Visualization/Timeline.html?Item=HVAC_Operating_State" height=3
@@ -275,10 +257,6 @@ sitemap default label="Home"
 			Text item=Sun_Azimuth
 			Text item=Sun_Duration
 			Text item=Weather_LastUpdate visibility=[Weather_LastUpdate>30] valuecolor=[Weather_LastUpdate>120="orange", Weather_LastUpdate>300="red"]
-			Switch item=Weather_Chart_Period label="Chart Period" mappings=[0="Hour", 1="Day", 2="Week"]
-			Chart item=Weather_Chart period=h refresh=6000 service="rrd4j" visibility=[Weather_Chart_Period==0, Weather_Chart_Period=="Uninitialized"]
-			Chart item=Weather_Chart period=D refresh=30000 service="rrd4j" visibility=[Weather_Chart_Period==1]
-			Chart item=Weather_Chart period=W refresh=30000 service="rrd4j" visibility=[Weather_Chart_Period==2]
 		}
 	}
 	Frame label="Status" {

@@ -89,12 +89,8 @@ Color Light_SF_Guest_BedLamp_Left "Guest Bed Left Lamp" <rgb>     (gSFGuestLight
 
 String Habpanel_Dashboard "Storage Item for Habpanel Dashboard Link"
 
-Group Temp_Chart (All)
-Number Temp_Chart_Period "Temp Chart Period"
-Group Temp_Chart_2 (All)
-Number Temp_Chart_Period_2 "Temp Chart Second Floor Period"
-Group Hum_Chart (All)
-Number Hum_Chart_Period "Hum Chart Period"
+Group TempSensors (All)
+Group HumSensors (All)
 
 /* Config Items */
 Switch VacationMode					"Vacation Mode"	<vacation>	(Configuration)
@@ -105,18 +101,18 @@ Color Light_Motion_Color	        "Motion Light Color"        (Configuration)
 Color Light_Kitchen_Strip_Color     "Kitchen Strip Color"       (Configuration)
 
 /* Mobile Zwave Energy Meters */
-Number Energy_Mobile_1_W	"Meter 1 (Server Rack) Energy Usage (inst) [%.2f W]"		<text>  (PowerMeters) ["Measurement", "Power"]	{channel="zwave:device:99f97889:node10:meter_watts"}
-Number Energy_Mobile_1_kWh	"Meter 1 (Server Rack) Energy Usage (total) [%.2f kWh]"	    <text>  (PowerMeters) ["Measurement", "Energy"]	{channel="zwave:device:99f97889:node10:meter_kwh"}
-Number Energy_Mobile_2_W	"Meter 2 (Workbench) Energy Usage (inst) [%.2f W]"		<text>	    (PowerMeters) ["Measurement", "Power"]  {channel="zwave:device:99f97889:node11:meter_watts"}
-Number Energy_Mobile_2_kWh	"Meter 2 (Workbench) Energy Usage (total) [%.2f kWh]"	<text>	    (PowerMeters) ["Measurement", "Energy"]  {channel="zwave:device:99f97889:node11:meter_kwh"}
+Number:Power Energy_Mobile_1_W	"Meter 1 (Server Rack) Energy Usage (inst) [%.2f %unit%]"		<text>  (PowerMeters) ["Measurement", "Power"]	{channel="zwave:device:99f97889:node10:meter_watts"}
+Number:Energy Energy_Mobile_1_kWh	"Meter 1 (Server Rack) Energy Usage (total) [%.2f kWh]"	    <text>  (PowerMeters) ["Measurement", "Energy"]	{channel="zwave:device:99f97889:node10:meter_kwh"}
+Number:Power Energy_Mobile_2_W	"Meter 2 (Workbench) Energy Usage (inst) [%.2f %unit%]"		<text>	    (PowerMeters) ["Measurement", "Power"]  {channel="zwave:device:99f97889:node11:meter_watts"}
+Number:Energy Energy_Mobile_2_kWh	"Meter 2 (Workbench) Energy Usage (total) [%.2f kWh]"	<text>	    (PowerMeters) ["Measurement", "Energy"]  {channel="zwave:device:99f97889:node11:meter_kwh"}
 
 /* Astro */
 DateTime Sunrise_Time 	"Sunrise [%1$tH:%1$tM]" (Status)				{channel="astro:sun:local:rise#start"}
 DateTime Sunset_Time 	"Sunset [%1$tH:%1$tM]" 	(Status)				{channel="astro:sun:local:set#end"}
 Switch is_Night "Night" (Configuration)
-Number	 Sun_Elevation	"Sun Elevation [%.2f deg]"	<sun>	(Weather)	{channel="astro:sun:local:position#elevation"}
-Number	 Sun_Azimuth	"Sun Azimuth [%.2f deg]"	<sun>	(Weather)	{channel="astro:sun:local:position#azimuth"}
-Number	 Sun_Duration	"Daylight Duration [%.1fM]"	<sun>	(Weather)	{channel="astro:sun:local:daylight#duration"} 
+Number:Angle	 Sun_Elevation	"Sun Elevation [%.2f %unit%]"	<sun>	(Weather)	{channel="astro:sun:local:position#elevation"}
+Number:Angle	 Sun_Azimuth	"Sun Azimuth [%.2f %unit%]"	<sun>	(Weather)	{channel="astro:sun:local:position#azimuth"}
+Number:Time	 Sun_Duration	"Daylight Duration [%.1f min]"	<sun>	(Weather)	{channel="astro:sun:local:daylight#duration"} 
 
 /* MyQ */
 String GarageDoorLeft 			"Garage Door Left [%s]" 	<garagedoor> 	(gGarage)	{ myq="1" }
@@ -125,11 +121,9 @@ String GarageDoorRight 			"Garage Door Right [%s]" 	<garagedoor> 	(gGarage)	{ my
 Switch GarageDoorRightSwitch 	"Garage Right [%s]" 			        	(gGarage)	{ myq="0", auto_update="false" }
 
 /* Weather */
-Group Weather_Chart									(Weather)
-Number Weather_Humidex		"Humidex [SCALE(humidex.scale):%s]" 	        <smiley>		    (Weather)
-Number Weather_Temp_Max 	"Todays Maximum [%.1f F]"		                <temperature_hot> 	(Weather_Chart)
-Number Weather_Temp_Min 	"Todays Minimum [%.1f F]"		                <temperature_cold> 	(Weather_Chart)
-Number Weather_Chart_Period	"Chart Period"                                  <line>
+Number:Dimensionless Weather_Humidex		"Humidex [SCALE(humidex.scale):%s]" 	        <smiley>		    (Weather)
+Number:Temperature Weather_Temp_Max 	"Todays Maximum [%.1f %unit%]"		                <temperature_hot> 
+Number:Temperature Weather_Temp_Min 	"Todays Minimum [%.1f %unit%]"		                <temperature_cold>
 DateTime Weather_LastUpdate	"Last Update [%1$ta %1$tR]"		                <clock>
 
 /* NTP binding demo item */
@@ -142,17 +136,17 @@ Dimmer FF_Family_TV_Volume "TV Volume" (FF_Family) {channel="samsungtv:tv:08f0d1
 
 /* Thermostat */
 Group gHVAC "Thermostat" ["Equipment", "HVAC"] { ga="Thermostat" [ useFahrenheit=true , modes="off=0,heatcool=3" ] } //["Thermostat"]
-Number:Temperature HVAC_HeatSetPoint "Heat Set [%.1f °F]" <temperature_hot> (gHVAC) ["Setpoint", "Temperature"] /*["homekit:TargetTemperature"]*/ {  ga="thermostatTemperatureSetpointLow" , channel="zwave:device:99f97889:node28:thermostat_setpoint_heating"}
-Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f °F]" <temperature_cold> (gHVAC) ["Setpoint","Temperature"] /*["homekit:TargetTemperature"]*/ { ga="thermostatTemperatureSetpointHigh" , channel="zwave:device:99f97889:node28:thermostat_setpoint_cooling"}
+Number:Temperature HVAC_HeatSetPoint "Heat Set [%.1f %unit%]" <temperature_hot> (gHVAC) ["Setpoint", "Temperature"] /*["homekit:TargetTemperature"]*/ {  ga="thermostatTemperatureSetpointLow" , channel="zwave:device:99f97889:node28:thermostat_setpoint_heating"}
+Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f %unit%]" <temperature_cold> (gHVAC) ["Setpoint","Temperature"] /*["homekit:TargetTemperature"]*/ { ga="thermostatTemperatureSetpointHigh" , channel="zwave:device:99f97889:node28:thermostat_setpoint_cooling"}
 //Number:Temperature HVAC_CoolSetPoint "Cool Set [%2d °F]" <temperature_cold> (gHVAC)["TargetTemperature"] {channel="zwave:device:99f97889:node28:thermostat_setpoint_cooling"}
-Number:Temperature Temperature_HVAC "Temperature [%.1f °F]" <temperature> (gHVAC,Temp_Chart,FF_Dining,Ambimate_Test) ["Measurement","Temperature"]/*["CurrentTemperature"]*/ { ga="thermostatTemperatureAmbient" , channel="zwave:device:99f97889:node28:sensor_temperature"}
-Number Humidity_HVAC "Humidity [%.1f %%]" <humidity> (gHVAC,Hum_Chart,FF_Dining,Ambimate_Test) ["Measurement","Humidity"]/*["CurrentHumidity"]*/ { ga="thermostatHumidityAmbient" , channel="zwave:device:99f97889:node28:sensor_relhumidity2"}
+Number:Temperature Temperature_HVAC "Temperature [%.1f %unit%]" <temperature> (gHVAC,TempSensors,FF_Dining,Ambimate_Test) ["Measurement","Temperature"]/*["CurrentTemperature"]*/ { ga="thermostatTemperatureAmbient" , channel="zwave:device:99f97889:node28:sensor_temperature"}
+Number:Dimensionless Humidity_HVAC "Humidity [%.1f %unit%]" <humidity> (gHVAC,HumSensors,FF_Dining,Ambimate_Test) ["Measurement","Humidity"]/*["CurrentHumidity"]*/ { ga="thermostatHumidityAmbient" , channel="zwave:device:99f97889:node28:sensor_relhumidity2"}
 Group gHVACStatus
-Number HVAC_Mode "Mode [MAP(thermostatMode.map):%s]" <flow> (gHVAC,gHVACStatus)/*["homekit:TargetHeatingCoolingMode"]*/ ["Point", "Mode"] { ga="thermostatMode", channel="zwave:device:99f97889:node28:thermostat_mode" }
-Number HVAC_Fan_Mode "Fan Mode [MAP(thermostatFanMode.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanmode" }
-Number HVAC_Operating_State "Op State [MAP(thermostatOpState.map):%s]" <flow> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_state"}
-Number HVAC_Fan_State "Fan State [MAP(thermostatFanState.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanstate"}
-Number HVAC_Battery "Battery State [%d %%]" <battery> (gHVACStatus) {channel="zwave:device:99f97889:node28:battery-level"}
+Number:Dimensionless HVAC_Mode "Mode [MAP(thermostatMode.map):%s]" <flow> (gHVAC,gHVACStatus)/*["homekit:TargetHeatingCoolingMode"]*/ ["Point", "Mode"] { ga="thermostatMode", channel="zwave:device:99f97889:node28:thermostat_mode" }
+Number:Dimensionless HVAC_Fan_Mode "Fan Mode [MAP(thermostatFanMode.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanmode" }
+Number:Dimensionless HVAC_Operating_State "Op State [MAP(thermostatOpState.map):%s]" <flow> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_state"}
+Number:Dimensionless HVAC_Fan_State "Fan State [MAP(thermostatFanState.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanstate"}
+Number:Dimensionless HVAC_Battery "Battery State [%d %]" <battery> (gHVACStatus) {channel="zwave:device:99f97889:node28:battery-level"}
 
 /*ZwaveStats*/
 /*
@@ -165,33 +159,33 @@ Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {channel="zwave:serial_z
 */
 
 /* MQTT ESP8266 Temp/Humidity Sensors */
-Number Temperature_Basement                 "Bsmt Temp [%.1f F]"                <temperature> (gBsmt,Temp_Chart)  ["Measurement","Temperature"]                               {channel="mqtt:topic:Kube_Basement:temperature"} 
-Number Humidity_Basement                    "Bsmt Hum [%.1f %%]"                <humidity> (gBsmt,Hum_Chart) ["Measurement","Humidity"]                                    {channel="mqtt:topic:Kube_Basement:humidity"} 
-Number Temperature_MasterBedroom            "MBdrm Temp [%.1f F]"               <temperature> (SF_Master,Temp_Chart_2) ["Measurement","Temperature"]                          {channel="mqtt:topic:Kube_MasterBedroom:temperature"}
-Number Humidity_MasterBedroom               "MBdrm Hum [%.1f %%]"               <humidity> (SF_Master,Hum_Chart) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_MasterBedroom:humidity"}
-Number Temperature_Garage                   "Garage Temp [%.1f F]"              <temperature> (gGarage,Temp_Chart) ["Measurement","Temperature"]                              {channel="mqtt:topic:Kube_Garage:temperature"}
-Number Humidity_Garage                      "Garage Hum [%.1f %%]"              <humidity> (gGarage,Hum_Chart) ["Measurement","Humidity"]                                  {channel="mqtt:topic:Kube_Garage:humidity"}
-Number Temperature_Shed                     "Shed Temp [%.1f F]"                <temperature> (Shed,Temp_Chart) ["Measurement","Temperature"]                              {channel="mqtt:topic:Kube_Shed:temperature"}
-Number Humidity_Shed                        "Shed Hum [%.1f %%]"                <humidity> (Shed,Hum_Chart) ["Measurement","Humidity"]                                  {channel="mqtt:topic:Kube_Shed:humidity"}
-Number Temperature_MasterBedroomHisCloset   "MBdrm His Closet Temp [%.1f F]"    <temperature> (SF_Master,Temp_Chart_2) ["Measurement","Temperature"]                          {channel="mqtt:topic:Kube_MasterBedHisCloset:temperature"}
-Number Humidity_MasterBedroomHisCloset      "MBdrm His Closet Hum [%.1f %%]"    <humidity> (SF_Master,Hum_Chart) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_MasterBedHisCloset:humidity"}
-Number Temperature_Attic                    "Attic Temp [%.1f F]"               <temperature> (gAttic,Temp_Chart_2) /*["Measurement","Temperature"]          */                 //  {mqtt="<[broker:home/Attic/temperature:state:default]"}
-Number Humidity_Attic                       "Attic Hum [%.1f %%]"               <humidity> (gAttic,Hum_Chart) /* ["Measurement","Humidity"]                   */              //  {mqtt="<[broker:home/Attic/humidity:state:default]"}
-Number Temperature_Laundry                  "Laundry Temp [%.1f F]"             <temperature> (AmbiMate_Test,FF_Laundry,Temp_Chart) ["Measurement","Temperature"]                           {channel="mqtt:topic:Kube_Laundry:temperature"}
-Number Humidity_Laundry                     "Laundry Hum [%.1f %%]"             <humidity> (AmbiMate_Test,FF_Laundry,Hum_Chart) ["Measurement","Humidity"]                               {channel="mqtt:topic:Kube_Laundry:humidity"}
-Number Temperature_Ensuite                  "Ensuite Temp [%.1f F]"             <temperature> (SF_Ensuite,Temp_Chart_2) ["Measurement","Temperature"]                         {channel="mqtt:topic:Kube_Ensuite:temperature"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Temperature:state:default]"}
-Number Humidity_Ensuite                     "Ensuite Hum [%.1f %%]"             <humidity> (SF_Ensuite,Hum_Chart) ["Measurement","Humidity"]                               {channel="mqtt:topic:Kube_Ensuite:humidity"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Humidity:state:default]"}
-Number Temperature_Kitchen                  "Kitchen Temp [%.1f F]"             <temperature> (FF_Kitchen,Temp_Chart) /*["Measurement","Temperature"]    */                      // {mqtt="<[broker:/Kitchen/DHT22/Temperature:state:default]"}
-Number Humidity_Kitchen                     "Kitchen Hum [%.1f %%]"             <humidity> (FF_Kitchen,Hum_Chart) /*["Measurement","Humidity"]          */                    // {mqtt="<[broker:/Kitchen/DHT22/Humidity:state:default]"}
-Number Temperature_Office                   "Office Temp [%.1f F]"              <temperature> (FF_Office,Temp_Chart) ["Measurement","Temperature"]                            {channel="mqtt:topic:Kube_Office:temperature"} //mqtt="<[broker:/Kube-Office/DHT22/Temperature:state:default]"}
-Number Humidity_Office                      "Office Hum [%.1f %%]"              <humidity> (FF_Office,Hum_Chart) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_Office:humidity"}
-Number Temperature_Family                   "Family Temp [%.1f F]"              <temperature> (FF_Family,Temp_Chart) ["Measurement","Temperature"]                            {channel="mqtt:topic:Kube_Family:temperature"}
-Number Humidity_Family                      "Family Hum [%.1f %%]"              <humidity> (FF_Family,Hum_Chart) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_Family:humidity"}
-Number Temperature_Guest                    "Guest Temp [%.1f F]"               <temperature> (SF_GuestBdrm,Temp_Chart_2) /* ["Measurement","Temperature"]   */                  //  {mqtt="<[broker:home/Guest/temperature:state:default]"}
-Number Humidity_Guest                       "Guest Hum [%.1f %%]"               <humidity> (SF_GuestBdrm,Hum_Chart) /* ["Measurement","Humidity"]  */                          // {mqtt="<[broker:home/Guest/humidity:state:default]"}
+Number:Temperature Temperature_Basement                 "Bsmt Temp [%.1f %unit%]"                <temperature> (gBsmt,TempSensors)  ["Measurement","Temperature"]                               {channel="mqtt:topic:Kube_Basement:temperature"} 
+Number:Dimensionless Humidity_Basement                    "Bsmt Hum [%.1f %]"                <humidity> (gBsmt,HumSensors) ["Measurement","Humidity"]                                    {channel="mqtt:topic:Kube_Basement:humidity"} 
+Number:Temperature Temperature_MasterBedroom            "MBdrm Temp [%.1f %unit%]"               <temperature> (SF_Master,TempSensors) ["Measurement","Temperature"]                          {channel="mqtt:topic:Kube_MasterBedroom:temperature"}
+Number:Dimensionless Humidity_MasterBedroom               "MBdrm Hum [%.1f %]"               <humidity> (SF_Master,HumSensors) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_MasterBedroom:humidity"}
+Number:Temperature Temperature_Garage                   "Garage Temp [%.1f %unit%]"              <temperature> (gGarage,TempSensors) ["Measurement","Temperature"]                              {channel="mqtt:topic:Kube_Garage:temperature"}
+Number:Dimensionless Humidity_Garage                      "Garage Hum [%.1f %]"              <humidity> (gGarage,HumSensors) ["Measurement","Humidity"]                                  {channel="mqtt:topic:Kube_Garage:humidity"}
+Number:Temperature Temperature_Shed                     "Shed Temp [%.1f %unit%]"                <temperature> (Shed,TempSensors) ["Measurement","Temperature"]                              {channel="mqtt:topic:Kube_Shed:temperature"}
+Number:Dimensionless Humidity_Shed                        "Shed Hum [%.1f %]"                <humidity> (Shed,HumSensors) ["Measurement","Humidity"]                                  {channel="mqtt:topic:Kube_Shed:humidity"}
+Number:Temperature Temperature_MasterBedroomHisCloset   "MBdrm His Closet Temp [%.1f %unit%]"    <temperature> (SF_Master,TempSensors) ["Measurement","Temperature"]                          {channel="mqtt:topic:Kube_MasterBedHisCloset:temperature"}
+Number:Dimensionless Humidity_MasterBedroomHisCloset      "MBdrm His Closet Hum [%.1f %]"    <humidity> (SF_Master,HumSensors) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_MasterBedHisCloset:humidity"}
+Number:Temperature Temperature_Attic                    "Attic Temp [%.1f %unit%]"               <temperature> (gAttic,TempSensors) /*["Measurement","Temperature"]          */                 //  {mqtt="<[broker:home/Attic/temperature:state:default]"}
+Number:Dimensionless Humidity_Attic                       "Attic Hum [%.1f %]"               <humidity> (gAttic,HumSensors) /* ["Measurement","Humidity"]                   */              //  {mqtt="<[broker:home/Attic/humidity:state:default]"}
+Number:Temperature Temperature_Laundry                  "Laundry Temp [%.1f %unit%]"             <temperature> (AmbiMate_Test,FF_Laundry,TempSensors) ["Measurement","Temperature"]                           {channel="mqtt:topic:Kube_Laundry:temperature"}
+Number:Dimensionless Humidity_Laundry                     "Laundry Hum [%.1f %]"             <humidity> (AmbiMate_Test,FF_Laundry,HumSensors) ["Measurement","Humidity"]                               {channel="mqtt:topic:Kube_Laundry:humidity"}
+Number:Temperature Temperature_Ensuite                  "Ensuite Temp [%.1f %unit%]"             <temperature> (SF_Ensuite,TempSensors) ["Measurement","Temperature"]                         {channel="mqtt:topic:Kube_Ensuite:temperature"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Temperature:state:default]"}
+Number:Dimensionless Humidity_Ensuite                     "Ensuite Hum [%.1f %]"             <humidity> (SF_Ensuite,HumSensors) ["Measurement","Humidity"]                               {channel="mqtt:topic:Kube_Ensuite:humidity"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Humidity:state:default]"}
+Number:Temperature Temperature_Kitchen                  "Kitchen Temp [%.1f %unit%]"             <temperature> (FF_Kitchen,TempSensors) /*["Measurement","Temperature"]    */                      // {mqtt="<[broker:/Kitchen/DHT22/Temperature:state:default]"}
+Number:Dimensionless Humidity_Kitchen                     "Kitchen Hum [%.1f %]"             <humidity> (FF_Kitchen,HumSensors) /*["Measurement","Humidity"]          */                    // {mqtt="<[broker:/Kitchen/DHT22/Humidity:state:default]"}
+Number:Temperature Temperature_Office                   "Office Temp [%.1f %unit%]"              <temperature> (FF_Office,TempSensors) ["Measurement","Temperature"]                            {channel="mqtt:topic:Kube_Office:temperature"} //mqtt="<[broker:/Kube-Office/DHT22/Temperature:state:default]"}
+Number:Dimensionless Humidity_Office                      "Office Hum [%.1f %]"              <humidity> (FF_Office,HumSensors) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_Office:humidity"}
+Number:Temperature Temperature_Family                   "Family Temp [%.1f %unit%]"              <temperature> (FF_Family,TempSensors) ["Measurement","Temperature"]                            {channel="mqtt:topic:Kube_Family:temperature"}
+Number:Dimensionless Humidity_Family                      "Family Hum [%.1f %]"              <humidity> (FF_Family,HumSensors) ["Measurement","Humidity"]                                {channel="mqtt:topic:Kube_Family:humidity"}
+Number:Temperature Temperature_Guest                    "Guest Temp [%.1f %unit%]"               <temperature> (SF_GuestBdrm,TempSensors) /* ["Measurement","Temperature"]   */                  //  {mqtt="<[broker:home/Guest/temperature:state:default]"}
+Number:Dimensionless Humidity_Guest                       "Guest Hum [%.1f %]"               <humidity> (SF_GuestBdrm,HumSensors) /* ["Measurement","Humidity"]  */                          // {mqtt="<[broker:home/Guest/humidity:state:default]"}
 
 /* MQTT ESP8266 Motion Sensors */
-Number Motion_MasterBedroom "Master Motion [%d]" //{mqtt="<[broker:/Kube-MasterBedroom/Motion/Switch:state:default]", expire="2m,0" }
+Number:Dimensionless Motion_MasterBedroom "Master Motion [%d]" //{mqtt="<[broker:/Kube-MasterBedroom/Motion/Switch:state:default]", expire="2m,0" }
 Switch Motion_Master_Disable "Disable Motion Sensor" (SF_Master)
 
 Group AmbiMate_Test "AmbiMate Test"
@@ -203,21 +197,21 @@ Group AmbiMate_Test "AmbiMate Test"
 
 /* MQTT Tasmota Devices */
 Switch Sonoff_S31_1 "Christmas Tree [%s]" (FF_Family,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeLights:switch"} //{mqtt=">[broker:cmnd/ChristmasTree/power:command:*:default]],<[broker:stat/ChristmasTree/POWER:state:default]"}
-Number Sonoff_S31_1_Power "Christmas Tree Power Usage [%d]W" (FF_Family,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:powerLoad"} // {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
+Number:Power Sonoff_S31_1_Power "Christmas Tree Power Usage [%d %unit%]" (FF_Family,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeLights:powerLoad"} // {mqtt="<[broker:tele/ChristmasTree/SENSOR:state:JSONPATH($.ENERGY.Power)]"}
 Switch ChristmasTree_Master "Christmas Tree Master [%s]" (SF_Master,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeMasterLights:switch"} 
-Number ChristmasTree_Master_Power "Christmas Tree Master Power Usage [%d]W" (SF_Master,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeMasterLights:powerLoad"} 
+Number:Power ChristmasTree_Master_Power "Christmas Tree Master Power Usage [%d %unit%]" (SF_Master,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeMasterLights:powerLoad"} 
 Switch ChristmasTree_Midlanding "Christmas Tree Midlanding [%s]" (SF_Landing,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeMidlandingLights:switch"} 
-Number ChristmasTree_Midlanding_Power "Christmas Tree Midlanding Power Usage [%d]W" (SF_Landing,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeMidlandingLights:powerLoad"} 
+Number:Power ChristmasTree_Midlanding_Power "Christmas Tree Midlanding Power Usage [%d %unit%]" (SF_Landing,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeMidlandingLights:powerLoad"} 
 Switch ChristmasTree_Landing "Christmas Tree Landing [%s]" (SF_Landing,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeLandingLights:switch"} 
-Number ChristmasTree_Landing_Power "Christmas Tree Landing Power Usage [%d]W" (SF_Landing,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeLandingLights:powerLoad"} 
+Number:Power ChristmasTree_Landing_Power "Christmas Tree Landing Power Usage [%d %unit%]" (SF_Landing,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeLandingLights:powerLoad"} 
 Switch ChristmasTree_Kitchen "Christmas Tree Kitchen [%s]" (FF_Kitchen,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeKitchenLights:switch"} 
-Number ChristmasTree_Kitchen_Power "Christmas Tree Kitchen Power Usage [%d]W" (FF_Kitchen,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeKitchenLights:powerLoad"} 
+Number:Power ChristmasTree_Kitchen_Power "Christmas Tree Kitchen Power Usage [%d %unit%]" (FF_Kitchen,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_ChristmasTreeKitchenLights:powerLoad"} 
 Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} 
-Number Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d]W" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} 
+Number:Power Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d %unit%]" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} 
 Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}
-Number Prusai3_mk2S_Power "3d Printer (Black) Power Usage [%d]W" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterBlack:powerLoad"}
+Number:Power Prusai3_mk2S_Power "3d Printer (Black) Power Usage [%d %unit%]" (gBsmt,PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_3DPrinterBlack:powerLoad"}
 
-Number FF_Foyer_Lamp_Power "Foyer Lamp Power Usage [%d}W" (PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_FFFoyerLamp:powerLoad"}
+Number:Power FF_Foyer_Lamp_Power "Foyer Lamp Power Usage [%d %unit%]" (PowerMeters) ["Measurement", "Power"] {channel="mqtt:topic:SonoffS31_FFFoyerLamp:powerLoad"}
 
 /* Astro Test */
 DateTime Astro_mornnightstart 	"Astro Morn Night Start [%1$tH:%1$tM]" 	(AstroTest)	{channel="astro:sun:local:morningNight#start"}
@@ -249,9 +243,9 @@ DateTime Astro_nightend 	    "Astro Night End [%1$tH:%1$tM]" 	    (AstroTest)	{c
 
 
 
-Number Temperature_BME280_4_Test                  "BME280-4 Test Temp [%.1f F]"             <temperature> (AmbiMate_Test)                        // {mqtt="<[broker:/Kube_BMETest_4/BME280/Temperature:state:default]"}
-Number Humidity_BME280_4_Test                     "BME280-4 Test Hum [%.1f %%]"             <humidity> (AmbiMate_Test)                             //  {mqtt="<[broker:/Kube_BMETest_4/BME280/Humidity:state:default]"}
-Number Pressure_BME280_4_Test                     "BME280-4 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                              // {mqtt="<[broker:/Kube_BMETest_4/BME280/Pressure:state:default]"}
-Number Temperature_BME280_6_Test                  "BME280-6 Test Temp [%.1f F]"             <temperature> (AmbiMate_Test)                          // {mqtt="<[broker:/Kube_BMETest_6/BME/Temperature:state:default]"}
-Number Humidity_BME280_6_Test                     "BME280-6 Test Hum [%.1f %%]"             <humidity> (AmbiMate_Test)                             //  {mqtt="<[broker:/Kube_BMETest_6/BME/Humidity:state:default]"}
-Number Pressure_BME280_6_Test                     "BME280-6 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                              // {mqtt="<[broker:/Kube_BMETest_6/BME/Pressure:state:default]"}
+Number:Temperature Temperature_BME280_4_Test                  "BME280-4 Test Temp [%.1f %unit5%]"             <temperature> (AmbiMate_Test)                        // {mqtt="<[broker:/Kube_BMETest_4/BME280/Temperature:state:default]"}
+Number:Dimensionless Humidity_BME280_4_Test                     "BME280-4 Test Hum [%.1f %]"             <humidity> (AmbiMate_Test)                             //  {mqtt="<[broker:/Kube_BMETest_4/BME280/Humidity:state:default]"}
+Number:Pressure Pressure_BME280_4_Test                     "BME280-4 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                              // {mqtt="<[broker:/Kube_BMETest_4/BME280/Pressure:state:default]"}
+Number:Temperature Temperature_BME280_6_Test                  "BME280-6 Test Temp [%.1f %unit%]"             <temperature> (AmbiMate_Test)                          // {mqtt="<[broker:/Kube_BMETest_6/BME/Temperature:state:default]"}
+Number:Dimensionless Humidity_BME280_6_Test                     "BME280-6 Test Hum [%.1f %]"             <humidity> (AmbiMate_Test)                             //  {mqtt="<[broker:/Kube_BMETest_6/BME/Humidity:state:default]"}
+Number:Pressure Pressure_BME280_6_Test                     "BME280-6 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                              // {mqtt="<[broker:/Kube_BMETest_6/BME/Pressure:state:default]"}

@@ -10,7 +10,7 @@ Strategies {
 Items {
 	//* : strategy = everyChange, restoreOnStartup
 	
-	Weather_Chart*,Temp_Chart*,Temp_Chart_2*,Hum_Chart*,Speedtest_Chart* : strategy = everyMinute, restoreOnStartup
-	Weather*,Weather_Chart_Period,Temp_Chart_Period,Temp_Chart_Period_2,Hum_Chart_Period,Speedtest_Chart_Period : strategy = everyChange, restoreOnStartup
+	TempSensors*,HumSensors*,Speedtest_Chart* : strategy = everyMinute, restoreOnStartup
+	Weather* : strategy = everyChange, restoreOnStartup
 	Lights*, gGarage, gHVAC : strategy = everyChange, restoreOnStartup
 }

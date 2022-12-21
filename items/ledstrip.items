@@ -10,136 +10,136 @@ Group gLEDStrip_Outdoor_Intensity "Outdoor LED Strips Intensity"
 
 String LEDStrip_FF_Office_Window "Office String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_FF_Office_Window:setTopic"} //{mqtt=">[broker:home/FF_Office_Window/set:state:*:default]"}
 Switch LEDStrip_FF_Office_Window_Power "Office Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_FF_Office_Window:switch"} //{mqtt=">[broker:home/FF_Office_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_FF_Office_Window_FX "Office Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_FF_Office_Window:effect"} //{mqtt=">[broker:home/FF_Office_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_FF_Office_Window_FX "Office Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_FF_Office_Window:effect"} //{mqtt=">[broker:home/FF_Office_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_FF_Office_Window_Color "Office Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_FF_Office_Window_Speed "Office Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_FF_Office_Window_Intensity "Office Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_FF_Office_Window_Speed "Office Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_FF_Office_Window_Intensity "Office Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_FF_Foyer_Window "Foyer String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_FF_Foyer_Window:setTopic"} // {mqtt=">[broker:home/FF_Foyer_Window/set:state:*:default]"}
 Switch LEDStrip_FF_Foyer_Window_Power "Foyer Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_FF_Foyer_Window:switch"} //{mqtt=">[broker:home/FF_Foyer_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_FF_Foyer_Window_FX "Foyer Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_FF_Foyer_Window:effect"} //{mqtt=">[broker:home/FF_Foyer_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_FF_Foyer_Window_FX "Foyer Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_FF_Foyer_Window:effect"} //{mqtt=">[broker:home/FF_Foyer_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_FF_Foyer_Window_Color "Foyer Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_FF_Foyer_Window_Speed "Foyer Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_FF_Foyer_Window_Intensity "Foyer Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_FF_Foyer_Window_Speed "Foyer Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_FF_Foyer_Window_Intensity "Foyer Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_Outdoor_Front_Door "Front Door String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_Outdoor_Front_Door:setTopic"} //  {mqtt=">[broker:home/Outdoor_Front_Door/set:state:*:default]"}
 Switch LEDStrip_Outdoor_Front_Door_Power "Front Door Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_Outdoor_Front_Door:switch"} //{mqtt=">[broker:home/Outdoor_Front_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_Outdoor_Front_Door_FX "Front Door Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Front_Door:effect"} //{mqtt=">[broker:home/Outdoor_Front_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_Outdoor_Front_Door_FX "Front Door Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Front_Door:effect"} //{mqtt=">[broker:home/Outdoor_Front_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_Outdoor_Front_Door_Color "Front Door Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_Outdoor_Front_Door_Speed "Front Door Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_Outdoor_Front_Door_Intensity "Front Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_Outdoor_Front_Door_Speed "Front Door Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_Outdoor_Front_Door_Intensity "Front Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_FF_Dining_Window "Dining String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_FF_Dining_Window:setTopic"} //   {mqtt=">[broker:home/FF_Dining_Window/set:state:*:default]"}
 Switch LEDStrip_FF_Dining_Window_Power "Dining Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_FF_Dining_Window:switch"} //{mqtt=">[broker:home/FF_Dining_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_FF_Dining_Window_FX "Dining Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_FF_Dining_Window:effect"} //{mqtt=">[broker:home/FF_Dining_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_FF_Dining_Window_FX "Dining Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_FF_Dining_Window:effect"} //{mqtt=">[broker:home/FF_Dining_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_FF_Dining_Window_Color "Dining Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_FF_Dining_Window_Speed "Dining Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_FF_Dining_Window_Intensity "Dining Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_FF_Dining_Window_Speed "Dining Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_FF_Dining_Window_Intensity "Dining Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_Outdoor_Garage_Window "Garage Window String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Window:setTopic"} //   {mqtt=">[broker:home/Outdoor_Garage_Window/set:state:*:default]"}
 Switch LEDStrip_Outdoor_Garage_Window_Power "Garage Window Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Window:switch"} //{mqtt=">[broker:home/Outdoor_Garage_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_Outdoor_Garage_Window_FX "Garage Window Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Window:effect"} //{mqtt=">[broker:home/Outdoor_Garage_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_Outdoor_Garage_Window_FX "Garage Window Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Window:effect"} //{mqtt=">[broker:home/Outdoor_Garage_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_Outdoor_Garage_Window_Color "Garage Window Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_Outdoor_Garage_Window_Speed "Garage Window Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_Outdoor_Garage_Window_Intensity "Garage Window Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_Outdoor_Garage_Window_Speed "Garage Window Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_Outdoor_Garage_Window_Intensity "Garage Window Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_Outdoor_Garage_Tree "Garage Tree String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Tree:setTopic"} //   {mqtt=">[broker:home/Outdoor_Garage_Tree/set:state:*:default]"}
 Switch LEDStrip_Outdoor_Garage_Tree_Power "Garage Tree Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Tree:switch"} //{mqtt=">[broker:home/Outdoor_Garage_Tree/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_Outdoor_Garage_Tree_FX "Garage Tree Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Tree:effect"} //{mqtt=">[broker:home/Outdoor_Garage_Tree/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_Outdoor_Garage_Tree_FX "Garage Tree Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Tree:effect"} //{mqtt=">[broker:home/Outdoor_Garage_Tree/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_Outdoor_Garage_Tree_Color "Garage Tree Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_Outdoor_Garage_Tree_Speed "Garage Tree Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_Outdoor_Garage_Tree_Intensity "Garage Tree Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_Outdoor_Garage_Tree_Speed "Garage Tree Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_Outdoor_Garage_Tree_Intensity "Garage Tree Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_Outdoor_Garage_Door "Garage Door String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Door:setTopic"} //   {mqtt=">[broker:home/Outdoor_Garage_Door/set:state:*:default]"}
 Switch LEDStrip_Outdoor_Garage_Door_Power "Garage Door Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Door:switch"} //{mqtt=">[broker:home/Outdoor_Garage_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_Outdoor_Garage_Door_FX "Garage Door Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Door:effect"} //{mqtt=">[broker:home/Outdoor_Garage_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_Outdoor_Garage_Door_FX "Garage Door Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Garage_Door:effect"} //{mqtt=">[broker:home/Outdoor_Garage_Door/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_Outdoor_Garage_Door_Color "Garage Door Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_Outdoor_Garage_Door_Speed "Garage Door Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_Outdoor_Garage_Door_Intensity "Garage Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_Outdoor_Garage_Door_Speed "Garage Door Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_Outdoor_Garage_Door_Intensity "Garage Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_FF_Powder_Window "Powder String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_FF_Powder_Window:setTopic"} //   {mqtt=">[broker:home/FF_Powder_Window/set:state:*:default]"}
 Switch LEDStrip_FF_Powder_Window_Power "Powder Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_FF_Powder_Window:switch"} //{mqtt=">[broker:home/FF_Powder_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_FF_Powder_Window_FX "Powder Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_FF_Powder_Window:effect"} //{mqtt=">[broker:home/FF_Powder_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_FF_Powder_Window_FX "Powder Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_FF_Powder_Window:effect"} //{mqtt=">[broker:home/FF_Powder_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_FF_Powder_Window_Color "Powder Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_FF_Powder_Window_Speed "Powder Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_FF_Powder_Window_Intensity "Powder Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_FF_Powder_Window_Speed "Powder Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_FF_Powder_Window_Intensity "Powder Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_SF_Spare_Window "Spare String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_SF_Spare_Window:setTopic"} //   {mqtt=">[broker:home/SF_Spare_Window/set:state:*:default]"}
 Switch LEDStrip_SF_Spare_Window_Power "Spare Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_SF_Spare_Window:switch"} //{mqtt=">[broker:home/SF_Spare_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Spare_Window_FX "Spare Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Spare_Window:effect"} //{mqtt=">[broker:home/SF_Spare_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_SF_Spare_Window_FX "Spare Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Spare_Window:effect"} //{mqtt=">[broker:home/SF_Spare_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_SF_Spare_Window_Color "Spare Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Spare_Window_Speed "Spare Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Spare_Window_Intensity "Spare Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_SF_Spare_Window_Speed "Spare Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_SF_Spare_Window_Intensity "Spare Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_SF_Child_Window "Child String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_SF_Child_Window:setTopic"} //   {mqtt=">[broker:home/SF_Child_Window/set:state:*:default]"}
 Switch LEDStrip_SF_Child_Window_Power "Child Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_SF_Child_Window:switch"} //{mqtt=">[broker:home/SF_Child_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Child_Window_FX "Child Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Child_Window:effect"} //{mqtt=">[broker:home/SF_Child_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_SF_Child_Window_FX "Child Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Child_Window:effect"} //{mqtt=">[broker:home/SF_Child_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_SF_Child_Window_Color "Child Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Child_Window_Speed "Child Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Child_Window_Intensity "Child Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_SF_Child_Window_Speed "Child Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_SF_Child_Window_Intensity "Child Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_SF_Ensuite_Window "Ensuite String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_SF_Ensuite_Window:setTopic"} //   {mqtt=">[broker:home/SF_Ensuite_Window/set:state:*:default]"}
 Switch LEDStrip_SF_Ensuite_Window_Power "Ensuite Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_SF_Ensuite_Window:switch"} //{mqtt=">[broker:home/SF_Ensuite_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Ensuite_Window_FX "Ensuite Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Ensuite_Window:effect"} //{mqtt=">[broker:home/SF_Ensuite_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_SF_Ensuite_Window_FX "Ensuite Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Ensuite_Window:effect"} //{mqtt=">[broker:home/SF_Ensuite_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_SF_Ensuite_Window_Color "Ensuite Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Ensuite_Window_Speed "Ensuite Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Ensuite_Window_Intensity "Ensuite Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_SF_Ensuite_Window_Speed "Ensuite Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_SF_Ensuite_Window_Intensity "Ensuite Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_SF_Master_Window "Master String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_SF_Master_Window:setTopic"} //   {mqtt=">[broker:home/SF_Master_Window/set:state:*:default]"}
 Switch LEDStrip_SF_Master_Window_Power "Master Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_SF_Master_Window:switch"} //{mqtt=">[broker:home/SF_Master_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Master_Window_FX "Master Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Master_Window:effect"} //{mqtt=">[broker:home/SF_Master_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_SF_Master_Window_FX "Master Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Master_Window:effect"} //{mqtt=">[broker:home/SF_Master_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_SF_Master_Window_Color "Master Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Master_Window_Speed "Master Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Master_Window_Intensity "Master Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_SF_Master_Window_Speed "Master Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_SF_Master_Window_Intensity "Master Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_SF_Master_S1_Window "Master S1 String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_SF_Master_S1_Window:setTopic"} //   {mqtt=">[broker:home/SF_Master_S1_Window/set:state:*:default]"}
 Switch LEDStrip_SF_Master_S1_Window_Power "Master S1 Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_SF_Master_S1_Window:switch"} //{mqtt=">[broker:home/SF_Master_S1_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Master_S1_Window_FX "Master S1 Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Master_S1_Window:effect"} //{mqtt=">[broker:home/SF_Master_S1_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_SF_Master_S1_Window_FX "Master S1 Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Master_S1_Window:effect"} //{mqtt=">[broker:home/SF_Master_S1_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_SF_Master_S1_Window_Color "Master S1 Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Master_S1_Window_Speed "Master S1 Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Master_S1_Window_Intensity "Master S1 Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_SF_Master_S1_Window_Speed "Master S1 Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_SF_Master_S1_Window_Intensity "Master S1 Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_SF_Master_S2_Window "Master S2 String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_SF_Master_S2_Window:setTopic"} //   {mqtt=">[broker:home/SF_Master_S2_Window/set:state:*:default]"}
 Switch LEDStrip_SF_Master_S2_Window_Power "Master S2 Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_SF_Master_S2_Window:switch"} //{mqtt=">[broker:home/SF_Master_S2_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Master_S2_Window_FX "Master S2 Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Master_S2_Window:effect"} //{mqtt=">[broker:home/SF_Master_S2_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_SF_Master_S2_Window_FX "Master S2 Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Master_S2_Window:effect"} //{mqtt=">[broker:home/SF_Master_S2_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_SF_Master_S2_Window_Color "Master S2 Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Master_S2_Window_Speed "Master S2 Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Master_S2_Window_Intensity "Master S2 Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_SF_Master_S2_Window_Speed "Master S2 Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_SF_Master_S2_Window_Intensity "Master S2 Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_SF_Guest_S_Window "Guest South String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_SF_Guest_S_Window:setTopic"} //   {mqtt=">[broker:home/SF_Guest_S_Window/set:state:*:default]"}
 Switch LEDStrip_SF_Guest_S_Window_Power "Guest South Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_SF_Guest_S_Window:switch"} //{mqtt=">[broker:home/SF_Guest_S_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Guest_S_Window_FX "Guest South Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Guest_S_Window:effect"} //{mqtt=">[broker:home/SF_Guest_S_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_SF_Guest_S_Window_FX "Guest South Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Guest_S_Window:effect"} //{mqtt=">[broker:home/SF_Guest_S_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_SF_Guest_S_Window_Color "Guest South Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Guest_S_Window_Speed "Guest South Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Guest_S_Window_Intensity "Guest South Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_SF_Guest_S_Window_Speed "Guest South Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_SF_Guest_S_Window_Intensity "Guest South Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_SF_Guest_W_Window "Guest West String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_SF_Guest_W_Window:setTopic"} //   {mqtt=">[broker:home/SF_Guest_W_Window/set:state:*:default]"}
 Switch LEDStrip_SF_Guest_W_Window_Power "Guest West Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_SF_Guest_W_Window:switch"} //{mqtt=">[broker:home/SF_Guest_W_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_Guest_W_Window_FX "Guest West Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Guest_W_Window:effect"} //{mqtt=">[broker:home/SF_Guest_W_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_SF_Guest_W_Window_FX "Guest West Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_Guest_W_Window:effect"} //{mqtt=">[broker:home/SF_Guest_W_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_SF_Guest_W_Window_Color "Guest West Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_Guest_W_Window_Speed "Guest West Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_Guest_W_Window_Intensity "Guest West Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_SF_Guest_W_Window_Speed "Guest West Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_SF_Guest_W_Window_Intensity "Guest West Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_SF_GuestBath_Window "Guest Bath String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_SF_GuestBath_Window:setTopic"} //   {mqtt=">[broker:home/SF_GuestBath_Window/set:state:*:default]"}
 Switch LEDStrip_SF_GuestBath_Window_Power "Guest Bath Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_SF_GuestBath_Window:switch"} //{mqtt=">[broker:home/SF_GuestBath_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_SF_GuestBath_Window_FX "Guest Bath Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_GuestBath_Window:effect"} //{mqtt=">[broker:home/SF_GuestBath_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_SF_GuestBath_Window_FX "Guest Bath Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_SF_GuestBath_Window:effect"} //{mqtt=">[broker:home/SF_GuestBath_Window/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_SF_GuestBath_Window_Color "Guest Bath Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_SF_GuestBath_Window_Speed "Guest Bath Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_SF_GuestBath_Window_Intensity "Guest Bath Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_SF_GuestBath_Window_Speed "Guest Bath Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_SF_GuestBath_Window_Intensity "Guest Bath Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_Outdoor_Rear_Door "Rear Door String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_Outdoor_Rear_Door:setTopic"} //   {mqtt=">[broker:home/Outdoor_RearYard/set:state:*:default]"}
 Switch LEDStrip_Outdoor_Rear_Door_Power "Rear Door Power" (Status,gLEDStrip_Outdoor_Power) {channel="mqtt:topic:LEDStrip_Outdoor_Rear_Door:switch"} //{mqtt=">[broker:home/Outdoor_RearYard/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_Outdoor_Rear_Door_FX "Rear Door Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Rear_Door:effect"} //{mqtt=">[broker:home/Outdoor_RearYard/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_Outdoor_Rear_Door_FX "Rear Door Fx" (Status,gLEDStrip_Outdoor_FX) {channel="mqtt:topic:LEDStrip_Outdoor_Rear_Door:effect"} //{mqtt=">[broker:home/Outdoor_RearYard/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_Outdoor_Rear_Door_Color "Rear Door Color"	<rgb>	(Status,gLEDStrip_Outdoor_Color)
-Number LEDStrip_Outdoor_Rear_Door_Speed "Rear Door Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
-Number LEDStrip_Outdoor_Rear_Door_Intensity "Rear Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
+Number:Dimensionless LEDStrip_Outdoor_Rear_Door_Speed "Rear Door Speed [%.0f]"		(Status,gLEDStrip_Outdoor_Speed)
+Number:Dimensionless LEDStrip_Outdoor_Rear_Door_Intensity "Rear Door Intensity [%d]" (Status,gLEDStrip_Outdoor_Intensity)
 
 String LEDStrip_Group1 "Outdoor LED Strips String" (gLEDStrip_Outdoor) {channel="mqtt:topic:LEDStrip_Group1:setTopic"} //   {mqtt=">[broker:home/LEDStrip_Group1/set:state:*:default]"}
 Switch LEDStrip_Group1_Power "Outdoor LED Strips Power" (Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Power) ["Switch"] {channel="mqtt:topic:LEDStrip_Group1:switch"} //{mqtt=">[broker:home/LEDStrip_Group1/set:command:*:MAP(LEDStripEffectJSON.map)]"}  //">[broker:home/Outdoor_RearYard/set:command:ON:ON],>[broker:home/Outdoor_RearYard/setpower:command:OFF:OFF]"}
-Number LEDStrip_Group1_FX "Outdoor LED Strips Fx" (Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_FX) ["Setpoint"] {channel="mqtt:topic:LEDStrip_Group1:effect"} //{mqtt=">[broker:home/LEDStrip_Group1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_Group1_FX "Outdoor LED Strips Fx" (Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_FX) ["Setpoint"] {channel="mqtt:topic:LEDStrip_Group1:effect"} //{mqtt=">[broker:home/LEDStrip_Group1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_Group1_Color "Outdoor LED Strips Color"	<rgb>	(Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Color) ["Switch"]
-Number LEDStrip_Group1_Speed "Outdoor LED Strips Speed [%.0f]"		(Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Speed) ["Setpoint"]
-Number LEDStrip_Group1_Intensity "Outdoor LED Strips Intensity [%d]" (Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Intensity) ["Setpoint"]
+Number:Dimensionless LEDStrip_Group1_Speed "Outdoor LED Strips Speed [%.0f]"		(Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Speed) ["Setpoint"]
+Number:Dimensionless LEDStrip_Group1_Intensity "Outdoor LED Strips Intensity [%d]" (Status,gLEDStrip_Outdoor,gLEDStrip_Outdoor_Intensity) ["Setpoint"]
 
 /* Begin Group 2 (Kitchen) */
 
@@ -152,28 +152,28 @@ Group gLEDStrip_Kitchen_Intensity "Kitchen LED Strips Intensity"
 
 String LEDStrip_FF_Kitchen_Cabinet_1 "Kitchen LED Strip 1 String" (gLEDStrip_Kitchen) {channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_1:setTopic"} //   {channel="mqtt:topic:5fc4cb4c:command"} //mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:state:*:default]"}
 Switch LEDStrip_FF_Kitchen_Cabinet_1_Power "Kitchen LED Strip 1 Power" (FF_Kitchen,gLEDStrip_Kitchen_Power) { ga="Light" , channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_1:switch"} // {channel="mqtt:topic:5fc4cb4c:power"} //mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_FF_Kitchen_Cabinet_1_FX "Kitchen LED Strip 1 Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX) {channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_1:effect"} //{channel="mqtt:topic:5fc4cb4c:fx"} //mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_FF_Kitchen_Cabinet_1_FX "Kitchen LED Strip 1 Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX) {channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_1:effect"} //{channel="mqtt:topic:5fc4cb4c:fx"} //mqtt=">[broker:home/FF_Kitchen_Cabinet_1/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_FF_Kitchen_Cabinet_1_Color "Kitchen LED Strip 1 Color"	<rgb>	(FF_Kitchen,gLEDStrip_Kitchen_Color) { ga="Light" }
-Number LEDStrip_FF_Kitchen_Cabinet_1_Speed "Kitchen LED Strip 1 Speed [%.0f]"		(FF_Kitchen,gLEDStrip_Kitchen_Speed)
-Number LEDStrip_FF_Kitchen_Cabinet_1_Intensity "Kitchen LED Strip 1 Intensity [%d]" (FF_Kitchen,gLEDStrip_Kitchen_Intensity)
+Number:Dimensionless LEDStrip_FF_Kitchen_Cabinet_1_Speed "Kitchen LED Strip 1 Speed [%.0f]"		(FF_Kitchen,gLEDStrip_Kitchen_Speed)
+Number:Dimensionless LEDStrip_FF_Kitchen_Cabinet_1_Intensity "Kitchen LED Strip 1 Intensity [%d]" (FF_Kitchen,gLEDStrip_Kitchen_Intensity)
 
 String LEDStrip_FF_Kitchen_Cabinet_2 "Kitchen LED Strip 2 String" (gLEDStrip_Kitchen) {channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_2:setTopic"} //   {mqtt=">[broker:home/FF_Kitchen_Cabinet_2/set:state:*:default]"}
 Switch LEDStrip_FF_Kitchen_Cabinet_2_Power "Kitchen LED Strip 2 Power" (FF_Kitchen,gLEDStrip_Kitchen_Power) { ga="Light" , channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_2:switch"} // {mqtt=">[broker:home/FF_Kitchen_Cabinet_2/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_FF_Kitchen_Cabinet_2_FX "Kitchen LED Strip 2 Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX) {channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_2:effect"} //{mqtt=">[broker:home/FF_Kitchen_Cabinet_2/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_FF_Kitchen_Cabinet_2_FX "Kitchen LED Strip 2 Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX) {channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_2:effect"} //{mqtt=">[broker:home/FF_Kitchen_Cabinet_2/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_FF_Kitchen_Cabinet_2_Color "Kitchen LED Strip 2 Color"	<rgb>	(FF_Kitchen,gLEDStrip_Kitchen_Color) { ga="Light" }
-Number LEDStrip_FF_Kitchen_Cabinet_2_Speed "Kitchen LED Strip 2 Speed [%.0f]"		(FF_Kitchen,gLEDStrip_Kitchen_Speed)
-Number LEDStrip_FF_Kitchen_Cabinet_2_Intensity "Kitchen LED Strip 2 Intensity [%d]" (FF_Kitchen,gLEDStrip_Kitchen_Intensity)
+Number:Dimensionless LEDStrip_FF_Kitchen_Cabinet_2_Speed "Kitchen LED Strip 2 Speed [%.0f]"		(FF_Kitchen,gLEDStrip_Kitchen_Speed)
+Number:Dimensionless LEDStrip_FF_Kitchen_Cabinet_2_Intensity "Kitchen LED Strip 2 Intensity [%d]" (FF_Kitchen,gLEDStrip_Kitchen_Intensity)
 
 String LEDStrip_FF_Kitchen_Cabinet_3 "Kitchen LED Strip 3 String" (gLEDStrip_Kitchen) {channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_3:setTopic"} //   {mqtt=">[broker:home/FF_Kitchen_Cabinet_3/set:state:*:default]"}
 Switch LEDStrip_FF_Kitchen_Cabinet_3_Power "Kitchen LED Strip 3 Power" (FF_Kitchen,gLEDStrip_Kitchen_Power) { ga="Light" , channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_3:switch"} // {mqtt=">[broker:home/FF_Kitchen_Cabinet_3/set:command:*:MAP(LEDStripEffectJSON.map)]"}
-Number LEDStrip_FF_Kitchen_Cabinet_3_FX "Kitchen LED Strip 3 Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX) {channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_3:effect"} //{mqtt=">[broker:home/FF_Kitchen_Cabinet_3/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_FF_Kitchen_Cabinet_3_FX "Kitchen LED Strip 3 Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX) {channel="mqtt:topic:LEDStrip_FF_Kitchen_Cabinet_3:effect"} //{mqtt=">[broker:home/FF_Kitchen_Cabinet_3/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_FF_Kitchen_Cabinet_3_Color "Kitchen LED Strip 3 Color"	<rgb>	(FF_Kitchen,gLEDStrip_Kitchen_Color) { ga="Light" }
-Number LEDStrip_FF_Kitchen_Cabinet_3_Speed "Kitchen LED Strip 3 Speed [%.0f]"		(FF_Kitchen,gLEDStrip_Kitchen_Speed)
-Number LEDStrip_FF_Kitchen_Cabinet_3_Intensity "Kitchen LED Strip 3 Intensity [%d]" (FF_Kitchen,gLEDStrip_Kitchen_Intensity)
+Number:Dimensionless LEDStrip_FF_Kitchen_Cabinet_3_Speed "Kitchen LED Strip 3 Speed [%.0f]"		(FF_Kitchen,gLEDStrip_Kitchen_Speed)
+Number:Dimensionless LEDStrip_FF_Kitchen_Cabinet_3_Intensity "Kitchen LED Strip 3 Intensity [%d]" (FF_Kitchen,gLEDStrip_Kitchen_Intensity)
 
 String LEDStrip_Kitchen_Cabinet "Kitchen Cabinet String" (gLEDStrip_Kitchen) {channel="mqtt:topic:LEDStrip_Kitchen_Cabinet:setTopic"} //   {mqtt=">[broker:home/LEDStrip_Group2/set:state:*:default]"}
 Switch LEDStrip_Kitchen_Cabinet_Power "Kitchen Cabinet Power" (FF_Kitchen,gLEDStrip_Kitchen_Power,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) { ga="Light" , channel="mqtt:topic:LEDStrip_Kitchen_Cabinet:switch"} // {mqtt=">[broker:home/LEDStrip_Group2/set:command:*:MAP(LEDStripEffectJSON.map)]"}  //">[broker:home/Outdoor_RearYard/set:command:ON:ON],>[broker:home/Outdoor_RearYard/setpower:command:OFF:OFF]"}
-Number LEDStrip_Kitchen_Cabinet_FX "Kitchen Cabinet Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX) {channel="mqtt:topic:LEDStrip_Kitchen_Cabinet:effect"} //{mqtt=">[broker:home/LEDStrip_Group2/set:command:*:MAP(LEDStripEffectJSON.map)]"}
+Number:Dimensionless LEDStrip_Kitchen_Cabinet_FX "Kitchen Cabinet Fx" (FF_Kitchen,gLEDStrip_Kitchen_FX) {channel="mqtt:topic:LEDStrip_Kitchen_Cabinet:effect"} //{mqtt=">[broker:home/LEDStrip_Group2/set:command:*:MAP(LEDStripEffectJSON.map)]"}
 Color LEDStrip_Kitchen_Cabinet_Color "Kitchen Cabinet Color"	<rgb>	(FF_Kitchen,gLEDStrip_Kitchen_Color,Scene_Evening_Items,Scene_Morning_Items,Scene_Night_Items,Scene_Work_Items,Scene_Bedtime_Items) { ga="Light" }
-Number LEDStrip_Kitchen_Cabinet_Speed "Kitchen Cabinet Speed [%.0f]"		(FF_Kitchen,gLEDStrip_Kitchen_Speed)
-Number LEDStrip_Kitchen_Cabinet_Intensity "Kitchen Cabinet Intensity [%d]" (FF_Kitchen,gLEDStrip_Kitchen_Intensity)
+Number:Dimensionless LEDStrip_Kitchen_Cabinet_Speed "Kitchen Cabinet Speed [%.0f]"		(FF_Kitchen,gLEDStrip_Kitchen_Speed)
+Number:Dimensionless LEDStrip_Kitchen_Cabinet_Intensity "Kitchen Cabinet Intensity [%d]" (FF_Kitchen,gLEDStrip_Kitchen_Intensity)

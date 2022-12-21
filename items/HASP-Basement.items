@@ -1,14 +1,14 @@
 /* Page Storage Items */
 
-Number HASP_Plate04_Page "HASP Plate 04 Page Select [%d]" (HASP)  {channel="mqtt:topic:plate04:Plate_Page"} //{mqtt=">[broker:hasp/plate04/command/page:command:*:default]"}
-Number HASP_Plate04_Page_Current "HASP Plate 04 Current Page [%d]" (HASP) {channel="mqtt:topic:plate04:Plate_Page"} //{mqtt="<[broker:hasp/plate04/command/page:state:default]"}
+Number:Dimensionless HASP_Plate04_Page "HASP Plate 04 Page Select [%d]" (HASP)  {channel="mqtt:topic:plate04:Plate_Page"} //{mqtt=">[broker:hasp/plate04/command/page:command:*:default]"}
+Number:Dimensionless HASP_Plate04_Page_Current "HASP Plate 04 Current Page [%d]" (HASP) {channel="mqtt:topic:plate04:Plate_Page"} //{mqtt="<[broker:hasp/plate04/command/page:state:default]"}
 
 /* Plate Status Items */
 
 Switch HASP_Plate04_Light_Power "HASP Plate 04 Backlight Switch [%s]" (HASP) {channel="mqtt:topic:plate04:Plate_Backlight", expire="30s,command=OFF"} //{mqtt=">[broker:hasp/plate04/light/switch:command:*:default]",expire="30s,command=OFF"}
 Switch HASP_Plate04_Light_Status "HASP Plate 04 Backlight Status [%s]" (HASP) {channel="mqtt:topic:plate04:Plate_Backlight"} //{mqtt="<[broker:hasp/plate04/light/state:state:default]"}
-Number HASP_Plate04_Light_Brightness "HASP Plate 04 Backlight Brightness [%d]" (HASP) {channel="mqtt:topic:plate04:Plate_Brightness"} //{mqtt="<[broker:hasp/plate04/brightness/state:state:default]"}
-Number HASP_Plate04_Light_Dimmer "HASP Plate 04 Backlight Brightness Set [%d]" (HASP) {channel="mqtt:topic:plate04:Plate_Brightness"} //{mqtt=">[broker:hasp/plate04/brightness/set:command:*:default]"}
+Number:Dimensionless HASP_Plate04_Light_Brightness "HASP Plate 04 Backlight Brightness [%d]" (HASP) {channel="mqtt:topic:plate04:Plate_Brightness"} //{mqtt="<[broker:hasp/plate04/brightness/state:state:default]"}
+Number:Dimensionless HASP_Plate04_Light_Dimmer "HASP Plate 04 Backlight Brightness Set [%d]" (HASP) {channel="mqtt:topic:plate04:Plate_Brightness"} //{mqtt=">[broker:hasp/plate04/brightness/set:command:*:default]"}
 
 Switch HASP_Plate04_Plate_Status "HASP Plate 04 Connection Status [%s]" (HASP) {channel="mqtt:topic:plate04:Plate_Status"} //{mqtt="<[broker:hasp/plate04/status:state:default]"}
 String HASP_Plate04_Plate_Sensor "HASP Plate 04 Sensor [%s]" (HASP) {channel="mqtt:topic:plate04:Plate_Sensor"} //{mqtt="<[broker:hasp/plate04/sensor:state:default]"}
@@ -17,13 +17,13 @@ String HASP_Plate04_Plate_Sensor_ESPVersion "HASP Plate 04 Sensor - ESP Version 
 String HASP_Plate04_Plate_Sensor_ESPUpdate "HASP Plate 04 Sensor - ESP Update Available [%s]" (HASP) {channel="mqtt:topic:plate04:Plate_Sensor"[profile="transform:JSONPATH", function="$.updateEspAvailable"]} //{mqtt="<[broker:hasp/plate04/sensor:state:JSONPATH($.updateEspAvailable)]"}
 String HASP_Plate04_Plate_Sensor_LCDVersion "HASP Plate 04 Sensor - LCD Version [%s]" (HASP) {channel="mqtt:topic:plate04:Plate_Sensor"[profile="transform:JSONPATH", function="$.lcdVersion"]} //{mqtt="<[broker:hasp/plate04/sensor:state:JSONPATH($.lcdVersion)]"}
 String HASP_Plate04_Plate_Sensor_LCDUpdate "HASP Plate 04 Sensor - LCD Update Available [%s]" (HASP) {channel="mqtt:topic:plate04:Plate_Sensor"[profile="transform:JSONPATH", function="$.updateLcdAvailable"]} //{mqtt="<[broker:hasp/plate04/sensor:state:JSONPATH($.updateLcdAvailable)]"}
-Number HASP_Plate04_Plate_Sensor_ESPUptime "HASP Plate 04 Sensor - ESP Uptime [%d secs]" (HASP) {channel="mqtt:topic:plate04:Plate_Sensor"[profile="transform:JSONPATH", function="$.espUptime"]} //{mqtt="<[broker:hasp/plate04/sensor:state:JSONPATH($.espUptime)]"}
-Number HASP_Plate04_Plate_Sensor_SignalStrength "HASP Plate 04 Sensor - Signal Strength [%d dbm]" (HASP) {channel="mqtt:topic:plate04:Plate_Sensor"[profile="transform:JSONPATH", function="$.signalStrength"]} //{mqtt="<[broker:hasp/plate04/sensor:state:JSONPATH($.signalStrength)]"}
+Number:Time HASP_Plate04_Plate_Sensor_ESPUptime "HASP Plate 04 Sensor - ESP Uptime [%d s]" (HASP) {channel="mqtt:topic:plate04:Plate_Sensor"[profile="transform:JSONPATH", function="$.espUptime"]} //{mqtt="<[broker:hasp/plate04/sensor:state:JSONPATH($.espUptime)]"}
+Number:Power HASP_Plate04_Plate_Sensor_SignalStrength "HASP Plate 04 Sensor - Signal Strength [%d dBm]" (HASP) {channel="mqtt:topic:plate04:Plate_Sensor"[profile="transform:JSONPATH", function="$.signalStrength"]} //{mqtt="<[broker:hasp/plate04/sensor:state:JSONPATH($.signalStrength)]"}
 String HASP_Plate04_Plate_Sensor_HaspIP "HASP Plate 04 Sensor - HASP IP [%s]" (HASP) {channel="mqtt:topic:plate04:Plate_Sensor"[profile="transform:JSONPATH", function="$.haspIP"]} //{mqtt="<[broker:hasp/plate04/sensor:state:JSONPATH($.haspIP)]"}
 
 Switch HASP_Plate04_Plate_Refresh "HASP Plate 04 Refresh" (HASP) {expire="10s,command=OFF"}
 
-Number HASP_Plate04_Plate_Motion "HASP Plate 04 Motion Status [%d]" (HASP) {channel="mqtt:topic:plate04:Plate_Motion"} //{mqtt="<[broker:hasp/plate04/motion/state:state:default]"}
+Number:Dimensionless HASP_Plate04_Plate_Motion "HASP Plate 04 Motion Status [%d]" (HASP) {channel="mqtt:topic:plate04:Plate_Motion"} //{mqtt="<[broker:hasp/plate04/motion/state:state:default]"}
 
 String HASP_Plate04_Plate_Command "HASP Plate 04 Command" (HASP) {channel="mqtt:topic:plate04:Plate_Command"} //{mqtt=">[broker:hasp/plate04/command:command:*:default]"}
 
