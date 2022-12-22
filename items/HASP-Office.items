@@ -12,7 +12,7 @@ Number:Dimensionless HASP_Plate03_Light_Dimmer "HASP Plate 03 Backlight Brightne
 
 Switch HASP_Plate03_Plate_Status "HASP Plate 03 Connection Status [%s]" (HASP) {channel="mqtt:topic:plate03:Plate_Status"} //{mqtt="<[broker:hasp/plate03/status:state:default]"}
 String HASP_Plate03_Plate_Sensor "HASP Plate 03 Sensor [%s]" (HASP) {channel="mqtt:topic:plate03:Plate_Sensor"} //{mqtt="<[broker:hasp/plate03/sensor:state:default]"}
-String HASP_Plate03_Plate_Sensor_Status "HASP Plate 03 Sensor - Status [%s]" (HASP) {channel="mqtt:topic:plate03:Plate_Sensor"[profile="transform:JSONPATH", function="$.status"]} //{mqtt="<[broker:hasp/plate03/sensor:state:JSONPATH($.status)]"}
+//String HASP_Plate03_Plate_Sensor_Status "HASP Plate 03 Sensor - Status [%s]" (HASP) {channel="mqtt:topic:plate03:Plate_Sensor"} //{mqtt="<[broker:hasp/plate03/sensor:state:JSONPATH($.status)]"}
 String HASP_Plate03_Plate_Sensor_ESPVersion "HASP Plate 03 Sensor - ESP Version [%s]" (HASP) {channel="mqtt:topic:plate03:Plate_Sensor"[profile="transform:JSONPATH", function="$.espVersion"]} //{mqtt="<[broker:hasp/plate03/sensor:state:JSONPATH($.espVersion)]"}
 String HASP_Plate03_Plate_Sensor_ESPUpdate "HASP Plate 03 Sensor - ESP Update Available [%s]" (HASP) {channel="mqtt:topic:plate03:Plate_Sensor"[profile="transform:JSONPATH", function="$.updateEspAvailable"]} //{mqtt="<[broker:hasp/plate03/sensor:state:JSONPATH($.updateEspAvailable)]"}
 String HASP_Plate03_Plate_Sensor_LCDVersion "HASP Plate 03 Sensor - LCD Version [%s]" (HASP) {channel="mqtt:topic:plate03:Plate_Sensor"[profile="transform:JSONPATH", function="$.lcdVersion"]} //{mqtt="<[broker:hasp/plate03/sensor:state:JSONPATH($.lcdVersion)]"}
@@ -31,4 +31,5 @@ String HASP_Plate03_Plate_Command_JSON "HASP Plate 03 JSON Command" (HASP) {chan
 
 String HASP_Plate03_Plate_State_JSON "HASP Plate 03 JSON State" (HASP) {channel="mqtt:topic:plate03:Plate_State_JSON"} //{mqtt="<[broker:hasp/plate03/state/json:state:default]"}
 String HASP_Plate03_Plate_State_JSON_Event "HASP Plate 03 JSON State Event" (HASP) {channel="mqtt:topic:plate03:Plate_State_JSON_Event"} //{mqtt="<[broker:hasp/plate03/state/json:state:JSONPATH($.event)]"}
+//String HASP_Plate03_Plate_State_JSON_EventType "HASP Plate 03 JSON State Event Type" (HASP) {channel="mqtt:topic:plate03:Plate_State_JSON_EventType"} //{mqtt="<[broker:hasp/plate03/state/json:state:JSONPATH($.event_type)]"}
 String HASP_Plate03_Plate_State_JSON_Value "HASP Plate 03 JSON State Value" (HASP) {channel="mqtt:topic:plate03:Plate_State_JSON_Value"} //{mqtt="<[broker:hasp/plate03/state/json:state:JSONPATH($.value)]"}

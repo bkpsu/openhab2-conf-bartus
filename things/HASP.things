@@ -54,6 +54,7 @@ Thing mqtt:topic:plate03 "HASP Plate 03" (mqtt:broker:MQTTBroker) @ "Office" {
         Type string : Plate_Command_JSON 	    "Plate JSON Command" 	    	[commandTopic="hasp/plate03/command/json"]
 
         Type string : Plate_State_JSON	    	"Plate State Json"		        [stateTopic="hasp/plate03/state/json"]	
+//        Type string : Plate_State_JSON_EventType "Plate State Json Event Type"  [stateTopic="hasp/plate03/state/json", transformationPattern="JSONPATH:$.event_type"]
         Type string : Plate_State_JSON_Event	"Plate State Json Event"	    [stateTopic="hasp/plate03/state/json", transformationPattern="JSONPATH:$.event"]
         Type string : Plate_State_JSON_Value	"Plate State Json Value"	    [stateTopic="hasp/plate03/state/json", transformationPattern="JSONPATH:$.value"]
     }
