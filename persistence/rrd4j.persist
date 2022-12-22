@@ -12,5 +12,5 @@ Items {
 	
 	TempSensors*,HumSensors*,Speedtest_Chart* : strategy = everyMinute, restoreOnStartup
 	Weather* : strategy = everyChange, restoreOnStartup
-	Lights*, gGarage, gHVAC : strategy = everyChange, restoreOnStartup
+	Lights*, gGarage, gHVAC, Configuration* : strategy = everyChange, restoreOnStartup
 }
