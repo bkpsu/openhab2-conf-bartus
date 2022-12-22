@@ -568,8 +568,8 @@ rule "Handle HASP Office Page 2 Status"
 when
     Item localCurrentTemperature received update or
     Item Temperature_Office received update or
-    Item Date received update or
-    Item HASP_Plate03_Page_Current received update 2
+    Item Date received update// or
+    //Item HASP_Plate03_Page_Current received update 2
 then
     if ((HASP_Plate03_Page_Current.state as Number).intValue == 2)   //Only update page if you're on page 2 (avoid sending too many MQTT messages)
     {
@@ -590,8 +590,8 @@ when
     Item HVAC_Mode received update or
     Item Temperature_HVAC received update or
     Item HVAC_HeatSetPoint received update or
-    Item HVAC_CoolSetPoint received update or
-    Item HASP_Plate03_Page_Current received update 3
+    Item HVAC_CoolSetPoint received update //or
+    //Item HASP_Plate03_Page_Current received update 3
 then
     if ((HASP_Plate03_Page_Current.state as Number).intValue == 3)   //Only update page if you're on page 2 (avoid sending too many MQTT messages)
     {
@@ -839,8 +839,8 @@ then
                 jsonString = '["p['+ plate03_pagebutton1page + '].b[1].bco=65535", ' +
                             '"p['+ plate03_pagebutton1page + '].b[2].bco=25388", ' +
                             '"p['+ plate03_pagebutton1page + '].b[3].bco=25388"'
-                jsonString = jsonString + ', "p['+ plate03_pagebutton1page + '].b[1].pco=25388"]'
-                jsonString = jsonString + ', "p['+ plate03_pagebutton1page + '].b[2].pco=65535"]'
+                jsonString = jsonString + ', "p['+ plate03_pagebutton1page + '].b[1].pco=25388"'
+                jsonString = jsonString + ', "p['+ plate03_pagebutton1page + '].b[2].pco=65535"'
                 jsonString = jsonString + ', "p['+ plate03_pagebutton1page + '].b[3].pco=65535"]'
         }
         else if ((HASP_Plate03_Page_Current.state as Number).intValue == plate03_pagebutton2page)
@@ -848,8 +848,8 @@ then
                 jsonString = '["p['+ plate03_pagebutton2page + '].b[1].bco=25388", ' +
                             '"p['+ plate03_pagebutton2page + '].b[2].bco=65535", ' +
                             '"p['+ plate03_pagebutton2page + '].b[3].bco=25388"'            
-                jsonString = jsonString + ', "p['+ plate03_pagebutton2page + '].b[1].pco=65535"]'
-                jsonString = jsonString + ', "p['+ plate03_pagebutton2page + '].b[2].pco=25388"]'
+                jsonString = jsonString + ', "p['+ plate03_pagebutton2page + '].b[1].pco=65535"'
+                jsonString = jsonString + ', "p['+ plate03_pagebutton2page + '].b[2].pco=25388"'
                 jsonString = jsonString + ', "p['+ plate03_pagebutton2page + '].b[3].pco=65535"]'
         }
         else if ((HASP_Plate03_Page_Current.state as Number).intValue == plate03_pagebutton3page)
@@ -857,8 +857,8 @@ then
                 jsonString = '["p['+ plate03_pagebutton3page + '].b[1].bco=25388", ' +
                             '"p['+ plate03_pagebutton3page + '].b[2].bco=25388", ' +
                             '"p['+ plate03_pagebutton3page + '].b[3].bco=65535"'                  
-                jsonString = jsonString + ', "p['+ plate03_pagebutton3page + '].b[1].pco=65535"]'
-                jsonString = jsonString + ', "p['+ plate03_pagebutton3page + '].b[2].pco=65535"]'
+                jsonString = jsonString + ', "p['+ plate03_pagebutton3page + '].b[1].pco=65535"'
+                jsonString = jsonString + ', "p['+ plate03_pagebutton3page + '].b[2].pco=65535"'
                 jsonString = jsonString + ', "p['+ plate03_pagebutton3page + '].b[3].pco=25388"]'
         }
         else 
