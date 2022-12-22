@@ -1,11 +1,11 @@
 /* -------------------------------------- BEGIN USER CONFIG -------------------------------------- */
 
 /* Configuration for the three page selection buttons at the bottom of the page */
-val plate04_pagebutton1page = 1 // Set page # for bottom left button
+val int plate04_pagebutton1page = 1 // Set page # for bottom left button
 val plate04_pagebutton1txt = 'Scenes' // Set page title for bottom left button
-val plate04_pagebutton2page = 2 // Set page # for bottom center button
+val int plate04_pagebutton2page = 2 // Set page # for bottom center button
 val plate04_pagebutton2txt = 'Status' // Set page title for bottom left button
-val plate04_pagebutton3page = 3 // Set page # for bottom right button
+val int plate04_pagebutton3page = 3 // Set page # for bottom right button
 val plate04_pagebutton3txt = 'HVAC' // Set page title for bottom left button
 
 /* Configuration for page 1 (Scenes) */
@@ -134,17 +134,22 @@ rule "Handle HASP Basement"
 when
     Item HASP_Plate04_Plate_State_JSON_Value received update
 then
-    //parse out data from JSON string (page, button, value)
-    var String eventpage = HASP_Plate04_Plate_State_JSON_Event.state.toString.split("\\[").get(1).split("\\]").get(0)
-    var String eventbutton = HASP_Plate04_Plate_State_JSON_Event.state.toString.split("\\[").get(2).split("\\]").get(0)
 
     if ((HASP_Plate04_Plate_State_JSON_Value.state == 'OFF') || (HASP_Plate04_Plate_State_JSON_Value.state == '0'))
     {
         //Do nothing (button release event)
         logInfo ("HASP", "Ignoring OFF event")
+    }    
+    else if (HASP_Plate04_Plate_State_JSON_Event.state == "page")
+    {
+        logInfo ("HASP", "Ignoring page change event")
     }
     else
     {
+    //parse out data from JSON string (page, button, value)
+    var String eventpage = HASP_Plate04_Plate_State_JSON_Event.state.toString.split("\\[").get(1).split("\\]").get(0)
+    var String eventbutton = HASP_Plate04_Plate_State_JSON_Event.state.toString.split("\\[").get(2).split("\\]").get(0)
+
         //Handle Page/button/dimmer value event
         if(HASP_Plate04_Light_Power.state == OFF)
         {
@@ -158,15 +163,15 @@ then
                 {
                     case '1':
                     {
-                        HASP_Plate04_Page.sendCommand(plate04_pagebutton1page as Number)
+                        HASP_Plate04_Page.sendCommand(plate04_pagebutton1page)
                     }
                     case '2':
                     {
-                        HASP_Plate04_Page.sendCommand(plate04_pagebutton2page as Number)
+                        HASP_Plate04_Page.sendCommand(plate04_pagebutton2page)
                     }
                     case '3':
                     {
-                        HASP_Plate04_Page.sendCommand(plate04_pagebutton3page as Number)
+                        HASP_Plate04_Page.sendCommand(plate04_pagebutton3page)
                     }
                 }               
                 HASP_Plate04_Light_Power.sendCommand(ON) //refresh backlight timer following button press
@@ -566,7 +571,7 @@ when
     Item Date received update or
     Item HASP_Plate04_Page_Current received update 2
 then
-    if (HASP_Plate04_Page_Current.state == 2)   //Only update page if you're on page 2 (avoid sending too many MQTT messages)
+    if ((HASP_Plate04_Page_Current.state as Number).intValue == 2)   //Only update page if you're on page 2 (avoid sending too many MQTT messages)
     {
        //["p[2].b[4].txt=\"O: 27.6 °F\"", "p[2].b[5].txt=\"I: 71.8 °F\"", ...]
 
@@ -587,12 +592,12 @@ when
     Item HVAC_CoolSetPoint received update or
     Item HASP_Plate04_Page_Current received update 3
 then
-    if (HASP_Plate04_Page_Current.state == 3)   //Only update page if you're on page 2 (avoid sending too many MQTT messages)
+    if ((HASP_Plate04_Page_Current.state as Number).intValue == 3)   //Only update page if you're on page 2 (avoid sending too many MQTT messages)
     {
        //["p[2].b[4].txt=\"O: 27.6 °F\"", "p[2].b[5].txt=\"I: 71.8 °F\"", ...]
         var modeString = ''
         var tempString = ''
-        switch(HVAC_Mode.state){
+        switch((HVAC_Mode.state as Number).intValue){
             case 0: //Off
             {
                 modeString = '"p[3].b[4].txt=\\"' + 'OFF' + '\\"", ' + '"p[3].b[4].bco=65535"'
@@ -632,7 +637,7 @@ rule "Handle HASP Basement Page 9 chart"
 when
     Time cron "0 * * ? * *"                     //Fire rule every minute
 then
-    if (HASP_Plate04_Page_Current.state == 9)   //Only update chart if you're on page 9 (chart gets reset when page is not active)
+    if ((HASP_Plate04_Page_Current.state as Number).intValue == 9)   //Only update chart if you're on page 9 (chart gets reset when page is not active)
     {
         var Number sigStrength = (((HASP_Plate04_Plate_Sensor_SignalStrength.state as DecimalType) + 100 ) * 1.333).intValue
         logInfo("HASP", sigStrength.toString)
@@ -651,10 +656,10 @@ when
 then
 
     if (HASP_Plate04_Page_Current.state == NULL){
-        HASP_Plate04_Page.sendCommand(plate04_pagebutton2page as Number) // Send HASP to Status page
+        HASP_Plate04_Page.sendCommand(plate04_pagebutton2page) // Send HASP to Status page
     }
     else{
-        HASP_Plate04_Page.sendCommand(HASP_Plate04_Page_Current.state as Number) // Send HASP to previous page
+        HASP_Plate04_Page.sendCommand(HASP_Plate04_Page_Current.state.toString) // Send HASP to previous page
     }
 
     var jsonString = '["p[1].b[1].bco=25388", ' +   //Initialize bottom page buttons with gray color
@@ -817,23 +822,38 @@ rule "HASP Basement set page button colors on page change"
 when
     Item HASP_Plate04_Page_Current received update 
 then
-    if (HASP_Plate04_Page_Current.state != 0)
+    if ((HASP_Plate04_Page_Current.state as Number).intValue != 0)
     {
-        var jsonString = '["p['+ (HASP_Plate04_Page_Current.state.toString) + '].b[1].bco=25388", ' +
+        var jsonString = '[' /* '["p['+ (HASP_Plate04_Page_Current.state.toString) + '].b[1].bco=25388", ' +
                             '"p['+ (HASP_Plate04_Page_Current.state.toString) + '].b[2].bco=25388", ' +
-                            '"p['+ (HASP_Plate04_Page_Current.state.toString) + '].b[3].bco=25388"'
+                            '"p['+ (HASP_Plate04_Page_Current.state.toString) + '].b[3].bco=25388"' */
 
-        if (HASP_Plate04_Page_Current.state == plate04_pagebutton1page)
+        if ((HASP_Plate04_Page_Current.state as Number).intValue == plate04_pagebutton1page)
         {
-                jsonString = jsonString + ', "p['+ (HASP_Plate04_Page_Current.state.toString) + '].b[1].bco=65535"]'
+                jsonString = '["p['+ plate04_pagebutton1page + '].b[1].bco=65535", ' +
+                            '"p['+ plate04_pagebutton1page + '].b[2].bco=25388", ' +
+                            '"p['+ plate04_pagebutton1page + '].b[3].bco=25388"'
+                jsonString = jsonString + ', "p['+ plate04_pagebutton1page + '].b[1].pco=25388"'
+                jsonString = jsonString + ', "p['+ plate04_pagebutton1page + '].b[2].pco=65535"'
+                jsonString = jsonString + ', "p['+ plate04_pagebutton1page + '].b[3].pco=65535"]'  
         }
-        else if (HASP_Plate04_Page_Current.state == plate04_pagebutton2page)
+        else if ((HASP_Plate04_Page_Current.state as Number).intValue == plate04_pagebutton2page)
         {
-                jsonString = jsonString + ', "p['+ (HASP_Plate04_Page_Current.state.toString) + '].b[2].bco=65535"]'
+                 jsonString = '["p['+ plate04_pagebutton2page + '].b[1].bco=25388", ' +
+                            '"p['+ plate04_pagebutton2page + '].b[2].bco=65535", ' +
+                            '"p['+ plate04_pagebutton2page + '].b[3].bco=25388"'            
+                jsonString = jsonString + ', "p['+ plate04_pagebutton2page + '].b[1].pco=65535"'
+                jsonString = jsonString + ', "p['+ plate04_pagebutton2page + '].b[2].pco=25388"'
+                jsonString = jsonString + ', "p['+ plate04_pagebutton2page + '].b[3].pco=65535"]'
         }
-        else if (HASP_Plate04_Page_Current.state == plate04_pagebutton3page)
+        else if ((HASP_Plate04_Page_Current.state as Number).intValue == plate04_pagebutton3page)
         {
-                jsonString = jsonString + ', "p['+ (HASP_Plate04_Page_Current.state.toString) + '].b[3].bco=65535"]'
+                jsonString = '["p['+ plate04_pagebutton3page + '].b[1].bco=25388", ' +
+                            '"p['+ plate04_pagebutton3page + '].b[2].bco=25388", ' +
+                            '"p['+ plate04_pagebutton3page + '].b[3].bco=65535"'                  
+                jsonString = jsonString + ', "p['+ plate04_pagebutton3page + '].b[1].pco=65535"'
+                jsonString = jsonString + ', "p['+ plate04_pagebutton3page + '].b[2].pco=65535"'
+                jsonString = jsonString + ', "p['+ plate04_pagebutton3page + '].b[3].pco=25388"]'
         }
         else 
         {

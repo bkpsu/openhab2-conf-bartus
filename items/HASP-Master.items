@@ -12,7 +12,7 @@ Number:Dimensionless HASP_Plate01_Light_Dimmer "HASP Plate 01 Backlight Brightne
 
 Switch HASP_Plate01_Plate_Status "HASP Plate 01 Connection Status [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Status"} //{mqtt="<[broker:hasp/plate01/status:state:default]"}
 String HASP_Plate01_Plate_Sensor "HASP Plate 01 Sensor [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"} //{mqtt="<[broker:hasp/plate01/sensor:state:default]"}
-String HASP_Plate01_Plate_Sensor_Status "HASP Plate 01 Sensor - Status [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.status"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.status)]"}
+//String HASP_Plate01_Plate_Sensor_Status "HASP Plate 01 Sensor - Status [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.status"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.status)]"}
 String HASP_Plate01_Plate_Sensor_ESPVersion "HASP Plate 01 Sensor - ESP Version [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.espVersion"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.espVersion)]"}
 String HASP_Plate01_Plate_Sensor_ESPUpdate "HASP Plate 01 Sensor - ESP Update Available [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.updateEspAvailable"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.updateEspAvailable)]"}
 String HASP_Plate01_Plate_Sensor_LCDVersion "HASP Plate 01 Sensor - LCD Version [%s]" (HASP) {channel="mqtt:topic:plate01:Plate_Sensor"[profile="transform:JSONPATH", function="$.lcdVersion"]} //{mqtt="<[broker:hasp/plate01/sensor:state:JSONPATH($.lcdVersion)]"}
