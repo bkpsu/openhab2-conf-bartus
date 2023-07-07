@@ -1,11 +1,11 @@
 Dimmer        WLEDBRIDGEMAINGlobalBrightness        "Global brightness"         {channel="wled:json:483fda0cd348:globalBrightness"}
 String        WLEDBRIDGEMAINPlaylists               "Playlists"                 {channel="wled:json:483fda0cd348:playlists"}
 String        WLEDBRIDGEMAINPresets                 "Presets"                   {channel="wled:json:483fda0cd348:presets"}
-Number:Time   WLEDBRIDGEMAINTransformTime           "Transform time"            {channel="wled:json:483fda0cd348:transformTime"}
+Number:Time   WLEDBRIDGEMAINTransformTime           "Transform time"            {unit="s", channel="wled:json:483fda0cd348:transformTime"}
 String        WLEDBRIDGEMAINLiveOverride            "Live override"             {channel="wled:json:483fda0cd348:liveOverride"}
 Switch        WLEDBRIDGEMAINSleep                   "Sleep timer"               {channel="wled:json:483fda0cd348:sleep"}
 String        WLEDBRIDGEMAINSleepMode               "Sleep mode"                {channel="wled:json:483fda0cd348:sleepMode"}
-Number:Time   WLEDBRIDGEMAINSleepDuration           "Sleep duration"            {channel="wled:json:483fda0cd348:sleepDuration"}
+Number:Time   WLEDBRIDGEMAINSleepDuration           "Sleep duration"            {unit="s", channel="wled:json:483fda0cd348:sleepDuration"}
 Dimmer        WLEDBRIDGEMAINSleepTargetBrightness   "Sleep target brightness"   {channel="wled:json:483fda0cd348:sleepTargetBrightness"}
 Switch        WLEDBRIDGEMAINSyncSend                "Sync send"                 {channel="wled:json:483fda0cd348:syncSend"}
 Switch        WLEDBRIDGEMAINSyncReceive             "Sync receive"              {channel="wled:json:483fda0cd348:syncReceive"}
