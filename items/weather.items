@@ -83,3 +83,16 @@ String		Weather_OWM_ConditionId0		"Icon [%s]"		{channel="openweathermap:weather-
 String		Weather_OWM_ConditionId1		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours24#condition-id"}
 String		Weather_OWM_ConditionId2		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours48#condition-id"}
 String		Weather_OWM_ConditionId3		"Icon [%s]"		{channel="openweathermap:weather-and-forecast:owmacct:local:forecastHours72#condition-id"}
+
+/* Air Pollution Items */
+
+DateTime         LocalAirPollutionCurrentTimeStamp                "Observation time"                     {channel="openweathermap:air-pollution:owmacct:local:current#time-stamp"}
+Number           LocalAirPollutionCurrentAirQualityIndex          "Air quality index"                    {channel="openweathermap:air-pollution:owmacct:local:current#airQualityIndex"}
+Number:Density   LocalAirPollutionCurrentParticulateMatter2Dot5   "Particulate matter pm2.5"             {unit="µg/m³", channel="openweathermap:air-pollution:owmacct:local:current#particulateMatter2dot5"}
+Number:Density   LocalAirPollutionCurrentParticulateMatter10      "Forecasted particulate matter pm10"   {unit="µg/m³", channel="openweathermap:air-pollution:owmacct:local:current#particulateMatter10"}
+Number:Density   LocalAirPollutionCurrentCarbonMonoxide           "Carbon monoxide"                      {unit="µg/m³", channel="openweathermap:air-pollution:owmacct:local:current#carbonMonoxide"}
+Number:Density   LocalAirPollutionCurrentNitrogenMonoxide         "Nitrogen monoxide"                    {unit="µg/m³", channel="openweathermap:air-pollution:owmacct:local:current#nitrogenMonoxide"}
+Number:Density   LocalAirPollutionCurrentNitrogenDioxide          "Nitrogen dioxide"                     {unit="µg/m³", channel="openweathermap:air-pollution:owmacct:local:current#nitrogenDioxide"}
+Number:Density   LocalAirPollutionCurrentOzone                    "Ozone"                                {unit="µg/m³", channel="openweathermap:air-pollution:owmacct:local:current#ozone"}
+Number:Density   LocalAirPollutionCurrentSulphurDioxide           "Sulphur dioxide"                      {unit="µg/m³", channel="openweathermap:air-pollution:owmacct:local:current#sulphurDioxide"}
+Number:Density   LocalAirPollutionCurrentAmmonia                  "Ammonia"                              {unit="µg/m³", channel="openweathermap:air-pollution:owmacct:local:current#ammonia"}
