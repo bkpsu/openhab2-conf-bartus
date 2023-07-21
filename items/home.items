@@ -102,7 +102,7 @@ Switch FF_Family_TV_Mute "TV Mute" (FF_Family) {channel="samsungtv:tv:08f0d182_0
 Dimmer FF_Family_TV_Volume "TV Volume" (FF_Family) {channel="samsungtv:tv:08f0d182_0096_1000_bf66_bc1485247bc7:volume"}
 
 /* Thermostat */
-Group gHVAC "Thermostat" ["Equipment", "HVAC"] { ga="Thermostat" [ useFahrenheit=true , modes="off=0,heatcool=3" ] } //["Thermostat"]
+Group gHVAC "Thermostat" ["Equipment", "HVAC"] { ga="Thermostat" [ useFahrenheit=true , modes="off=0,heatcool=3:2:1" ] }
 Number:Temperature HVAC_HeatSetPoint "Heat Set [%.1f %unit%]" <temperature_hot> (gHVAC) ["Setpoint", "Temperature"] /*["homekit:TargetTemperature"]*/ {unit="°F", ga="thermostatTemperatureSetpointLow", channel="zwave:device:99f97889:node28:thermostat_setpoint_heating"}
 Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f %unit%]" <temperature_cold> (gHVAC) ["Setpoint","Temperature"] /*["homekit:TargetTemperature"]*/ {unit="°F", ga="thermostatTemperatureSetpointHigh", channel="zwave:device:99f97889:node28:thermostat_setpoint_cooling"}
 //Number:Temperature HVAC_CoolSetPoint "Cool Set [%2d °F]" <temperature_cold> (gHVAC)["TargetTemperature"] {channel="zwave:device:99f97889:node28:thermostat_setpoint_cooling"}
