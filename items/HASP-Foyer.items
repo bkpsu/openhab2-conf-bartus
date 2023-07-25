@@ -1,14 +1,14 @@
 /* Page Storage Items */
 
-Number:Dimensionless HASP_Plate02_Page "HASP Plate 02 Page Select [%d]" (HASP)  {channel="mqtt:topic:plate02:Plate_Page"} //{mqtt=">[broker:hasp/plate02/command/page:command:*:default]"}
-Number:Dimensionless HASP_Plate02_Page_Current "HASP Plate 02 Current Page [%d]" (HASP) {channel="mqtt:topic:plate02:Plate_Page"} //{mqtt="<[broker:hasp/plate02/command/page:state:default]"}
+Number HASP_Plate02_Page "HASP Plate 02 Page Select [%d]" (HASP)  {channel="mqtt:topic:plate02:Plate_Page"} //{mqtt=">[broker:hasp/plate02/command/page:command:*:default]"}
+Number HASP_Plate02_Page_Current "HASP Plate 02 Current Page [%d]" (HASP) {channel="mqtt:topic:plate02:Plate_Page"} //{mqtt="<[broker:hasp/plate02/command/page:state:default]"}
 
 /* Plate Status Items */
 
 Switch HASP_Plate02_Light_Power "HASP Plate 02 Backlight Switch [%s]" (HASP) {channel="mqtt:topic:plate02:Plate_Backlight", expire="30s,command=OFF"} //{mqtt=">[broker:hasp/plate02/light/switch:command:*:default]",expire="30s,command=OFF"}
 Switch HASP_Plate02_Light_Status "HASP Plate 02 Backlight Status [%s]" (HASP) {channel="mqtt:topic:plate02:Plate_Backlight"} //{mqtt="<[broker:hasp/plate02/light/state:state:default]"}
-Number:Dimensionless HASP_Plate02_Light_Brightness "HASP Plate 02 Backlight Brightness [%d]" (HASP) {channel="mqtt:topic:plate02:Plate_Brightness"} //{mqtt="<[broker:hasp/plate02/brightness/state:state:default]"}
-Number:Dimensionless HASP_Plate02_Light_Dimmer "HASP Plate 02 Backlight Brightness Set [%d]" (HASP) {channel="mqtt:topic:plate02:Plate_Brightness"} //{mqtt=">[broker:hasp/plate02/brightness/set:command:*:default]"}
+Number:Dimensionless HASP_Plate02_Light_Brightness "HASP Plate 02 Backlight Brightness [%d]" (HASP) {unit="%", channel="mqtt:topic:plate02:Plate_Brightness"} //{mqtt="<[broker:hasp/plate02/brightness/state:state:default]"}
+Number:Dimensionless HASP_Plate02_Light_Dimmer "HASP Plate 02 Backlight Brightness Set [%d]" (HASP) {unit="%", channel="mqtt:topic:plate02:Plate_Brightness"} //{mqtt=">[broker:hasp/plate02/brightness/set:command:*:default]"}
 
 Switch HASP_Plate02_Plate_Status "HASP Plate 02 Connection Status [%s]" (HASP) {channel="mqtt:topic:plate02:Plate_Status"} //{mqtt="<[broker:hasp/plate02/status:state:default]"}
 String HASP_Plate02_Plate_Sensor "HASP Plate 02 Sensor [%s]" (HASP) {channel="mqtt:topic:plate02:Plate_Sensor"} //{mqtt="<[broker:hasp/plate02/sensor:state:default]"}
@@ -23,7 +23,7 @@ String HASP_Plate02_Plate_Sensor_HaspIP "HASP Plate 02 Sensor - HASP IP [%s]" (H
 
 Switch HASP_Plate02_Plate_Refresh "HASP Plate 02 Refresh" (HASP) {expire="10s,command=OFF"}
 
-Number:Dimensionless HASP_Plate02_Plate_Motion "HASP Plate 02 Motion Status [%d]" (HASP) {channel="mqtt:topic:plate02:Plate_Motion"} //{mqtt="<[broker:hasp/plate02/motion/state:state:default]"}
+Number HASP_Plate02_Plate_Motion "HASP Plate 02 Motion Status [%d]" (HASP) {channel="mqtt:topic:plate02:Plate_Motion"} //{mqtt="<[broker:hasp/plate02/motion/state:state:default]"}
 
 String HASP_Plate02_Plate_Command "HASP Plate 02 Command" (HASP) {channel="mqtt:topic:plate02:Plate_Command"} //{mqtt=">[broker:hasp/plate02/command:command:*:default]"}
 

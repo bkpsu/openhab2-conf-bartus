@@ -49,7 +49,7 @@ sitemap default label="Home"
 							Text item=HASP_Plate01_Light_Status
 						}
 						Frame{
-							Setpoint item=HASP_Plate01_Light_Dimmer minValue=0 maxValue=255 step=32
+							Setpoint item=HASP_Plate01_Light_Dimmer minValue=0 maxValue=100 step=10
 							Text item=HASP_Plate01_Light_Brightness
 						}
 					}
@@ -185,7 +185,7 @@ sitemap default label="Home"
 							Text item=HASP_Plate02_Light_Status
 						}
 						Frame{
-							Setpoint item=HASP_Plate02_Light_Dimmer minValue=0 maxValue=255 step=32
+							Setpoint item=HASP_Plate02_Light_Dimmer minValue=0 maxValue=100 step=10
 							Text item=HASP_Plate02_Light_Brightness
 						}
 					}
@@ -557,7 +557,7 @@ sitemap default label="Home"
 				Text item=HASP_Plate03_Light_Status
 			}
 			Frame{
-				Setpoint item=HASP_Plate03_Light_Dimmer minValue=0 maxValue=255 step=32
+				Setpoint item=HASP_Plate03_Light_Dimmer minValue=0 maxValue=100 step=10
 				Text item=HASP_Plate03_Light_Brightness
 			}
 		}		

@@ -88,7 +88,7 @@ String GarageDoorRight 			"Garage Door Right [%s]" 	<garagedoor> 	(gGarage)	{ my
 Switch GarageDoorRightSwitch 	"Garage Right [%s]" 			        	(gGarage)	{ myq="0", auto_update="false" }
 
 /* Weather */
-Number:Dimensionless Weather_Humidex		"Humidex [SCALE(humidex.scale):%s]" 	        <smiley>		    (Weather)
+Number Weather_Humidex		"Humidex [SCALE(humidex.scale):%s]" 	        <smiley>		    (Weather)
 Number:Temperature Weather_Temp_Max 	"Todays Maximum [%.1f %unit%]"		                <temperature_hot> {unit="°F"}
 Number:Temperature Weather_Temp_Min 	"Todays Minimum [%.1f %unit%]"		                <temperature_cold> {unit="°F"}
 DateTime Weather_LastUpdate	"Last Update [%1$ta %1$tR]"		                <clock>
@@ -109,10 +109,10 @@ Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f %unit%]" <temperature_cold>
 Number:Temperature Temperature_HVAC "Temperature [%.1f %unit%]" <temperature> (gHVAC,TempSensors,FF_Dining,Ambimate_Test) ["Measurement","Temperature"]/*["CurrentTemperature"]*/ {unit="°F", ga="thermostatTemperatureAmbient" , channel="zwave:device:99f97889:node28:sensor_temperature"}
 Number:Dimensionless Humidity_HVAC "Humidity [%.1f %unit%]" <humidity> (gHVAC,HumSensors,FF_Dining,Ambimate_Test) ["Measurement","Humidity"]/*["CurrentHumidity"]*/ {unit="%", ga="thermostatHumidityAmbient" , channel="zwave:device:99f97889:node28:sensor_relhumidity2"}
 Group gHVACStatus
-Number:Dimensionless HVAC_Mode "Mode [MAP(thermostatMode.map):%s]" <flow> (gHVAC,gHVACStatus)/*["homekit:TargetHeatingCoolingMode"]*/ ["Point", "Mode"] { ga="thermostatMode", channel="zwave:device:99f97889:node28:thermostat_mode" }
-Number:Dimensionless HVAC_Fan_Mode "Fan Mode [MAP(thermostatFanMode.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanmode" }
-Number:Dimensionless HVAC_Operating_State "Op State [MAP(thermostatOpState.map):%s]" <flow> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_state"}
-Number:Dimensionless HVAC_Fan_State "Fan State [MAP(thermostatFanState.map):%s]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanstate"}
+Number HVAC_Mode "Mode [MAP(thermostatMode.map)]" <flow> (gHVAC,gHVACStatus)/*["homekit:TargetHeatingCoolingMode"]*/ ["Point", "Mode"] { ga="thermostatMode", channel="zwave:device:99f97889:node28:thermostat_mode" }
+Number HVAC_Fan_Mode "Fan Mode [MAP(thermostatFanMode.map)]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanmode" }
+Number HVAC_Operating_State "Op State [MAP(thermostatOpState.map)]" <flow> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_state"}
+Number HVAC_Fan_State "Fan State [MAP(thermostatFanState.map)]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanstate"}
 Number:Dimensionless HVAC_Battery "Battery State [%d %]" <battery> (gHVACStatus) {unit="%", channel="zwave:device:99f97889:node28:battery-level"}
 
 /*ZwaveStats*/
@@ -126,33 +126,33 @@ Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {channel="zwave:serial_z
 */
 
 /* MQTT ESP8266 Temp/Humidity Sensors */
-Number:Temperature Temperature_Basement                 "Bsmt Temp [%.1f %unit%]"                <temperature> (gBsmt,TempSensors)  ["Measurement","Temperature"]                               {unit="°F", channel="mqtt:topic:Kube_Basement:temperature"} 
-Number:Dimensionless Humidity_Basement                    "Bsmt Hum [%.1f %]"                <humidity> (gBsmt,HumSensors) ["Measurement","Humidity"]                                    {unit="%", channel="mqtt:topic:Kube_Basement:humidity"} 
-Number:Temperature Temperature_MasterBedroom            "MBdrm Temp [%.1f %unit%]"               <temperature> (SF_Master,TempSensors) ["Measurement","Temperature"]                          {unit="°F", channel="mqtt:topic:Kube_MasterBedroom:temperature"}
-Number:Dimensionless Humidity_MasterBedroom               "MBdrm Hum [%.1f %]"               <humidity> (SF_Master,HumSensors) ["Measurement","Humidity"]                                {unit="%", channel="mqtt:topic:Kube_MasterBedroom:humidity"}
-Number:Temperature Temperature_Garage                   "Garage Temp [%.1f %unit%]"              <temperature> (gGarage,TempSensors) ["Measurement","Temperature"]                              {unit="°F", channel="mqtt:topic:Kube_Garage:temperature"}
-Number:Dimensionless Humidity_Garage                      "Garage Hum [%.1f %]"              <humidity> (gGarage,HumSensors) ["Measurement","Humidity"]                                  {unit="%", channel="mqtt:topic:Kube_Garage:humidity"}
-Number:Temperature Temperature_Shed                     "Shed Temp [%.1f %unit%]"                <temperature> (Shed,TempSensors) ["Measurement","Temperature"]                              {unit="°F", channel="mqtt:topic:Kube_Shed:temperature"}
-Number:Dimensionless Humidity_Shed                        "Shed Hum [%.1f %]"                <humidity> (Shed,HumSensors) ["Measurement","Humidity"]                                  {unit="%", channel="mqtt:topic:Kube_Shed:humidity"}
-Number:Temperature Temperature_MasterBedroomHisCloset   "MBdrm His Closet Temp [%.1f %unit%]"    <temperature> (SF_Master,TempSensors) ["Measurement","Temperature"]                          {unit="°F", channel="mqtt:topic:Kube_MasterBedHisCloset:temperature"}
-Number:Dimensionless Humidity_MasterBedroomHisCloset      "MBdrm His Closet Hum [%.1f %]"    <humidity> (SF_Master,HumSensors) ["Measurement","Humidity"]                                {unit="%", channel="mqtt:topic:Kube_MasterBedHisCloset:humidity"}
+Number:Temperature Temperature_Basement                 "Bsmt Temp [%.1f %unit%]"                <temperature> (gBsmt,TempSensors)  ["Measurement","Temperature"]                               {unit="°F", ga="TemperatureSensor"[useFahrenheit=true], roomHint="Basement", channel="mqtt:topic:Kube_Basement:temperature"} 
+Number:Dimensionless Humidity_Basement                    "Bsmt Hum [%.1f %]"                <humidity> (gBsmt,HumSensors) ["Measurement","Humidity"]                                    {unit="%", ga="HumiditySensor", roomHint="Basement", channel="mqtt:topic:Kube_Basement:humidity"} 
+Number:Temperature Temperature_MasterBedroom            "MBdrm Temp [%.1f %unit%]"               <temperature> (SF_Master,TempSensors) ["Measurement","Temperature"]                          {unit="°F", ga="TemperatureSensor"[useFahrenheit=true], roomHint="Master Bedroom", channel="mqtt:topic:Kube_MasterBedroom:temperature"}
+Number:Dimensionless Humidity_MasterBedroom               "MBdrm Hum [%.1f %]"               <humidity> (SF_Master,HumSensors) ["Measurement","Humidity"]                                {unit="%", ga="HumiditySensor", roomHint="Master Bedroom", channel="mqtt:topic:Kube_MasterBedroom:humidity"}
+Number:Temperature Temperature_Garage                   "Garage Temp [%.1f %unit%]"              <temperature> (gGarage,TempSensors) ["Measurement","Temperature"]                              {unit="°F", ga="TemperatureSensor"[useFahrenheit=true], roomHint="Garage", channel="mqtt:topic:Kube_Garage:temperature"}
+Number:Dimensionless Humidity_Garage                      "Garage Hum [%.1f %]"              <humidity> (gGarage,HumSensors) ["Measurement","Humidity"]                                  {unit="%", ga="HumiditySensor", roomHint="Garage", channel="mqtt:topic:Kube_Garage:humidity"}
+Number:Temperature Temperature_Shed                     "Shed Temp [%.1f %unit%]"                <temperature> (Shed,TempSensors) ["Measurement","Temperature"]                              {unit="°F", ga="TemperatureSensor"[useFahrenheit=true], roomHint="Shed", channel="mqtt:topic:Kube_Shed:temperature"}
+Number:Dimensionless Humidity_Shed                        "Shed Hum [%.1f %]"                <humidity> (Shed,HumSensors) ["Measurement","Humidity"]                                  {unit="%", ga="HumiditySensor", roomHint="Shed", channel="mqtt:topic:Kube_Shed:humidity"}
+Number:Temperature Temperature_MasterBedroomHisCloset   "MBdrm His Closet Temp [%.1f %unit%]"    <temperature> (SF_Master,TempSensors) ["Measurement","Temperature"]                          {unit="°F", ga="TemperatureSensor"[useFahrenheit=true], roomHint="Master Bedroom", channel="mqtt:topic:Kube_MasterBedHisCloset:temperature"}
+Number:Dimensionless Humidity_MasterBedroomHisCloset      "MBdrm His Closet Hum [%.1f %]"    <humidity> (SF_Master,HumSensors) ["Measurement","Humidity"]                                {unit="%", ga="HumiditySensor", roomHint="Master Bedroom", channel="mqtt:topic:Kube_MasterBedHisCloset:humidity"}
 Number:Temperature Temperature_Attic                    "Attic Temp [%.1f %unit%]"               <temperature> (gAttic,TempSensors) /*["Measurement","Temperature"]          */                 //  {mqtt="<[broker:home/Attic/temperature:state:default]"}
 Number:Dimensionless Humidity_Attic                       "Attic Hum [%.1f %]"               <humidity> (gAttic,HumSensors) /* ["Measurement","Humidity"]                   */              //  {mqtt="<[broker:home/Attic/humidity:state:default]"}
-Number:Temperature Temperature_Laundry                  "Laundry Temp [%.1f %unit%]"             <temperature> (AmbiMate_Test,FF_Laundry,TempSensors) ["Measurement","Temperature"]                           {unit="°F", channel="mqtt:topic:Kube_Laundry:temperature"}
-Number:Dimensionless Humidity_Laundry                     "Laundry Hum [%.1f %]"             <humidity> (AmbiMate_Test,FF_Laundry,HumSensors) ["Measurement","Humidity"]                               {unit="%", channel="mqtt:topic:Kube_Laundry:humidity"}
-Number:Temperature Temperature_Ensuite                  "Ensuite Temp [%.1f %unit%]"             <temperature> (SF_Ensuite,TempSensors) ["Measurement","Temperature"]                         {unit="°F", channel="mqtt:topic:Kube_Ensuite:temperature"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Temperature:state:default]"}
-Number:Dimensionless Humidity_Ensuite                     "Ensuite Hum [%.1f %]"             <humidity> (SF_Ensuite,HumSensors) ["Measurement","Humidity"]                               {unit="%", channel="mqtt:topic:Kube_Ensuite:humidity"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Humidity:state:default]"}
+Number:Temperature Temperature_Laundry                  "Laundry Temp [%.1f %unit%]"             <temperature> (AmbiMate_Test,FF_Laundry,TempSensors) ["Measurement","Temperature"]                           {unit="°F", roomHint="Laundry", channel="mqtt:topic:Kube_Laundry:temperature"}
+Number:Dimensionless Humidity_Laundry                     "Laundry Hum [%.1f %]"             <humidity> (AmbiMate_Test,FF_Laundry,HumSensors) ["Measurement","Humidity"]                               {unit="%", roomHint="Laundry", channel="mqtt:topic:Kube_Laundry:humidity"}
+Number:Temperature Temperature_Ensuite                  "Ensuite Temp [%.1f %unit%]"             <temperature> (SF_Ensuite,TempSensors) ["Measurement","Temperature"]                         {unit="°F", ga="TemperatureSensor"[useFahrenheit=true], roomHint="Ensuite", channel="mqtt:topic:Kube_Ensuite:temperature"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Temperature:state:default]"}
+Number:Dimensionless Humidity_Ensuite                     "Ensuite Hum [%.1f %]"             <humidity> (SF_Ensuite,HumSensors) ["Measurement","Humidity"]                               {unit="%", ga="HumiditySensor", roomHint="Ensuite", channel="mqtt:topic:Kube_Ensuite:humidity"} //mqtt="<[broker:/Kube-Ensuite/DHT22/Humidity:state:default]"}
 Number:Temperature Temperature_Kitchen                  "Kitchen Temp [%.1f %unit%]"             <temperature> (FF_Kitchen,TempSensors) /*["Measurement","Temperature"]    */                      // {mqtt="<[broker:/Kitchen/DHT22/Temperature:state:default]"}
 Number:Dimensionless Humidity_Kitchen                     "Kitchen Hum [%.1f %]"             <humidity> (FF_Kitchen,HumSensors) /*["Measurement","Humidity"]          */                    // {mqtt="<[broker:/Kitchen/DHT22/Humidity:state:default]"}
-Number:Temperature Temperature_Office                   "Office Temp [%.1f %unit%]"              <temperature> (FF_Office,TempSensors) ["Measurement","Temperature"]                            {unit="°F", channel="mqtt:topic:Kube_Office:temperature"} //mqtt="<[broker:/Kube-Office/DHT22/Temperature:state:default]"}
-Number:Dimensionless Humidity_Office                      "Office Hum [%.1f %]"              <humidity> (FF_Office,HumSensors) ["Measurement","Humidity"]                                {unit="%", channel="mqtt:topic:Kube_Office:humidity"}
-Number:Temperature Temperature_Family                   "Family Temp [%.1f %unit%]"              <temperature> (FF_Family,TempSensors) ["Measurement","Temperature"]                            {unit="°F", channel="mqtt:topic:Kube_Family:temperature"}
-Number:Dimensionless Humidity_Family                      "Family Hum [%.1f %]"              <humidity> (FF_Family,HumSensors) ["Measurement","Humidity"]                                {unit="%", channel="mqtt:topic:Kube_Family:humidity"}
+Number:Temperature Temperature_Office                   "Office Temp [%.1f %unit%]"              <temperature> (FF_Office,TempSensors) ["Measurement","Temperature"]                            {unit="°F", ga="TemperatureSensor"[useFahrenheit=true], roomHint="Office", channel="mqtt:topic:Kube_Office:temperature"} //mqtt="<[broker:/Kube-Office/DHT22/Temperature:state:default]"}
+Number:Dimensionless Humidity_Office                      "Office Hum [%.1f %]"              <humidity> (FF_Office,HumSensors) ["Measurement","Humidity"]                                {unit="%", ga="HumiditySensor", roomHint="Office", channel="mqtt:topic:Kube_Office:humidity"}
+Number:Temperature Temperature_Family                   "Family Temp [%.1f %unit%]"              <temperature> (FF_Family,TempSensors) ["Measurement","Temperature"]                            {unit="°F", ga="TemperatureSensor"[useFahrenheit=true], roomHint="Family room", channel="mqtt:topic:Kube_Family:temperature"}
+Number:Dimensionless Humidity_Family                      "Family Hum [%.1f %]"              <humidity> (FF_Family,HumSensors) ["Measurement","Humidity"]                                {unit="%", ga="HumiditySensor", roomHint="Family room", channel="mqtt:topic:Kube_Family:humidity"}
 Number:Temperature Temperature_Guest                    "Guest Temp [%.1f %unit%]"               <temperature> (SF_GuestBdrm,TempSensors) /* ["Measurement","Temperature"]   */                  //  {mqtt="<[broker:home/Guest/temperature:state:default]"}
 Number:Dimensionless Humidity_Guest                       "Guest Hum [%.1f %]"               <humidity> (SF_GuestBdrm,HumSensors) /* ["Measurement","Humidity"]  */                          // {mqtt="<[broker:home/Guest/humidity:state:default]"}
 
 /* MQTT ESP8266 Motion Sensors */
-Number:Dimensionless Motion_MasterBedroom "Master Motion [%d]" //{mqtt="<[broker:/Kube-MasterBedroom/Motion/Switch:state:default]", expire="2m,0" }
+Number Motion_MasterBedroom "Master Motion [%d]" //{mqtt="<[broker:/Kube-MasterBedroom/Motion/Switch:state:default]", expire="2m,0" }
 Switch Motion_Master_Disable "Disable Motion Sensor" (SF_Master)
 
 Group AmbiMate_Test "AmbiMate Test"
@@ -211,8 +211,8 @@ DateTime Astro_nightend 	    "Astro Night End [%1$tH:%1$tM]" 	    (AstroTest)	{c
 
 
 Number:Temperature Temperature_BME280_4_Test                  "BME280-4 Test Temp [%.1f %unit5%]"             <temperature> (AmbiMate_Test)        {unit="°F"}                // {mqtt="<[broker:/Kube_BMETest_4/BME280/Temperature:state:default]"}
-Number:Dimensionless Humidity_BME280_4_Test                     "BME280-4 Test Hum [%.1f %]"             <humidity> (AmbiMate_Test)                             //  {mqtt="<[broker:/Kube_BMETest_4/BME280/Humidity:state:default]"}
+Number:Dimensionless Humidity_BME280_4_Test                     "BME280-4 Test Hum [%.1f %]"             <humidity> (AmbiMate_Test)             {unit="%"}                //  {mqtt="<[broker:/Kube_BMETest_4/BME280/Humidity:state:default]"}
 Number:Pressure Pressure_BME280_4_Test                     "BME280-4 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                  {unit="inHg"}             // {mqtt="<[broker:/Kube_BMETest_4/BME280/Pressure:state:default]"}
 Number:Temperature Temperature_BME280_6_Test                  "BME280-6 Test Temp [%.1f %unit%]"             <temperature> (AmbiMate_Test)        {unit="°F"}                   // {mqtt="<[broker:/Kube_BMETest_6/BME/Temperature:state:default]"}
-Number:Dimensionless Humidity_BME280_6_Test                     "BME280-6 Test Hum [%.1f %]"             <humidity> (AmbiMate_Test)                             //  {mqtt="<[broker:/Kube_BMETest_6/BME/Humidity:state:default]"}
+Number:Dimensionless Humidity_BME280_6_Test                     "BME280-6 Test Hum [%.1f %]"             <humidity> (AmbiMate_Test)              {unit="%"}               //  {mqtt="<[broker:/Kube_BMETest_6/BME/Humidity:state:default]"}
 Number:Pressure Pressure_BME280_6_Test                     "BME280-6 Test Press [%.1f]"             <pressure> (AmbiMate_Test)                 {unit="inHg"}              // {mqtt="<[broker:/Kube_BMETest_6/BME/Pressure:state:default]"}

@@ -1,6 +1,6 @@
 Group gSpeedtest <network-icon>
 Group Speedtest_Chart (gSpeedtest)
-Number:Dimensionless Speedtest_Chart_Period "Speedtest Chart Period"
+Number Speedtest_Chart_Period "Speedtest Chart Period"
 
 
 

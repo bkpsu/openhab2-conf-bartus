@@ -10,7 +10,7 @@ Number:Pressure localCurrentPressure "Current barometric pressure [%.1f %unit%]"
 Number:Dimensionless localCurrentHumidity "Current atmospheric humidity [%d %unit%]" <humidity> (Outdoor,HumSensors) ["Measurement", "Humidity"] {unit="%", channel="openweathermap:weather-and-forecast:owmacct:local:current#humidity" }
 Number:Speed localCurrentWindSpeed "Current wind speed [%.1f km/h]" <wind> {unit="km/h", channel="openweathermap:weather-and-forecast:owmacct:local:current#wind-speed" }
 Number:Angle localCurrentWindDirection "Current wind direction [%d %unit%]" <wind> {unit="°", channel="openweathermap:weather-and-forecast:owmacct:local:current#wind-direction" }
-Number:Dimensionless localCurrentCloudiness "Current cloudiness [%d %unit%]" <clouds> { channel="openweathermap:weather-and-forecast:owmacct:local:current#cloudiness" }
+Number:Dimensionless localCurrentCloudiness "Current cloudiness [%d %unit%]" <clouds> {unit="%", channel="openweathermap:weather-and-forecast:owmacct:local:current#cloudiness" }
 Number:Length localCurrentRainVolume "Current rain volume [%.1f %unit%]" <rain> {unit="in", channel="openweathermap:weather-and-forecast:owmacct:local:current#rain" }
 Number:Length localCurrentSnowVolume "Current snow volume [%.1f %unit%]" <snow> {unit="in", channel="openweathermap:weather-and-forecast:owmacct:local:current#snow" }
 
@@ -23,7 +23,7 @@ Number:Pressure localDailyForecastTodayPressure "Barometric pressure for today [
 Number:Dimensionless localDailyForecastTodayHumidity "Atmospheric humidity for today [%d %unit%]" <humidity> {unit="%", channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#humidity" }
 Number:Speed localDailyForecastTodayWindSpeed "Wind speed for today [%.1f km/h]" <wind> {unit="km/h", channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#wind-speed" }
 Number:Angle localDailyForecastTodayWindDirection "Wind direction for today [%d %unit%]" <wind> {unit="°", channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#wind-direction" }
-Number:Dimensionless localDailyForecastTodaytCloudiness "Cloudiness for today [%d %unit%]" <clouds> {channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#cloudiness" }
+Number:Dimensionless localDailyForecastTodaytCloudiness "Cloudiness for today [%d %unit%]" <clouds> {unit="%", channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#cloudiness" }
 Number:Length localDailyForecastTodayRainVolume "Rain volume for today [%.1f %unit%]" <rain> {unit="in", channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#rain" }
 Number:Length localDailyForecastTodaySnowVolume "Snow volume for today [%.1f %unit%]" <snow> {unit="in", channel="openweathermap:weather-and-forecast:owmacct:local:forecastToday#snow" }
 
