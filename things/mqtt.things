@@ -51,3 +51,9 @@ Thing mqtt:topic:Kube_Shed "Kube Shed" (mqtt:broker:MQTTBroker) @ "Kube" [ avail
     Type number : temperature "Temperature" [ stateTopic="/Kube-Shed/DHT22/Temperature" ]
     Type number : humidity "Humidity" [ stateTopic="/Kube-Shed/DHT22/Humidity" ]
     }
+
+Thing mqtt:topic:Kube_Kitchen "Kube Kitchen" (mqtt:broker:MQTTBroker) @ "Kube" [ availabilityTopic="/Kube-Kitchen/status/LWT", payloadNotAvailable="Connection Lost",payloadAvailable="Connected"] {
+    Channels:
+    Type number : temperature "Temperature" [ stateTopic="/Kube-Kitchen/DHT22/Temperature" ]
+    Type number : humidity "Humidity" [ stateTopic="/Kube-Kitchen/DHT22/Humidity" ]
+    }
