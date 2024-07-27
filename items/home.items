@@ -53,6 +53,7 @@ Group gFFOfficeLights   "Office Lights"         (Lights, FF_Office)     ["Lightb
 Group gSFLandingLights  "Landing Lights"        (Lights, SF_Landing)    ["Lightbulb"]
 Group gSFMasterLights   "Master Lights"        (Lights, SF_Master)      ["Lightbulb"]
 Group gSFGuestLights    "Guest Lights"        (Lights, SF_GuestBdrm)    ["Lightbulb"]
+Group gSFSpareLights    "Spare Lights"        (Lights, SF_SpareBdrm)    ["Lightbulb"]
 
 String Habpanel_Dashboard "Storage Item for Habpanel Dashboard Link"
 
@@ -102,14 +103,13 @@ Switch FF_Family_TV_Mute "TV Mute" (FF_Family) {channel="samsungtv:tv:08f0d182_0
 Dimmer FF_Family_TV_Volume "TV Volume" (FF_Family) {channel="samsungtv:tv:08f0d182_0096_1000_bf66_bc1485247bc7:volume"}
 
 /* Thermostat */
-Group gHVAC "Thermostat" ["Equipment", "HVAC"] { ga="Thermostat" [ useFahrenheit=true , modes="off=0,heatcool=3:2:1" ] }
+Group gHVAC "Thermostat" ["Equipment", "HVAC"] { ga="Thermostat" [ useFahrenheit=true , thermostatModes="off=0,heatcool=3:2:1" ] }
 Number:Temperature HVAC_HeatSetPoint "Heat Set [%.1f %unit%]" <temperature_hot> (gHVAC) ["Setpoint", "Temperature"] /*["homekit:TargetTemperature"]*/ {unit="°F", ga="thermostatTemperatureSetpointLow", channel="zwave:device:99f97889:node28:thermostat_setpoint_heating"}
 Number:Temperature HVAC_CoolSetPoint "Cool Set [%.1f %unit%]" <temperature_cold> (gHVAC) ["Setpoint","Temperature"] /*["homekit:TargetTemperature"]*/ {unit="°F", ga="thermostatTemperatureSetpointHigh", channel="zwave:device:99f97889:node28:thermostat_setpoint_cooling"}
-//Number:Temperature HVAC_CoolSetPoint "Cool Set [%2d °F]" <temperature_cold> (gHVAC)["TargetTemperature"] {channel="zwave:device:99f97889:node28:thermostat_setpoint_cooling"}
 Number:Temperature Temperature_HVAC "Temperature [%.1f %unit%]" <temperature> (gHVAC,TempSensors,FF_Dining,Ambimate_Test) ["Measurement","Temperature"]/*["CurrentTemperature"]*/ {unit="°F", ga="thermostatTemperatureAmbient" , channel="zwave:device:99f97889:node28:sensor_temperature"}
 Number:Dimensionless Humidity_HVAC "Humidity [%.1f %unit%]" <humidity> (gHVAC,HumSensors,FF_Dining,Ambimate_Test) ["Measurement","Humidity"]/*["CurrentHumidity"]*/ {unit="%", ga="thermostatHumidityAmbient" , channel="zwave:device:99f97889:node28:sensor_relhumidity2"}
 Group gHVACStatus
-Number HVAC_Mode "Mode [MAP(thermostatMode.map)]" <flow> (gHVAC,gHVACStatus)/*["homekit:TargetHeatingCoolingMode"]*/ ["Point", "Mode"] { ga="thermostatMode", channel="zwave:device:99f97889:node28:thermostat_mode" }
+Number HVAC_Mode "Mode" /* [MAP(thermostatMode.map)]"*/ <flow> (gHVAC,gHVACStatus)/*["homekit:TargetHeatingCoolingMode"]*/ ["Point", "Mode"] { ga="thermostatMode", channel="zwave:device:99f97889:node28:thermostat_mode" }
 Number HVAC_Fan_Mode "Fan Mode [MAP(thermostatFanMode.map)]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanmode" }
 Number HVAC_Operating_State "Op State [MAP(thermostatOpState.map)]" <flow> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_state"}
 Number HVAC_Fan_State "Fan State [MAP(thermostatFanState.map)]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanstate"}
@@ -173,6 +173,8 @@ Switch ChristmasTree_Landing "Christmas Tree Landing [%s]" (SF_Landing,Christmas
 Number:Power ChristmasTree_Landing_Power "Christmas Tree Landing Power Usage [%d %unit%]" (SF_Landing,PowerMeters) ["Measurement", "Power"] {unit="W", channel="mqtt:topic:SonoffS31_ChristmasTreeLandingLights:powerLoad"} 
 Switch ChristmasTree_Kitchen "Christmas Tree Kitchen [%s]" (FF_Kitchen,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeKitchenLights:switch"} 
 Number:Power ChristmasTree_Kitchen_Power "Christmas Tree Kitchen Power Usage [%d %unit%]" (FF_Kitchen,PowerMeters) ["Measurement", "Power"] {unit="W", channel="mqtt:topic:SonoffS31_ChristmasTreeKitchenLights:powerLoad"} 
+Switch ChristmasTree_Ceramic "Christmas Tree Ceramic [%s]" (FF_Kitchen,ChristmasLights) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_ChristmasTreeCeramicLights:switch"} 
+Number:Power ChristmasTree_Ceramic_Power "Christmas Tree Ceramic Power Usage [%d %unit%]" (FF_Kitchen,PowerMeters) ["Measurement", "Power"] {unit="W", channel="mqtt:topic:SonoffS31_ChristmasTreeCeramicLights:powerLoad"} 
 Switch Prusai3_mk0 "3d Printer (Red) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterRed:switch"} 
 Number:Power Prusai3_mk0_Power "3d Printer (Red) Power Usage [%d %unit%]" (gBsmt,PowerMeters) ["Measurement", "Power"] {unit="W", channel="mqtt:topic:SonoffS31_3DPrinterRed:powerLoad"} 
 Switch Prusai3_mk2S "3d Printer (Black) [%s]" (gBsmt) ["PowerOutlet"] {ga="Outlet", channel="mqtt:topic:SonoffS31_3DPrinterBlack:switch"}
