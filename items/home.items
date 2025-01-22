@@ -98,9 +98,9 @@ DateTime Weather_LastUpdate	"Last Update [%1$ta %1$tR]"		                <clock>
 DateTime	Date		"Date [%1$tA, %1$td.%1$tb.%1$tY]"	<calendar>	(Status)	{ channel="ntp:ntp:local:dateTime" }
 
 /* SamsungTV */
-Switch FF_Family_TV_Power "TV Power" (FF_Family) {channel="samsungtv:tv:08f0d182_0096_1000_bf66_bc1485247bc7:power"}
-Switch FF_Family_TV_Mute "TV Mute" (FF_Family) {channel="samsungtv:tv:08f0d182_0096_1000_bf66_bc1485247bc7:mute"}
-Dimmer FF_Family_TV_Volume "TV Volume" (FF_Family) {channel="samsungtv:tv:08f0d182_0096_1000_bf66_bc1485247bc7:volume"}
+//Switch FF_Family_TV_Power "TV Power" (FF_Family) {channel="samsungtv:tv:08f0d182_0096_1000_bf66_bc1485247bc7:power"}
+//Switch FF_Family_TV_Mute "TV Mute" (FF_Family) {channel="samsungtv:tv:08f0d182_0096_1000_bf66_bc1485247bc7:mute"}
+//Dimmer FF_Family_TV_Volume "TV Volume" (FF_Family) {channel="samsungtv:tv:08f0d182_0096_1000_bf66_bc1485247bc7:volume"}
 
 /* Thermostat */
 Group gHVAC "Thermostat" ["Equipment", "HVAC"] { ga="Thermostat" [ useFahrenheit=true , thermostatModes="off=0,heatcool=3:2:1" ] }
@@ -110,9 +110,9 @@ Number:Temperature Temperature_HVAC "Temperature [%.1f %unit%]" <temperature> (g
 Number:Dimensionless Humidity_HVAC "Humidity [%.1f %unit%]" <humidity> (gHVAC,HumSensors,FF_Dining,Ambimate_Test) ["Measurement","Humidity"]/*["CurrentHumidity"]*/ {unit="%", ga="thermostatHumidityAmbient" , channel="zwave:device:99f97889:node28:sensor_relhumidity2"}
 Group gHVACStatus
 Number HVAC_Mode "Mode" /* [MAP(thermostatMode.map)]"*/ <flow> (gHVAC,gHVACStatus)/*["homekit:TargetHeatingCoolingMode"]*/ ["Point", "Mode"] { ga="thermostatMode", channel="zwave:device:99f97889:node28:thermostat_mode" }
-Number HVAC_Fan_Mode "Fan Mode [MAP(thermostatFanMode.map)]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanmode" }
-Number HVAC_Operating_State "Op State [MAP(thermostatOpState.map)]" <flow> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_state"}
-Number HVAC_Fan_State "Fan State [MAP(thermostatFanState.map)]" <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanstate"}
+Number HVAC_Fan_Mode "Fan Mode" /*[MAP(thermostatFanMode.map)]"*/ <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanmode" }
+Number HVAC_Operating_State "Op State" /*[MAP(thermostatOpState.map)]"*/ <flow> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_state"}
+Number HVAC_Fan_State "Fan State" /*[MAP(thermostatFanState.map)]"*/ <fan> (gHVACStatus) {channel="zwave:device:99f97889:node28:thermostat_fanstate"}
 Number:Dimensionless HVAC_Battery "Battery State [%d %]" <battery> (gHVACStatus) {unit="%", channel="zwave:device:99f97889:node28:battery-level"}
 
 /*ZwaveStats*/

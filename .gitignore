@@ -332,3 +332,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+key
+items/avr.items
+items/cart.items
+things/mqtt-bridge-carts.things

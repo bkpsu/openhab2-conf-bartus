@@ -1,4 +1,4 @@
-Dimmer   FF_Office_TV_Volume             "Volume"              {channel="samsungtv:tv:a3c798fd_b38a_4436_9a11_1b89ae8d3ba8:volume"}
+/*Dimmer   FF_Office_TV_Volume             "Volume"              {channel="samsungtv:tv:a3c798fd_b38a_4436_9a11_1b89ae8d3ba8:volume"}
 Switch   FF_Office_TV_Mute               "Mute"                {channel="samsungtv:tv:a3c798fd_b38a_4436_9a11_1b89ae8d3ba8:mute"}
 Dimmer   FF_Office_TV_Brightness         "Brightness"          {channel="samsungtv:tv:a3c798fd_b38a_4436_9a11_1b89ae8d3ba8:brightness"}
 Dimmer   FF_Office_TV_Contrast           "Contrast"            {channel="samsungtv:tv:a3c798fd_b38a_4436_9a11_1b89ae8d3ba8:contrast"}
@@ -13,3 +13,4 @@ String   FF_Office_TV_Url                "Browser URL"         {channel="samsung
 Switch   FF_Office_TV_StopBrowser        "Stop Browser"        {channel="samsungtv:tv:a3c798fd_b38a_4436_9a11_1b89ae8d3ba8:stopBrowser"}
 String   FF_Office_TV_KeyCode            "Key Code"            {channel="samsungtv:tv:a3c798fd_b38a_4436_9a11_1b89ae8d3ba8:keyCode"}
 Switch   FF_Office_TV_Power              "Power"               {channel="samsungtv:tv:a3c798fd_b38a_4436_9a11_1b89ae8d3ba8:power"}
+*/

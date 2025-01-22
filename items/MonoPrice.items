@@ -12,10 +12,10 @@ Group FF_Office_Audio "Office Audio Control" (FF_Office) ["Equipment", "Speaker"
 Group gBsmt_Audio "Basement Audio Control"  (gBsmt) ["Equipment", "Speaker"]
 Group Shed_Audio "Shed Audio Control" (Shed) ["Equipment", "Speaker"]
      
-Switch MonoPrice_Z11_Power   "Kitchen Audio [%s]"        <switch>		 (FF_Kitchen_Audio, gZonePowerSwitch) ["Equipment", "Speaker"] {widgetOrder="1", ga="Switch", channel="monopriceaudio:amplifier:4b4c6b36:zone1#power"}
-Switch MonoPrice_Z12_Power   "Office Audio [%s]"        <switch>		 (FF_Office_Audio, gZonePowerSwitch) ["Equipment", "Speaker"] {widgetOrder="1", ga="Switch", channel="monopriceaudio:amplifier:4b4c6b36:zone2#power"}
-Switch MonoPrice_Z13_Power   "Basement Audio [%s]"        <switch>		 (gBsmt_Audio, gZonePowerSwitch) ["Equipment", "Speaker"] {widgetOrder="1", ga="Switch", channel="monopriceaudio:amplifier:4b4c6b36:zone3#power"}
-Switch MonoPrice_Z14_Power   "Shed Audio [%s]"        <switch>		 (Shed_Audio, gZonePowerSwitch) ["Equipment", "Speaker"] {widgetOrder="1", ga="Switch", channel="monopriceaudio:amplifier:4b4c6b36:zone4#power"}
+Switch MonoPrice_Z11_Power   "Kitchen Audio [%s]"        <switch>		 (FF_Kitchen_Audio, gZonePowerSwitch) ["Property", "Power"] {widgetOrder="1", ga="Switch", channel="monopriceaudio:amplifier:4b4c6b36:zone1#power"}
+Switch MonoPrice_Z12_Power   "Office Audio [%s]"        <switch>		 (FF_Office_Audio, gZonePowerSwitch) ["Property", "Power"] {widgetOrder="1", ga="Switch", channel="monopriceaudio:amplifier:4b4c6b36:zone2#power"}
+Switch MonoPrice_Z13_Power   "Basement Audio [%s]"        <switch>		 (gBsmt_Audio, gZonePowerSwitch) ["Property", "Power"] {widgetOrder="1", ga="Switch", channel="monopriceaudio:amplifier:4b4c6b36:zone3#power"}
+Switch MonoPrice_Z14_Power   "Shed Audio [%s]"        <switch>		 (Shed_Audio, gZonePowerSwitch) ["Property", "Power"] {widgetOrder="1", ga="Switch", channel="monopriceaudio:amplifier:4b4c6b36:zone4#power"}
 Switch MonoPrice_Z15_Power   "Zone 5 Power [%s]"        <switch>		 (gZonePowerSwitch) {channel="monopriceaudio:amplifier:4b4c6b36:zone5#power"} 
 Switch MonoPrice_Z16_Power   "Zone 6 Power [%s]"        <switch> 	 (gZonePowerSwitch) {channel="monopriceaudio:amplifier:4b4c6b36:zone6#power"} 
 Switch MonoPrice_Z11_Mute    "Kitchen Mute [%s]"   	   <mute> 		 (FF_Kitchen_Audio, gZoneMuteSwitch) ["Point", "Switch"] {widgetOrder="3", ga="Switch", listWidget="oh-toggle-item"[visible="=items.MonoPrice_Z11_Power.state==='ON'"] , channel="monopriceaudio:amplifier:4b4c6b36:zone1#mute"}

@@ -2,12 +2,13 @@ var Number Light_FF_Family_Sconces_Value = 0
 
 rule "Sunset Outdoor Events"
 when
-	Channel 'astro:sun:local:nauticDusk#event' triggered START  //nauticDusk or set
+	Channel 'astro:sun:local:civilDusk#event' triggered START  //nauticDusk or set
 then
 	/*Turn on Christmas Lights*/
 	if (Christmas.state == ON)
 	{
 		ChristmasLights.sendCommand(ON)
+		Light_SF_Landing_Lamp.sendCommand(OFF)
 		//LEDStrip_Group1_Power.sendCommand(ON)
 		//Sequencer_Start.sendCommand(ON)
 
@@ -64,13 +65,19 @@ then
 	/*Start Family Room Sconces*/
 	if(VacationMode.state != ON)
 	{
+		Light_FF_Family_Sconces_Value = Light_FF_Family_Sconces.state as DecimalType
 		sendCommand(Light_FF_Family_Sconces_Dim, ON)
 		logInfo("Lights", "Family Sconces Dim Sequence Start")
 	}
+
 	sendCommand(EveningLights, ON)
 	sendCommand(NightLights, ON)
 	sendCommand(is_Night, ON)
-	logInfo("Lights", "Indoor Evening & Night Lights turned on at Civil Dusk")
+	if(Christmas.state == ON)
+	{
+		sendCommand(Light_SF_Landing_Lamp(OFF))
+	}
+	logInfo("Lights", "Indoor Evening & Night Lights turned on at Nautical Dusk")
 end
 
 rule "Sunrise Outdoor Functions"
@@ -104,17 +111,21 @@ then
 	if (Christmas.state == ON)
 	{
 		ChristmasLights.sendCommand(OFF)
+		ChristmasTree_Landing.sendCommand(ON)
 		//LEDStrip_Group1_Power.sendCommand(OFF)
 		//Sequencer_Reset.sendCommand(ON)
 		OutdoorLights.sendCommand(ON)
+		//Light_SF_Landing_Lamp.sendCommand(ON)
 		logInfo("Lights", "Christmas/Outdoor lights swapped")
+	}
+	else{
+		Light_SF_Landing_Lamp.sendCommand(50)
 	}
 	/*Turn off Family room sconces*/
 	Light_FF_Family_Sconces_Dim.sendCommand(OFF)
 	Light_FF_Family_Sconces.sendCommand(OFF)
 	EveningLights.sendCommand(OFF)
 	Light_FF_Family_Sconces_Value = 0
-	Light_SF_Landing_Lamp.sendCommand(50)
 	logInfo("Lights", "Evening Lights turned off at Midnight")
 end
 
@@ -127,7 +138,7 @@ then
 	{
 		if (Light_FF_Family_Sconces.state > 0)
 		{
-			Light_FF_Family_Sconces_Value = Light_FF_Family_Sconces.state as PercentType
+			Light_FF_Family_Sconces_Value = Light_FF_Family_Sconces.state as DecimalType
 		}
 		else
 		{
