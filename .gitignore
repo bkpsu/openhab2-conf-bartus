@@ -9,7 +9,6 @@
 *.userosscache
 *.sln.docstates
 myq.cfg
-camera.items
 solar.things
 
 # User-specific files (MonoDevelop/Xamarin Studio)
@@ -333,6 +332,3 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 key
-items/avr.items
-items/cart.items
-things/mqtt-bridge-carts.things

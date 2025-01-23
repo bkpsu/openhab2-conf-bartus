@@ -74,20 +74,7 @@ sitemap default label="Home"
 				}
 				Frame{
 					Slider item=Light_FF_Kitchen_Island
-					// Text label="Island Light Individual" icon="slider"
-					// {
-					// 	Slider item=Light_FF_Kitchen_Island_L
-					// 	Slider item=Light_FF_Kitchen_Island_C
-					// 	Slider item=Light_FF_Kitchen_Island_R
-					// }
 					Slider item=Light_FF_Kitchen_Recessed
-					// Text label="Recessed Lights Individual" icon="slider"
-					// {
-					// 	Slider item=Light_FF_Kitchen_Recessed_NW
-					// 	Slider item=Light_FF_Kitchen_Recessed_NE
-					// 	Slider item=Light_FF_Kitchen_Recessed_SW
-					// 	Slider item=Light_FF_Kitchen_Recessed_SE
-					// }
 					Slider item=Light_FF_Kitchen_Sink
 					Slider item=Light_FF_Kitchen_DiningTbl
 				}
@@ -97,7 +84,7 @@ sitemap default label="Home"
 					Colorpicker item=LEDStrip_Kitchen_Cabinet_Color
 					Slider item=LEDStrip_Kitchen_Cabinet_Speed icon="motion"
 					Slider item=LEDStrip_Kitchen_Cabinet_Intensity icon="light"
-					Text label="LED Strips Individual" icon="slider"
+/* 					Text label="LED Strips Individual" icon="slider"
 					{
 						Frame{
 							Switch item=LEDStrip_FF_Kitchen_Cabinet_1_Power
@@ -120,7 +107,7 @@ sitemap default label="Home"
 							Slider item=LEDStrip_FF_Kitchen_Cabinet_3_Speed icon="motion"
 							Slider item=LEDStrip_FF_Kitchen_Cabinet_3_Intensity icon="light"
 						}
-					}
+					} */
 				}
 				Frame{					
 					Text item=Temperature_Kitchen
@@ -264,7 +251,7 @@ sitemap default label="Home"
 		Switch item=NightLights mappings=[OFF="All Off", ON="All On"]
 		Switch item=ChristmasLights mappings=[OFF="All Off", ON="All On"] visibility=[Christmas==ON]
 		Group item=LightingScenes
-		Group item=LEDStrips
+/*  	Group item=LEDStrips
 		{
 			Frame{
 				Switch item=LEDStrip_SF_Spare_Window_Power
@@ -399,8 +386,8 @@ sitemap default label="Home"
 				Slider item=LEDStrip_Group1_Speed icon="motion"
 				Slider item=LEDStrip_Group1_Intensity icon="light"
 			}							
-		}
-		Text label="Sequencer"
+		} */
+/* 		Text label="Sequencer"
 		{
 			Frame{
 				Switch item=Sequencer_Start mappings=[ON="ON"]
@@ -423,7 +410,7 @@ sitemap default label="Home"
 			Frame{
 				Selection item=Sequencer_Output mappings=[0="End",1="BPM",2="Noise",3="Fire",4="Rainbow",5="Twinkle",6="Glitter",7="Solid",8="Sinelon",9="Juggle",10="Confetti",11="Dots",12="Lightning",13="Candy Cane",14="Cyclon Rainbow",15="Ripple",16="Christmas Alternate",17="Police All",18="Police One",19="Random Stars",20="Sine Hue",21="Christmas",22="St Patty",23="Valentine",24="Turkey Day",25="Thanksgiving",26="USA",27="Independence",28="Halloween",29="Go Lions",30="Hail",31="Touchdown",32="Punkin",33="Lovey Day",34="Holly Jolly",35="Full Hue",36="Breathe",37="Hue Breathe"]			
 			}
-		}
+		} */
 		Text label="Meter" icon="energy"
 		{
 			Text item=Energy_Mobile_1_W
